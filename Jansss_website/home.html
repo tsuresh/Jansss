@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How it works</title>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/materia/bootstrap.min.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/landing_page.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="js/scroll.js"></script>
+
+</head>
+<body onload="typeWriter()">
+<script>
+    $(document).ready(function() {
+        function animations(){
+            //Animate multiple objects the same way
+            $(".fadein").scrollMation({action : 'fadeIn',});
+            //FadeIn Code Example
+            $("#fadeinCode").scrollMation({action : 'fadeIn',});
+            //FadeOut Code Example
+            $("#fadeoutCode").scrollMation({action : 'fadeOut', scrollPos : 250,});
+            //FadeOut Code Example
+            $("#flyrightCode").scrollMation({action : 'flyIn', startPos : 600, endPos: 0,});
+            //FadeOut Code Example
+            $("#flyleftCode").scrollMation({action : 'flyIn', startPos : -600, endPos: 0,});
+            //Multiple Code Example
+            $("#multipleEffectsCode").scrollMation({action : 'fadeIn',});
+            $("#multipleEffectsCode").scrollMation({action : 'flyIn', startPos : -600, endPos: 0,});
+            $("#multipleEffectsCode1").scrollMation({action : 'fadeIn',});
+            $("#multipleEffectsCode1").scrollMation({action : 'flyIn', startPos : -600, endPos: 0,});
+            $("#multipleEffectsCode2").scrollMation({action : 'fadeIn',});
+            $("#multipleEffectsCode2").scrollMation({action : 'flyIn', startPos : -600, endPos: 0,});
+            $("#multipleEffectsCode3").scrollMation({action : 'fadeIn',});
+            $("#multipleEffectsCode3").scrollMation({action : 'flyIn', startPos : -600, endPos: 0,});
+            $("#multipleEffectsCode4").scrollMation({action : 'fadeIn',});
+            $("#multipleEffectsCode4").scrollMation({action : 'flyIn', startPos : -600, endPos: 0,});
+            $("#multipleEffectsCode5").scrollMation({action : 'fadeIn',});
+            $("#multipleEffectsCode5").scrollMation({action : 'flyIn', startPos : -600, endPos: 0,});
+            // $("#multipleEffectsCode6").scrollMation({action : 'fadeIn',});
+            // $("#multipleEffectsCode6").scrollMation({action : 'flyIn', startPos : -600, endPos: 0,});
+        }
+        animations();
+        $(window).scroll(function(){
+            animations();
+        });
+    });
+</script>
+<div class="container">
+
+
+    <div class="landing_page" id="test">
+        <img src="images/logo_landing_page.png">
+        <p id="typewriter_text"></p>
+    </div>
+
+    <div id="multipleObjetsCode" class="fadein">
+        <h2>What we do</h2>
+    </div>
+
+    <div id="multipleObjetsCode2" class="fadein">
+        <p class="lead">Lorem Ipsum
+            "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+            "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas odio ac sagittis rutrum. Fusce at aliquet lacus. Suspendisse viverra risus at vehicula rhoncus. In tempor purus iaculis, varius nibh vel, convallis sem. Donec augue velit, vulputate vitae dolor sed, varius feugiat libero. Phasellus efficitur blandit odio, eget malesuada dui porttitor tincidunt. Cras vitae metus vitae mauris pretium accumsan sed nec ante. Vivamus lectus dui, maximus sit amet ipsum eget, convallis facilisis eros. Proin sed fermentum risus, sed rutrum sapien. Integer sit amet sapien eu nulla commodo consequat vitae et nisl. Etiam efficitur erat est, ac sagittis risus tincidunt ut. Curabitur vel gravida diam, a tristique odio. Curabitur molestie egestas ultricies. Nullam fringilla ex velit, sed dignissim velit pharetra in. Nunc ac arcu magna. Etiam est ligula, convallis et gravida eget, feugiat et odio.</p>
+    </div>
+
+    <div class="fadein">
+        <p class="lead">Lorem Ipsum
+            "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+            "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas odio ac sagittis rutrum. Fusce at aliquet lacus. Suspendisse viverra risus at vehicula rhoncus. In tempor purus iaculis, varius nibh vel, convallis sem. Donec augue velit, vulputate vitae dolor sed, varius feugiat libero. Phasellus efficitur blandit odio, eget malesuada dui porttitor tincidunt. Cras vitae metus vitae mauris pretium accumsan sed nec ante. Vivamus lectus dui, maximus sit amet ipsum eget, convallis facilisis eros. Proin sed fermentum risus, sed rutrum sapien. Integer sit amet sapien eu nulla commodo consequat vitae et nisl. Etiam efficitur erat est, ac sagittis risus tincidunt ut. Curabitur vel gravida diam, a tristique odio. Curabitur molestie egestas ultricies. Nullam fringilla ex velit, sed dignissim velit pharetra in. Nunc ac arcu magna. Etiam est ligula, convallis et gravida eget, feugiat et odio.</p>
+    </div>
+
+
+
+    <div id="multipleObjetsCode1" class="fadein">
+        <h2>How it works <a href="#"><i class="fa">&#xf01d;</i></a></h2>
+    </div>
+
+    <div class="fadein how_it_works enter_details" >
+        <img src="images/enter_details_white.svg" id="enter_details">
+    </div>
+
+
+    <div class="fadein how_it_works select_campaign">
+        <img src="images/select_campaign_grey.svg" id="select_campaign">
+    </div>
+
+
+    <div class="fadein how_it_works select_payment">
+        <img src="images/select_payment_grey.svg" id="select_payment">
+    </div>
+
+    <div class="fadein how_it_works launch">
+        <img src="images/launch_grey.svg" id="launch">
+    </div>
+
+
+</div>
+
+<script src="change_image.js"></script>
+<script src="typewriter.js"></script>
+
+</body>
+</html>

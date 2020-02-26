@@ -1,0 +1,124 @@
+body {
+    overflow-x: hidden;
+    background: linear-gradient(180deg, #000000 69%, #ffffff 78%);
+    height: 3000px;
+}
+
+body {
+}
+.container {
+    margin: 50px auto;
+}
+
+
+div p{
+    color:#ffffff;
+}
+
+
+.landing_page p{
+    font-family: "Another Typewriter";
+    margin-top: 0%;
+    margin-left: 50%;
+    font-size: 30px;
+
+}
+div h2{
+    color:#ffffff;
+}
+
+h2{
+    font-size: 60px;
+}
+#multipleObjetsCode1 h2 a i{
+    font-size:70px;
+    color:#D49F3B
+}
+
+.how_it_works img{
+    width: 300px;
+    height: 180px;
+}
+
+.container .landing_page {
+    text-align: center;
+}
+
+.landing_page img{
+    width: 700px;
+}
+
+
+
+.how_it_works{
+    width: 300px;
+    height: 180px;
+    /*margin-top: 7%;*/
+}
+
+.enter_details, .select_payment{
+    margin-left: 40%;
+    position: absolute;
+}
+
+.select_campaign, .launch{
+    margin-left: 75%;
+
+}
+
+
+
+.select_campaign{
+    margin-top: 12%;
+}
+
+.launch{
+    margin-top: 12%;
+}
+
+
+
+
+/*Landing page logo fade in*/
+
+#test img {
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
