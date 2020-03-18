@@ -1,0 +1,23 @@
+.nav-item{
+  padding:2px;
+  margin-left: 7px;
+  font-size: 16px;
+  font-family: 'Airbnb Cereal App Medium';
+  text-transform: uppercase;
+}
+
+.nav-item{
+  color: black;
+}
+
+ul li .active{
+  color: #E0584A;
+}
+
+ul li a{
+  color: #000000;
+}
+
+
+ul li a:hover { color: #E0584A !important; }
+
