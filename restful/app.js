@@ -37,9 +37,11 @@ app.use((req, res, next) => {
 
 const authRoutes = require("./api/routes/auth");
 // const generatorRoutes = require("./api/routes/generator");
+const vendorRoutes = require("./api/routes/vendors");
 
 app.use("/auth", authRoutes);
 // app.use('/generator', generatorRoutes);
+app.use("/vendors", vendorRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
