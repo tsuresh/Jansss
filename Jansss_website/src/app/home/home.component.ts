@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
 
 window.onscroll = function() { slideInContent() };
@@ -16,10 +17,14 @@ function slideInContent() {
     document.getElementById("arrow").style.visibility = "hidden";
   }
 }
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> 406c8398f772d6fc495976e5af62a9e31d04f588
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+<<<<<<< HEAD
   styleUrls: [
       './home.component.scss',
       '../../../node_modules/animate.css/animate.min.css'
@@ -37,4 +42,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(){
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#E06F63';
   }
+=======
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+>>>>>>> 406c8398f772d6fc495976e5af62a9e31d04f588
 }
