@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 // tslint:disable-next-line:only-arrow-functions
 window.onscroll = function() {scrollFunction();};
-
 function scrollFunction() {
   if (document.documentElement.scrollTop >= 1400 ) {
     document.getElementById('navbar').style.top = '0px';
@@ -13,7 +12,6 @@ function scrollFunction() {
     // document.getElementById('navbar').style.visibility = 'hidden';
   }
 }
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
