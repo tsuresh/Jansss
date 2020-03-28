@@ -1,3 +1,6 @@
+
+//NAVBAR CODE
+
 .nav-item{
   padding:2px;
   margin-left: 12px;
@@ -13,29 +16,27 @@
 .logo{
   padding-right: 45px;
   padding-left: 45px;
-  //background-color: #E0584A;
 }
 
 nav div ul{
-  //background: aqua;
   margin-left: auto;
   margin-right: auto;
   width: 70%;
-  //background-color: blue;
 }
-nav div ul li{
-  //justify-content: space-between;
-}
+
+
 li:nth-child(2) {
   margin-left: 22%;
   margin-right: 22%;
 }
+
 ul li .active{
   color: #E0584A;
   margin-right: 5%;
 }
 
 ul li a{
+  font-size: 16px;
   color: #000000;
 }
 
@@ -46,6 +47,7 @@ ul li a:hover { color: #E0584A !important; }
   //position: center;
   position: fixed;
   background: white;
+  z-index: 10;
 }
 
 #username{
@@ -56,6 +58,10 @@ ul li a:hover { color: #E0584A !important; }
   padding-left: 35px;
 }
 
+#username img{
+  width: 50px;
+  height: 50px;
+}
 #username a{
   font-family: "Airbnb Cereal App Medium", sans-serif;
 }

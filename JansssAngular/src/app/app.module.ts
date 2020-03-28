@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -9,6 +8,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { VendorSignUpComponent } from './vendor-sign-up/vendor-sign-up.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { EnterDetailsFormComponent } from './enter-details-form/enter-details-form.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { HowItWorksComponent } from './how-it-works/how-it-works.component';
+import { LaunchPageComponent } from './launch-page/launch-page.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +23,16 @@ import { VendorSignUpComponent } from './vendor-sign-up/vendor-sign-up.component
     FooterComponent,
     ContactUsComponent,
     VendorSignUpComponent,
+    EnterDetailsFormComponent,
+    ProgressBarComponent,
+    HowItWorksComponent,
+    LaunchPageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
