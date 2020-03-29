@@ -9,10 +9,17 @@ import {Router} from '@angular/router';
 })
 export class EnterDetailsFormComponent implements OnInit {
   productName = new FormControl('');
+  industry = new FormControl('');
+  audience = new FormControl('');
+  budget = new FormControl('');
+  location = new FormControl('');
+  price = new FormControl('');
+  duration = new FormControl('');
+
   constructor(private router: Router) {
   }
   navigate() {
-    this.router.navigate(['/launch-page']);
+    this.router.navigate(['/select-campaign']);
   }
   ngOnInit() {
   }

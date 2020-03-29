@@ -13,6 +13,10 @@ import { EnterDetailsFormComponent } from './enter-details-form/enter-details-fo
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { LaunchPageComponent } from './launch-page/launch-page.component';
+import { ClientSignUpComponent } from './client-sign-up/client-sign-up.component';
+import { ClientLogInComponent } from './client-log-in/client-log-in.component';
+import { SelectCampaignComponent } from './select-campaign/select-campaign.component';
+import { SelectPaymentComponent } from './select-payment/select-payment.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { LaunchPageComponent } from './launch-page/launch-page.component';
     ProgressBarComponent,
     HowItWorksComponent,
     LaunchPageComponent,
+    ClientSignUpComponent,
+    ClientLogInComponent,
+    SelectCampaignComponent,
+    SelectPaymentComponent,
   ],
   imports: [
     BrowserModule,

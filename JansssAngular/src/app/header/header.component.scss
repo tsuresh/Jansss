@@ -31,7 +31,7 @@ li:nth-child(2) {
 }
 
 ul li .active{
-  color: #E0584A;
+  color: #E06F63;
   margin-right: 5%;
 }
 
@@ -40,8 +40,11 @@ ul li a{
   color: #000000;
 }
 
+#username a{
+  color: #E06F63;
+}
 
-ul li a:hover { color: #E0584A !important; }
+ul li a:hover { color: #E06F63 !important; }
 
 #navbar{
   //position: center;
@@ -51,7 +54,7 @@ ul li a:hover { color: #E0584A !important; }
 }
 
 #username{
-  color: #E0584A;
+  color: #E06F63;
   float: right;
   //background-color: blue;
   padding-right: 50px;
