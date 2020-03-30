@@ -19,7 +19,7 @@ export class EnterDetailsFormComponent implements OnInit {
   constructor(private router: Router) {
   }
   navigate() {
-    this.router.navigate(['/select-campaign']);
+    this.router.navigate(['/launch']);
   }
   ngOnInit() {
   }

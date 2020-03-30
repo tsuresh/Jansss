@@ -8,6 +8,7 @@ import {LaunchPageComponent} from './launch-page/launch-page.component';
 import {ClientSignUpComponent} from './client-sign-up/client-sign-up.component';
 import {SelectCampaignComponent} from './select-campaign/select-campaign.component';
 import {SelectPaymentComponent} from './select-payment/select-payment.component';
+import {ClientLogInComponent} from './client-log-in/client-log-in.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,8 +17,9 @@ const routes: Routes = [
   {path: 'enter-details-form', component: EnterDetailsFormComponent},
   {path: 'select-campaign', component: SelectCampaignComponent},
   {path: 'select-payment', component: SelectPaymentComponent},
-  {path: 'launch-page', component: LaunchPageComponent},
-  {path: 'client-sign-up', component: ClientSignUpComponent}
+  {path: 'launch', component: LaunchPageComponent},
+  {path: 'client-sign-up', component: ClientSignUpComponent},
+  {path: 'client-log-in', component: ClientLogInComponent}
 ];
 
 @NgModule({

@@ -3,7 +3,7 @@ h1{
 }
 
 .launch{
-  margin-top: 25%;
+  padding-top: 13%;
   text-align: center;
 
 }
@@ -18,3 +18,9 @@ button{
   background-color: #E06F63;
 
 }
+
+:host(.outer){
+  background-color: #E0584A;
+
+}
+

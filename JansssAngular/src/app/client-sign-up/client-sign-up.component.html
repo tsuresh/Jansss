@@ -1,6 +1,6 @@
 <div class="client-sign-up">
   <div class="row">
-    <div class="col" style="background-color: #E0584A"></div>
+    <div class="col"></div>
     <div class="col-md-auto client">
       <div class="row client-logo">
         <img src="../../assets/images/logo/logo_J.png"><br>
@@ -17,7 +17,25 @@
           <input type="text" placeholder="Password" [formControl]="password">
         </label>
       </div>
+
+      <div class="col buttons">
+        <div class="btn-out-sign-up">
+          <button type="button" class="btn button-sign-up">Sign up</button>
+        </div>
+
+        <p class="or">OR</p>
+
+        <div class="btn-out-google">
+          <button type="button" class="btn button-google"><img src="../../assets/images/signup/google.svg" style="height: 40px; width:40px;padding-right: 4%">   Continue with Google</button>
+        </div>
+
+        <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>
+      </div>
+
+      <div class="row client-item already-member">
+        Already a member?<a routerLink="/client-log-in"> Log in</a>
+      </div>
     </div>
-    <div class="col" style="background-color: #38d39f"></div>
+    <div class="col"></div>
   </div>
 </div>
