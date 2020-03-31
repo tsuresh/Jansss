@@ -9,10 +9,24 @@ Original file is located at
 
 import copy
 
+import flask
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from flask import jsonify
+
+app = flask.Flask(__name__)
+app.config["DEBUG"] = True
+
+
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify(
+        message="SUCCESS",
+        detail="Flask backend for SDGP"
+    )
+
 
 # Import user responses
 data = pd.read_csv('responses.csv')
@@ -78,7 +92,16 @@ def do_ploting(x, y, figsize):  # draw only 1 bar
 
 
 # Copied methods from internet (for plotting purposes)
-def correlation_plot(var_of_interest, df_main, figsize=(10, 30)):
+def correlation_plot(var_of_interest, catFilters, numFilters, figsize=(10, 30)):
+    global new_data
+    # Set dataframe
+    df_main = new_data
+
+    # Set categorical filters
+    df_main = setCatFilters(catFilters, df_main)
+    # Set numerical filters
+    df_main = setNumFilters(numFilters, df_main)
+
     def calc_corr(var_of_interest, df, cols, figsize):  # calculate correlation
         lbls = []
         vals = []
@@ -87,7 +110,7 @@ def correlation_plot(var_of_interest, df_main, figsize=(10, 30)):
             vals.append(np.corrcoef(df[col], df[var_of_interest])[0, 1])
         corrs = pd.DataFrame({'features': lbls, 'corr_values': vals})
         corrs = corrs.sort_values(by='corr_values')
-        do_ploting(corrs.corr_values, corrs['features'], figsize)
+        # do_ploting(corrs.corr_values, corrs['features'], figsize)
         return corrs
 
     # imputing the set
@@ -98,6 +121,7 @@ def correlation_plot(var_of_interest, df_main, figsize=(10, 30)):
 
     # correlating non-categorical varibales
     cols_floats = [col for col in df.columns if df[col].dtype != 'object']
+    print(cols_floats)
     cols_floats.remove(var_of_interest)
     corrs_one = calc_corr(var_of_interest, df, cols_floats, figsize)
 
@@ -110,7 +134,8 @@ def correlation_plot(var_of_interest, df_main, figsize=(10, 30)):
         corrs_two = calc_corr(var_of_interest, df_dummies, cols_cats, (5, 10))
     else:
         corrs_two = 0
-    return [corrs_one, corrs_two]
+
+    return corrs_one.to_json()
 
 
 # Concat the entire dataset
@@ -121,38 +146,54 @@ new_data.head(5)
 
 
 # Defined methods to get outputs
-def getCorrInterests(data_set, criteria):
-    correlation_plot(criteria, data_set)
+@app.route('/getAudiences', methods=['POST'])
+def getCorrInterests():
+    # input parameters
+    interest = flask.request.args.get("interest")
+    gender = flask.request.args.get("gender")
+    age_bound_1 = flask.request.args.get("age_bound_1")
+    age_bound_2 = flask.request.args.get("age_bound_2")
 
+    cat_filters = []
+    num_filters = []
+
+    if gender == "female":
+        cat_filters.append(
+            ["Gender", 2]
+        )
+    elif gender == "male":
+        cat_filters.append(
+            ["Gender", 1]
+        )
+
+    if age_bound_1 is not None and age_bound_2 is not None:
+        num_filters.append(
+            ["Age", int(age_bound_1), int(age_bound_2)]
+        )
+
+    print(num_filters)
+    print(cat_filters)
+
+    response = app.response_class(
+        response=correlation_plot(interest, cat_filters, num_filters),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
 
 # Filters for categotical values
-def setCatFilters(filters):
-    filtered_ds = new_data;
+def setCatFilters(filters, filtered_ds):
     for filter in filters:
         filtered_ds = filtered_ds[filtered_ds[filter[0]] == filter[1]]
     return filtered_ds
 
 
 # Filtes for numerical valus
-def setNumFilters(filters):
-    filtered_ds = new_data;
+def setNumFilters(filters, filtered_ds):
     for filter in filters:
         filtered_ds = filtered_ds[filtered_ds[filter[0]] >= filter[1]]
         filtered_ds = filtered_ds[filtered_ds[filter[0]] <= filter[2]]
     return filtered_ds
 
 
-catFilters = [
-    ["Gender", 1],  # male
-]
-
-numFilters = [
-    ["Age", 18, 35]
-]
-
-# Set the filters
-new_data = setCatFilters(catFilters)
-new_data = setNumFilters(numFilters)
-
-# Generate co rellavance graph
-getCorrInterests(new_data, "God")
+app.run()
