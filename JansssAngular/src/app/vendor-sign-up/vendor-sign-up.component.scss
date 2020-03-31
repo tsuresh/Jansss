@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:600&display=swap');
+
 
 *{
   padding: 0;
@@ -6,7 +8,7 @@
 }
 
 .body{
-  font-family: 'Poppins', sans-serif;
+  font-family: "Airbnb Cereal App Medium";
   overflow: hidden;
 }
 
@@ -104,7 +106,7 @@ form{
   bottom: -2px;
   width: 0%;
   height: 2px;
-  background-color: #38d39f;
+  background-color: #E06F63;
   transition: .4s;
 }
 
@@ -126,7 +128,7 @@ form{
 }
 
 .input-div.focus > .i > i{
-  color: #38d39f;
+  color: #E06F63;
 }
 
 .input-div > div > input{
@@ -158,7 +160,7 @@ a{
 }
 
 a:hover{
-  color: #38d39f;
+  color: #E06F63;
 }
 
 .btn{
@@ -168,7 +170,7 @@ a:hover{
   border-radius: 25px;
   outline: none;
   border: none;
-  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  background-image: linear-gradient(to right, #E06F63, #E06F63, #E06F63);
   background-size: 200%;
   font-size: 1.2rem;
   color: #fff;
