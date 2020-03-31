@@ -1,1 +1,5 @@
+flask
+matplotlib
+numpy
+pandas
 seaborn
