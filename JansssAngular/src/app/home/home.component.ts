@@ -1,5 +1,7 @@
-<<<<<<< HEAD
-import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
+import {AfterViewInit, ElementRef} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
+import { Router } from '@angular/router';
 
 // tslint:disable-next-line:only-arrow-functions
 window.onscroll = function() { slideInContent(); };
@@ -18,11 +20,6 @@ function slideInContent() {
     document.getElementById('arrow').style.visibility = 'hidden';
   }
 }
-=======
-import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
-import { Router } from '@angular/router';
->>>>>>> f4e0f98f3e06fb1b0a73512f0efe2b28766f7f7e
 
 @Component({
   selector: 'app-home',
@@ -35,13 +32,11 @@ import { Router } from '@angular/router';
 
 export class HomeComponent implements OnInit {
   ngOnInit() {
-<<<<<<< HEAD
     slideInContent();
   }
 
   ngAfterViewInit() {
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#E06F63';
-=======
+    //this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#E06F63';
     // tslint:disable-next-line:only-arrow-functions
     $('document').ready(function() {
       // tslint:disable-next-line:prefer-const
@@ -282,6 +277,5 @@ export class HomeComponent implements OnInit {
         }
       });
     });
->>>>>>> f4e0f98f3e06fb1b0a73512f0efe2b28766f7f7e
   }
 }
