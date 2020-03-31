@@ -1,0 +1,73 @@
+
+.heading{
+  margin-top: -25px;
+  font-size: 50px;
+  visibility: visible;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: 5px solid #E06F63;
+  padding-bottom:5px;
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+}
+
+.image1{
+  //width: 80%;
+}
+
+.image2{
+  //width: 70%;
+  margin-top: -60px;
+}
+
+.image3{
+  //width: 90%;
+  margin-top: -120px;
+}
+
+.image4{
+  //width:75%;
+  margin-top: -50px;
+}
+
+.details{
+  margin-top: -55px;
+}
+
+.description1, .description2, .description3, .description4{
+  font-size: 16px;
+  visibility: hidden;
+}
+
+.opaque1, .opaque2, .opaque3, .opaque4{
+  opacity: 0.5;
+}
+
+.enter_heading, .campaign_heading, .payment_heading, .launch_heading{
+  text-transform: uppercase;
+  font-family: "Airbnb Cereal App Light", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 3px solid #E06F63;
+  padding-bottom:5px;
+}
+
+.enter_heading{
+  margin-top: 30px;
+}
+
+.campaign_heading{
+  margin-top: 5px;
+}
+.payment_heading{
+  margin-top: -80px;
+}
+
+.launch_heading{
+  margin-top: 5px;
+}
+
+.fixme{
+  z-index: 5;
+  background-color: white;
+}

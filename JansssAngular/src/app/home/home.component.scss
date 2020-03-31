@@ -1,106 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&display=swap');
-
-//Logo positioning
-
-.logo-white {
-  position: absolute;
-  width: 327px;
-  height: 753px;
-  left: 557px;
-  top: 136px;
-}
-
-//Landing page logo animation
-
-#logo img {
-  animation: fadein 10s;
-  -moz-animation: fadein 10s; /* Firefox */
-  -webkit-animation: fadein 10s; /* Safari and Chrome */
-  -o-animation: fadein 10s; /* Opera */
-}
-@keyframes fadein {
-  from {
-    opacity:0;
-  }
-  to {
-    opacity:1;
-  }
-}
-@-moz-keyframes fadein { /* Firefox */
-  from {
-    opacity:0;
-  }
-  to {
-    opacity:1;
-  }
-}
-@-webkit-keyframes fadein { /* Safari and Chrome */
-  from {
-    opacity:0;
-  }
-  to {
-    opacity:1;
-  }
-}
-@-o-keyframes fadein { /* Opera */
-  from {
-    opacity:0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.logo-left {
-  position: absolute;
-  width: 327px;
-  height: 753px;
-  left: 105px;
-  top: 136px;
-}
-
-
-//Text positioning
-
-#intro {
-  font-family: 'Source Sans Pro', sans-serif;
-  position: absolute;
-  width: 1090px;
-  height: 205px;
-  left: 400px;
-  top: 250px;
-}
-
-.heading-big {
-  font-weight: 900;
-  font-size: 115px;
-  line-height: 150px;
-  color: #FFFFFF;
-}
-
-.heading-small {
-  font-weight: 900;
-  font-size: 60px;
-  line-height: 78px;
-  color: #FFFFFF;
-}
-
-.description {
-  font-weight: 200;
-  font-size: 30px;
-  letter-spacing: 2px;
-  line-height: 39px;
-  color: #650C0C;
-}
-
-
-//Navigation arrow positioning
-
-#arrow {
+.p{
+  font-size: 56px;
   visibility: hidden;
-  position: absolute;
-  width: 38px;
-  height: 32px;
-  left: 736px;
-  top: 700px;
 }
+
+body{
+  max-width : 100%;
+  height: 2850px;
+}
+
+//.container{
+//  width: 80%;
+//}
+
+.fix{
+  background-color: white;
+}
+
+
+
+
+

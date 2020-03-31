@@ -1,0 +1,101 @@
+.client-sign-up{
+  padding-top: 9%;
+  //height: 500px;
+
+}
+
+.client{
+  background-color: #FBFBFB;
+  border-radius: 10px;
+  padding-top: 2%;
+  padding-bottom: 0.7%;
+  box-shadow: 2px 2px 5px 2px #c2c0c0;
+  width: 30%;
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+}
+
+.client-logo img{
+  height: 100px;
+}
+
+.client-logo{
+  width: 20%;
+  margin: auto auto;
+}
+
+.client-item{
+  margin: auto auto;
+}
+
+.client-item input{
+  background-color: #FBFBFB;
+  padding-top: 3%;
+  width:170%;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+::placeholder{
+  font-family: "Airbnb Cereal App Light", sans-serif;
+  color: #dddddd;
+}
+.client-email{
+  padding-top: 10%;
+}
+
+.client-pass{
+  padding-top: 5%;
+}
+
+
+
+.btn-out-sign-up{
+  padding-top: 10%;
+}
+
+.button-sign-up{
+  font-family: "Airbnb Cereal App Book", sans-serif;
+  border-radius: 10px;
+  color: white;
+  padding: 3% 6%;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #E06F63;
+  box-shadow: 0 2px 5px 0 #c2c0c0;
+}
+
+.or{
+  padding-top: 5%;
+}
+
+
+.button-google{
+  background-color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 0.5% 6%;
+  font-size: 15px;
+  box-shadow: 0 2px 5px 0 #c2c0c0;
+  font-family: "Airbnb Cereal App Book", sans-serif;
+  color: black;
+}
+
+.terms, .already-member{
+  padding-top: 5%;
+  margin: auto auto;
+  width: 85%;
+  color: #bdbdbd;
+  font-size: 9px;
+}
+
+.already-member{
+  margin-left: 1%;
+}
+
+.terms a, .already-member a{
+  color: #5d5d5d;
+}
+
+.buttons p, .buttons div{
+  text-align: center;
+}
