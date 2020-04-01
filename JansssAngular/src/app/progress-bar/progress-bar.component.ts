@@ -11,62 +11,65 @@ export class ProgressBarComponent implements OnInit {
 
   constructor(private router: Router) { }
   ngOnInit() {
-    if (this.router.url === '/') {
+    if ((this.router.url === '/') || (this.router.url === '/details')) {
       $('.inner1').css({
         color: 'white',
         marginLeft: '4px',
         backgroundColor: '#E06F63',
         borderRadius: '9px',
       });
+      $('.inner1 a').css({
+        color: 'white',
+      });
     } else if (this.router.url === '/campaign') {
       $('.inner1').css({
-        color: 'white',
         marginLeft: '4px',
         backgroundColor: '#E06F63',
         borderRadius: '9px 0px 0px 9px',
       });
       $('.inner2').css({
-        color: 'white',
         backgroundColor: '#E06F63',
         borderRadius: '0px 9px 9px 0px',
+      });
+      $('.inner1 a, .inner2 a').css({
+        color: 'white',
       });
     } else if (this.router.url === '/payment') {
       $('.inner1').css({
-        color: 'white',
         marginLeft: '4px',
         backgroundColor: '#E06F63',
         borderRadius: '9px 0px 0px 9px',
       });
       $('.inner2').css({
-        color: 'white',
         backgroundColor: '#E06F63',
       });
       $('.inner3').css({
-        color: 'white',
         marginRight: '4px',
         backgroundColor: '#E06F63',
         borderRadius: '0px 9px 9px 0px',
+      });
+      $('.inner1 a, .inner2 a, .inner3 a').css({
+        color: 'white',
       });
     } else if (this.router.url === '/launch') {
       $('.inner1').css({
-        color: 'white',
         marginLeft: '4px',
         backgroundColor: '#E06F63',
         borderRadius: '9px 0px 0px 9px',
       });
       $('.inner2').css({
-        color: 'white',
         backgroundColor: '#E06F63',
       });
       $('.inner3').css({
-        color: 'white',
         backgroundColor: '#E06F63',
       });
       $('.inner4').css({
-        color: 'white',
         marginRight: '4px',
         backgroundColor: '#E06F63',
         borderRadius: '0px 9px 9px 0px',
+      });
+      $('.inner1 a, .inner2 a, .inner3 a, .inner4 a').css({
+        color: 'white',
       });
     }
   }
