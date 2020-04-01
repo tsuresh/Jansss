@@ -18,6 +18,7 @@ function slideInContent() {
     document.getElementById('arrow').style.visibility = 'hidden';
   }
 }
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',

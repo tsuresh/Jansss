@@ -36,6 +36,7 @@ import { SelectPaymentComponent } from './select-payment/select-payment.componen
     SelectPaymentComponent,
   ],
   imports: [
+    MDBBootstrapModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
