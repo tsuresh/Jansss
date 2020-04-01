@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // tslint:disable-next-line:only-arrow-functions
 window.onscroll = function() {scrollFunction(); };
 function scrollFunction() {
-  // if (this.router.url === '/home') {
+  // if (this.router.url === '/') {
     if (document.documentElement.scrollTop >= 1380 ) {
       document.getElementById('navbar').style.top = '0px';
       // document.getElementById('navbar').style.backgroundColor = 'white';

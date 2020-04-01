@@ -13,23 +13,38 @@
   border-radius: 9px;
 }
 
+.try{
+  background-color: #f9f9f9;
+  height: 28px;
+  //background-color: #E06F63;
+  width: 80%;
+  margin: auto 4px;
+  border-radius: 9px;
+}
+
 .inner1, .inner2, .inner3, .inner4{
   font-family: "Airbnb Cereal App Light", sans-serif;
   font-size: 17px;
   color: #cecccc;
   width: 25%;
+  height: 28px;
+  margin-top: 4px;
   background-color: #f9f9f9;
 
 }
 
+
 .try{
-  font-family: "Airbnb Cereal App Light", sans-serif;
-  font-size: 17px;
-  color: white;
-  margin-left: 4px;
-  margin-top: 4px;
-  height: 28px;
-  width: 25%;
-  background-color: #E06F63;
-  border-radius: 9px;
+  width: 100%;
 }
+//.inner1{
+//  font-family: "Airbnb Cereal App Light", sans-serif;
+//  font-size: 17px;
+//  color: white;
+//  margin-left: 4px;
+//  margin-top: 4px;
+//  height: 28px;
+//  width: 25%;
+//  background-color: #E06F63;
+//  border-radius: 9px;
+//}

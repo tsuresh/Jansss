@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Router, NavigationEnd } from '@angular/router';
 import { ProgressBarComponent } from './progress-bar.component';
 
 describe('ProgressBarComponent', () => {
