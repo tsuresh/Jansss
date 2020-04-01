@@ -135,7 +135,7 @@ def correlation_plot(var_of_interest, catFilters, numFilters, figsize=(10, 30)):
     else:
         corrs_two = 0
 
-    return corrs_one.to_json()
+    return corrs_one
 
 
 # Concat the entire dataset
@@ -174,8 +174,10 @@ def getCorrInterests():
     print(num_filters)
     print(cat_filters)
 
+    data = correlation_plot(interest, cat_filters, num_filters)
+
     response = app.response_class(
-        response=correlation_plot(interest, cat_filters, num_filters),
+        response=data.to_json(),
         status=200,
         mimetype='application/json'
     )
