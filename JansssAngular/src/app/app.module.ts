@@ -42,6 +42,10 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MDBBootstrapModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
+=======
+    BrowserAnimationsModule,
+>>>>>>> FrontEnd
     ReactiveFormsModule,
     FormsModule
   ],

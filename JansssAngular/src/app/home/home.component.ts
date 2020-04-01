@@ -1,4 +1,10 @@
 import {AfterViewInit, ElementRef} from '@angular/core';
+<<<<<<< HEAD
+=======
+import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
+import { Router } from '@angular/router';
+>>>>>>> FrontEnd
 
 // tslint:disable-next-line:only-arrow-functions
 window.onscroll = function() { slideInContent(); };
@@ -17,9 +23,12 @@ function slideInContent() {
     document.getElementById('arrow').style.visibility = 'hidden';
   }
 }
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
+=======
+>>>>>>> FrontEnd
 
 @Component({
   selector: 'app-home',
