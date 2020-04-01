@@ -18,6 +18,7 @@ import { ClientSignUpComponent } from './client-sign-up/client-sign-up.component
 import { ClientLogInComponent } from './client-log-in/client-log-in.component';
 import { SelectCampaignComponent } from './select-campaign/select-campaign.component';
 import { SelectPaymentComponent } from './select-payment/select-payment.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SelectPaymentComponent } from './select-payment/select-payment.componen
     SelectPaymentComponent,
   ],
   imports: [
+    MDBBootstrapModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
