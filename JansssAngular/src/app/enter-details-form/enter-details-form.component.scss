@@ -1,12 +1,14 @@
 //Get started with your campaign
 
 .enterDetailsDiv{
+  width:100%;
 }
 
 .heading_enter{
   font-family: "Airbnb Cereal App Medium", sans-serif;
   margin-top: 5%;
   font-size: 70px;
+  visibility: visible;
 }
 
 .heading_enter .campaign{
@@ -19,48 +21,147 @@
 }
 
 .enter_form{
+  float: left;
   justify-content: space-between;
   margin-top: 3%;
   font-family: "Airbnb Cereal App Medium", sans-serif;
 
 }
 .item1{
+  margin-left: 0;
   width: 40%;
   margin: auto auto;
 }
-
-.item2, .item3, .item4, .item5, .item6, .item7, .item8{
-  margin-top: 1%;
-
-}
-
+//
+//.item2, .item3, .item4, .item5, .item6, .item7, .item8{
+//  margin-top: 1%;
+//
+//}
+//
 .item2, .item4, .item6{
-  margin-left: 5%;
+     margin-left: 0%;
+   }
 
+.item3, .item5, .item7{
+  margin-left: 30%;
 }
+//
+//.item .descrip{
+//  width: 300%;
+//}
 
-.item .descrip{
-  width: 300%;
 
-}
 .item input{
   width: 170%;
   border: none;
   border-bottom: 1px solid #e0e0e0
 }
 
+.item{
+  float:right;
+}
 .button_outer{
+  text-align: center;
   margin-top: 3%;
+  margin-left: 0;
   //margin-bottom: 2%;
 }
 
 .button{
   font-family: "Airbnb Cereal App Book", sans-serif;
   border-radius: 10px;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   color: white;
   text-transform: uppercase;
   background-color: #E06F63;
 }
 
+@media screen and (max-width: 992px) {
+  //.heading_enter {
+  //  font-size: 60px;
+  //}
+  //.heading_enter {
+  //  visibility: hidden;
+  //}
+  //
+  //.item3, .item5, .item7{
+  //  margin-left: 15%;
+  //}
+  //
+  //.item2, .item4, .item6{
+  //  margin-left: -45%;
+  //}
+  //
+  //.item1{
+  //  margin: 0 0 0 -15%;
+  //  width:100%;
+  //  //width: 40%;
+  //  //margin: auto auto;
+  //}
+  //
+  //.button_outer{
+  //  text-align: left;
+  //  margin-left: -15%;
+  //}
+
+  .item3, .item5, .item7{
+    margin-left: 10%;
+  }
+
+  .item2, .item4, .item6{
+    margin-left: 10%;
+  }
+
+  .item1{
+    margin: 0 0 0 5%;
+    width:100%;
+    //width: 40%;
+    //margin: auto auto;
+  }
+
+  .button_outer{
+    text-align: left;
+    margin-left: 10%;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .item input {
+    width: 120%;
+  }
+}
+
+@media screen and (max-width: 1111px) {
+  .item input {
+    width: 120%;
+  }
+}
+
+@media screen and (max-width: 770px) {
+
+  .item3, .item5, .item7{
+    margin-left: 0;
+  }
+
+  .item2, .item4, .item6{
+    margin-left: 0;
+  }
+
+  .item1{
+    margin: 0 0 0 5%;
+    width:100%;
+    //width: 40%;
+    //margin: auto auto;
+  }
+
+  .button_outer{
+    text-align: left;
+    margin-left: -10%;
+  }
+
+  //.enter_form{
+  //  float: none;
+  //}
+}

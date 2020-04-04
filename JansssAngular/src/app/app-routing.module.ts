@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'launch', component: LaunchPageComponent},
   {path: 'client-sign-up', component: ClientSignUpComponent},
   {path: 'client-log-in', component: ClientLogInComponent},
-  {path: 'campaign-details', component: CampaignDetailsPageComponent}
+  {path: 'campaign-details', component: CampaignDetailsPageComponent},
   {path: 'progress', component: CampaignProgressComponent}
 ];
 

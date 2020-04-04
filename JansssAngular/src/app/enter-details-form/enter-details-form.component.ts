@@ -5,7 +5,9 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-enter-details-form',
   templateUrl: './enter-details-form.component.html',
-  styleUrls: ['./enter-details-form.component.scss']
+  styleUrls: ['./enter-details-form.component.scss',
+    '../../../node_modules/animate.css/animate.min.css'
+  ]
 })
 export class EnterDetailsFormComponent implements OnInit {
   productName = new FormControl('');
