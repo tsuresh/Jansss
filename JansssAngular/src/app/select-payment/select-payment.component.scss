@@ -1,0 +1,38 @@
+.container {
+  margin-top: 5%;
+}
+
+.text, .pink {
+  font-weight: bold;
+  font-size: 82px;
+  line-height: 107px;
+}
+
+.pink {
+  color: #E06F63;
+}
+
+.methods {
+  float: right;
+}
+
+.card img {
+  width: 150px;
+  transform: translate(-50% -50%);
+}
+
+.btn {
+  float: right;
+  background-color: #E06F63;
+  color: #ffffff;
+}
+
+@media (max-width: 1199px) {
+  .big {
+    display: none;
+  }
+
+  .methods {
+    float: none;
+  }
+}

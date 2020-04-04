@@ -9,6 +9,7 @@ import {ClientSignUpComponent} from './client-sign-up/client-sign-up.component';
 import {SelectCampaignComponent} from './select-campaign/select-campaign.component';
 import {SelectPaymentComponent} from './select-payment/select-payment.component';
 import {ClientLogInComponent} from './client-log-in/client-log-in.component';
+import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-details-page.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'payment', component: SelectPaymentComponent},
   {path: 'launch', component: LaunchPageComponent},
   {path: 'client-sign-up', component: ClientSignUpComponent},
-  {path: 'client-log-in', component: ClientLogInComponent}
+  {path: 'client-log-in', component: ClientLogInComponent},
+  {path: 'campaign-details', component: CampaignDetailsPageComponent}
 ];
 
 @NgModule({

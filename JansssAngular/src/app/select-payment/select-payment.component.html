@@ -1,1 +1,43 @@
+<app-header></app-header>
 <app-progress-bar></app-progress-bar>
+
+<div class="container">
+
+  <div class="big float-left">
+    <p class="text black">
+      Select<br>you<br>
+    </p>
+    <p class="pink">payment<br>method</p>
+  </div>
+
+  <div class="methods card-deck">
+    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
+      <img class="card-img-top img-fluid" src="../../assets/images/payment/visa.svg" alt="visa card">
+    </div>
+    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
+      <img class="card-img-top img-fluid" src="../../assets/images/payment/mastercardCopy.svg" alt="master card">
+    </div>
+    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
+      <img class="card-img-top img-fluid" src="../../assets/images/payment/paypalCopy.svg" alt="paypal">
+    </div>
+  </div>
+
+
+  <div class="float-right">
+    <form>
+      <div class="form-group">
+        <label for="cardNum">Card Number</label>
+        <input id="cardNum" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input id="cvv" type="text" class="form-control">
+      </div>
+      <button (click)="navigateToLaunch()" class="btn">NEXT</button>
+    </form>
+  </div>
+</div>
+
+
+<!--<app-footer></app-footer>-->
+

@@ -17,6 +17,7 @@ import { ClientSignUpComponent } from './client-sign-up/client-sign-up.component
 import { ClientLogInComponent } from './client-log-in/client-log-in.component';
 import { SelectCampaignComponent } from './select-campaign/select-campaign.component';
 import { SelectPaymentComponent } from './select-payment/select-payment.component';
+import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-details-page.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SelectPaymentComponent } from './select-payment/select-payment.componen
     ClientLogInComponent,
     SelectCampaignComponent,
     SelectPaymentComponent,
+    CampaignDetailsPageComponent,
   ],
   imports: [
     BrowserModule,
