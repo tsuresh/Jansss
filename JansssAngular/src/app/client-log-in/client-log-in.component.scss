@@ -1,7 +1,5 @@
 .client-log-in{
-  padding-top: 9%;
-  //height: 500px;
-
+  padding-top: 10%;
 }
 
 .client{
@@ -10,7 +8,6 @@
   padding-top: 2%;
   padding-bottom: 0.7%;
   box-shadow: 2px 2px 5px 2px #c2c0c0;
-  width: 30%;
   font-family: "Airbnb Cereal App Medium", sans-serif;
 }
 
@@ -18,9 +15,9 @@
   width: 80%;
   font-size: 18px;
   margin: auto auto;
+  text-align: center;
 }
 .client-logo img{
-  //text-align: center;
   height: 100px;
 }
 
@@ -36,7 +33,7 @@
 .client-item input{
   background-color: #FBFBFB;
   padding-top: 3%;
-  width:170%;
+  width:150%;
   border: none;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -53,13 +50,11 @@
   padding-top: 5%;
 }
 
-
-
-.btn-out-sign-up{
+.btn-out-log-in{
   padding-top: 10%;
 }
 
-.button-sign-up{
+.button-log-in{
   font-family: "Airbnb Cereal App Book", sans-serif;
   border-radius: 10px;
   color: white;

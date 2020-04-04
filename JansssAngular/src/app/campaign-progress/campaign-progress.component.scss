@@ -1,0 +1,55 @@
+.campaign-progress{
+  padding-top: 10%;
+}
+
+.pro, .ins{
+  font-size: 40px;
+  font-family: "Airbnb Cereal App Book", sans-serif;
+  color: #919191;
+}
+
+div{
+  text-align: center;
+}
+
+.progress-1, .progress-2, .progress-3, .insight-1, .insight-2, .insight-3{
+  background-color: #FBFBFB;
+  border-radius: 10px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  box-shadow: 2px 2px 5px 2px #c2c0c0;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 2%;
+}
+
+.ins{
+  padding-top: 5%;
+}
+
+.progress-1, .progress-2, .progress-3{
+  color: #E06F63;
+  font-family: "Airbnb Cereal App Light", sans-serif;
+  font-size: 30px;
+}
+
+.progress-1 p, .progress-2 p, .progress-3 p{
+  padding-top: 3%;
+  color: #919191;
+  font-size: 15px;
+}
+
+.number{
+  font-family: "Airbnb Cereal App Extra Bold", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #919191;
+  margin-top: 10%;
+}
+
+.title{
+  margin-top: -30px;
+  font-family: "Airbnb Cereal App Light", sans-serif;
+  font-size: 18px;
+  color: #919191;
+}

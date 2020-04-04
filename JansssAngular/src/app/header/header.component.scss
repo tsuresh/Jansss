@@ -47,6 +47,7 @@ ul li a{
 ul li a:hover { color: #E06F63 !important; }
 
 #navbar{
+  //top: -90px;
   //position: center;
   position: fixed;
   background: white;
@@ -66,6 +67,7 @@ ul li a:hover { color: #E06F63 !important; }
   height: 50px;
 }
 #username a{
+  text-decoration: none;
   font-family: "Airbnb Cereal App Medium", sans-serif;
 }
 
