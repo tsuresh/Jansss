@@ -1,6 +1,7 @@
 //Get started with your campaign
 
 .enterDetailsDiv{
+  padding-top: 5%;
   width:100%;
 }
 
@@ -8,43 +9,64 @@
   font-family: "Airbnb Cereal App Medium", sans-serif;
   margin-top: 5%;
   font-size: 70px;
-  visibility: visible;
+  display: block;
+  //visibility: visible;
 }
 
+.heading-2{
+text-align: center;
+  display: none;
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+  font-size: 40px;
+}
+
+.heading-2 .campaign{
+  color: #E06F63;
+
+}
 .heading_enter .campaign{
   color: #E06F63;
 }
 
-.item{
-  margin-top: 8%;
-  //margin-left: 5%;
-}
+//.item{
+//  margin-top: 8%;
+//  //margin-left: 5%;
+//}
 
 .enter_form{
-  float: left;
+  width: 80%;
+  margin: auto auto;
+  //float: left;
   justify-content: space-between;
-  margin-top: 3%;
+  padding-top: 5%;
+  //margin-top: 3%;
   font-family: "Airbnb Cereal App Medium", sans-serif;
 
 }
-.item1{
-  margin-left: 0;
-  width: 40%;
-  margin: auto auto;
-}
+//.item1{
+//  margin-left: 0;
+//  width: 40%;
+//  margin: auto auto;
+//  display: block;
+//
+//}
 //
 //.item2, .item3, .item4, .item5, .item6, .item7, .item8{
 //  margin-top: 1%;
 //
 //}
 //
-.item2, .item4, .item6{
-     margin-left: 0%;
-   }
-
-.item3, .item5, .item7{
-  margin-left: 30%;
-}
+//.item2, .item4, .item6{
+//     margin-left: 0%;
+//  display: block;
+//
+//}
+//
+//.item3, .item5, .item7{
+//  margin-left: 30%;
+//  display: block;
+//
+//}
 //
 //.item .descrip{
 //  width: 300%;
@@ -52,17 +74,18 @@
 
 
 .item input{
-  width: 170%;
+  width: 100%;
   border: none;
   border-bottom: 1px solid #e0e0e0
 }
 
 .item{
-  float:right;
+  display: block;
+  //float:right;
 }
 .button_outer{
   text-align: center;
-  margin-top: 3%;
+  margin-top: 5%;
   margin-left: 0;
   //margin-bottom: 2%;
 }
@@ -77,91 +100,19 @@
   background-color: #E06F63;
 }
 
-@media screen and (max-width: 992px) {
-  //.heading_enter {
-  //  font-size: 60px;
-  //}
-  //.heading_enter {
-  //  visibility: hidden;
-  //}
-  //
-  //.item3, .item5, .item7{
-  //  margin-left: 15%;
-  //}
-  //
-  //.item2, .item4, .item6{
-  //  margin-left: -45%;
-  //}
-  //
-  //.item1{
-  //  margin: 0 0 0 -15%;
-  //  width:100%;
-  //  //width: 40%;
-  //  //margin: auto auto;
-  //}
-  //
-  //.button_outer{
-  //  text-align: left;
-  //  margin-left: -15%;
-  //}
+@media screen and (max-width: 800px) {
 
-  .item3, .item5, .item7{
-    margin-left: 10%;
+  .enter_form{
+    width: 80%;
+    margin: auto auto;
+    align-content: center;
   }
 
-  .item2, .item4, .item6{
-    margin-left: 10%;
+  .heading-2{
+    display: block;
   }
 
-  .item1{
-    margin: 0 0 0 5%;
-    width:100%;
-    //width: 40%;
-    //margin: auto auto;
+  .heading_enter {
+    display: none;
   }
-
-  .button_outer{
-    text-align: left;
-    margin-left: 10%;
-  }
-}
-
-
-@media screen and (max-width: 1200px) {
-  .item input {
-    width: 120%;
-  }
-}
-
-@media screen and (max-width: 1111px) {
-  .item input {
-    width: 120%;
-  }
-}
-
-@media screen and (max-width: 770px) {
-
-  .item3, .item5, .item7{
-    margin-left: 0;
-  }
-
-  .item2, .item4, .item6{
-    margin-left: 0;
-  }
-
-  .item1{
-    margin: 0 0 0 5%;
-    width:100%;
-    //width: 40%;
-    //margin: auto auto;
-  }
-
-  .button_outer{
-    text-align: left;
-    margin-left: -10%;
-  }
-
-  //.enter_form{
-  //  float: none;
-  //}
 }

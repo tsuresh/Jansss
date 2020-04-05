@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
+import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  // constructor(private router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     // const a = this.router.url;
@@ -31,5 +32,16 @@ export class HeaderComponent implements OnInit {
     // } else {
     //   document.getElementById('navbar').style.visibility = 'visible';
     // }
+
+    const header = document.getElementById('myDIV');
+    const btns = header.getElementsByClassName('item');
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function() {
+        const current = document.getElementsByClassName('active');
+        current[0].className = current[0].className.replace(' active', '');
+        this.className += ' active';
+      });
+    }
   }
 }
