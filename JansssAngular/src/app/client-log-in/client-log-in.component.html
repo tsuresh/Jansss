@@ -1,0 +1,44 @@
+<div class="client-log-in container container-sm container-md container-lg container-xl">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-auto client">
+      <div class="row client-logo">
+        <img src="../../assets/images/logo/logo_J.png"><br>
+      </div>
+      <div class="row log-in">
+        <p>Log in to generate your campaign</p>
+      </div>
+      <div class="row form-group client-item client-email">
+        <label>
+          <input placeholder="Email or Username"  class="form-control" type="text" [formControl]="email">
+        </label>
+      </div>
+      <div class="row form-group client-item client-pass">
+        <label>
+          <input type="text" placeholder="Password"  class="form-control" [formControl]="password">
+        </label>
+      </div>
+
+      <div class="col buttons">
+        <div class="btn-out-log-in">
+          <button type="button" class="btn button-log-in">Log in</button>
+        </div>
+
+        <p class="or">OR</p>
+
+        <div class="btn-out-google">
+          <button type="button" class="btn button-google"><img src="../../assets/images/signup/google.svg" style="height: 40px; width:40px;padding-right: 4%">   Continue with Google</button>
+        </div>
+
+        <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>
+        <p  class="forgot"><a>Forgot your password?</a></p>
+
+      </div>
+
+      <div class="row client-item already-member">
+        Don't have an account?<a routerLink="/client-sign-up">  Sign up</a>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

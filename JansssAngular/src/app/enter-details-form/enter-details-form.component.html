@@ -1,0 +1,150 @@
+<div class="container">
+  <app-progress-bar></app-progress-bar>
+</div>
+
+<div class="container container-sm container-md container-lg container-xl">
+
+  <div class="card-deck">
+
+    <div class="col col-auto heading_enter" data-aos="zoom-out-up">
+      <p>Get<br>started<br>with your<br></p>
+      <p class="campaign">campaign</p>
+    </div>
+    <div class="col enter_form" data-aos="zoom-out-up">
+
+      <div class="card-deck item1" >
+        <label class="item">
+          Product Name<br>
+          <input type="text" [formControl]="productName">
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="item2">
+          <label class="item">
+            Target Industry<br>
+            <input type="text" [formControl]="industry">
+          </label>
+        </div>
+        <div class="item3 float-right">
+          <label class="item">
+            Target audience<br>
+            <input type="text" [formControl]="audience">
+          </label>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="item4">
+          <label class="item">
+            Budget<br>
+            <input type="text" [formControl]="budget">
+          </label>
+        </div>
+        <div class="item5">
+          <label class="item">
+            Target Location<br>
+            <input type="text" [formControl]="location">
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="item6">
+          <label class="item">
+            Price of Product/Server<br>
+            <input type="text" [formControl]="price">
+          </label>
+        </div>
+        <div class="item7">
+          <label class="item">
+            Duration of Campaign<br>
+            <input type="text" [formControl]="duration">
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <div>
+        </div>
+        <div class="button_outer">
+          <button type="button"  (click)="navigate()" class="btn button">Generate Campaign</button>
+        </div>
+        <div>
+        </div>
+      </div>
+    </div>
+<!--  <div class="row justify-content-md-center enterDetailsDiv">-->
+<!--    <div class="col col-auto heading_enter" data-aos="zoom-out-up">-->
+<!--      <p>Get<br>started<br>with your<br></p>-->
+<!--      <p class="campaign">campaign</p>-->
+<!--    </div>-->
+<!--    <div class="col enter_form" data-aos="zoom-out-up">-->
+
+<!--      <div class="row item1">-->
+<!--        <label class="item">-->
+<!--          Product Name<br>-->
+<!--          <input type="text" [formControl]="productName">-->
+<!--        </label>-->
+<!--      </div>-->
+
+
+<!--      <div class="row">-->
+<!--        <div class="col item2">-->
+<!--          <label class="item">-->
+<!--            Target Industry<br>-->
+<!--            <input type="text" [formControl]="industry">-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="col item3">-->
+<!--          <label class="item">-->
+<!--            Target audience<br>-->
+<!--            <input type="text" [formControl]="audience">-->
+<!--          </label>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="row">-->
+<!--        <div class="col item4">-->
+<!--          <label class="item">-->
+<!--            Budget<br>-->
+<!--            <input type="text" [formControl]="budget">-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="col item5">-->
+<!--          <label class="item">-->
+<!--            Target Location<br>-->
+<!--            <input type="text" [formControl]="location">-->
+<!--          </label>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="row">-->
+<!--        <div class="col item6">-->
+<!--          <label class="item">-->
+<!--            Price of Product/Server<br>-->
+<!--            <input type="text" [formControl]="price">-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="col item7">-->
+<!--          <label class="item">-->
+<!--            Duration of Campaign<br>-->
+<!--            <input type="text" [formControl]="duration">-->
+<!--          </label>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="row">-->
+<!--        <div class="col">-->
+<!--        </div>-->
+<!--        <div class="col col-auto button_outer">-->
+<!--          <button type="button"  (click)="navigate()" class="btn button">Generate Campaign</button>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+  </div>
+</div>
