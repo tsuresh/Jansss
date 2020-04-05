@@ -10,6 +10,8 @@ import {SelectCampaignComponent} from './select-campaign/select-campaign.compone
 import {SelectPaymentComponent} from './select-payment/select-payment.component';
 import {ClientLogInComponent} from './client-log-in/client-log-in.component';
 import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-details-page.component';
+import {ProfilePageComponent} from './profile-page/profile-page.component';
+import {EditProfileComponent} from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,7 +23,9 @@ const routes: Routes = [
   {path: 'launch', component: LaunchPageComponent},
   {path: 'client-sign-up', component: ClientSignUpComponent},
   {path: 'client-log-in', component: ClientLogInComponent},
-  {path: 'campaign-details', component: CampaignDetailsPageComponent}
+  {path: 'campaign-details', component: CampaignDetailsPageComponent},
+  {path: 'profile', component: ProfilePageComponent},
+  {path: 'edit-profile', component: EditProfileComponent}
 ];
 
 @NgModule({

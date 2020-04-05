@@ -1,0 +1,79 @@
+.container {
+  margin-top: 7%;
+}
+
+.name {
+  padding: 1%;
+}
+
+.name h3 {
+  font-weight: bolder;
+}
+
+.icon {
+  padding: 1%;
+}
+
+.proPicture {
+  width: 100%;
+  height: auto;
+}
+
+.left {
+  margin-top: 12%;
+}
+
+.black, .pink {
+  font-weight: bold;
+  font-size: 82px;
+  line-height: 107px;
+}
+
+.pink {
+  color: #E06F63;
+}
+
+.details {
+  margin-top: 5%;
+}
+
+.details h5, .details p {
+  line-height: 40px;
+}
+
+.name h3:hover, .name h4:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1199px) {
+  .name h3 {
+    font-size: 23px;
+  }
+
+  .name h4 {
+    font-size: 20px;
+  }
+
+  .left p {
+    font-size: 70px;
+    line-height: 95px;
+  }
+
+  .details h5 {
+    font-size: 17px;
+  }
+
+  .details p, .details .desc {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 991px) {
+  .left {
+    display: none;
+  }
+
+  .col {
+    column-count: auto;
+  }
+}

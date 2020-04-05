@@ -18,6 +18,8 @@ import { ClientLogInComponent } from './client-log-in/client-log-in.component';
 import { SelectCampaignComponent } from './select-campaign/select-campaign.component';
 import { SelectPaymentComponent } from './select-payment/select-payment.component';
 import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-details-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-d
     SelectCampaignComponent,
     SelectPaymentComponent,
     CampaignDetailsPageComponent,
+    ProfilePageComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
