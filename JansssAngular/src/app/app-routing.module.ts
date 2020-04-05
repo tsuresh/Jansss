@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'launch', component: LaunchPageComponent},
   {path: 'client-sign-up', component: ClientSignUpComponent},
   {path: 'client-log-in', component: ClientLogInComponent},
-  {path: 'progress', component: CampaignProgressComponent}
+  {path: 'progress', component: CampaignProgressComponent},
   {path: 'campaign-details', component: CampaignDetailsPageComponent},
   {path: 'profile', component: ProfilePageComponent},
   {path: 'edit-profile', component: EditProfileComponent}
