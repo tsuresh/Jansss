@@ -1,19 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// import { Router } from '@angular/router';
 
-// tslint:disable-next-line:only-arrow-functions
-window.onscroll = function() {scrollFunction(); };
-function scrollFunction() {
-  // if (this.router.url === '/') {
-    if (document.documentElement.scrollTop >= 1380 ) {
-      document.getElementById('navbar').style.top = '0px';
-      // document.getElementById('navbar').style.backgroundColor = 'white';
-    } else {
-      document.getElementById('navbar').style.top = '-90px';
-      // document.getElementById('navbar').style.position = 'sticky';
-      // document.getElementById('navbar').style.visibility = 'hidden';
-    }
-  // }
-}
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -21,10 +9,27 @@ function scrollFunction() {
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  // constructor(private router: Router) { }
 
   ngOnInit() {
-    // scrollFunction();
+    // const a = this.router.url;
+    // // tslint:disable-next-line:only-arrow-functions
+    // if ((a === '/')) {
+    //   // document.getElementById('navbar').style.visibility = 'hidden';
+    //     // tslint:disable-next-line:only-arrow-functions
+    //   window.onscroll = function() {
+    //       if (document.documentElement.scrollTop >= 1380) {
+    //         document.getElementById('navbar').style.visibility = 'visible';
+    //         // document.getElementById('navbar').style.top = '0px';
+    //         // document.getElementById('navbar').style.backgroundColor = 'white';
+    //       } else {
+    //         // document.getElementById('navbar').style.top = '-90px';
+    //         // document.getElementById('navbar').style.position = 'sticky';
+    //         document.getElementById('navbar').style.visibility = 'hidden';
+    //       }
+    //     };
+    // } else {
+    //   document.getElementById('navbar').style.visibility = 'visible';
+    // }
   }
-
 }

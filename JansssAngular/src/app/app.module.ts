@@ -20,6 +20,7 @@ import { SelectPaymentComponent } from './select-payment/select-payment.componen
 import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-details-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { CampaignProgressComponent } from './campaign-progress/campaign-progress.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     CampaignDetailsPageComponent,
     ProfilePageComponent,
     EditProfileComponent,
+    CampaignProgressComponent,
   ],
   imports: [
     BrowserModule,

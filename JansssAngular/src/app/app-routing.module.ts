@@ -12,6 +12,7 @@ import {ClientLogInComponent} from './client-log-in/client-log-in.component';
 import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-details-page.component';
 import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {EditProfileComponent} from './edit-profile/edit-profile.component';
+import {CampaignProgressComponent} from './campaign-progress/campaign-progress.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'launch', component: LaunchPageComponent},
   {path: 'client-sign-up', component: ClientSignUpComponent},
   {path: 'client-log-in', component: ClientLogInComponent},
+  {path: 'progress', component: CampaignProgressComponent}
   {path: 'campaign-details', component: CampaignDetailsPageComponent},
   {path: 'profile', component: ProfilePageComponent},
   {path: 'edit-profile', component: EditProfileComponent}

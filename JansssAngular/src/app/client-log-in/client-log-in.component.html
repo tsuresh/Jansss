@@ -1,27 +1,27 @@
-<div class="client-log-in">
+<div class="client-log-in container container-sm container-md container-lg container-xl">
   <div class="row">
     <div class="col"></div>
-    <div class="col-md-auto client">
+    <div class="col-auto client">
       <div class="row client-logo">
         <img src="../../assets/images/logo/logo_J.png"><br>
       </div>
       <div class="row log-in">
         <p>Log in to generate your campaign</p>
       </div>
-      <div class="row client-item client-email">
+      <div class="row form-group client-item client-email">
         <label>
-          <input placeholder="Email or Username" type="text" [formControl]="email">
+          <input placeholder="Email or Username"  class="form-control" type="text" [formControl]="email">
         </label>
       </div>
-      <div class="row client-item client-pass">
+      <div class="row form-group client-item client-pass">
         <label>
-          <input type="text" placeholder="Password" [formControl]="password">
+          <input type="text" placeholder="Password"  class="form-control" [formControl]="password">
         </label>
       </div>
 
       <div class="col buttons">
-        <div class="btn-out-sign-up">
-          <button type="button" class="btn button-sign-up">Log in</button>
+        <div class="btn-out-log-in">
+          <button type="button" class="btn button-log-in">Log in</button>
         </div>
 
         <p class="or">OR</p>

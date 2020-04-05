@@ -1,20 +1,20 @@
-<div class="client-sign-up">
+<div class="client-sign-up container container-sm container-md container-lg container-xl">
   <div class="row">
     <div class="col"></div>
-    <div class="col-md-auto client">
+    <div class="col-auto client">
       <div class="row client-logo">
         <img src="../../assets/images/logo/logo_J.png"><br>
       </div>
-      <div class="row client-item client-email">
+      <div class="row form-group client-item client-email">
         <label>
           Email<br>
-          <input placeholder="Email" type="text" [formControl]="email">
+          <input placeholder="Email" class="form-control" type="text" [formControl]="email">
         </label>
       </div>
-      <div class="row client-item client-pass">
+      <div class="row form-group client-item client-pass">
         <label>
           Create a password<br>
-          <input type="text" placeholder="Password" [formControl]="password">
+          <input type="text" placeholder="Password" class="form-control" [formControl]="password">
         </label>
       </div>
 

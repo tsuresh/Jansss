@@ -5,7 +5,9 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-progress-bar',
   templateUrl: './progress-bar.component.html',
-  styleUrls: ['./progress-bar.component.scss']
+  styleUrls: ['./progress-bar.component.scss',
+    '../../../node_modules/animate.css/animate.min.css'
+  ]
 })
 export class ProgressBarComponent implements OnInit {
 

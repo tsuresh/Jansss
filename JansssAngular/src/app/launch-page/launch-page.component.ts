@@ -4,7 +4,9 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-launch-page',
   templateUrl: './launch-page.component.html',
-  styleUrls: ['./launch-page.component.scss']
+  styleUrls: ['./launch-page.component.scss',
+    '../../../node_modules/animate.css/animate.min.css'
+  ]
 })
 export class LaunchPageComponent implements OnInit {
 
