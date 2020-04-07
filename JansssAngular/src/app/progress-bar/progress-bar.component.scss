@@ -1,8 +1,6 @@
 //Progress bar
 .progressDiv{
   padding-top: 12%;
-  //position: sticky;
-  z-index: 15;
 }
 
 
@@ -52,3 +50,14 @@ a{
 //  background-color: #E06F63;
 //  border-radius: 9px;
 //}
+@media screen and (max-width: 800px) {
+  .progressDiv{
+    padding-top: 22%;
+  }
+}
+
+@media (max-width:1200px) and (min-width:800px) {
+  .progressDiv{
+    padding-top: 17%;
+  }
+}
