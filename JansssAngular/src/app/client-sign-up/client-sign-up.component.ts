@@ -13,7 +13,7 @@ export class ClientSignUpComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    if (this.router.url === '/pricing') {
+    if (this.router.url === '/client-sign-up') {
       // tslint:disable-next-line:only-arrow-functions
       window.onscroll = function() {
         if (document.documentElement.scrollTop >= 0) {

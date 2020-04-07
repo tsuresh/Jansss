@@ -40,11 +40,7 @@ export class HomeComponent implements OnInit {
       window.onscroll = function() {
         if (document.documentElement.scrollTop >= 1380) {
           document.getElementById('navbar').style.visibility = 'visible';
-          // document.getElementById('navbar').style.top = '0px';
-          // document.getElementById('navbar').style.backgroundColor = 'black';
         } else {
-          // document.getElementById('navbar').style.top = '-90px';
-          // document.getElementById('navbar').style.position = 'sticky';
           document.getElementById('navbar').style.visibility = 'hidden';
         }
       };
@@ -58,11 +54,13 @@ export class HomeComponent implements OnInit {
         // tslint:disable-next-line:prefer-const
         let currentScroll = $(window).scrollTop();
         if ((currentScroll >= fixmeTop - 20) && (currentScroll < fixmeTop)) {
-          $('#fix').addClass('container container-sm container-md container-lg container-xl');
           $('.fixme').css({
             position: 'fixed',
             top: '15%',
+            margin: 'auto auto',
+            width: '88%'
           });
+          // $('#fix').addClass('fix');
           $('#description1').css({
             visibility: 'hidden'
           });
@@ -91,11 +89,13 @@ export class HomeComponent implements OnInit {
             visibility: 'visible',
           });
         } else if ((currentScroll >= fixmeTop - 40) && (currentScroll < fixmeTop)) {
-          $('#fix').addClass('container container-sm container-md container-lg container-xl');
           $('.fixme').css({
             position: 'fixed',
             top: '15%',
+            margin: 'auto auto',
+            width: '88%'
           });
+          // $('#fix').addClass('fix');
           $('#description1').css({
             visibility: 'hidden'
           });
@@ -124,11 +124,13 @@ export class HomeComponent implements OnInit {
             visibility: 'hidden',
           });
         } else if ((currentScroll >= fixmeTop - 60) && (currentScroll < fixmeTop)) {
-          $('#fix').addClass('container container-sm container-md container-lg container-xl');
           $('.fixme').css({
             position: 'fixed',
             top: '15%',
+            margin: 'auto auto',
+            width: '88%'
           });
+          // $('#fix').addClass('fix');
           $('#description1').css({
             visibility: 'hidden'
           });
@@ -157,11 +159,13 @@ export class HomeComponent implements OnInit {
             visibility: 'hidden',
           });
         } else if ((currentScroll >= fixmeTop - 80) && (currentScroll < fixmeTop)) {
-          $('#fix').addClass('container container-sm container-md container-lg container-xl');
           $('.fixme').css({
             position: 'fixed',
             top: '15%',
+            margin: 'auto auto',
+            width: '88%'
           });
+          // $('#fix').addClass('fix');
           $('#description1').css({
             visibility: 'hidden'
           });
@@ -190,11 +194,13 @@ export class HomeComponent implements OnInit {
             visibility: 'hidden',
           });
         } else if ((currentScroll >= fixmeTop - 100) && (currentScroll < fixmeTop)) {
-          $('#fix').addClass('container container-sm container-md container-lg container-xl');
           $('.fixme').css({
             position: 'fixed',
             top: '15%',
+            margin: 'auto auto',
+            width: '88%'
           });
+          // $('#fix').addClass('fix');
           $('#description1').css({
             visibility: 'visible'
           });
@@ -223,11 +229,13 @@ export class HomeComponent implements OnInit {
             visibility: 'hidden',
           });
         } else if ((currentScroll >= fixmeTop - 120) && (currentScroll < fixmeTop)) {
-          $('#fix').addClass('container');
           $('.fixme').css({
             position: 'fixed',
             top: '15%',
+            margin: 'auto auto',
+            width: '88%'
           });
+          // $('#fix').addClass('fix');
           $('#description1').css({
             visibility: 'hidden'
           });
@@ -258,6 +266,8 @@ export class HomeComponent implements OnInit {
         } else {
           $('.fixme').css({
             position: 'static',
+            margin: 'auto auto',
+            width: '100%'
           });
           $('#description1').css({
             visibility: 'hidden'
