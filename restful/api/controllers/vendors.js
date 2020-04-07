@@ -22,6 +22,19 @@ exports.get_matching_vendors = (req, res, next) => {
         })
 };
 
+exports.get_vendor_filtered = (req, res, next) => {
+    const {marketingTypes, searchText} = req.query;
+    const query = {};
+    if (marketingTypes != null) {query.marketingTypes = marketingTypes};
+    if (searchText != null) {query.busName = searchText};
+    Vendor.find(query)
+    .then(result => {
+        res.send(result);
+    }).catch(err => {
+        res.status(400).send(err);
+    })
+};
+
 exports.pass_camp_details = (req, res, next) => {
 
 };
