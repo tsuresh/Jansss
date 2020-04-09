@@ -4,7 +4,10 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-select-payment',
   templateUrl: './select-payment.component.html',
-  styleUrls: ['./select-payment.component.scss']
+  styleUrls: [
+    './select-payment.component.scss',
+    '../../../node_modules/animate.css/animate.min.css'
+  ]
 })
 export class SelectPaymentComponent implements OnInit {
 
