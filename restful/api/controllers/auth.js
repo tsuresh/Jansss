@@ -110,7 +110,11 @@ exports.signup_vendor = (req, res, next) => {
               email: req.body.email,
               password: hash,
               busName: req.body.busName,
-              marketingTypes: req.body.marketingTypes
+              marketingTypes: req.body.marketingTypes,
+              address: req.body.address,
+              phoneNumber: req.body.phoneNumber,
+              googleName: req.body.googleName,
+              rating: req.body.rating
             });
             vendor
               .save()
