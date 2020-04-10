@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"test@jansss.com\",\n\t\"password\": \"pass\"\n}",
+							"raw": "{\n\t\"email\": \"test1@jansss.com\",\n\t\"password\": \"pass\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -30,7 +30,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/signup",
+							"raw": "http://localhost:3000/auth/user/signup",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -38,6 +38,7 @@
 							"port": "3000",
 							"path": [
 								"auth",
+								"user",
 								"signup"
 							]
 						}
@@ -66,7 +67,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/signup",
+							"raw": "http://localhost:3000/auth/user/signup",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -74,6 +75,7 @@
 							"port": "3000",
 							"path": [
 								"auth",
+								"user",
 								"signup"
 							]
 						}
@@ -102,7 +104,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/signin",
+							"raw": "http://localhost:3000/auth/user/signin",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -110,6 +112,7 @@
 							"port": "3000",
 							"path": [
 								"auth",
+								"user",
 								"signin"
 							]
 						}
@@ -138,7 +141,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/signin",
+							"raw": "http://localhost:3000/auth/user/signin",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -146,6 +149,7 @@
 							"port": "3000",
 							"path": [
 								"auth",
+								"user",
 								"signin"
 							]
 						}
@@ -166,7 +170,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"vendor@jansss.com\",\n\t\"password\": \"pass\",\n\t\"busName\": \"jansss\",\n\t\"marketingTypes\": [\"TV\", \"radio\"]\n}",
+							"raw": "{\n\t\"email\": \"hello@xyz.com\",\n\t\"password\": \"pass\",\n\t\"busName\": \"jansss\",\n\t\"marketingTypes\": [\"Facebook\", \"Newspaper\", \"Radio\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -221,6 +225,99 @@
 								"auth",
 								"vendor",
 								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "get requests",
+			"item": [
+				{
+					"name": "get all vendors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/vendors/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"vendors",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get vendor ratings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJl-8y97n34joREIybXt7MWn0&fields=name,rating,formatted_phone_number,formatted_address,type&key=AIzaSyBSnrY80HKA1R78FdhfxP9hKV_-DIgjttE",
+							"protocol": "https",
+							"host": [
+								"maps",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"maps",
+								"api",
+								"place",
+								"details",
+								"json"
+							],
+							"query": [
+								{
+									"key": "place_id",
+									"value": "ChIJl-8y97n34joREIybXt7MWn0"
+								},
+								{
+									"key": "fields",
+									"value": "name,rating,formatted_phone_number,formatted_address,type"
+								},
+								{
+									"key": "key",
+									"value": "AIzaSyBSnrY80HKA1R78FdhfxP9hKV_-DIgjttE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a matching vendor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/vendors/match/5e876b0decf0021dfee9c41b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"vendors",
+								"match",
+								"5e876b0decf0021dfee9c41b"
 							]
 						}
 					},
