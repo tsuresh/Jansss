@@ -10,6 +10,8 @@ const vendorSchema = mongoose.Schema({
   password: { type: String, required: true },
   busName: { type: String, required: true },
   marketingTypes: { type: Array, required: true},
+  preferred: { type: Array, required: true},
+  location: { type: Object, required: true },
   address: { type: String, required: true },
   phoneNumber: { type: String, required: true },
   googleName: { type: String, required: true },

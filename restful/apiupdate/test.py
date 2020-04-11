@@ -10,10 +10,10 @@ records = db.vendors
 print("Updating ",format(records.count_documents({}))," vendor records.")
 
 place_ids = ["ChIJl-8y97n34joREIybXt7MWn0", "ChIJBc4QpNlb4joRH0A4W1jNb-I"]
-vendor_ids = ["5e90db018f2c01235e8c798c", "5e90db858f2c01235e8c798d"]
+vendor_ids = ["5e91c83eeda2d205c7256493", "5e91c9a7eda2d205c7256494"]
 
 main_url1 = 'https://maps.googleapis.com/maps/api/place/details/json?place_id='
-main_url2 = '&fields=name,rating,formatted_phone_number,formatted_address&key=AIzaSyBSnrY80HKA1R78FdhfxP9hKV_-DIgjttE'
+main_url2 = '&fields=name,rating,formatted_phone_number,geometry,formatted_address&key=AIzaSyBSnrY80HKA1R78FdhfxP9hKV_-DIgjttE'
 
 array_length = len(place_ids)
 
@@ -24,12 +24,14 @@ for i in range(array_length):
     completeURL = main_url1 + place_id + main_url2
     
     json_data = requests.get(completeURL).json()
+    location = json_data['result']['geometry']['location']
     formatted_address = json_data['result']['formatted_address']
     formatted_phone_number = json_data['result']['formatted_phone_number']
     name = json_data['result']['name']
     rating = json_data['result']['rating']
 
     vendor_updates = {
+        'location': location,
         'address': formatted_address,
         'phoneNumber': formatted_phone_number,
         'googleName': name,
