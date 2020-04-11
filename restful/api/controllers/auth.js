@@ -111,6 +111,8 @@ exports.signup_vendor = (req, res, next) => {
               password: hash,
               busName: req.body.busName,
               marketingTypes: req.body.marketingTypes,
+              preferred: req.body.preferred,
+              location: req.body.location,
               address: req.body.address,
               phoneNumber: req.body.phoneNumber,
               googleName: req.body.googleName,

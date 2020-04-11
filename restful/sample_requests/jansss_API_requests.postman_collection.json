@@ -170,7 +170,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"hello@xyz.com\",\n\t\"password\": \"pass\",\n\t\"busName\": \"jansss\",\n\t\"marketingTypes\": [\"Facebook\", \"Newspaper\", \"Radio\"]\n}",
+							"raw": "{\n\t\"email\": \"vendor2@jansss.com\",\n\t\"password\": \"pass\",\n\t\"busName\": \"vendortest2\",\n\t\"marketingTypes\": [\"Media\", \"Facebook\", \"Press\"],\n\t\"preferred\": [\"Convenience Products\", \"Shopping Products\", \"Unsought Products\"],\n\t\"location\": \" \",\n\t\"address\": \" \",\n\t\"phoneNumber\": \" \",\n\t\"googleName\": \" \",\n\t\"rating\": \" \"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -207,7 +207,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"vendor@jansss.com\",\n\t\"password\": \"pass\"\n}",
+							"raw": "{\n\t\"email\": \"pyxle@jansss.com\",\n\t\"password\": \"pass\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -265,12 +265,12 @@
 					"response": []
 				},
 				{
-					"name": "get vendor ratings",
+					"name": "googleAPI",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJl-8y97n34joREIybXt7MWn0&fields=name,rating,formatted_phone_number,formatted_address,type&key=AIzaSyBSnrY80HKA1R78FdhfxP9hKV_-DIgjttE",
+							"raw": "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJl-8y97n34joREIybXt7MWn0&fields=name,rating,formatted_phone_number,geometry,formatted_address,type&key=AIzaSyBSnrY80HKA1R78FdhfxP9hKV_-DIgjttE",
 							"protocol": "https",
 							"host": [
 								"maps",
@@ -291,7 +291,7 @@
 								},
 								{
 									"key": "fields",
-									"value": "name,rating,formatted_phone_number,formatted_address,type"
+									"value": "name,rating,formatted_phone_number,geometry,formatted_address,type"
 								},
 								{
 									"key": "key",
@@ -308,7 +308,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/vendors/match/5e876b0decf0021dfee9c41b",
+							"raw": "http://localhost:3000/vendors/match/5e91c83eeda2d205c7256493",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -317,7 +317,7 @@
 							"path": [
 								"vendors",
 								"match",
-								"5e876b0decf0021dfee9c41b"
+								"5e91c83eeda2d205c7256493"
 							]
 						}
 					},
