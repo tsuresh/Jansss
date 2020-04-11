@@ -9,7 +9,11 @@ const vendorSchema = mongoose.Schema({
   },
   password: { type: String, required: true },
   busName: { type: String, required: true },
-  marketingTypes: { type: Array, required: true}
+  marketingTypes: { type: Array, required: true},
+  address: { type: String, required: true },
+  phoneNumber: { type: String, required: true },
+  googleName: { type: String, required: true },
+  rating: { type: Number, required: true }
 });
 
 module.exports = mongoose.model("Vendor", vendorSchema);
