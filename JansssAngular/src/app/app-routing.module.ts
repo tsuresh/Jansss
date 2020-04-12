@@ -13,6 +13,7 @@ import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-d
 import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {EditProfileComponent} from './edit-profile/edit-profile.component';
 import {CampaignProgressComponent} from './campaign-progress/campaign-progress.component';
+import {HowItWorksComponent} from './how-it-works/how-it-works.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -27,10 +28,10 @@ const routes: Routes = [
   {path: 'progress', component: CampaignProgressComponent},
   {path: 'campaign-details', component: CampaignDetailsPageComponent},
   {path: 'profile', component: ProfilePageComponent},
-  {path: 'edit-profile', component: EditProfileComponent}
-];
-
-@NgModule({
+  {path: 'edit-profile', component: EditProfileComponent},
+  {path: 'how-it-works', component: HowItWorksComponent}
+  ]
+  @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

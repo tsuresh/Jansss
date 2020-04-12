@@ -1,28 +1,56 @@
+<!--<nav class="navbar navbar-expand-lg navbar-light container-fluid overlay" id="navbar">-->
+<!--    <a class="navbar-brand logo" href="#" routerLink="/"><img src="../../assets/images/logo/logo_Jansss_black_orange.png" height="80" width="80"/></a>-->
 
 
+<!--    <button class="navbar-toggler closebtn" type="button" data-toggle="collapse"-->
+<!--            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"-->
+<!--            aria-expanded="false" aria-label="Toggle navigation">-->
+<!--&lt;!&ndash;      <span class="navbar-toggler-icon" onclick="openNav()"></span>&ndash;&gt;-->
+<!--      <span class="navbar-toggler-icon" (click)="toggleCollapsed()"></span>-->
+<!--    </button>-->
 
-<nav class="navbar navbar-expand-lg navbar-light container-fluid" id="navbar">
-    <a class="navbar-brand logo" href="#" routerLink="/"><img src="../../assets/images/logo/logo_Jansss_black_orange.png" height="80" width="80"/></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto navigation" id="myDIV">
-      <li class="nav-item">
-        <a class="nav-link item active" href="#" routerLink="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link item" href="#" routerLink="/pricing">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link item" href="#" routerLink="/contact-us">Contact Us</a>
-      </li>
-    </ul>
+<!--  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">-->
+<!--    <ul class="navbar-nav mr-auto navigation" id="myDIV">-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link item active" href="#" routerLink="/">Home</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link item" href="#" routerLink="/pricing">Pricing</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link item" href="#" routerLink="/contact-us">Contact Us</a>-->
+<!--      </li>-->
+<!--    </ul>-->
 
-    <form class="form-inline my-2 my-lg-0" id="username">
-      <a routerLink="/client-sign-up"><img src="../../assets/images/profile/username.png"> Username</a>
-    </form>
+<!--    <div id="username">-->
+<!--      <a routerLink="/client-sign-up"><img src="../../assets/images/profile/username.png"> Username</a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<header class="header" id="navbar">
+  <a class="navbar-brand logo-1" href="#" routerLink="/"><img src="../../assets/images/logo/logo_Jansss_black_orange.png" height="80" width="80"/></a>
+
+  <div class="burger">
+    <div class="burger__patty"></div>
+    <div class="burger__patty"></div>
+    <div class="burger__patty"></div>
   </div>
-</nav>
 
+  <nav class="menu">
+    <div class="menu__brand">
+      <a class="navbar-brand" href="#" routerLink="/"><div class="logo"></div></a>
+    </div>
+    <ul class="menu__list">
+      <li class="menu__item"><a href="#" class="menu__link" routerLink="/">Home</a></li>
+      <li class="menu__item"><a href="#" class="menu__link" routerLink="/pricing">Pricing</a></li>
+      <li class="menu__item"><a href="#" class="menu__link" routerLink="/contact-us">Contact Us</a></li>
+      <li class="menu__item user">
+        <a href="#" class="menu__link" id="username" routerLink="/client-sign-up">
+          <img src="../../assets/images/profile/username.png">
+        </a>
+      </li>
 
+    </ul>
+  </nav>
+</header>

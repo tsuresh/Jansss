@@ -2,23 +2,23 @@ import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit} from '@angular/
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 
-// tslint:disable-next-line:only-arrow-functions
-window.onscroll = function() { slideInContent(); };
+// // tslint:disable-next-line:only-arrow-functions
+// window.onscroll = function() { slideInContent(); };
 
-function slideInContent() {
-  if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
-    document.getElementById('intro').className = 'animated fadeInUp';
-    document.getElementById('logo').className = 'animated slideInRight logo-left';
-    document.getElementById('arrow').className = 'animated fadeIn arrow-down';
-    document.getElementById('intro').style.visibility = 'visible';
-    document.getElementById('arrow').style.visibility = 'visible';
-  } else {
-    document.getElementById('intro').className = '';
-    document.getElementById('logo').className = 'animated fadeInUp';
-    document.getElementById('intro').style.visibility = 'hidden';
-    document.getElementById('arrow').style.visibility = 'hidden';
-  }
-}
+// function slideInContent() {
+//   if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+//     document.getElementById('intro').className = 'animated fadeInUp';
+//     document.getElementById('logo').className = 'animated slideInRight logo-left';
+//     document.getElementById('arrow').className = 'animated fadeIn arrow-down';
+//     document.getElementById('intro').style.visibility = 'visible';
+//     document.getElementById('arrow').style.visibility = 'visible';
+//   } else {
+//     document.getElementById('intro').className = '';
+//     document.getElementById('logo').className = 'animated fadeInUp';
+//     document.getElementById('intro').style.visibility = 'hidden';
+//     document.getElementById('arrow').style.visibility = 'hidden';
+//   }
+// }
 
 @Component({
   selector: 'app-home',
@@ -30,21 +30,21 @@ function slideInContent() {
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor() { }
   ngOnInit() {
-    // tslint:disable-next-line:only-arrow-functions
-    if (this.router.url === '/') {
-      // alert('hi');
-      document.getElementById('navbar').style.visibility = 'hidden';
-      // tslint:disable-next-line:only-arrow-functions
-      window.onscroll = function() {
-        if (document.documentElement.scrollTop >= 1380) {
-          document.getElementById('navbar').style.visibility = 'visible';
-        } else {
-          document.getElementById('navbar').style.visibility = 'hidden';
-        }
-      };
-    }
+    // // tslint:disable-next-line:only-arrow-functions
+    // if (this.router.url === '/') {
+    //   // alert('hi');
+    //   document.getElementById('navbar').style.visibility = 'hidden';
+    //   // tslint:disable-next-line:only-arrow-functions
+    //   window.onscroll = function() {
+    //     if (document.documentElement.scrollTop >= 1380) {
+    //       document.getElementById('navbar').style.visibility = 'visible';
+    //     } else {
+    //       document.getElementById('navbar').style.visibility = 'hidden';
+    //     }
+    //   };
+    // }
     // tslint:disable-next-line:only-arrow-functions
     $('document').ready(function() {
       // tslint:disable-next-line:prefer-const
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
               margin: 'auto auto',
               width: '88%'
             });
-            $('#fix').addClass('container');
+            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -103,7 +103,7 @@ export class HomeComponent implements OnInit {
               margin: 'auto auto',
               width: '88%'
             });
-            $('#fix').addClass('container');
+            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -138,7 +138,7 @@ export class HomeComponent implements OnInit {
               margin: 'auto auto',
               width: '88%'
             });
-            $('#fix').addClass('container');
+            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -173,7 +173,7 @@ export class HomeComponent implements OnInit {
               margin: 'auto auto',
               width: '88%'
             });
-            $('#fix').addClass('container');
+            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -208,7 +208,7 @@ export class HomeComponent implements OnInit {
               margin: 'auto auto',
               width: '88%'
             });
-            $('#fix').addClass('container');
+            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'visible'
             });
@@ -243,7 +243,7 @@ export class HomeComponent implements OnInit {
               margin: 'auto auto',
               width: '88%'
             });
-            $('#fix').addClass('container');
+            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'hidden'
             });
