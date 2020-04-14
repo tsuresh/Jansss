@@ -1,1 +1,80 @@
-<p>contact-us works!</p>
+<div class="container">
+  <img alt="logo" class="logo img-fluid mx-auto d-block" src="../../assets/images/logo/logo_J.png"/>
+  <div class="form box">
+    <form id="app-cover"
+          [formGroup] = "form"
+          (ngSubmit) = "onSubmit(form.value)">
+
+      <div class="row">
+        <div class="col">
+          <div class="inputBox half">
+            <input type="text" name="title" id="title" formControlName="title" required="">
+            <label for="title">Title*</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mr-5">
+          <div class="inputBox">
+            <input type="text" name="fName" id="fName" formControlName="fName" required="">
+            <label for="fName">First Name*</label>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="inputBox">
+            <input type="text" name="sName" id="sName" formControlName="sName" required="">
+            <label for="sName">Surname</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mr-5">
+          <div class="inputBox">
+            <input type="text" name="email" id="email" formControlName="email" required="">
+            <label for="email">Email*</label>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="inputBox">
+            <input type="text" name="phone" id="phone" formControlName="phone" required="">
+            <label for="phone">Phone*</label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <div class="selectBox">
+            <label for="comMethod">I prefer communication by*</label><br>
+            <select name="comMethod" id="comMethod" formControlName="comMethod">
+              <option value="email">Email</option>
+              <option value="sms">SMS</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="inputBox half">
+            <input type="textarea" name="message" id="message" formControlName="message" required="">
+            <label for="message">Message*</label>
+          </div>
+        </div>
+      </div>
+
+      <input type="checkbox">I agree to the privacy policy*<br>
+
+      *Required fields
+
+      <input class="btn shadow p-2 rounded float-right" type="submit" value="Send request">
+    </form>
+  </div>
+</div>
+
+

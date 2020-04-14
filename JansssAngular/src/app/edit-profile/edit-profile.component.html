@@ -1,18 +1,70 @@
 <div class="container">
+    <h4 class="top">Edit Profile</h4>
 
-  <h4 class="top">Edit Profile</h4>
+    <div class="row justify-content-md-center">
 
-  <div class="row justify-content-md-center">
+        <div class="align-middle col col-md-1 icon">
+            <img class="img-fluid proPicture" src="../../assets/images/profile/username.png">
+            <p class="text-center change">Change</p>
+        </div>
 
-    <div class="align-middle col col-md-1 icon">
-      <img class="img-fluid proPicture" src="../../assets/images/profile/username.png">
-      <p class="text-center change">Change</p>
+        <div class="align-middle col col-md-2 name">
+            <h3>First name</h3>
+            <h4>Surname</h4>
+        </div>
+
+        <div class="form box">
+            <form id="app-cover"
+                [formGroup] = "form"
+                (ngSubmit) = "onSubmit(form.value)">
+
+                <div class="row">
+
+                    <div class="col mr-5">
+                        <div class="inputBox">
+                            <input type="text" name="fName" id="fName" formControlName="fName" required="">
+                            <label for="fName">First Name</label>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="sName" id="sName" formControlName="sName" required="">
+                            <label for="sName">Surname</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="selectBox">
+                            <label for="paymentPlan">Payment Plan</label><br>
+                            <select name="paymentPlan" id="paymentPlan" formControlName="paymentPlan">
+                                <option class="dropdown-item" value="Member">Member</option>
+                                <option class="dropdown-item" value="One-time">One-time</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="selectBox">
+                            <label for="paymentMethod">Payment Method</label><br>
+                            <select name="paymentMethod" id="paymentMethod" formControlName="paymentMethod">
+                                <option value="Master">Master</option>
+                                <option value="Visa">Visa</option>
+                                <option value="PayPal">PayPal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <input class="btn shadow p-2 rounded float-right" type="submit">
+                <input class="btn btn-light shadow-sm p-2 rounded float-right  mr-5" type="reset" value="Cancel">
+            </form>
+        </div>
+
     </div>
-
-    <div class="align-middle col col-md-2 name">
-      <h3>First name</h3>
-      <h4>Surname</h4>
-    </div>
-  </div>
-
 </div>
+

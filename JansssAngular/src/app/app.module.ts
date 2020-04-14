@@ -21,6 +21,8 @@ import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-d
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CampaignProgressComponent } from './campaign-progress/campaign-progress.component';
+import { VendorLoginComponent } from './vendor-login/vendor-login.component';
+import { VendorSignUpComponent } from './vendor-sign-up/vendor-sign-up.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { CampaignProgressComponent } from './campaign-progress/campaign-progress
     ProfilePageComponent,
     EditProfileComponent,
     CampaignProgressComponent,
+    VendorLoginComponent,
+    VendorSignUpComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 .container {
-  padding-top: 8%;
+  padding: 10%;
 }
 
 .logo {
@@ -8,20 +8,13 @@
   margin-top: 10px;
 }
 
-.box {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
+.card {
+  width: 25rem;
+  margin: auto auto;
 }
 
 .box .inputBox {
   position: relative;
-}
-
-.half {
-  width: 45%;
 }
 
 .box .inputBox input {
@@ -29,9 +22,9 @@
   padding: 10px 0;
   font-size: 16px;
   letter-spacing: 1px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   border: none;
-  border-bottom: 1px solid #dfe6e9;
+  border-bottom: 1px solid #b2bec3;
   outline: none;
   background: transparent;
 }
@@ -44,7 +37,7 @@
   font-size: 16px;
   pointer-events: none;
   transition: 0.3s;
-  font-weight: 600;
+  color: #b2bec3;
 }
 
 .box .inputBox input:focus ~ label, .box .inputBox input:valid ~ label {
@@ -54,15 +47,28 @@
   font-size: 12px;
 }
 
-.box .selectBox select {
-  padding: 10px;
-}
-
-.box input[type=submit] {
+.login-btn {
   background-color: #E06F63;
   color: #ffffff;
+  text-transform: uppercase;
 }
 
-.box .btn {
-  text-transform: uppercase;
+.google {
+  width: 1.5rem;
+}
+
+.text-center p {
+  font-size: 9px;
+  color: #b2bec3;
+}
+
+.link {
+  color: #636e72;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.bottom {
+  font-size: 10px;
+  color: #b2bec3;
 }
