@@ -25,6 +25,11 @@ div .subscription .heading p{
   padding: 10%;
   border-top:1px solid #E06F63;
   border-bottom: 1px solid #E06F63;
+  line-height: 175%;
+}
+
+.description p{
+  line-height: 2px;
 }
 
 
@@ -79,12 +84,8 @@ div .subscription .heading p{
   }
 }
 
-
-//:host(#navbar) {
-//  visibility: visible;
-//}
-
-///* Extra large devices (large laptops and desktops, 1200px and up) */
-//@media only screen and (min-width: 1200px) {
-//
-//}
+@media (max-width:599px) and (min-width:0px) {
+  .pricing{
+    padding-top: 20%;
+  }
+}

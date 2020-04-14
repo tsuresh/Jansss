@@ -1,155 +1,31 @@
-//
-////NAVBAR CODE
-//.nav-item{
-//  padding:2px;
-//  margin-left: 11px;
-//  font-family: 'Airbnb Cereal App Bold', sans-serif;
-//  text-transform: uppercase;
-//  color: black;
-//  height: 100%;
-//}
-//
-//
-//
-//.logo{
-//  padding-right: 45px;
-//  padding-left: 45px;
-//}
-//
-//nav div ul{
-//  margin-left: auto;
-//  margin-right: auto;
-//  width: 70%;
-//  background-color: white;
-//}
-//
-//
-//li:nth-child(2) {
-//  margin-left: 22%;
-//  margin-right: 22%;
-//}
-//
-//ul li .active{
-//  color: #E06F63;
-//  //margin-right: 5%;
-//}
-//
-//ul li a{
-//  font-size: 16px;
-//  color: #000000;
-//}
-//
-//#username a{
-//  color: #E06F63;
-//}
-//
-//nav #username a{
-//  text-align: center;
-//}
-//ul li a:hover { color: #E06F63 !important; }
-//
-//#navbar{
-//  //top: -90px;
-//  //position: center;
-//  position: fixed;
-//  z-index: 10;
-//  background-color: white;
-//  visibility: visible;
-//}
-//
-//#username{
-//  margin-right: 0px;
-//  color: #E06F63;
-//  float: right;
-//  padding-right: 50px;
-//  padding-left: 35px;
-//  text-align: right;
-//}
-//
-//#username img{
-//  width: 50px;
-//  height: 50px;
-//}
-//#username a{
-//  text-decoration: none;
-//  font-family: "Airbnb Cereal App Medium", sans-serif;
-//}
-//
-//
-//@media (max-width:992px) {
-//
-//  li:nth-child(2) {
-//    margin-left: 0;
-//    margin-right: 0;
-//  }
-//
-//  nav div ul{
-//    margin-left: auto;
-//    margin-right: auto;
-//    width: 100%;
-//    text-align: center;
-//  }
-//
-//  #username{
-//    padding-top:50px;
-//    margin-right: 0px;
-//    padding-left: 0px;
-//    text-align: center;
-//    width: 100%;
-//  }
-//
-//  .nav-item{
-//    padding-top:50px;
-//    padding-bottom:25px;
-//
-//    margin-left: 0px;
-//
-//  }
-//  ul li a{
-//    font-size:  30px;
-//  }
-//  nav #username a{
-//    font-size: 20px;
-//  }
-//}
-//
-//
+//Navrbar styling
 
+//Smooth transition
 @mixin easeOut {
   transition: all .4s cubic-bezier(0.23, 1, 0.32, 1)
 }
 
+//Tablet size
 @mixin tablet {
   @media screen and (max-width: 768px) {
     @content;
   }
 }
 
-//* {
-//  box-sizing: border-box;
-//}
-
-//body {
-//  min-height: 100vh;
-//  background: $primary-color;
-//  font-family: 'Open Sans';
-//  color: white;
-//  line-height: 1.5;
-//  -webkit-font-smoothing: antialiased;
-//}
-
+//Header styling
 .header {
-
   background-color: white;
   position: fixed;
   z-index: 5;
   width: 100%;
 }
 
+//Logo when the hamburger menu is closed
 .logo-1{
   margin-left: 2%;
-  //padd: 50px;
 }
+
+//Hamburger menu
 .burger {
   position: absolute;
   z-index: 10;
@@ -171,18 +47,22 @@
     }
   }
 
-  // transform burger into 'x'
+  //transform hamburger menu to "X"
   &--close {
     transform: rotate(180deg);
 
     .burger__patty {
+      //transition of first patty to "X"
       &:nth-child(1) {
         transform: rotate(45deg) translate(4px, 4px);
         background: rgba(196, 196, 196, 0.69);
       }
+
       &:nth-child(2) {
         opacity: 0;
       }
+
+      //transition of third patty to "X"
       &:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -4px);
         background: rgba(196, 196, 196, 0.69);
@@ -201,6 +81,7 @@
     visibility: visible;
   }
 
+  //Stylying for the menu list and menu brand
   &__brand,
   &__list {
     display: flex;
@@ -213,6 +94,7 @@
     overflow: hidden;
   }
 
+  //Stylying for the menu list
   &__list {
     margin: 0;
     padding: 0;
@@ -226,6 +108,7 @@
     }
   }
 
+  //Stylying for the menu brand
   &__brand {
     background: rgb(255, 255, 255);
     @include easeOut;
@@ -236,6 +119,7 @@
     }
   }
 
+  //Stylying for the menu item
   &__item {
     transform: translate3d(500px, 0, 0);
     @include easeOut;
@@ -245,6 +129,7 @@
     }
   }
 
+  //Stylying for the menu link
   &__link {
     display: inline-block;
     position: relative;
@@ -255,6 +140,8 @@
     text-decoration: none;
     @include easeOut;
 
+
+    //line under menu items
     &:before {
       content: "";
       position: absolute;
@@ -315,40 +202,13 @@
   }
 }
 
-// make the demo look nice, not required for your own use.
+//Logo when the hamburger menu is open
 .logo {
   width: 300px;
   height: 300px;
   background-image: url("../../assets/images/logo/logo_Jansss_black_orange.png");
   background-size: contain;
-  //border-radius: 50%;
 }
-
-//h1, h2, h3, p {
-//  margin: 0;
-//  font-weight: 400;
-//}
-
-//main {
-//  height: 100vh;
-//  display: flex;
-//  flex-flow: column wrap;
-//  justify-content: center;
-//  padding: 8vw;
-//
-//  h1 > a {
-//    color: white;
-//    text-decoration: none;
-//    font-size: 48px;
-//    font-weight: 300;
-//  }
-//}
-//
-//.support {
-//  position: fixed;
-//  bottom: 24px;
-//  color: rgba(black, 0.6);
-//}
 
 #username img {
   width: 50px;
@@ -364,6 +224,4 @@
   visibility: visible;
   z-index: 10;
 }
-
-
 

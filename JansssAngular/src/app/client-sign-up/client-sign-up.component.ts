@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-client-sign-up',
@@ -10,16 +9,8 @@ import {Router} from '@angular/router';
 export class ClientSignUpComponent implements OnInit {
   email = new FormControl('');
   password = new FormControl('');
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    if (this.router.url === '/client-sign-up') {
-      // tslint:disable-next-line:only-arrow-functions
-      window.onscroll = function() {
-        if (document.documentElement.scrollTop >= 0) {
-          document.getElementById('navbar').style.visibility = 'visible';
-        }
-      };
-    }
   }
 }

@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import * as $ from 'jquery';
-
 
 @Component({
   selector: 'app-header',
@@ -9,12 +6,7 @@ import * as $ from 'jquery';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  // collapsed = true;
-  // toggleCollapsed(): void {
-  //   this.collapsed = !this.collapsed;
-  // }
-
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
     // tslint:disable-next-line:only-arrow-functions
@@ -32,6 +24,7 @@ export class HeaderComponent implements OnInit {
 
         // tslint:disable-next-line:only-arrow-functions
         const toggleMenu = function() {
+
           if (!active) {
             menu.classList.add('menu--active');
             menuList.classList.add('menu__list--active');
@@ -78,34 +71,5 @@ export class HeaderComponent implements OnInit {
       Menu.init();
 
     }());
-    //   // tslint:disable-next-line:only-arrow-functions
-    // if (this.router.url === '/') {
-    //   document.getElementById('navbar').style.visibility = 'hidden';
-    //   // tslint:disable-next-line:only-arrow-functions
-    //   window.onscroll = function() {
-    //     if (document.documentElement.scrollTop >= 1380) {
-    //       document.getElementById('navbar').style.visibility = 'visible';
-    //       // document.getElementById('navbar').style.top = '0px';
-    //       // document.getElementById('navbar').style.backgroundColor = 'black';
-    //     } else {
-    //       // document.getElementById('navbar').style.top = '-90px';
-    //       // document.getElementById('navbar').style.position = 'sticky';
-    //       document.getElementById('navbar').style.visibility = 'hidden';
-    //     }
-    //   };
-    // } else {
-    //   document.getElementById('navbar').style.visibility = 'visible';
-    // }
-    //
-    // const header = document.getElementById('myDIV');
-    // const btns = header.getElementsByClassName('menu_link');
-    // // tslint:disable-next-line:prefer-for-of
-    // for (let i = 0; i < btns.length; i++) {
-    //   btns[i].addEventListener('click', function() {
-    //     const current = document.getElementsByClassName('active');
-    //     current[0].className = current[0].className.replace(' active', '');
-    //     this.className += ' active';
-    //   });
-    // }
   }
 }

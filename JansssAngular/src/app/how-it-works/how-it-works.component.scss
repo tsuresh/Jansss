@@ -15,22 +15,15 @@
   text-align: center;
 }
 
-.image1{
-  //width: 80%;
-}
-
 .image2{
-  //width: 70%;
   margin-top: -60px;
 }
 
 .image3{
-  //width: 90%;
   margin-top: -120px;
 }
 
 .image4{
-  //width:75%;
   margin-top: -50px;
 }
 
@@ -48,12 +41,7 @@
   padding-bottom: 3%;
 }
 
-.step3{
-  //padding-top: 2%;
-}
-
 .description1-2, .description2-2, .description3-2, .description4-2{
-  //padding-top: 5%;
   font-size: 16px;
 }
 
@@ -97,7 +85,7 @@
   z-index: 5;
   background-color: white;
   display:block;
-  overflow: hidden;
+  //overflow: hidden;
   width: 100%;
 }
 

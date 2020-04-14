@@ -15,14 +15,6 @@ export class SelectPaymentComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.router.url === '/payment') {
-      // tslint:disable-next-line:only-arrow-functions
-      window.onscroll = function() {
-        if (document.documentElement.scrollTop >= 0) {
-          document.getElementById('navbar').style.visibility = 'visible';
-        }
-      };
-    }
   }
 
 }

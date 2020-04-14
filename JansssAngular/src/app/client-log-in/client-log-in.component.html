@@ -1,18 +1,23 @@
+<!--Client log in-->
+
 <div class="client-log-in container container-sm container-md container-lg container-xl">
   <div class="row">
     <div class="col"></div>
     <div class="col-auto client">
+      <!-- Logo on log in form-->
       <div class="row client-logo">
         <img src="../../assets/images/logo/logo_J.png"><br>
       </div>
       <div class="row log-in">
         <p>Log in to generate your campaign</p>
       </div>
+      <!--Client email-->
       <div class="row form-group client-item client-email">
         <label>
           <input placeholder="Email or Username"  class="form-control" type="text" [formControl]="email">
         </label>
       </div>
+      <!--Client password-->
       <div class="row form-group client-item client-pass">
         <label>
           <input type="text" placeholder="Password"  class="form-control" [formControl]="password">
@@ -26,6 +31,7 @@
 
         <p class="or">OR</p>
 
+        <!--Client log in via Google-->
         <div class="btn-out-google">
           <button type="button" class="btn button-google"><img src="../../assets/images/signup/google.svg" style="height: 40px; width:40px;padding-right: 4%">   Continue with Google</button>
         </div>
@@ -35,6 +41,7 @@
 
       </div>
 
+      <!--Navigate to sign up page if not a member already-->
       <div class="row client-item already-member">
         Don't have an account?<a routerLink="/client-sign-up">  Sign up</a>
       </div>

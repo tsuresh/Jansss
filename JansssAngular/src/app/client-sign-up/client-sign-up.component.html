@@ -1,3 +1,4 @@
+<!--Client Sign up-->
 <div class="client-sign-up container container-sm container-md container-lg container-xl">
   <div class="row">
     <div class="col"></div>
@@ -5,12 +6,14 @@
       <div class="row client-logo">
         <img src="../../assets/images/logo/logo_J.png"><br>
       </div>
+      <!--Client email-->
       <div class="row form-group client-item client-email">
         <label>
           Email<br>
           <input placeholder="Email" class="form-control" type="text" [formControl]="email">
         </label>
       </div>
+      <!--Client password-->
       <div class="row form-group client-item client-pass">
         <label>
           Create a password<br>
@@ -25,6 +28,7 @@
 
         <p class="or">OR</p>
 
+        <!--Client Sign up via google-->
         <div class="btn-out-google">
           <button type="button" class="btn button-google"><img src="../../assets/images/signup/google.svg" style="height: 40px; width:40px;padding-right: 4%">   Continue with Google</button>
         </div>
@@ -32,6 +36,7 @@
         <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>
       </div>
 
+      <!--Navigate to log in page if already a member-->
       <div class="row client-item already-member">
         Already a member?<a routerLink="/client-log-in"> Log in</a>
       </div>

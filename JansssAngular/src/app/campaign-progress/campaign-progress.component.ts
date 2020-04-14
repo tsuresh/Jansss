@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-campaign-progress',
@@ -8,17 +7,9 @@ import {Router} from '@angular/router';
 })
 export class CampaignProgressComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    if (this.router.url === '/campaign-progress') {
-      // tslint:disable-next-line:only-arrow-functions
-      window.onscroll = function() {
-        if (document.documentElement.scrollTop >= 0) {
-          document.getElementById('navbar').style.visibility = 'visible';
-        }
-      };
-    }
   }
 
 }

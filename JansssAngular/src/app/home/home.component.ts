@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 
@@ -32,41 +32,27 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   constructor() { }
   ngOnInit() {
-    // // tslint:disable-next-line:only-arrow-functions
-    // if (this.router.url === '/') {
-    //   // alert('hi');
-    //   document.getElementById('navbar').style.visibility = 'hidden';
-    //   // tslint:disable-next-line:only-arrow-functions
-    //   window.onscroll = function() {
-    //     if (document.documentElement.scrollTop >= 1380) {
-    //       document.getElementById('navbar').style.visibility = 'visible';
-    //     } else {
-    //       document.getElementById('navbar').style.visibility = 'hidden';
-    //     }
-    //   };
-    // }
+    // Fixing Div for how it works
     // tslint:disable-next-line:only-arrow-functions
     $('document').ready(function() {
       // tslint:disable-next-line:prefer-const
       let fixmeTop = $('.fixme').offset().top;
-      // tslint:disable-next-line:prefer-const
-      let windowSize = $(window).width();
+
       // tslint:disable-next-line:only-arrow-functions
       $(window).resize(function() {
         fixmeTop = $('.fixme').offset().top;
-        windowSize = $(window).width();
       });
-      // if  (windowSize >= 1100) {
         // tslint:disable-next-line:only-arrow-functions
       $(window).scroll(function() {
           // tslint:disable-next-line:prefer-const
           let currentScroll = $(window).scrollTop();
           if ((currentScroll >= fixmeTop - 20) && (currentScroll < fixmeTop)) {
+            // how it works
             $('.fixme').css({
               position: 'fixed',
               top: '15%',
               margin: 'auto auto',
-              width: '88%'
+              width: '87%'
             });
             // $('#fix').addClass('container');
             $('#description1').css({
@@ -97,13 +83,13 @@ export class HomeComponent implements OnInit {
               visibility: 'visible',
             });
           } else if ((currentScroll >= fixmeTop - 40) && (currentScroll < fixmeTop)) {
+            // launch campaign
             $('.fixme').css({
               position: 'fixed',
               top: '15%',
               margin: 'auto auto',
-              width: '88%'
+              width: '87%'
             });
-            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -132,13 +118,13 @@ export class HomeComponent implements OnInit {
               visibility: 'hidden',
             });
           } else if ((currentScroll >= fixmeTop - 60) && (currentScroll < fixmeTop)) {
+            // select payment
             $('.fixme').css({
               position: 'fixed',
               top: '15%',
               margin: 'auto auto',
-              width: '88%'
+              width: '87%'
             });
-            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -167,13 +153,13 @@ export class HomeComponent implements OnInit {
               visibility: 'hidden',
             });
           } else if ((currentScroll >= fixmeTop - 80) && (currentScroll < fixmeTop)) {
+            // select campaign
             $('.fixme').css({
               position: 'fixed',
               top: '15%',
               margin: 'auto auto',
-              width: '88%'
+              width: '87%'
             });
-            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -202,13 +188,13 @@ export class HomeComponent implements OnInit {
               visibility: 'hidden',
             });
           } else if ((currentScroll >= fixmeTop - 100) && (currentScroll < fixmeTop)) {
+            // enter details
             $('.fixme').css({
               position: 'fixed',
               top: '15%',
               margin: 'auto auto',
-              width: '88%'
+              width: '87%'
             });
-            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'visible'
             });
@@ -237,13 +223,13 @@ export class HomeComponent implements OnInit {
               visibility: 'hidden',
             });
           } else if ((currentScroll >= fixmeTop - 120) && (currentScroll < fixmeTop)) {
+            // how it works campaign
             $('.fixme').css({
               position: 'fixed',
               top: '15%',
               margin: 'auto auto',
-              width: '88%'
+              width: '87%'
             });
-            // $('#fix').addClass('container');
             $('#description1').css({
               visibility: 'hidden'
             });
