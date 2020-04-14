@@ -24,13 +24,5 @@ export class EnterDetailsFormComponent implements OnInit {
     this.router.navigate(['/campaign']);
   }
   ngOnInit() {
-    if (this.router.url === '/details') {
-      // tslint:disable-next-line:only-arrow-functions
-      window.onscroll = function() {
-        if (document.documentElement.scrollTop >= 0) {
-          document.getElementById('navbar').style.visibility = 'visible';
-        }
-      };
-    }
   }
 }
