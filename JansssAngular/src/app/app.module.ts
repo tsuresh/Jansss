@@ -23,6 +23,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CampaignProgressComponent } from './campaign-progress/campaign-progress.component';
 import { VendorLoginComponent } from './vendor-login/vendor-login.component';
 import { VendorSignUpComponent } from './vendor-sign-up/vendor-sign-up.component';
+import {A11yModule} from "@angular/cdk/a11y";
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { VendorSignUpComponent } from './vendor-sign-up/vendor-sign-up.component
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    A11yModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

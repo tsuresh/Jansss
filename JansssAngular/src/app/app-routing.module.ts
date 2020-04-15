@@ -31,12 +31,14 @@ const routes: Routes = [
   {path: 'campaign-details', component: CampaignDetailsPageComponent},
   {path: 'profile', component: ProfilePageComponent},
   {path: 'edit-profile', component: EditProfileComponent},
-  {path: 'how-it-works', component: HowItWorksComponent}
-  ]
-  @NgModule({
+  {path: 'how-it-works', component: HowItWorksComponent},
   {path: 'vendor-login', component: VendorLoginComponent},
   {path: 'vendor-signup', component: VendorSignUpComponent}
+  ];
+
+@NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

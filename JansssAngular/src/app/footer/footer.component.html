@@ -1,29 +1,77 @@
-<footer>
-  <div class="footer-container clear-top">
-    <div class="left-col">
-      <img class="logo" src="../../assets/images/logo/logo_Jansss_black_orange.png" alt="logo">
-
-      <div class="social-media">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><img src="../../assets/images/social_media_icons/facebook.svg"></a>
-        <a href="#"><img src="../../assets/images/social_media_icons/instagram.svg"></a>
-        <a href="#"><img src="../../assets/images/social_media_icons/twitter.svg"></a>
-        <a href="#"><img src="../../assets/images/social_media_icons/whatsapp.svg"></a>
-      </div>
-
-      <p class="right-text">&copy; 2020 Created By Dudawok All Rights Reserved</p>
+<footer class="mt-5">
+  <div class="row">
+    <div class="col">
+      <p class="name">.Jansss</p>
     </div>
 
-    <div class="right-col">
-      <h1>Be a Member</h1>
-      <div class="border"></div>
-      <p>Enter Your Email to become a member</p>
-      
-      <form class="newsletter-form">
-        <input type="text" class="txtb" placeholder="Enter Your Email">
-        <input type="submit" class="btn" value="submit">
+    <div class="col">
+      <div class="row">
+        <div class="col menu-item"><a>Home</a></div>
+        <div class="col menu-item"><a>Contact</a></div>
+        <div class="col menu-item"><a>Pricing</a></div>
+        <div class="col menu-item"><a>log In</a></div>
+      </div>
+    </div>
+
+    <div class="col text-right">
+      <h3>Subscribe us</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col-2 icon-wrapper">
+          <a class="icon" href="https://www.facebook.com" target="_blank">
+            <div class="text-center pt-3 pb-3">
+              <img src="../../assets/images/social_media_icons/facebook.svg">
+            </div>
+          </a>
+        </div>
+        <div class="col-2 ml-2 icon-wrapper">
+          <a class="icon" href="https://www.instagram.com" target="_blank">
+            <div class="text-center pt-3 pb-3">
+              <img src="../../assets/images/social_media_icons/instagram.svg">
+            </div>
+          </a>
+        </div>
+        <div class="col-2 ml-2 icon-wrapper">
+          <a class="icon" href="https://www.linkedin.com" target="_blank">
+            <div class="text-center pt-3 pb-3">
+              <img src="../../assets/images/social_media_icons/linkedin.svg">
+            </div>
+          </a>
+        </div>
+        <div class="col-2 ml-2 icon-wrapper">
+          <a class="icon" href="https://api.whatsapp.com/send?phone=94776852635" target="_blank">
+            <div class="text-center pt-3 pb-3">
+              <img src="../../assets/images/social_media_icons/whatsapp.svg">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col text-justify">
+      <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit Neque porro quisquam
+        est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+    </div>
+
+    <div class="col text-right">
+      <form class="subscribe-form-form"
+            [formGroup]="form"
+            (ngSubmit)="onSubmit(form.value)">
+        <input type="text" class="txtb" formControlName="email" placeholder="Enter Your Email">
+        <input type="submit" class="btn shadow-sm" value="submit">
       </form>
     </div>
   </div>
-</footer>
 
+  <div class="row mt-5 line"></div>
+
+  <div class="row mt-2 text-center">
+    <div class="col">
+      <p class="bottom">&copy; 2020 Created By Dudawok All Rights Reserved | <a href="#">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>

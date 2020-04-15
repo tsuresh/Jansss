@@ -9,6 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class EditProfileComponent implements OnInit {
   form: FormGroup;
+  router: Router;
 
   constructor() { }
 
