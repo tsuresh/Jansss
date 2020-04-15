@@ -47,14 +47,16 @@ footer{
   width: 25px;
 }
 
-.menu-item {
+.menu-item a {
   font-size: 12px;
   text-transform: uppercase;
   text-space: 2px;
   cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
 }
 
-.menu-item:hover {
+.menu-item a:hover {
   color: #2d3436;
 }
 
