@@ -79,20 +79,42 @@
   font-size: 12px;
 }
 
-.box .selectBox select {
-  padding: 10px;
-}
-
 .box input[type=submit] {
   background-color: #E06F63;
   color: #ffffff;
-  opacity: 0.8;
+}
+
+.box input[type=reset] {
+  background-color: #dcdde1;
+  color: #000000;
 }
 
 .box .btn {
   text-transform: uppercase;
 }
 
-.box input[type=submit]:hover {
-  opacity: 1;
+.line {
+  height: 1px;
+  background: black;
+}
+
+.arrow-down {
+  width: 15px;
+  height: auto;
+  margin-left: 175px;
+  cursor: pointer;
+}
+
+.options {
+  display: none;
+  background: #f5f6fa;
+}
+
+.planOption, .methodOption {
+  cursor: pointer;
+}
+
+.planOption:hover, .methodOption:hover {
+  background: #E06F63;
+  color: #ffffff;
 }

@@ -5,7 +5,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.scss']
+  styleUrls: [
+    './edit-profile.component.scss',
+    '../../../node_modules/hover.css/css/hover-min.css'
+  ]
 })
 export class EditProfileComponent implements OnInit {
   form: FormGroup;
@@ -32,5 +35,23 @@ export class EditProfileComponent implements OnInit {
 
   onSubmit(mediaItem) {
     console.log(mediaItem);
+  }
+
+  viewOption(idName) {
+    const option = document.getElementById(idName);
+    option.style.display = 'block';
+  }
+  getOption(catId, optClass, selectId, i) {
+    const option = document.getElementById(catId);
+    const options = document.getElementsByClassName(optClass);
+    const selected = document.getElementById(selectId);
+    option.style.display = 'none';
+    selected.textContent = options[i].textContent;
+  }
+  clearOption() {
+    const plan = document.getElementById('selectedPlan');
+    const method = document.getElementById('selectedMethod')
+    plan.textContent = 'Payment Plan';
+    method.textContent = 'Payment Method';
   }
 }

@@ -36,7 +36,7 @@
   background: transparent;
 }
 
-.box .inputBox label {
+.box .inputBox label{
   position: absolute;
   top: 0;
   left: 0;
@@ -44,6 +44,11 @@
   font-size: 16px;
   pointer-events: none;
   transition: 0.3s;
+  font-weight: 600;
+}
+
+#selected {
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -65,4 +70,39 @@
 
 .box .btn {
   text-transform: uppercase;
+}
+
+.line {
+  height: 1px;
+  background: #dfe6e9;
+}
+
+.arrow-down {
+  width: 15px;
+  height: auto;
+  cursor: pointer;
+}
+
+.options {
+  display: none;
+  background: #f5f6fa;
+}
+
+.option {
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #E06F63;
+  color: #ffffff;
+}
+
+p {
+  font-size: 12px;
+}
+
+p a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #000000;
 }

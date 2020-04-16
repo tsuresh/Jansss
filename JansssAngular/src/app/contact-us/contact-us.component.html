@@ -5,7 +5,7 @@
           [formGroup] = "form"
           (ngSubmit) = "onSubmit(form.value)">
 
-      <div class="row">
+      <div class="row mt-5">
         <div class="col">
           <div class="inputBox half">
             <input type="text" name="title" id="title" formControlName="title" required="">
@@ -46,20 +46,22 @@
         </div>
       </div>
 
-
-      <div class="row">
-        <div class="col">
-          <div class="selectBox">
-            <label for="comMethod">I prefer communication by*</label><br>
-            <select name="comMethod" id="comMethod" formControlName="comMethod">
-              <option value="email">Email</option>
-              <option value="sms">SMS</option>
-            </select>
+      <div class="row mt-1">
+        <div class="col mr-5">
+          <div>
+            <span id="selected">I prefer communication by*</span>
+            <img class="float-right hvr-wobble-vertical arrow-down" src="../../assets/images/icons/down.svg" (click)="viewOption('method')">
+          </div>
+          <div class="mt-2 line"></div>
+          <div class="options" id="method">
+            <div class="p-2 border-bottom option" (click)="getOption('method', 'option', 'selected', 0)">E-mail</div>
+            <div class="p-2 option" (click)="getOption('method', 'option', 'selected', 1)">SMS</div>
           </div>
         </div>
+        <div class="col"></div>
       </div>
 
-      <div class="row">
+      <div class="row mt-4">
         <div class="col">
           <div class="inputBox half">
             <input type="textarea" name="message" id="message" formControlName="message" required="">
@@ -68,11 +70,21 @@
         </div>
       </div>
 
-      <input type="checkbox">I agree to the privacy policy*<br>
+      <div class="row mt-4">
+        <input type="checkbox">
+        <p class="ml-1">I agree to the <a href="#">privacy policy</a>*</p>
+      </div>
 
-      *Required fields
+      <div class="row">
+        <p>*Required fields</p>
+      </div>
 
-      <input class="btn shadow p-2 rounded float-right" type="submit" value="Send request">
+      <div class="row mt-4">
+        <div class="col"></div>
+        <div class="col">
+          <input class="btn shadow-sm p-2 rounded float-right hvr-grow" type="submit" value="Send request">
+        </div>
+      </div>
     </form>
   </div>
 </div>
