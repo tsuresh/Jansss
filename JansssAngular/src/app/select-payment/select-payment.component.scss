@@ -1,38 +1,62 @@
-.select-payment {
+.container {
   padding-top: 5%;
 }
 
-.text, .pink {
+.text {
   font-weight: bold;
   font-size: 82px;
-  line-height: 107px;
+  line-height: 90px;
 }
 
 .pink {
   color: #E06F63;
 }
 
-.methods {
-  float: right;
+.box .inputBox input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #b2bec3;
+  outline: none;
+  background: transparent;
 }
 
-.card img {
-  width: 150px;
-  transform: translate(-50% -50%);
+.box .inputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s;
+  color: #b2bec3;
+}
+
+.box .inputBox input:focus ~ label, .box .inputBox input:valid ~ label {
+  top: -18px;
+  left: 0;
+  color: #7f8c8d;
+  font-size: 12px;
 }
 
 .btn {
-  float: right;
+  text-transform: uppercase;
   background-color: #E06F63;
   color: #ffffff;
 }
 
 @media (max-width: 1199px) {
-  .big {
-    display: none;
+  .text {
+    font-size: 65px;
+    line-height: 70px;
   }
+}
 
-  .methods {
-    float: none;
+@media (max-width: 767px) {
+  .col-left {
+    display: none;
   }
 }

@@ -16,10 +16,13 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
+      title: new FormControl(''),
       fName: new FormControl(''),
       sName: new FormControl(''),
-      paymentPlan: new FormControl('Member'),
-      paymentMethod: new FormControl('PayPal')
+      email: new FormControl(''),
+      phone: new FormControl(''),
+      comMethod: new FormControl(''),
+      message: new FormControl('')
     });
   }
 
