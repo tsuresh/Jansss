@@ -16,6 +16,7 @@ import {CampaignProgressComponent} from './campaign-progress/campaign-progress.c
 import {HowItWorksComponent} from './how-it-works/how-it-works.component';
 import {VendorLoginComponent} from './vendor-login/vendor-login.component';
 import {VendorSignUpComponent} from './vendor-sign-up/vendor-sign-up.component';
+import {UserOptionPageComponent} from './user-option-page/user-option-page.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path: 'edit-profile', component: EditProfileComponent},
   {path: 'how-it-works', component: HowItWorksComponent},
   {path: 'vendor-login', component: VendorLoginComponent},
-  {path: 'vendor-signup', component: VendorSignUpComponent}
+  {path: 'vendor-signup', component: VendorSignUpComponent},
+  {path: 'user-option', component: UserOptionPageComponent}
   ];
 
 @NgModule({
