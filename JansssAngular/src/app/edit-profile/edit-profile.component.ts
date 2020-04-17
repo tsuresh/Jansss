@@ -7,7 +7,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   templateUrl: './edit-profile.component.html',
   styleUrls: [
     './edit-profile.component.scss',
-    '../../../node_modules/hover.css/css/hover-min.css'
+    '../../../node_modules/hover.css/css/hover-min.css',
   ]
 })
 export class EditProfileComponent implements OnInit {

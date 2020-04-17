@@ -1,0 +1,45 @@
+.body {
+  background: #E06F63;
+  height: 100vh;
+  //background: linear-gradient(180deg, #E06F63 45%, #E06F60 60%, #ffffff 85%);
+  background: -webkit-linear-gradient(to bottom, #E06F63, #E06F63, #E06F63, #E06F63, #fd746c, #ff9088, #ffffff);
+  background: linear-gradient(to bottom, #E06F63, #E06F63, #E06F63, #E06F63, #fd746c, #ff9088, #ffffff);
+}
+
+.body img {
+  width: 25%;
+  height: auto;
+}
+
+#right {
+  visibility: hidden;
+  padding-top: 20%;
+  padding-left: 30%;
+}
+
+#right h1 {
+  color: #ffffff;
+  font-size: 100px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+#right h3 {
+  color: #ffffff;
+  font-size: 60px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+#right p {
+  color: #650C0C;
+  letter-spacing: 2px;
+  font-weight: 200;
+}
+
+.container .nav-arrow {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+  margin-top: 50px;
+}

@@ -19,5 +19,4 @@ export class FooterComponent implements OnInit {
   onSubmit(mediaItem) {
     console.log(mediaItem);
   }
-
 }
