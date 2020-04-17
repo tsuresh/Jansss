@@ -1,14 +1,12 @@
-<div class="container">
-  <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
+<div class="container pb-0">
+  <div class="card bg-light border-light shadow-sm p-3 rounded">
     <div class="card-body">
       <img alt="logo" class="logo img-fluid mx-auto d-block" src="../../assets/images/logo/logo_J.png"/>
-
       <div class="card-text">
         <div class="box">
           <form (ngSubmit) = "onSubmit(form.value)"
                 [formGroup] = "form"
                 id="app-cover">
-
             <div class="inputBox">
               <input formControlName="username" id="username" name="username" required="" type="text">
               <label for="username">Company Email</label>
@@ -27,7 +25,6 @@
                 Continue with Google
               </button>
             </div>
-
           </form>
 
           <div class="text-center">
@@ -40,7 +37,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

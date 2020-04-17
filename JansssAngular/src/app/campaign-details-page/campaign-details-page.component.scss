@@ -1,29 +1,36 @@
 .container {
-  padding-top: 8%;
+  padding-top: 10%;
 }
 
 .name {
   padding: 1%;
+  text-transform: uppercase;
 }
 
 .name h3 {
-  font-weight: bolder;
+  font-weight: 700;
 }
 
-.icon {
-  padding: 1%;
-}
-
-.proPicture {
-  width: 100%;
+.pro-img {
+  width: 100px;
   height: auto;
+}
+
+.heading-top {
+  display: none;
+}
+
+.heading-top p {
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 40px;
 }
 
 .left {
   margin-top: 12%;
 }
 
-.black, .pink {
+.text {
   font-weight: bold;
   font-size: 82px;
   line-height: 107px;
@@ -46,14 +53,6 @@
 }
 
 @media (max-width: 1199px) {
-  .name h3 {
-    font-size: 23px;
-  }
-
-  .name h4 {
-    font-size: 20px;
-  }
-
   .left p {
     font-size: 70px;
     line-height: 95px;
@@ -73,7 +72,23 @@
     display: none;
   }
 
-  .col {
-    column-count: auto;
+  .heading-top {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .name h3 {
+    font-size: 20px;
+  }
+
+  .name h4 {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 513px) {
+  .name h3 {
+    font-size: 19px;
   }
 }
