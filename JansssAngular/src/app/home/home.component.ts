@@ -27,15 +27,17 @@ export class HomeComponent implements OnInit {
       $(window).scroll(function() {
           // tslint:disable-next-line:prefer-const
           let currentScroll = $(window).scrollTop();
-          if ((currentScroll >= fixmeTop - 20) && (currentScroll < fixmeTop)) {
+          if ((currentScroll >= fixmeTop - 40) && (currentScroll < fixmeTop)) {
             // how it works
             $('.fixme').css({
-              position: 'fixed',
+              position: 'sticky',
               top: '15%',
-              margin: 'auto auto',
-              width: '87%'
+              // margin: 'auto auto',
+              // width: '88%'
             });
-            // $('#fix').addClass('container');
+            // const element = document.getElementById('fixme');
+            // element.className = 'container';
+            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -63,14 +65,17 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'visible',
             });
-          } else if ((currentScroll >= fixmeTop - 40) && (currentScroll < fixmeTop)) {
+          } else if ((currentScroll >= fixmeTop - 60) && (currentScroll < fixmeTop)) {
             // launch campaign
             $('.fixme').css({
-              position: 'fixed',
+              position: 'sticky',
               top: '15%',
-              margin: 'auto auto',
-              width: '87%'
+              // margin: 'auto auto',
+              // width: '88%'
             });
+            // const element = document.getElementById('fixme');
+            // element.className = 'container';
+            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -94,61 +99,29 @@ export class HomeComponent implements OnInit {
             });
             $('.opaque4').css({
               opacity: '1',
-            });
-            $('.heading').css({
-              visibility: 'hidden',
-            });
-          } else if ((currentScroll >= fixmeTop - 60) && (currentScroll < fixmeTop)) {
-            // select payment
-            $('.fixme').css({
-              position: 'fixed',
-              top: '15%',
-              margin: 'auto auto',
-              width: '87%'
-            });
-            $('#description1').css({
-              visibility: 'hidden'
-            });
-            $('#description2').css({
-              visibility: 'hidden'
-            });
-            $('#description3').css({
-              visibility: 'visible'
-            });
-            $('#description4').css({
-              visibility: 'hidden'
-            });
-            $('.opaque1').css({
-              opacity: '0.5',
-            });
-            $('.opaque2').css({
-              opacity: '0.5',
-            });
-            $('.opaque3').css({
-              opacity: '1',
-            });
-            $('.opaque4').css({
-              opacity: '0.5',
             });
             $('.heading').css({
               visibility: 'hidden',
             });
           } else if ((currentScroll >= fixmeTop - 80) && (currentScroll < fixmeTop)) {
-            // select campaign
+            // select payment
             $('.fixme').css({
-              position: 'fixed',
+              position: 'sticky',
               top: '15%',
-              margin: 'auto auto',
-              width: '87%'
+              // margin: 'auto auto',
+              // width: '88%'
             });
+            // const element = document.getElementById('fixme');
+            // element.className = 'container';
+            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });
             $('#description2').css({
-              visibility: 'visible'
+              visibility: 'hidden'
             });
             $('#description3').css({
-              visibility: 'hidden'
+              visibility: 'visible'
             });
             $('#description4').css({
               visibility: 'hidden'
@@ -157,10 +130,10 @@ export class HomeComponent implements OnInit {
               opacity: '0.5',
             });
             $('.opaque2').css({
-              opacity: '1',
+              opacity: '0.5',
             });
             $('.opaque3').css({
-              opacity: '0.5',
+              opacity: '1',
             });
             $('.opaque4').css({
               opacity: '0.5',
@@ -169,18 +142,21 @@ export class HomeComponent implements OnInit {
               visibility: 'hidden',
             });
           } else if ((currentScroll >= fixmeTop - 100) && (currentScroll < fixmeTop)) {
-            // enter details
+            // select campaign
             $('.fixme').css({
-              position: 'fixed',
+              position: 'sticky',
               top: '15%',
-              margin: 'auto auto',
-              width: '87%'
+              // margin: 'auto auto',
+              // width: '88%'
             });
+            // const element = document.getElementById('fixme');
+            // element.className = 'container';
+            $('#fixme').addClass('container-fluid');
             $('#description1').css({
-              visibility: 'visible'
+              visibility: 'hidden'
             });
             $('#description2').css({
-              visibility: 'hidden'
+              visibility: 'visible'
             });
             $('#description3').css({
               visibility: 'hidden'
@@ -189,10 +165,10 @@ export class HomeComponent implements OnInit {
               visibility: 'hidden'
             });
             $('.opaque1').css({
-              opacity: '1',
+              opacity: '0.5',
             });
             $('.opaque2').css({
-              opacity: '0.5',
+              opacity: '1',
             });
             $('.opaque3').css({
               opacity: '0.5',
@@ -204,13 +180,54 @@ export class HomeComponent implements OnInit {
               visibility: 'hidden',
             });
           } else if ((currentScroll >= fixmeTop - 120) && (currentScroll < fixmeTop)) {
+            // enter details
+            $('.fixme').css({
+              position: 'sticky',
+              top: '15%',
+              // margin: 'auto auto',
+              // width: '88%'
+            });
+            // const element = document.getElementById('fixme');
+            // element.className = 'container';
+            $('#fixme').addClass('container-fluid');
+            $('#description1').css({
+              visibility: 'visible'
+            });
+            $('#description2').css({
+              visibility: 'hidden'
+            });
+            $('#description3').css({
+              visibility: 'hidden'
+            });
+            $('#description4').css({
+              visibility: 'hidden'
+            });
+            $('.opaque1').css({
+              opacity: '1',
+            });
+            $('.opaque2').css({
+              opacity: '0.5',
+            });
+            $('.opaque3').css({
+              opacity: '0.5',
+            });
+            $('.opaque4').css({
+              opacity: '0.5',
+            });
+            $('.heading').css({
+              visibility: 'hidden',
+            });
+          } else if ((currentScroll >= fixmeTop - 140) && (currentScroll < fixmeTop)) {
             // how it works campaign
             $('.fixme').css({
-              position: 'fixed',
+              position: 'sticky',
               top: '15%',
-              margin: 'auto auto',
-              width: '87%'
+              // margin: 'auto auto',
+              // width: '88%'
             });
+            // const element = document.getElementById('fixme');
+            // element.className = 'container';
+            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -241,9 +258,10 @@ export class HomeComponent implements OnInit {
           } else {
             $('.fixme').css({
               position: 'static',
-              margin: 'auto auto',
-              width: '100%'
+              // margin: 'auto auto',
+              // width: '100%'
             });
+            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });

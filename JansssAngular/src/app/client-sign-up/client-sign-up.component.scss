@@ -34,6 +34,7 @@
   width:150%;
   border: none;
   border-bottom: 1px solid #e0e0e0;
+  font-family: "Airbnb Cereal App Light", sans-serif;
 }
 
 ::placeholder{
@@ -101,7 +102,11 @@
   text-align: center;
 }
 
-
+#password_error, #email_error{
+  font-size: 12px;
+  color: red;
+  font-style: italic;
+}
 @media (max-width:1200px) and (min-width:1100px) {
   .client-sign-up{
     padding-top: 10%;

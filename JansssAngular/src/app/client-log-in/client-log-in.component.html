@@ -15,12 +15,14 @@
       <div class="row form-group client-item client-email">
         <label>
           <input placeholder="Email or Username"  class="form-control" type="text" [formControl]="email">
+          <p *ngIf="invalidEmail()" id="email_error" class="help-block">Invalid email address.</p>
         </label>
       </div>
       <!--Client password-->
       <div class="row form-group client-item client-pass">
         <label>
           <input type="text" placeholder="Password"  class="form-control" [formControl]="password">
+          <p *ngIf="invalidPassword()" id="password_error" class="help-block">Invalid password.</p>
         </label>
       </div>
 

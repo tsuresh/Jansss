@@ -2,28 +2,31 @@
 <div class="client-sign-up container container-sm container-md container-lg container-xl">
   <div class="row">
     <div class="col"></div>
-    <div class="col-auto client">
+    <div  class="col-auto client">
       <div class="row client-logo">
         <img src="../../assets/images/logo/logo_J.png"><br>
       </div>
       <!--Client email-->
-      <div class="row form-group client-item client-email">
-        <label>
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="row form-group client-item client-email" [ngClass]="{ 'has-error': invalidEmail() }">
+        <label class="control-label">
           Email<br>
-          <input placeholder="Email" class="form-control" type="text" [formControl]="email">
+          <input placeholder="Email" class="form-control" type="text" formControlName="email">
+          <p *ngIf="invalidEmail()" id="email_error" class="help-block">Invalid email address.</p>
         </label>
       </div>
       <!--Client password-->
-      <div class="row form-group client-item client-pass">
-        <label>
+      <div class="row form-group client-item client-pass"  [ngClass]="{ 'has-error': invalidPassword() }">
+        <label class="control-label">
           Create a password<br>
-          <input type="text" placeholder="Password" class="form-control" [formControl]="password">
+          <input type="text" placeholder="Password" class="form-control" formControlName="password">
+          <p *ngIf="invalidPassword()" id="password_error" class="help-block">Invalid password.</p>
         </label>
       </div>
 
       <div class="col buttons">
-        <div class="btn-out-sign-up">
-          <button type="button" class="btn button-sign-up">Sign up</button>
+        <div class="btn-out-sign-up form-group">
+          <button type="submit" class="btn button-sign-up">Sign up</button>
         </div>
 
         <p class="or">OR</p>
@@ -40,6 +43,7 @@
       <div class="row client-item already-member">
         Already a member?<a routerLink="/client-log-in"> Log in</a>
       </div>
+      </form>
     </div>
     <div class="col"></div>
   </div>

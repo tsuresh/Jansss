@@ -14,70 +14,77 @@
       <p class="campaign">campaign</p>
     </div>
     <!-- Enter details form - responsive forms-->
-    <div class="col enter_form" data-aos="zoom-out-up">
+    <form [formGroup]="detailsForm" (ngSubmit)="onSubmit()" class="col enter_form" data-aos="zoom-out-up">
 
       <div class="heading-2">Get started with your <p class="campaign">campaign</p></div>
-        <div class="item1" >
+        <div class="item1 form-group" [ngClass]="{ 'has-error': invalidProductName() }">
           <!-- form item - product name -->
           <label class="item">
             Product Name<br>
-            <input type="text" [formControl]="productName">
+            <input type="text" class="form-control" formControlName="productName">
+            <p *ngIf="invalidProductName()" id="name_error" class="help-block">Invalid product name</p>
           </label>
         </div>
-        <div class="item2">
+        <div class="item2 form-group" [ngClass]="{ 'has-error': invalidIndustry() }">
           <!-- form item - industry -->
           <label class="item">
             Target Industry<br>
-            <input type="text" [formControl]="industry">
+            <input type="text" class="form-control" formControlName="industry">
+            <p *ngIf="invalidIndustry()" id="industry_error" class="help-block">Invalid industry</p>
           </label>
         </div>
 
-        <div class="item3">
+        <div class="item3 form-group" [ngClass]="{ 'has-error': invalidAudience() }">
           <!-- form item - target audience -->
           <label class="item">
             Target Audience<br>
-            <input type="text" [formControl]="audience">
+            <input type="text" class="form-control" formControlName="audience">
+            <p *ngIf="invalidAudience()" id="audience_error" class="help-block">Invalid target audience</p>
           </label>
         </div>
 
-        <div class="item4">
+        <div class="item4 form-group" [ngClass]="{ 'has-error': invalidBudget() }">
           <!-- form item - budget -->
           <label class="item">
             Budget<br>
-            <input type="text" [formControl]="budget">
+            <input type="text" class="form-control" formControlName="budget">
+            <p *ngIf="invalidBudget()" id="budget_error" class="help-block">The minimum budget is</p>
           </label>
         </div>
 
-        <div class="item5">
+        <div class="item5 form-group" [ngClass]="{ 'has-error': invalidLocation() }">
           <!-- form item - target location -->
           <label class="item">
             Target Location<br>
-            <input type="text" [formControl]="location">
+            <input type="text" class="form-control" formControlName="location">
+            <p *ngIf="invalidLocation()" id="location_error" class="help-block">The location does not exist</p>
           </label>
         </div>
 
-        <div class="item6">
+        <div class="item6 form-group" [ngClass]="{ 'has-error': invalidPrice() }">
           <!-- form item - price -->
           <label class="item">
             Price of Product/Service<br>
-            <input type="text" [formControl]="price">
+            <input type="text" class="form-control" formControlName="price">
+            <p *ngIf="invalidPrice()" id="price_error" class="help-block">Invalid price</p>
           </label>
         </div>
 
-        <div class="item7">
+        <div class="item7 form-group" [ngClass]="{ 'has-error': invalidDuration() }">
           <!-- form item - duration of campaign -->
           <label class="item">
             Duration of Campaign<br>
-            <input type="text" [formControl]="duration">
+            <input type="text" class="form-control" formControlName="duration">
+            <p *ngIf="invalidDuration()" id="duration_error" class="help-block">The minimum duration of a campaign is</p>
           </label>
         </div>
 
 
-        <div class="button_outer">
+        <div class="button_outer form-group">
           <!-- on click, navigates to select campaign page -->
-          <button type="button"  (click)="navigate()" class="btn button">Generate Campaign</button>
+          <button type="submit" class="btn button">Generate Campaign</button>
         </div>
 
-      </div>
+      </form>
   </div>
 </div>

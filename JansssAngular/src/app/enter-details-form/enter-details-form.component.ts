@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-enter-details-form',
@@ -10,19 +11,62 @@ import {Router} from '@angular/router';
   ]
 })
 export class EnterDetailsFormComponent implements OnInit {
-  productName = new FormControl('');
-  industry = new FormControl('');
-  audience = new FormControl('');
-  budget = new FormControl('');
-  location = new FormControl('');
-  price = new FormControl('');
-  duration = new FormControl('');
-
-  constructor(private router: Router) {
+  registered = false;
+  submitted = false;
+  detailsForm: FormGroup;
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  // navigate() {
+  // }
+  invalidProductName() {
+    return (this.submitted && this.detailsForm.controls.productName.errors != null);
   }
-  navigate() {
-    this.router.navigate(['/campaign']);
+  invalidIndustry() {
+    return (this.submitted && this.detailsForm.controls.industry.errors != null);
+  }
+  invalidAudience() {
+    return (this.submitted && this.detailsForm.controls.audience.errors != null);
+  }
+  invalidBudget() {
+    return (this.submitted && this.detailsForm.controls.budget.errors != null);
+  }
+  invalidLocation() {
+    return (this.submitted && this.detailsForm.controls.location.errors != null);
+  }
+  invalidPrice() {
+    return (this.submitted && this.detailsForm.controls.price.errors != null);
+  }
+  invalidDuration() {
+    return (this.submitted && this.detailsForm.controls.duration.errors != null);
   }
   ngOnInit() {
+    this.detailsForm = this.formBuilder.group({
+      productName: ['', [Validators.required]],
+      industry: ['', [Validators.required]],
+      audience: ['', [Validators.required]],
+      budget: ['', [Validators.required]],
+      location: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+      duration: ['', [Validators.required]],
+
+    });
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.detailsForm.invalid === true) {
+      return;
+    } else {
+      //   res => {
+      //     alert('Generating campaign');
+      //   },
+      //   err => {
+      //     alert('An error occurred. ');
+      //   }
+      // );
+      this.router.navigate(['/campaign']);
+      this.registered = true;
+    }
   }
 }
+

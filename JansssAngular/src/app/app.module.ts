@@ -26,6 +26,7 @@ import { VendorSignUpComponent } from './vendor-sign-up/vendor-sign-up.component
 import {A11yModule} from "@angular/cdk/a11y";
 import { UserOptionPageComponent } from './user-option-page/user-option-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
     A11yModule,
   ],
   providers: [],
