@@ -14,7 +14,8 @@
 
 //Header styling
 .header {
-  background-color: white;
+  //background-color: white;
+  //opacity: 0.5;
   position: fixed;
   z-index: 5;
   width: 100%;
@@ -23,6 +24,7 @@
 //Logo when the hamburger menu is closed
 .logo-1{
   margin-left: 2%;
+  //display: none;
 }
 
 //Hamburger menu

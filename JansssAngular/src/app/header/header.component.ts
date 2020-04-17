@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // document.getElementById('logo-1').style.display = 'block';
     // tslint:disable-next-line:only-arrow-functions
     (function() {
 

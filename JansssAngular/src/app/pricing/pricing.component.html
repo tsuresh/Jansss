@@ -2,40 +2,40 @@
 
 <div class="pricing container">
   <div class="card-deck pricing-options">
-    <div class="card subscription">
-      <div class="row heading">
-        <p>One-time<br>Subscription</p>
-      </div>
-      <!-- Features of One time Subscription-->
-      <div class="row subscription-item description">
-        <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   $100/subscription<br></p>
-        <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   1 campaign recommendation</p>
-        <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Single campaign</p>
-        <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Chat Support</p>
-      </div>
-      <div class="col buttons">
-        <div class="btn-out-subscribe">
-          <!-- On click - changes the users pricing plan if already signed in else, asks the user to sign up or log in-->
-          <button type="button" class="btn button-subscribe">Subscribe</button>
+
+    <div class="cardBox">
+      <div class="cards">
+        <div class="front">
+          <h3>One-time Subscription</h3>
+          <p>View more details</p>
+        </div>
+        <div class="back">
+          <div>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   $100/subscription</p>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   1 campaign recommendation</p>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Single campaign</p>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Chat Support</p>
+          </div>
+          <!-- On click - changes the users pricing plan if already signed in else, asks the user to sign up or log in -->
+          <button type="button" class="btn button-subscribe" (click)="navigateToUserOption()">Subscribe</button>
         </div>
       </div>
     </div>
-
-    <div class="card subscription">
-      <div class="row heading" id="heading">
-        <p>Premium<br>Subscription</p>
-      </div>
-      <!-- Features of Premium Subscription-->
-      <div class="row subscription-item description">
-        <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   $799/month<br></p>
-        <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   3 campaign recommendations</p>
-        <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Multiple simultaneous campaigns</p>
-        <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Chat & Phone Support</p>
-      </div>
-      <div class="col buttons">
-        <div class="btn-out-subscribe">
-          <!-- On click - changes the users pricing plan if already signed in else, asks the user to sign up or log in-->
-          <button type="button" class="btn button-subscribe">Subscribe</button>
+    <div class="cardBox">
+      <div class="cards">
+        <div class="front">
+          <h3>Premium Subscription</h3>
+          <p>View more details</p>
+        </div>
+        <div class="back">
+          <div>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   $100/subscription</p>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   1 campaign recommendation</p>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Single campaign</p>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Chat Support</p>
+          </div>
+          <!-- On click - changes the users pricing plan if already signed in else, asks the user to sign up or log in -->
+          <button type="button" class="btn button-subscribe" (click)="navigateToUserOption()">Subscribe</button>
         </div>
       </div>
     </div>

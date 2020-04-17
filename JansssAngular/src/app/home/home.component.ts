@@ -13,21 +13,31 @@ import * as $ from 'jquery';
 export class HomeComponent implements OnInit {
   constructor() { }
   ngOnInit() {
+    // $('.logo-1').css({
+    //   display: 'none'
+    // });
+    document.getElementById('logo-1').style.display = 'none';
     // Fixing Div for how it works
     // tslint:disable-next-line:only-arrow-functions
     $('document').ready(function() {
       // tslint:disable-next-line:prefer-const
       let fixmeTop = $('.fixme').offset().top;
-
       // tslint:disable-next-line:only-arrow-functions
       $(window).resize(function() {
         fixmeTop = $('.fixme').offset().top;
       });
         // tslint:disable-next-line:only-arrow-functions
       $(window).scroll(function() {
-          // tslint:disable-next-line:prefer-const
-          let currentScroll = $(window).scrollTop();
-          if ((currentScroll >= fixmeTop - 40) && (currentScroll < fixmeTop)) {
+        // tslint:disable-next-line:prefer-const
+        let currentScroll = $(window).scrollTop();
+        // if (document.documentElement.scrollTop >= 600) {
+        //   document.getElementById('logo-1').style.display = 'block';
+        //   // document.getElementById('navbar').style.top = '0px';
+        //   // document.getElementById('navbar').style.backgroundColor = 'white';
+        // } else {
+        //   document.getElementById('logo-1').style.display = 'none';
+        // }
+        if ((currentScroll >= fixmeTop - 40) && (currentScroll < fixmeTop)) {
             // how it works
             $('.fixme').css({
               position: 'sticky',
@@ -35,8 +45,12 @@ export class HomeComponent implements OnInit {
               // margin: 'auto auto',
               // width: '88%'
             });
-            // const element = document.getElementById('fixme');
-            // element.className = 'container';
+            $('.logo-1').css({
+              display: 'block'
+            });
+            // $('.header').css({
+            //   backgroundColor: 'white'
+            // });
             $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
@@ -72,6 +86,9 @@ export class HomeComponent implements OnInit {
               top: '15%',
               // margin: 'auto auto',
               // width: '88%'
+            });
+            $('.logo-1').css({
+              display: 'block'
             });
             // const element = document.getElementById('fixme');
             // element.className = 'container';
@@ -111,6 +128,9 @@ export class HomeComponent implements OnInit {
               // margin: 'auto auto',
               // width: '88%'
             });
+            $('.logo-1').css({
+              display: 'block'
+            });
             // const element = document.getElementById('fixme');
             // element.className = 'container';
             $('#fixme').addClass('container-fluid');
@@ -141,6 +161,9 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'hidden',
             });
+            // $('.logo-1').css({
+            //   display: 'block'
+            // });
           } else if ((currentScroll >= fixmeTop - 100) && (currentScroll < fixmeTop)) {
             // select campaign
             $('.fixme').css({
@@ -149,6 +172,9 @@ export class HomeComponent implements OnInit {
               // margin: 'auto auto',
               // width: '88%'
             });
+            $('.logo-1').css({
+              display: 'block'
+            });
             // const element = document.getElementById('fixme');
             // element.className = 'container';
             $('#fixme').addClass('container-fluid');
@@ -179,6 +205,9 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'hidden',
             });
+            // $('.logo-1').css({
+            //   display: 'block'
+            // });
           } else if ((currentScroll >= fixmeTop - 120) && (currentScroll < fixmeTop)) {
             // enter details
             $('.fixme').css({
@@ -216,6 +245,9 @@ export class HomeComponent implements OnInit {
             });
             $('.heading').css({
               visibility: 'hidden',
+            });
+            $('.logo-1').css({
+              display: 'block'
             });
           } else if ((currentScroll >= fixmeTop - 140) && (currentScroll < fixmeTop)) {
             // how it works campaign
@@ -255,12 +287,21 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'visible',
             });
+            $('.logo-1').css({
+              display: 'block'
+            });
+            // $('.header').css({
+            //   backgroundColor: 'white'
+            // });
           } else {
             $('.fixme').css({
               position: 'static',
               // margin: 'auto auto',
               // width: '100%'
             });
+            // $('.logo-1').css({
+            //   display: 'block'
+            // });
             $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'

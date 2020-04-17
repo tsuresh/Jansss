@@ -2,59 +2,22 @@
   padding-top: 10%;
 }
 
-.pricing .pricing-options{
-  width: 80%;
-  margin: auto auto;
-
-}
-.pricing div{
-  text-align: center;
-}
-
-div .subscription .heading p{
+.pricing-options{
+  max-width: 100%;
   width: 100%;
   margin: auto auto;
-  text-align: center;
-  padding-bottom: 10%;
-  font-size: 30px;
 }
 
-.description{
-  font-family: "Airbnb Cereal App Light", sans-serif;
+.pricing .pricing-options{
+  width: 100%;
   margin: auto auto;
-  padding: 10%;
-  border-top:1px solid #E06F63;
-  border-bottom: 1px solid #E06F63;
-  line-height: 175%;
-}
-
-.description p{
-  line-height: 2px;
-}
-
-
-.subscription{
-  text-align: center;
-  background-color: #FBFBFB;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px 2px #c2c0c0;
-  padding: 5% 4%;
-  font-family: "Airbnb Cereal App Medium", sans-serif;
-}
-
-.subscription-item{
-  margin: auto auto;
-}
-
-.btn-out-subscribe{
-  padding-top: 20%;
 }
 
 .button-subscribe{
   font-family: "Airbnb Cereal App Book", sans-serif;
   border-radius: 10px;
   color: white;
-  padding: 5% 6%;
+  padding: 3% 3%;
   font-size: 16px;
   text-transform: uppercase;
   background-color: #E06F63;
@@ -62,30 +25,111 @@ div .subscription .heading p{
 }
 
 
-@media screen and (max-width: 768px) {
-  .pricing{
-    padding-top: 20%;
-  }
+.front h3{
+  padding-top: 15%;
+  color: #222222;
+  font-size: 40px;
+  text-align: center;
+  font-family: "Airbnb Cereal App Medium", sans-serif;
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-
-  .pricing{
-    padding-top: 50%;
-  }
+.front p{
+  color: #E0584A;
+  padding-top: 5%;
+  font-size: 16px;
 }
 
-
-/* Large devices (laptops/desktops, 992px and down) */
-@media only screen and (max-width: 992px) {
-  .pricing{
-    padding-top: 15%;
-  }
+.back p{
+  color: black;
+  text-align: center;
+  font-size: 16px;
+  line-height: 0.01px;
 }
 
-@media (max-width:599px) and (min-width:0px) {
-  .pricing{
-    padding-top: 20%;
-  }
+.cardBox {
+  font-size: 1.2em;
+  margin-right: 2%;
+  margin-left: 2.5%;
+  transition: all 0.3s ease 0s;
+  width: 45%;
+}
+
+.cardBox:hover .cards {
+  transform: rotateY( 180deg);
+}
+
+.cards {
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px 2px #c2c0c0;
+  cursor: default;
+  height: 300px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease 0s;
+  width: 100%;
+  -webkit-animation: giro 1s 1;
+  animation: giro 1s 1;
+}
+
+.cards p {
+  margin-bottom: 1.8em;
+}
+
+.cards .front,
+.cards .back {
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  color: white;
+  display: block;
+  font-size: 1.2em;
+  height: 100%;
+  padding: 0.8em;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.cards .back {
+  transform: rotateY( 180deg);
+  padding-top: 8%;
+}
+
+@-webkit-keyframes giro {
+ from {
+   transform: rotateY( 180deg);
+ }
+ to {
+   transform: rotateY( 0deg);
+ }
+}
+
+@keyframes giro {
+ from {
+   transform: rotateY( 180deg);
+ }
+ to {
+   transform: rotateY( 0deg);
+ }
+}
+
+@media screen and (max-width: 767px) {
+ .cardBox {
+   margin-left: 2.8%;
+   margin-top: 3%;
+   width: 100%;
+ }
+ .card {
+   height: 285px;
+ }
+ .cardBox:last-child {
+   margin-bottom: 3%;
+ }
+}
+
+@media screen and (max-width: 480px) {
+ .cardBox {
+   width: 100%;
+ }
+ .card {
+   height: 260px;
+ }
 }

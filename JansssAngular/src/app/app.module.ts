@@ -23,7 +23,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CampaignProgressComponent } from './campaign-progress/campaign-progress.component';
 import { VendorLoginComponent } from './vendor-login/vendor-login.component';
 import { VendorSignUpComponent } from './vendor-sign-up/vendor-sign-up.component';
-import {A11yModule} from "@angular/cdk/a11y";
+import {A11yModule} from '@angular/cdk/a11y';
 import { UserOptionPageComponent } from './user-option-page/user-option-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HttpClientModule} from '@angular/common/http';
@@ -59,7 +59,7 @@ import { HttpClientModule} from '@angular/common/http';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
     A11yModule,
   ],
   providers: [],

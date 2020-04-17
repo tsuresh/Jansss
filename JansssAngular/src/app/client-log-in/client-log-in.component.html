@@ -12,14 +12,14 @@
         <p>Log in to generate your campaign</p>
       </div>
       <!--Client email-->
-      <div class="row form-group client-item client-email">
+      <div class="row form-group client-item client-email" [ngClass]="{ 'has-error': invalidEmail() }">
         <label>
           <input placeholder="Email or Username"  class="form-control" type="text" [formControl]="email">
           <p *ngIf="invalidEmail()" id="email_error" class="help-block">Invalid email address.</p>
         </label>
       </div>
       <!--Client password-->
-      <div class="row form-group client-item client-pass">
+      <div class="row form-group client-item client-pass" [ngClass]="{ 'has-error': invalidPassword() }">
         <label>
           <input type="text" placeholder="Password"  class="form-control" [formControl]="password">
           <p *ngIf="invalidPassword()" id="password_error" class="help-block">Invalid password.</p>
@@ -28,7 +28,7 @@
 
       <div class="col buttons">
         <div class="btn-out-log-in">
-          <button type="button" class="btn button-log-in">Log in</button>
+          <button type="submit" class="btn button-log-in" (click)="onSubmit()">Log in</button>
         </div>
 
         <p class="or">OR</p>
