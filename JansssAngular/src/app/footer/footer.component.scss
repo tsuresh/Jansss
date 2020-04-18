@@ -7,8 +7,12 @@ footer{
   color: #ffffff;
 }
 
-.logo {
-  width: 100px;
+.top {
+  display: none;
+}
+
+.small {
+  display: none;
 }
 
 .name {
@@ -76,6 +80,7 @@ p{
   width: 100%;
   height: 1px;
   background: #f1f1f1;
+  margin-top: 35px;
 }
 
 .bottom a {
@@ -91,7 +96,7 @@ p{
   flex-wrap: wrap;
 }
 
-.txtb {
+input[type=text] {
   flex: 1;
   padding: 10px 15px;
   font-size: 14px;
@@ -101,7 +106,8 @@ p{
   font-weight: 700;
   outline: none;
   border-radius: 10px;
-  min-width: 200px;
+  min-width: 190px;
+  max-width: 300px;
 }
 
 .btn {
@@ -116,4 +122,28 @@ p{
   margin-left: 20px;
   cursor: pointer;
   transition: opacity .3s linear;
+}
+
+@media (max-width: 1189px) {
+  .middle{
+    display: none;
+  }
+
+  .top {
+    display: block;
+  }
+}
+
+@media (max-width: 791px) {
+  .medium {
+    display: none;
+  }
+
+  .small {
+    display: block;
+  }
+
+  .line {
+    margin-top: 10px;
+  }
 }

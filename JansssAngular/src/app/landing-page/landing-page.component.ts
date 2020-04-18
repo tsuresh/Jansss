@@ -18,7 +18,7 @@ export class LandingPageComponent implements OnInit {
     window.onscroll = function() { slideInContent(); };
 
     function slideInContent() {
-      if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+      if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 5) {
         document.getElementById('middle').className = 'img-fluid mt-5 ml-5 float-left animated fadeInRight slower middle';
         document.getElementById('right').style.visibility = 'visible';
         document.getElementById('right').className = 'container text-left ml-5 animated fadeInRight slower';

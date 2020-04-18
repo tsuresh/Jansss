@@ -4,7 +4,10 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-select-campaign',
   templateUrl: './select-campaign.component.html',
-  styleUrls: ['./select-campaign.component.scss']
+  styleUrls: [
+    './select-campaign.component.scss',
+    '../../../node_modules/hover.css/css/hover-min.css'
+  ]
 })
 export class SelectCampaignComponent implements OnInit {
 
