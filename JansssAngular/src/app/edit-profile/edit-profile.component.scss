@@ -1,49 +1,29 @@
 .container {
-  padding-top: 8%;
+  padding-top: 10%;
 }
 
-.top {
+.heading-top {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .name {
   padding: 1%;
+  text-transform: uppercase;
 }
 
 .name h3 {
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.name h4 {
-  text-transform: uppercase;
-}
-
-.icon {
-  padding: 1%;
-}
-
-.proPicture {
-  width: 100%;
+.pro-img {
+  width: 100px;
   height: auto;
 }
 
-.icon p {
-  color: #7f8c8d;
-  margin-top: 5%;
-}
-
-.change:hover {
-  cursor: pointer;
-}
-
 .box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
+  width: 70%;
+  margin: auto auto;
 }
 
 .box .inputBox {
@@ -57,7 +37,7 @@
   letter-spacing: 1px;
   margin-bottom: 30px;
   border: none;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #b2bec3;
   outline: none;
   background: transparent;
 }
@@ -95,7 +75,7 @@
 
 .line {
   height: 1px;
-  background: black;
+  background: #b2bec3;
 }
 
 .arrow-down {
@@ -117,4 +97,35 @@
 .planOption:hover, .methodOption:hover {
   background: #E06F63;
   color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .box {
+    width: 90%;
+  }
+}
+
+@media (max-width: 991px) {
+  .box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .name h3 {
+    font-size: 20px;
+  }
+
+  .name h4 {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 513px) {
+  .heading-top {
+    font-size: 19px;
+  }
+  .name h3 {
+    font-size: 19px;
+  }
 }

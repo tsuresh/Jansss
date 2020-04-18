@@ -1,9 +1,19 @@
 .container {
-  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.heading-top {
+  display: none;
+}
+
+.heading-top p {
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 40px;
 }
 
 .text {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 82px;
   line-height: 90px;
 }
@@ -55,8 +65,27 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
+  .heading-top {
+    display: block;
+  }
+
   .col-left {
     display: none;
   }
+
+  .details {
+    margin-left: 10%;
+  }
+
+  .button {
+    float: left;
+  }
 }
+
+
+//@media (max-width: 767px) {
+//  .col-left {
+//    display: none;
+//  }
+//}

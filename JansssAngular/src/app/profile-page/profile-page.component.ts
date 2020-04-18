@@ -6,7 +6,8 @@ import {Router} from '@angular/router';
   templateUrl: './profile-page.component.html',
   styleUrls: [
     './profile-page.component.scss',
-    '../../../node_modules/animate.css/animate.min.css'
+    '../../../node_modules/animate.css/animate.min.css',
+    '../../../node_modules/hover.css/css/hover-min.css'
   ]
 })
 export class ProfilePageComponent implements OnInit {
@@ -17,6 +18,9 @@ export class ProfilePageComponent implements OnInit {
     this.router.navigate(['/edit-profile']);
   }
 
+  navigateToCampaignProgress() {
+    this.router.navigate(['/progress']);
+  }
   ngOnInit() {
   }
 

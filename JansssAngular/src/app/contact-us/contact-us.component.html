@@ -1,92 +1,84 @@
 <div class="container">
-  <img alt="logo" class="logo img-fluid mx-auto d-block" src="../../assets/images/logo/logo_J.png"/>
-  <div class="form box">
-    <form id="app-cover"
-          [formGroup] = "form"
-          (ngSubmit) = "onSubmit(form.value)">
+  <img alt="logo" class="img-fluid mx-auto d-block mt-5 mb-5 logo" src="../../assets/images/logo/logo_J.png"/>
 
-      <div class="row mt-5">
-        <div class="col">
-          <div class="inputBox half">
-            <input type="text" name="title" id="title" formControlName="title" required="">
-            <label for="title">Title*</label>
-          </div>
+  <form id="app-cover"
+        [formGroup] = "form"
+        (ngSubmit) = "onSubmit(form.value)">
+
+    <div class="row mt-5 box">
+      <div class="col">
+        <div class="inputBox half">
+          <input type="text" name="title" id="title" formControlName="title" required="">
+          <label for="title">Title*</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row box">
+      <div class="col mr-5">
+        <div class="inputBox">
+          <input type="text" name="fName" id="fName" formControlName="fName" required="">
+          <label for="fName">First Name*</label>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col mr-5">
-          <div class="inputBox">
-            <input type="text" name="fName" id="fName" formControlName="fName" required="">
-            <label for="fName">First Name*</label>
-          </div>
+      <div class="col">
+        <div class="inputBox">
+          <input type="text" name="sName" id="sName" formControlName="sName" required="">
+          <label for="sName">Surname</label>
         </div>
+      </div>
+    </div>
 
-        <div class="col">
-          <div class="inputBox">
-            <input type="text" name="sName" id="sName" formControlName="sName" required="">
-            <label for="sName">Surname</label>
-          </div>
+    <div class="row box">
+      <div class="col mr-5">
+        <div class="inputBox">
+          <input type="text" name="email" id="email" formControlName="email" required="">
+          <label for="email">Email*</label>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col mr-5">
-          <div class="inputBox">
-            <input type="text" name="email" id="email" formControlName="email" required="">
-            <label for="email">Email*</label>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="inputBox">
-            <input type="text" name="phone" id="phone" formControlName="phone" required="">
-            <label for="phone">Phone*</label>
-          </div>
+      <div class="col">
+        <div class="inputBox">
+          <input type="text" name="phone" id="phone" formControlName="phone" required="">
+          <label for="phone">Phone*</label>
         </div>
       </div>
+    </div>
 
-      <div class="row mt-1">
-        <div class="col mr-5">
-          <div>
-            <span id="selected">I prefer communication by*</span>
-            <img class="float-right hvr-wobble-vertical arrow-down" src="../../assets/images/icons/down.svg" (click)="viewOption('method')">
-          </div>
-          <div class="mt-2 line"></div>
-          <div class="options" id="method">
-            <div class="p-2 border-bottom option" (click)="getOption('method', 'option', 'selected', 0)">E-mail</div>
-            <div class="p-2 option" (click)="getOption('method', 'option', 'selected', 1)">SMS</div>
-          </div>
+    <div class="row mt-1 box">
+      <div class="col mr-5">
+        <div>
+          <span id="selected">I prefer communication by*</span>
+          <img class="float-right hvr-wobble-vertical arrow-down" src="../../assets/images/icons/down.svg" (click)="viewOption('method')">
         </div>
-        <div class="col"></div>
-      </div>
-
-      <div class="row mt-4">
-        <div class="col">
-          <div class="inputBox half">
-            <input type="textarea" name="message" id="message" formControlName="message" required="">
-            <label for="message">Message*</label>
-          </div>
+        <div class="mt-2 line"></div>
+        <div class="options" id="method">
+          <div class="p-2 border-bottom option" (click)="getOption('method', 'option', 'selected', 0)">E-mail</div>
+          <div class="p-2 option" (click)="getOption('method', 'option', 'selected', 1)">SMS</div>
         </div>
       </div>
+      <div class="col"></div>
+    </div>
 
-      <div class="row mt-4">
+    <div class="row mt-5 box">
+      <div class="col">
+        <div class="inputBox">
+          <input type="textarea" name="message" id="message" formControlName="message" required="">
+          <label for="message">Message*</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4 box">
+      <div class="col">
         <input type="checkbox">
-        <p class="ml-1">I agree to the <a href="#">privacy policy</a>*</p>
-      </div>
-
-      <div class="row">
+        <span class="ml-1">I agree to the <a href="#">privacy policy</a>*</span>
         <p>*Required fields</p>
       </div>
-
-      <div class="row mt-4">
-        <div class="col"></div>
-        <div class="col">
-          <input class="btn shadow-sm p-2 rounded float-right hvr-grow" type="submit" value="Send request">
-        </div>
+      <div class="col">
+        <input class="btn shadow-sm p-2 rounded float-right hvr-grow" type="submit" value="Send request">
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
-
-
