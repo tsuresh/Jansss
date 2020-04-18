@@ -1,73 +1,227 @@
+//Navrbar styling
 
-//NAVBAR CODE
-
-.nav-item{
-  padding:2px;
-  margin-left: 12px;
-  font-size: 18px;
-  font-family: 'Airbnb Cereal App Bold', sans-serif;
-  text-transform: uppercase;
+//Smooth transition
+@mixin easeOut {
+  transition: all .4s cubic-bezier(0.23, 1, 0.32, 1)
 }
 
-.nav-item{
-  color: black;
+//Tablet size
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
 }
 
-.logo{
-  padding-right: 45px;
-  padding-left: 45px;
-}
-
-nav div ul{
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-}
-
-
-li:nth-child(2) {
-  margin-left: 22%;
-  margin-right: 22%;
-}
-
-ul li .active{
-  color: #E06F63;
-  margin-right: 5%;
-}
-
-ul li a{
-  font-size: 16px;
-  color: #000000;
-}
-
-#username a{
-  color: #E06F63;
-}
-
-ul li a:hover { color: #E06F63 !important; }
-
-#navbar{
-  //top: -90px;
-  //position: center;
+//Header styling
+.header {
+  background-color: white;
   position: fixed;
+  z-index: 5;
+  width: 100%;
+}
+
+//Logo when the hamburger menu is closed
+.logo-1{
+  margin-left: 2%;
+}
+
+//Hamburger menu
+.burger {
+  position: absolute;
   z-index: 10;
+  right: 25px;
+  top: 25px;
+  cursor: pointer;
+  transform: rotateY(0);
+  @include easeOut;
+
+  &__patty {
+    width: 28px;
+    height: 2px;
+    margin: 0 0 4px 0;
+    background: #9c2a25;
+    @include easeOut;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  //transform hamburger menu to "X"
+  &--close {
+    transform: rotate(180deg);
+
+    .burger__patty {
+      //transition of first patty to "X"
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px);
+        background: rgba(196, 196, 196, 0.69);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      //transition of third patty to "X"
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -4px);
+        background: rgba(196, 196, 196, 0.69);
+      }
+    }
+  }
 }
 
-#username{
-  color: #E06F63;
-  float: right;
-  //background-color: blue;
-  padding-right: 50px;
-  padding-left: 35px;
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  visibility: hidden;
+
+  &--active {
+    visibility: visible;
+  }
+
+  //Stylying for the menu list and menu brand
+  &__brand,
+  &__list {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  //Stylying for the menu list
+  &__list {
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.82);
+    list-style-type: none;
+    transform: translate3d(0, -100%, 0);
+    @include easeOut;
+
+    &--active {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  //Stylying for the menu brand
+  &__brand {
+    background: rgb(255, 255, 255);
+    @include easeOut;
+    transform: translate3d(0, 100%, 0);
+
+    &--active {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  //Stylying for the menu item
+  &__item {
+    transform: translate3d(500px, 0, 0);
+    @include easeOut;
+
+    &--active {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  //Stylying for the menu link
+  &__link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    padding: 15px 0;
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+    @include easeOut;
+
+
+    //line under menu items
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 10px;
+      height: 2px;
+      background: white;
+      transform: translateX(-50%);
+      @include easeOut;
+    }
+
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  // add delay to each menu item
+  @for $x from 1 through 6 {
+    .menu__item:nth-child(#{$x}) {
+      transition-delay: $x * .1s;
+    }
+  }
 }
 
-#username img{
+// responsive tablet view
+@include tablet {
+  ul.menu__list,
+  div.menu__brand {
+    float: none;
+    width: 100%;
+    min-height: 0;
+
+    &--active {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .menu__list {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  .menu__link {
+    font-size: 24px;
+  }
+
+  .menu__brand {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0);
+
+    .logo {
+      width: 90px;
+      height: 90px;
+    }
+  }
+}
+
+//Logo when the hamburger menu is open
+.logo {
+  width: 300px;
+  height: 300px;
+  background-image: url("../../assets/images/logo/logo_Jansss_black_orange.png");
+  background-size: contain;
+}
+
+#username img {
   width: 50px;
   height: 50px;
 }
-#username a{
-  text-decoration: none;
-  font-family: "Airbnb Cereal App Medium", sans-serif;
+
+#username{
+  color: #ff7d70;
 }
 
+
+#navbar{
+  visibility: visible;
+  z-index: 10;
+}
 

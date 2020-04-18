@@ -1,25 +1,24 @@
 <div class="container">
-  <div class="row justify-content-md-center">
+  <div class="row justify-content-center mt-5">
 
-    <div class="align-middle col col-md-1 icon">
-      <img class="img-fluid proPicture" src="../../assets/images/profile/username.png">
+    <div class="col-2">
+      <img class="img-fluid pro-img" src="../../assets/images/profile/username.png" alt="profile image">
     </div>
 
-    <div class="align-middle col col-md-2 name">
-      <h3>FIRST NAME</h3>
-      <h4>SURNAME</h4>
+    <div class="col-3 name">
+      <h3>First name</h3>
+      <h4>Surname</h4>
     </div>
   </div>
 
   <h4 class="campaign">Current campaigns</h4>
 
-    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded current animated fadeInUp">
-      <div class="card-body">
+    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded animated fadeInUp current">
+      <div class="card-body" (click)="navigateToCampaignProgress()">
         <h3>Campaign</h3>
         <h4 class="number">1</h4>
       </div>
     </div>
-
 
   <h4 class="campaign">Previous Campaigns</h4>
 
@@ -47,7 +46,7 @@
   </div>
 
   <div>
-    <img (click)="navigateToEditProfile()" class="img-fluid settings float-right" src="../../assets/images/icons/settings.svg">
+    <img (click)="navigateToEditProfile()" class="img-fluid float-right hvr-bounce-out settings" src="../../assets/images/icons/settings.svg">
   </div>
 
 </div>

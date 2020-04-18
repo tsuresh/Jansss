@@ -2,12 +2,21 @@
   padding-top: 10%;
 }
 
-div .subscription .heading{
-  width: 70%;
+.pricing .pricing-options{
+  width: 80%;
+  margin: auto auto;
+
+}
+.pricing div{
+  text-align: center;
+}
+
+div .subscription .heading p{
+  width: 100%;
   margin: auto auto;
   text-align: center;
-  padding-bottom: 20%;
-  font-size: 24px;
+  padding-bottom: 10%;
+  font-size: 30px;
 }
 
 .description{
@@ -16,6 +25,11 @@ div .subscription .heading{
   padding: 10%;
   border-top:1px solid #E06F63;
   border-bottom: 1px solid #E06F63;
+  line-height: 175%;
+}
+
+.description p{
+  line-height: 2px;
 }
 
 
@@ -33,7 +47,7 @@ div .subscription .heading{
 }
 
 .btn-out-subscribe{
-  padding-top: 40%;
+  padding-top: 20%;
 }
 
 .button-subscribe{
@@ -48,3 +62,30 @@ div .subscription .heading{
 }
 
 
+@media screen and (max-width: 768px) {
+  .pricing{
+    padding-top: 20%;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+  .pricing{
+    padding-top: 50%;
+  }
+}
+
+
+/* Large devices (laptops/desktops, 992px and down) */
+@media only screen and (max-width: 992px) {
+  .pricing{
+    padding-top: 15%;
+  }
+}
+
+@media (max-width:599px) and (min-width:0px) {
+  .pricing{
+    padding-top: 20%;
+  }
+}

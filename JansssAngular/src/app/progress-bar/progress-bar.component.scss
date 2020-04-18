@@ -32,6 +32,13 @@ a{
 .try{
   width: 100%;
 }
+
+//@media screen and (max-width: 770px) {
+//  .progressDiv{
+//    padding-top: 17%;
+//  }
+//}
+
 //.inner1{
 //  font-family: "Airbnb Cereal App Light", sans-serif;
 //  font-size: 17px;
@@ -43,3 +50,14 @@ a{
 //  background-color: #E06F63;
 //  border-radius: 9px;
 //}
+@media screen and (max-width: 800px) {
+  .progressDiv{
+    padding-top: 22%;
+  }
+}
+
+@media (max-width:1200px) and (min-width:800px) {
+  .progressDiv{
+    padding-top: 17%;
+  }
+}

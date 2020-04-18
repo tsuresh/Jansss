@@ -13,5 +13,4 @@ export class ClientSignUpComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -21,6 +21,11 @@ import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-d
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CampaignProgressComponent } from './campaign-progress/campaign-progress.component';
+import { VendorLoginComponent } from './vendor-login/vendor-login.component';
+import { VendorSignUpComponent } from './vendor-sign-up/vendor-sign-up.component';
+import {A11yModule} from "@angular/cdk/a11y";
+import { UserOptionPageComponent } from './user-option-page/user-option-page.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +47,10 @@ import { CampaignProgressComponent } from './campaign-progress/campaign-progress
     ProfilePageComponent,
     EditProfileComponent,
     CampaignProgressComponent,
+    VendorLoginComponent,
+    VendorSignUpComponent,
+    UserOptionPageComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +58,7 @@ import { CampaignProgressComponent } from './campaign-progress/campaign-progress
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    A11yModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

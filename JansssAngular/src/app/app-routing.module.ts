@@ -3,16 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { PricingComponent } from './pricing/pricing.component';
 import { HomeComponent } from './home/home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import {EnterDetailsFormComponent} from './enter-details-form/enter-details-form.component';
-import {LaunchPageComponent} from './launch-page/launch-page.component';
-import {ClientSignUpComponent} from './client-sign-up/client-sign-up.component';
-import {SelectCampaignComponent} from './select-campaign/select-campaign.component';
-import {SelectPaymentComponent} from './select-payment/select-payment.component';
-import {ClientLogInComponent} from './client-log-in/client-log-in.component';
+import { EnterDetailsFormComponent } from './enter-details-form/enter-details-form.component';
+import { LaunchPageComponent } from './launch-page/launch-page.component';
+import { ClientSignUpComponent } from './client-sign-up/client-sign-up.component';
+import { SelectCampaignComponent } from './select-campaign/select-campaign.component';
+import { SelectPaymentComponent } from './select-payment/select-payment.component';
+import { ClientLogInComponent } from './client-log-in/client-log-in.component';
 import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-details-page.component';
 import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {EditProfileComponent} from './edit-profile/edit-profile.component';
 import {CampaignProgressComponent} from './campaign-progress/campaign-progress.component';
+import {HowItWorksComponent} from './how-it-works/how-it-works.component';
+import {VendorLoginComponent} from './vendor-login/vendor-login.component';
+import {VendorSignUpComponent} from './vendor-sign-up/vendor-sign-up.component';
+import {UserOptionPageComponent} from './user-option-page/user-option-page.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -27,11 +31,16 @@ const routes: Routes = [
   {path: 'progress', component: CampaignProgressComponent},
   {path: 'campaign-details', component: CampaignDetailsPageComponent},
   {path: 'profile', component: ProfilePageComponent},
-  {path: 'edit-profile', component: EditProfileComponent}
-];
+  {path: 'edit-profile', component: EditProfileComponent},
+  {path: 'how-it-works', component: HowItWorksComponent},
+  {path: 'vendor-login', component: VendorLoginComponent},
+  {path: 'vendor-signup', component: VendorSignUpComponent},
+  {path: 'user-option', component: UserOptionPageComponent}
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

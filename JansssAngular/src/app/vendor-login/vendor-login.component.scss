@@ -1,0 +1,74 @@
+.container {
+  padding-top: 10%;
+}
+
+.logo {
+  width: 50px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.card {
+  width: 25rem;
+  margin: auto auto;
+}
+
+.box .inputBox {
+  position: relative;
+}
+
+.box .inputBox input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #b2bec3;
+  outline: none;
+  background: transparent;
+}
+
+.box .inputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s;
+  color: #b2bec3;
+}
+
+.box .inputBox input:focus ~ label, .box .inputBox input:valid ~ label {
+  top: -18px;
+  left: 0;
+  color: #7f8c8d;
+  font-size: 12px;
+}
+
+.login-btn {
+  background-color: #E06F63;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.google {
+  width: 1.5rem;
+}
+
+.text-center p {
+  font-size: 9px;
+  color: #b2bec3;
+}
+
+.link {
+  color: #636e72;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.bottom {
+  font-size: 10px;
+  color: #b2bec3;
+}

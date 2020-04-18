@@ -1,26 +1,24 @@
 .container {
-  margin-top: 7%;
+  padding-top: 10%;
 }
 
 .name {
   padding: 1%;
+  text-transform: uppercase;
 }
 
 .name h3 {
-  font-weight: bolder;
+  font-weight: 700;
 }
 
-.icon {
-  padding: 1%;
-}
-
-.proPicture {
-  width: 100%;
+.pro-img {
+  width: 100px;
   height: auto;
 }
 
 .current {
   width: 22rem;
+  cursor: pointer;
 }
 
 .number {
@@ -35,24 +33,11 @@
 .settings {
   width: 3%;
   height: auto;
-}
-
-.settings:hover {
   cursor: pointer;
 }
 
-@media (max-width: 1199px) {
-  .name h3 {
-    font-size: 23px;
-  }
-
-  .name h4 {
-    font-size: 20px;
-  }
-}
-
 @media (max-width: 991px) {
-  h3 {
+  .card h3 {
     font-size: 24px;
   }
 
@@ -62,7 +47,15 @@
 }
 
 @media (max-width: 767px) {
-  h3 {
+  .name h3 {
+    font-size: 20px;
+  }
+
+  .name h4 {
+    font-size: 17px;
+  }
+
+  .card h3 {
     font-size: 16px;
   }
 
@@ -72,11 +65,21 @@
 }
 
 @media (max-width: 575px) {
-  h3 {
+  .card h3 {
     font-size: 30px;
   }
 
   .number {
     font-size: 24px;
+  }
+
+  .settings {
+    width: 100px;
+  }
+}
+
+@media (max-width: 513px) {
+  .name h3 {
+    font-size: 19px;
   }
 }

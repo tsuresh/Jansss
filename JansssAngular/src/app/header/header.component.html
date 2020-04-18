@@ -1,26 +1,32 @@
+<header class="header" id="navbar">
 
+<!-- Logo when the hamburger menu is closed -->
+  <a class="navbar-brand logo-1" href="#" routerLink="/"><img src="../../assets/images/logo/logo_Jansss_black_orange.png" height="80" width="80"/></a>
 
+  <!-- Hamburger Menu -->
+  <div class="burger">
+    <div class="burger__patty"></div>
+    <div class="burger__patty"></div>
+    <div class="burger__patty"></div>
+  </div>
 
-<nav class="navbar navbar-expand-lg navbar-light container-fluid" id="navbar">
-    <a class="navbar-brand logo" href="#" routerLink="/"><img src="../../assets/images/logo/logo_Jansss_black_orange.png" height="80" width="80"/></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto navigation">
-      <li class="nav-item">
-        <a class="nav-link active" href="#" routerLink="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link item" href="#" routerLink="/pricing">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link item" href="#" routerLink="/contact-us">Contact Us</a>
+  <nav class="menu">
+    <!-- Logo when the hamburger menu is open -->
+    <div class="menu__brand">
+      <a class="navbar-brand" href="#" routerLink="/"><div class="logo"></div></a>
+    </div>
+
+    <!--Items for the navigation bar-->
+    <ul class="menu__list" id="myDIV">
+      <li class="menu__item"><a href="#" class="menu__link" routerLink="/">Home</a></li>
+      <li class="menu__item"><a href="#" class="menu__link" routerLink="/pricing">Pricing</a></li>
+      <li class="menu__item"><a href="#" class="menu__link" routerLink="/contact-us">Contact Us</a></li>
+      <li class="menu__item user">
+        <a href="#" class="menu__link" id="username" routerLink="/user-option">
+          <img src="../../assets/images/profile/username.png">
+        </a>
       </li>
     </ul>
+  </nav>
 
-    <form class="form-inline my-2 my-lg-0" id="username">
-      <a routerLink="/client-sign-up"><img src="../../assets/images/profile/username.png"> Username</a>
-    </form>
-  </div>
-</nav>
+</header>

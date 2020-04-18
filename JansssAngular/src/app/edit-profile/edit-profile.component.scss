@@ -1,34 +1,131 @@
 .container {
-  margin-top: 7%;
+  padding-top: 10%;
 }
 
-.top {
+.heading-top {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .name {
   padding: 1%;
+  text-transform: uppercase;
 }
 
 .name h3 {
-  font-weight: bolder;
+  font-weight: 700;
 }
 
-.icon {
-  padding: 1%;
-}
-
-.proPicture {
-  width: 100%;
+.pro-img {
+  width: 100px;
   height: auto;
 }
 
-.icon p {
-  color: #7f8c8d;
-  margin-top: 5%;
+.box {
+  width: 70%;
+  margin: auto auto;
 }
 
-.change:hover {
+.box .inputBox {
+  position: relative;
+}
+
+.box .inputBox input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #b2bec3;
+  outline: none;
+  background: transparent;
+}
+
+.box .inputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.box .inputBox input:focus ~ label, .box .inputBox input:valid ~ label {
+  top: -18px;
+  left: 0;
+  color: #7f8c8d;
+  font-size: 12px;
+}
+
+.box input[type=submit] {
+  background-color: #E06F63;
+  color: #ffffff;
+}
+
+.box input[type=reset] {
+  background-color: #dcdde1;
+  color: #000000;
+}
+
+.box .btn {
+  text-transform: uppercase;
+}
+
+.line {
+  height: 1px;
+  background: #b2bec3;
+}
+
+.arrow-down {
+  width: 15px;
+  height: auto;
+  margin-left: 175px;
   cursor: pointer;
+}
+
+.options {
+  display: none;
+  background: #f5f6fa;
+}
+
+.planOption, .methodOption {
+  cursor: pointer;
+}
+
+.planOption:hover, .methodOption:hover {
+  background: #E06F63;
+  color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .box {
+    width: 90%;
+  }
+}
+
+@media (max-width: 991px) {
+  .box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .name h3 {
+    font-size: 20px;
+  }
+
+  .name h4 {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 513px) {
+  .heading-top {
+    font-size: 19px;
+  }
+  .name h3 {
+    font-size: 19px;
+  }
 }

@@ -25,5 +25,4 @@ export class EnterDetailsFormComponent implements OnInit {
   }
   ngOnInit() {
   }
-
 }

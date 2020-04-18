@@ -13,6 +13,7 @@ export class ProgressBarComponent implements OnInit {
 
   constructor(private router: Router) { }
   ngOnInit() {
+    // Fill the progress bar depending on the url
     if ((this.router.url === '/') || (this.router.url === '/details')) {
       $('.inner1').css({
         color: 'white',
