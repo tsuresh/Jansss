@@ -34,20 +34,21 @@ def predict():
     X = data[['TV', 'RADIO', 'NEWSPAPER']].values
     y = data['SALES'].values
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.01)
 
     model = LinearRegression()
     model.fit(X_train, y_train)
+    model.fit(X_test, y_test)
 
-    y_pred = model.predict(X_test)
-    df = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
+    # y_pred = model.predict(X_test)
+    # df = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
 
-    df.plot(kind='bar', figsize=(10, 8))
-    plt.grid(which='major', linestyle='-', linewidth='0.5', color='green')
-    plt.grid(which='minor', linestyle=':', linewidth='0.5', color='black')
-    plt.show()
+    # df.plot(kind='bar', figsize=(10, 8))
+    # plt.grid(which='major', linestyle='-', linewidth='0.5', color='green')
+    # plt.grid(which='minor', linestyle=':', linewidth='0.5', color='black')
+    # plt.show()
 
-    print(f'Accuracy : {round((model.score(X_test, y_test)) * 100, 3)} %')
+    # print(f'Accuracy : {round((model.score(X_test, y_test)) * 100, 3)} %')
     predictedSales = model.predict([[tv, radio, newspaper]])
     success = predictedSales[0]
     successRate = str(round(success, 2)) + ' %'
@@ -57,4 +58,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)    
+    app.run(port=5000, debug=True)
