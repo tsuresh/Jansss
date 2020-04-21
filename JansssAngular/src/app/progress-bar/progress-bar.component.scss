@@ -13,6 +13,11 @@
   border-radius: 9px;
 }
 
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 
 .inner1, .inner2, .inner3, .inner4{
   font-family: "Airbnb Cereal App Light", sans-serif;

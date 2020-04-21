@@ -77,7 +77,10 @@ text-align: center;
   color: red;
   font-style: italic;
 }
-
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
 .item input{
   width: 100%;
   border: none;
