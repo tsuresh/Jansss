@@ -28,6 +28,8 @@ const routes: Routes = [
   {path: 'launch', component: LaunchPageComponent},
   {path: 'client-sign-up', component: ClientSignUpComponent},
   {path: 'client-log-in', component: ClientLogInComponent},
+  {path: 'vendor-sign-up', component: VendorSignUpComponent},
+  {path: 'vendor-log-in', component: VendorLoginComponent},
   {path: 'progress', component: CampaignProgressComponent},
   {path: 'campaign-details', component: CampaignDetailsPageComponent},
   {path: 'profile', component: ProfilePageComponent},

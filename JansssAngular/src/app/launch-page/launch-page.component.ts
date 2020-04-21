@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-launch-page',
@@ -17,6 +18,9 @@ export class LaunchPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('#disableItem1').removeClass('disabled');
+    $('#disableItem2').removeClass('disabled');
+    $('#disableItem3').removeClass('disabled');
   }
 
 }

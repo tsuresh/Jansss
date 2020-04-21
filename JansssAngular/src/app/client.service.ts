@@ -10,6 +10,6 @@ export class ClientService {
   constructor(private http: HttpClient) { }
   signUpUser(email, password) {
     const user = new UserInformation(email, password);
-    return this.http.post('http://localhost:3000/auth/user/signup', user);
+    return this.http.post('https://jansss.herokuapp.com/auth/user/signup', user);
   }
 }

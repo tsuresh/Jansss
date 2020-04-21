@@ -14,7 +14,7 @@
       <p class="campaign">campaign</p>
     </div>
     <!-- Enter details form - responsive forms-->
-    <form [formGroup]="detailsForm" (ngSubmit)="onSubmit()" class="col enter_form" data-aos="zoom-out-up">
+    <form [formGroup]="detailsForm" (ngSubmit)="onSubmit()" class="col enter_form" id="enterDetails" data-aos="zoom-out-up">
 
       <div class="heading-2">Get started with your <p class="campaign">campaign</p></div>
         <div class="item1 form-group" [ngClass]="{ 'has-error': invalidProductName() }">
