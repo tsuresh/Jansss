@@ -20,62 +20,108 @@
         <div class="item1 form-group" [ngClass]="{ 'has-error': invalidProductName() }">
           <!-- form item - product name -->
           <label class="item">
-            Product Name<br>
-            <input type="text" class="form-control" formControlName="productName">
+            Product*<br>
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="E.g: Tuition Class" formControlName="productName">
+            </mat-form-field>
             <p *ngIf="invalidProductName()" id="name_error" class="help-block">Invalid product name</p>
           </label>
         </div>
         <div class="item2 form-group" [ngClass]="{ 'has-error': invalidIndustry() }">
           <!-- form item - industry -->
           <label class="item">
-            Target Industry<br>
-            <input type="text" class="form-control" formControlName="industry">
-            <p *ngIf="invalidIndustry()" id="industry_error" class="help-block">Invalid industry</p>
+            Target Industry*<br>
+            <mat-form-field style="width: 100%" >
+              <input type="text" matInput formControlName="industry" placeholder="E.g: Education" [matAutocomplete]="industryGroup">
+              <p *ngIf="invalidIndustry()" id="industry_error" class="help-block">Invalid industry</p>
+              <mat-autocomplete #industryGroup="matAutocomplete">
+                <mat-optgroup *ngFor="let group of industryOptions | async" [label]="group.letter">
+                  <mat-option *ngFor="let name of group.names" [value]="name">
+                    {{name}}
+                  </mat-option>
+                </mat-optgroup>
+              </mat-autocomplete>
+            </mat-form-field>
           </label>
         </div>
 
         <div class="item3 form-group" [ngClass]="{ 'has-error': invalidAudience() }">
           <!-- form item - target audience -->
           <label class="item">
-            Target Audience<br>
-            <input type="text" class="form-control" formControlName="audience">
-            <p *ngIf="invalidAudience()" id="audience_error" class="help-block">Invalid target audience</p>
+            Target Audience*<br>
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="E.g: Students" formControlName="audience">
+            </mat-form-field>
+            <p *ngIf="invalidAudience()" id="audience_error" class="help-block">Target audience is required</p>
           </label>
         </div>
 
         <div class="item4 form-group" [ngClass]="{ 'has-error': invalidBudget() }">
           <!-- form item - budget -->
           <label class="item">
-            Budget<br>
-            <input type="text" class="form-control" formControlName="budget">
-            <p *ngIf="invalidBudget()" id="budget_error" class="help-block">The minimum budget is</p>
+            Budget*<br>
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="E.g: Rs. 10,000/-" formControlName="budget">
+            </mat-form-field>
+            <p *ngIf="invalidBudget()" id="budget_error" class="help-block">The budget is required</p>
           </label>
         </div>
 
         <div class="item5 form-group" [ngClass]="{ 'has-error': invalidLocation() }">
           <!-- form item - target location -->
           <label class="item">
-            Target Location<br>
-            <input type="text" class="form-control" formControlName="location">
-            <p *ngIf="invalidLocation()" id="location_error" class="help-block">The location does not exist</p>
+            Target Location*<br>
+            <mat-form-field style="width: 100%">
+              <input type="text" matInput formControlName="location" placeholder="E.g: Wellawatte, Colombo" [matAutocomplete]="locationGroup">
+              <mat-autocomplete #locationGroup="matAutocomplete">
+                <mat-optgroup *ngFor="let group of locationOptions | async" [label]="group.letter">
+                  <mat-option *ngFor="let name of group.names" [value]="name">
+                    {{name}}
+                  </mat-option>
+                </mat-optgroup>
+              </mat-autocomplete>
+            </mat-form-field>
+            <p *ngIf="invalidLocation()" id="location_error" class="help-block">Location is required</p>
           </label>
         </div>
 
         <div class="item6 form-group" [ngClass]="{ 'has-error': invalidPrice() }">
           <!-- form item - price -->
           <label class="item">
-            Price of Product/Service<br>
-            <input type="text" class="form-control" formControlName="price">
-            <p *ngIf="invalidPrice()" id="price_error" class="help-block">Invalid price</p>
+            Price of Product/Service*<br>
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="E.g: Rs. 1,000 per lesson" formControlName="price">
+            </mat-form-field>
+            <p *ngIf="invalidPrice()" id="price_error" class="help-block">Price is required</p>
           </label>
         </div>
 
-        <div class="item7 form-group" [ngClass]="{ 'has-error': invalidDuration() }">
-          <!-- form item - duration of campaign -->
+        <div class="item7 form-group">
           <label class="item">
-            Duration of Campaign<br>
-            <input type="text" class="form-control" formControlName="duration">
-            <p *ngIf="invalidDuration()" id="duration_error" class="help-block">The minimum duration of a campaign is</p>
+            Duration of Campaign*<br>
+              <mat-form-field class="dateStart">
+                <mat-label>Start Date:</mat-label>
+                <input matInput [matDatepicker]="startDate" required [formControl]="dateStart">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate
+                                startView="multi-year"
+                                (yearSelected)="chosenYearStartHandler($event)"
+                                (monthSelected)="chosenMonthStartHandler($event, startDate)"
+                                panelClass="example-month-picker">
+                </mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field class="dateEnd">
+                <mat-label>End Date:</mat-label>
+                <input matInput [matDatepicker]="endDate" required [formControl]="dateEnd">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate
+                                startView="multi-year"
+                                (yearSelected)="chosenYearEndHandler($event)"
+                                (monthSelected)="chosenMonthEndHandler($event, startDate)"
+                                panelClass="example-month-picker">
+                </mat-datepicker>
+              </mat-form-field>
           </label>
         </div>
 

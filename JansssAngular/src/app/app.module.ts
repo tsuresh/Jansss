@@ -27,7 +27,9 @@ import {A11yModule} from '@angular/cdk/a11y';
 import { UserOptionPageComponent } from './user-option-page/user-option-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HttpClientModule} from '@angular/common/http';
-
+import {MatAutocompleteModule, MatDatepickerModule, MatFormFieldModule} from '@angular/material';
+import {MatNativeDateModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,11 @@ import { HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     A11yModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

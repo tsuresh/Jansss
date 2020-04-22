@@ -147,6 +147,7 @@
 <!--</div>-->
 
 <!--Client Sign up-->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <div class="client-sign-up container container-sm container-md container-lg container-xl">
   <div class="row">
     <div class="col"></div>
@@ -159,60 +160,66 @@
       <div class="form-group">
         <label class="client-email" for="email" [ngClass]="frmSignup.controls['email']">Email</label>
         <input id="email" formControlName="email" placeholder="Email" type="email" class="form-control" [ngClass]="frmSignup.controls['email']">
-        <p class="text-danger criteria" *ngIf="frmSignup.controls['email'].hasError('required')">
-          Email is Required!
+        <p class="text-danger criteriaEmail" *ngIf="frmSignup.controls['email'].hasError('required')">
+          Email is Required.
         </p>
-        <label class="text-danger criteria" *ngIf="frmSignup.controls['email'].hasError('email')">
-          Enter a valid email address!
+        <label class="text-danger criteriaEmail" *ngIf="frmSignup.controls['email'].hasError('email')">
+          Enter a valid email address.
         </label>
       </div>
       <div class="form-group" >
-        <label class="client-pass" for="password" [ngClass]="frmSignup.controls['password']">Password</label>
-        <input id="password" formControlName="password" placeholder="Password" type="password" class="form-control" [ngClass]="frmSignup.controls['password']" oninput="display()">
+        <label class="client-pass" for="password" [ngClass]="frmSignup.controls['password']">Create a Password</label>
+        <input id="password" formControlName="password" placeholder="Password" type="password" class="form-control"
+               [ngClass]="frmSignup.controls['password']">
         <!-- <label class="text-danger col" *ngIf="frmSignup.controls['password'].hasError('required')">
           Password is Required!
         </label> -->
-        <label class="row criteria" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+        <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+        frmSignup.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
           <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
           frmSignup.controls['password'].hasError('minlength') ? 'cancel' :
             'check_circle' }}</i>
-          Must be at least 8 characters!
+          At least 8 characters.
         </label>
-        <label class="row criteria" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
+        <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+         frmSignup.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
           <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
           frmSignup.controls['password'].hasError('hasNumber') ? 'cancel' :
             'check_circle' }}</i>
-          Must contain at least 1 number!
+          Contains at least 1 Number.
         </label>
-        <label class="row criteria" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
+        <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+        frmSignup.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
           <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
           frmSignup.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
             'check_circle' }}</i>
-          Must contain at least 1 in Capital Case!
+          Contains at least 1 Capital Letter.
         </label>
-        <label class="row criteria" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
+        <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+        frmSignup.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
           <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
           frmSignup.controls['password'].hasError('hasSmallCase') ? 'cancel' :
             'check_circle' }}</i>
-          Must contain at least 1 Letter in Small Case!
+          Contains at least 1 Simple Letter.
         </label>
-        <label class="row criteria" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">
+        <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+        frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">
           <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
           frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :
             'check_circle' }}</i>
-          Must contain at least 1 Special Character!
+          Contains at least 1 Special Character
         </label>
       </div>
-      <div class="form-group">
+      <div class="form-group confirmPassword">
         <label class="client-pass" for="confirmPassword" [ngClass]="frmSignup.controls['confirmPassword']">Confirm
           Password</label>
         <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control"
                [ngClass]="frmSignup.controls['confirmPassword']">
-        <label class="text-danger criteria" *ngIf="frmSignup.controls['confirmPassword'].hasError('required')">
-          Password is Required!
+        <label class="text-danger criteriaConfirm" *ngIf="frmSignup.controls['confirmPassword'].hasError('required')">
+          Password is Required.
         </label>
-        <label class="text-danger criteria" *ngIf="frmSignup.controls['confirmPassword'].hasError('NoPassswordMatch')">
-          Password do not match
+        <label class="text-danger criteriaConfirm" *ngIf="frmSignup.controls['confirmPassword'].hasError('NoPassswordMatch')">
+          Passwords do not match.
         </label>
       </div>
 

@@ -58,26 +58,25 @@
 // //     alert('An error occurred. ' + JSON.stringify(err) + this.userForm.controls.email.value + this.userForm.controls.password.value);
 // //   }
 // // )
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {CustomValidators} from '../custom-validators';
 import {HttpClient} from '@angular/common/http';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-client-sign-up',
   templateUrl: './client-sign-up.component.html',
   styleUrls: ['./client-sign-up.component.scss']
 })
-export class ClientSignUpComponent {
+export class ClientSignUpComponent implements OnInit{
   public frmSignup: FormGroup;
   registered = false;
   submitted = false;
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.frmSignup = this.createSignupForm();
   }
-  invalidEmail() {
-    return (this.submitted && this.frmSignup.controls.email.errors != null);
-  }
+
   createSignupForm(): FormGroup {
     return this.fb.group(
       {
@@ -135,5 +134,53 @@ export class ClientSignUpComponent {
       });
       this.registered = true;
     }
+  }
+
+  ngOnInit() {
+    $('#password').keyup(function() {
+      // @ts-ignore
+      if ($(this).val().length > 0) {
+        // @ts-ignore
+        $('.criteriaPassword').css({
+          display: 'block'
+        });
+        $('.confirmPassword').css({
+          display: 'block'
+        });
+      } else {
+        $('.criteriaPassword').css({
+          display: 'none'
+        });
+        $('.confirmPassword').css({
+          display: 'none'
+        });
+      }
+    });
+    $('#confirmPassword').keyup(function() {
+      // @ts-ignore
+      if ($(this).val().length > 0) {
+        // @ts-ignore
+        $('.criteriaConfirm').css({
+          display: 'block'
+        });
+      } else {
+        $('.criteriaConfirm').css({
+          display: 'none'
+        });
+      }
+    });
+    $('#email').keyup(function() {
+      // @ts-ignore
+      if ($(this).val().length > 0) {
+        // @ts-ignore
+        $('.criteriaEmail').css({
+          display: 'block'
+        });
+      } else {
+        $('.criteriaEmail').css({
+          display: 'none'
+        });
+      }
+    });
   }
 }

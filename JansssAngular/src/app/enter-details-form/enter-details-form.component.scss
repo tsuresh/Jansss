@@ -7,8 +7,8 @@
 
 .heading_enter{
   font-family: "Airbnb Cereal App Medium", sans-serif;
-  margin-top: 5%;
-  font-size: 70px;
+  margin-top: 10%;
+  font-size: 80px;
   display: block;
   //visibility: visible;
 }
@@ -81,12 +81,24 @@ a.disabled {
   pointer-events: none;
   cursor: default;
 }
-.item input{
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #e0e0e0
+//.item input{
+//  width: 100%;
+//  border: none;
+//  border-bottom: 1px solid #e0e0e0;
+//  font-family: "Airbnb Cereal App Light", sans-serif;
+//}
+
+.dateStart, .dateEnd {
+  width: 50%;
+  padding-top: 2%;
 }
 
+.dateStart{
+  padding-right: 5%;
+}
+::placeholder{
+  color: #e0e0e0;
+}
 .item{
   display: block;
   //float:right;
