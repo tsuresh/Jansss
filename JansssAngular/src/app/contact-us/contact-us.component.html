@@ -3,27 +3,32 @@
 
   <form id="app-cover"
         [formGroup] = "form"
-        (ngSubmit) = "onSubmit(form.value)">
+        (ngSubmit) = "onSubmit()">
 
+    <!-- Title -->
     <div class="row mt-5 box">
       <div class="col">
-        <div class="inputBox half">
+        <div class="form-group inputBox half" [ngClass]="{ 'has-error': invalidTitle() }">
           <input type="text" name="title" id="title" formControlName="title" required="">
           <label for="title">Title*</label>
+          <p *ngIf="invalidTitle()" id="title-error" class="help-block">Invalid title</p>
         </div>
       </div>
     </div>
 
+    <!-- First Name -->
     <div class="row box">
       <div class="col mr-5">
-        <div class="inputBox">
+        <div class="form-group inputBox" [ngClass]="{ 'has-error': invalidFirstName() }">
           <input type="text" name="fName" id="fName" formControlName="fName" required="">
           <label for="fName">First Name*</label>
+          <p *ngIf="invalidFirstName()" id="fName-error" class="help-block">Invalid first name</p>
         </div>
       </div>
 
+      <!-- Surname -->
       <div class="col">
-        <div class="inputBox">
+        <div class="form-group inputBox" >
           <input type="text" name="sName" id="sName" formControlName="sName" required="">
           <label for="sName">Surname</label>
         </div>
@@ -31,23 +36,29 @@
     </div>
 
     <div class="row box">
+
+      <!-- Email -->
       <div class="col mr-5">
-        <div class="inputBox">
+        <div class="form-group inputBox" [ngClass]="{ 'has-error': invalidEmail() }">
           <input type="text" name="email" id="email" formControlName="email" required="">
           <label for="email">Email*</label>
+          <p *ngIf="invalidEmail()" id="email-error" class="help-block">Invalid E-mail address</p>
         </div>
       </div>
 
+      <!-- Phone -->
       <div class="col">
-        <div class="inputBox">
+        <div class="form-group inputBox" [ngClass]="{ 'has-error': invalidPhoneNumber() }">
           <input type="text" name="phone" id="phone" formControlName="phone" required="">
           <label for="phone">Phone*</label>
+          <p *ngIf="invalidPhoneNumber()" id="phone-error" class="help-block">Invalid phone number</p>
         </div>
       </div>
     </div>
 
+    <!-- Communication Method -->
     <div class="row mt-1 box">
-      <div class="col mr-5">
+      <div class="col mr-5" [ngClass]="{ 'has-error': invalidComMethod() }">
         <div>
           <span id="selected">I prefer communication by*</span>
           <img class="float-right hvr-wobble-vertical arrow-down" src="../../assets/images/icons/down.svg" (click)="viewOption('method')">
@@ -58,14 +69,17 @@
           <div class="p-2 option" (click)="getOption('method', 'option', 'selected', 1)">SMS</div>
         </div>
       </div>
+      <p *ngIf="invalidComMethod()" id="comMethod-error" class="help-block">Please select preferred communication method</p>
       <div class="col"></div>
     </div>
 
+    <!-- Message -->
     <div class="row mt-5 box">
       <div class="col">
-        <div class="inputBox">
+        <div class="form-group inputBox" [ngClass]="{ 'has-error': invalidMessage() }">
           <input type="textarea" name="message" id="message" formControlName="message" required="">
           <label for="message">Message*</label>
+          <p *ngIf="invalidMessage()" id="message-error" class="help-block">Invalid message</p>
         </div>
       </div>
     </div>

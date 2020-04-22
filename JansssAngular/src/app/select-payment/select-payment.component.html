@@ -20,12 +20,17 @@
 
     <div class="col text-center details">
       <div class="row">
+        <!-- Visa card -->
         <div class="col bg-light border-light shadow-sm p-3 mb-5 mr-5 rounded">
           <img class="card-img-top img-fluid" src="../../assets/images/payment/visa.svg" alt="visa card">
         </div>
+
+        <!-- Master card -->
         <div class="col bg-light border-light shadow-sm p-3 mb-5 mr-5 rounded">
           <img class="card-img-top img-fluid" src="../../assets/images/payment/mastercardCopy.svg" alt="master card">
         </div>
+
+        <!-- PayPal -->
         <div class="col bg-light border-light shadow-sm p-3 mb-5 mr-5 rounded">
           <img class="card-img-top img-fluid" src="../../assets/images/payment/paypalCopy.svg" alt="paypal">
         </div>
@@ -34,28 +39,37 @@
       <div class="row box">
         <form
           [formGroup] = "form"
-          (ngSubmit) = "onSubmit(form.value)">
+          (ngSubmit) = "onSubmit()">
+
+          <!-- Card number -->
           <div class="row">
-            <div class="col inputBox">
+            <div class="form-group col inputBox" [ngClass]="{ 'has-error': invalidCardNumber() }">
               <input formControlName="cardNo" id="cardNo" name="cardNo" required="" type="text">
               <label class="ml-3" for="cardNo">Card Number*</label>
+              <p *ngIf="invalidCardNumber()" id="card-no-error" class="help-block">Invalid card number</p>
             </div>
           </div>
 
           <div class="row mt-3">
-            <div class="col inputBox">
+
+            <!-- Expiry date -->
+            <div class="form-group col inputBox" [ngClass]="{ 'has-error': invalidExpiryDate() }">
               <input formControlName="exDate" id="exDate" name="exDate" required="" type="text">
               <label class="ml-3" for="exDate">Expiry Date*</label>
+              <p *ngIf="invalidExpiryDate()" id="exDate-error" class="help-block">Invalid expiry date</p>
             </div>
 
-            <div class="col inputBox">
+            <!-- CVV -->
+            <div class="form-group col inputBox" [ngClass]="{ 'has-error': invalidCvv() }">
               <input formControlName="cvv" id="cvv" name="cvv" required="" type="text">
               <label class="ml-3" for="cvv">CVV*</label>
+              <p *ngIf="invalidCvv()" id="cvv-error" class="help-block">Invalid CVV</p>
             </div>
           </div>
 
+          <!-- Next button -->
           <div class="row mt-3 float-right button">
-            <button (click)="navigateToLaunch()" class="btn shadow-sm rounded hvr-wobble-horizontal">Next</button>
+            <input class="btn shadow-sm rounded hvr-wobble-horizontal" type="submit" value="Next">
           </div>
         </form>
       </div>

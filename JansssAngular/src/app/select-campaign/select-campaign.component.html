@@ -5,35 +5,35 @@
 
 <div class="container select-campaign" data-aos="zoom-in">
   <div class="card-deck">
-    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
+    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded campaign" id="campaign-1" (click)="viewDetails()">
       <div class="card-body">
         <h3>Campaign</h3>
-        <h4 class="number">1</h4>
+        <h4 class="number" id="one">1</h4>
       </div>
     </div>
 
-    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
+    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded campaign" id="campaign-2">
       <div class="card-body">
         <h3>Campaign</h3>
-        <h4 class="number">2</h4>
+        <h4 class="number" id="two">2</h4>
       </div>
     </div>
 
-    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
+    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded campaign" id="campaign-3">
       <div class="card-body">
         <h3>Campaign</h3>
-        <h4 class="number">3</h4>
+        <h4 class="number" id="three">3</h4>
       </div>
     </div>
   </div>
 
-  <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
-    <div class="card-header bg-light border-light">
-      <h5>Campaign #</h5>
+  <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded" id="campaign-details">
+    <div class="card-header bg-light border-light pb-3">
+      <h5>Campaign<span id="campaign-number"> #</span></h5>
     </div>
     <div class="card-body">
       <p class="card-text">Campaign details should appear here.</p>
-      <button (click)="navigateToPayment()" class="btn shadow-sm rounded hvr-wobble-horizontal">NEXT</button>
+      <button (click)="navigateToPayment()" class="btn shadow-sm rounded hvr-wobble-horizontal">Next</button>
     </div>
   </div>
 </div>

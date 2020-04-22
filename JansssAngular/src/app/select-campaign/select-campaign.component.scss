@@ -11,6 +11,18 @@ h3 {
   font-size: 24px;
 }
 
+.campaign {
+  cursor: pointer;
+}
+
+#campaign-details {
+  display: none;
+}
+
+button {
+  text-transform: uppercase;
+}
+
 @media (max-width: 991px) {
   h3 {
     font-size: 24px;
