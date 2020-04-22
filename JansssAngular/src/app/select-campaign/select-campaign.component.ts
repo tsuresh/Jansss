@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-select-campaign',
@@ -18,6 +19,7 @@ export class SelectCampaignComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('#disableItem1').removeClass('disabled');
   }
 
 }

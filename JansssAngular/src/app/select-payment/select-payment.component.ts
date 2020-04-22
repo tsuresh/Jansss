@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-select-payment',
@@ -21,6 +22,8 @@ export class SelectPaymentComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('#disableItem1').removeClass('disabled');
+    $('#disableItem2').removeClass('disabled');
     this.form = new FormGroup({
       cardNo: new FormControl(''),
       exDate: new FormControl(''),

@@ -13,9 +13,6 @@ import * as $ from 'jquery';
 export class HomeComponent implements OnInit {
   constructor() { }
   ngOnInit() {
-    // $('.logo-1').css({
-    //   display: 'none'
-    // });
     document.getElementById('logo-1').style.display = 'none';
     // Fixing Div for how it works
     // tslint:disable-next-line:only-arrow-functions
@@ -42,16 +39,10 @@ export class HomeComponent implements OnInit {
             $('.fixme').css({
               position: 'sticky',
               top: '15%',
-              // margin: 'auto auto',
-              // width: '88%'
             });
             $('.logo-1').css({
               display: 'block'
             });
-            // $('.header').css({
-            //   backgroundColor: 'white'
-            // });
-            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -84,15 +75,10 @@ export class HomeComponent implements OnInit {
             $('.fixme').css({
               position: 'sticky',
               top: '15%',
-              // margin: 'auto auto',
-              // width: '88%'
             });
             $('.logo-1').css({
               display: 'block'
             });
-            // const element = document.getElementById('fixme');
-            // element.className = 'container';
-            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -131,9 +117,6 @@ export class HomeComponent implements OnInit {
             $('.logo-1').css({
               display: 'block'
             });
-            // const element = document.getElementById('fixme');
-            // element.className = 'container';
-            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -175,9 +158,6 @@ export class HomeComponent implements OnInit {
             $('.logo-1').css({
               display: 'block'
             });
-            // const element = document.getElementById('fixme');
-            // element.className = 'container';
-            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -205,20 +185,12 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'hidden',
             });
-            // $('.logo-1').css({
-            //   display: 'block'
-            // });
           } else if ((currentScroll >= fixmeTop - 120) && (currentScroll < fixmeTop)) {
             // enter details
             $('.fixme').css({
               position: 'sticky',
               top: '15%',
-              // margin: 'auto auto',
-              // width: '88%'
             });
-            // const element = document.getElementById('fixme');
-            // element.className = 'container';
-            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'visible'
             });
@@ -254,12 +226,7 @@ export class HomeComponent implements OnInit {
             $('.fixme').css({
               position: 'sticky',
               top: '15%',
-              // margin: 'auto auto',
-              // width: '88%'
             });
-            // const element = document.getElementById('fixme');
-            // element.className = 'container';
-            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -296,13 +263,7 @@ export class HomeComponent implements OnInit {
           } else {
             $('.fixme').css({
               position: 'static',
-              // margin: 'auto auto',
-              // width: '100%'
             });
-            // $('.logo-1').css({
-            //   display: 'block'
-            // });
-            $('#fixme').addClass('container-fluid');
             $('#description1').css({
               visibility: 'hidden'
             });

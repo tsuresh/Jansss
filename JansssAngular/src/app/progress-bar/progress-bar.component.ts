@@ -10,7 +10,6 @@ import * as $ from 'jquery';
   ]
 })
 export class ProgressBarComponent implements OnInit {
-
   constructor(private router: Router) { }
   ngOnInit() {
     // Fill the progress bar depending on the url

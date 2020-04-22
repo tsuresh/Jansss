@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-enter-details-form',
@@ -38,7 +39,33 @@ export class EnterDetailsFormComponent implements OnInit {
   invalidDuration() {
     return (this.submitted && this.detailsForm.controls.duration.errors != null);
   }
+  onSubmit() {
+    this.submitted = true;
+    if (this.detailsForm.invalid === true) {
+      return;
+    } else {
+      //   res => {
+      //     alert('Generating campaign');
+      //   },
+      //   err => {
+      //     alert('An error occurred. ');
+      //   }
+      // );
+      // tslint:disable-next-line:only-arrow-functions
+      this.router.navigate(['/campaign']);
+      this.detailsForm.reset(this.detailsForm.value);
+      this.registered = true;
+    }
+  }
   ngOnInit() {
+    // // tslint:disable-next-line:only-arrow-functions
+    // $('document').ready(function() {
+    //   // tslint:disable-next-line:only-arrow-functions
+    //   $('#enterDetails').submit(function(event) {
+    //     // onSubmit();
+    //     event.preventDefault();
+    //   });
+    // });
     this.detailsForm = this.formBuilder.group({
       productName: ['', [Validators.required]],
       industry: ['', [Validators.required]],
@@ -51,22 +78,5 @@ export class EnterDetailsFormComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.detailsForm.invalid === true) {
-      return;
-    } else {
-      //   res => {
-      //     alert('Generating campaign');
-      //   },
-      //   err => {
-      //     alert('An error occurred. ');
-      //   }
-      // );
-      this.router.navigate(['/campaign']);
-      this.registered = true;
-    }
-  }
 }
 

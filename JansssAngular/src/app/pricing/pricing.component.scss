@@ -13,6 +13,7 @@
   margin: auto auto;
 }
 
+//subscribe button
 .button-subscribe{
   font-family: "Airbnb Cereal App Book", sans-serif;
   border-radius: 10px;
@@ -24,7 +25,7 @@
   box-shadow: 0 2px 5px 0 #c2c0c0;
 }
 
-
+//Styling for the heading
 .front h3{
   padding-top: 15%;
   color: #222222;
@@ -46,7 +47,8 @@
   line-height: 0.01px;
 }
 
-.cardBox {
+
+.packages {
   font-size: 1.2em;
   margin-right: 2%;
   margin-left: 2.5%;
@@ -54,11 +56,13 @@
   width: 45%;
 }
 
-.cardBox:hover .cards {
+//on hover flip card
+.packages:hover .subscription {
   transform: rotateY( 180deg);
 }
 
-.cards {
+//subscription packages
+.subscription {
   border-radius: 10px;
   box-shadow: 2px 2px 4px 2px #c2c0c0;
   cursor: default;
@@ -70,12 +74,13 @@
   animation: giro 1s 1;
 }
 
-.cards p {
+.subscription p {
   margin-bottom: 1.8em;
 }
 
-.cards .front,
-.cards .back {
+//front and back styling
+.subscription .front,
+.subscription .back {
   backface-visibility: hidden;
   box-sizing: border-box;
   color: white;
@@ -88,11 +93,13 @@
   width: 100%;
 }
 
-.cards .back {
+//back styling
+.subscription .back {
   transform: rotateY( 180deg);
   padding-top: 8%;
 }
 
+//animations
 @-webkit-keyframes giro {
  from {
    transform: rotateY( 180deg);
@@ -111,25 +118,26 @@
  }
 }
 
+//responsiveness for smaller screens
 @media screen and (max-width: 767px) {
- .cardBox {
+ .packages {
    margin-left: 2.8%;
    margin-top: 3%;
    width: 100%;
  }
- .card {
+ .subscription {
    height: 285px;
  }
- .cardBox:last-child {
+ .packages:last-child {
    margin-bottom: 3%;
  }
 }
 
 @media screen and (max-width: 480px) {
- .cardBox {
+ .packages {
    width: 100%;
  }
- .card {
+ .subscription {
    height: 260px;
  }
 }

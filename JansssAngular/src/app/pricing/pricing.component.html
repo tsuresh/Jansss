@@ -1,14 +1,17 @@
 <!--Pricing page-->
 
 <div class="pricing container">
+<!-- Flip cards -->
   <div class="card-deck pricing-options">
 
-    <div class="cardBox">
-      <div class="cards">
+    <div class="packages">
+      <div class="subscription">
+        <!--Flip card - front face-->
         <div class="front">
           <h3>One-time Subscription</h3>
           <p>View more details</p>
         </div>
+        <!--Flip card - back face-->
         <div class="back">
           <div>
             <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   $100/subscription</p>
@@ -21,18 +24,21 @@
         </div>
       </div>
     </div>
-    <div class="cardBox">
-      <div class="cards">
+    <div class="packages">
+      <div class="subscription">
+        <!--Flip card - front face-->
         <div class="front">
           <h3>Premium Subscription</h3>
           <p>View more details</p>
         </div>
+        <!--Flip card - back face-->
         <div class="back">
           <div>
-            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   $100/subscription</p>
-            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   1 campaign recommendation</p>
-            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Single campaign</p>
-            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Chat Support</p>
+            <!--Premium package information-->
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   $799/month</p>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   3 campaign recommendations</p>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Multiple simultaneous campaigns</p>
+            <p><img src="../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Chat & Phone Support</p>
           </div>
           <!-- On click - changes the users pricing plan if already signed in else, asks the user to sign up or log in -->
           <button type="button" class="btn button-subscribe" (click)="navigateToUserOption()">Subscribe</button>
