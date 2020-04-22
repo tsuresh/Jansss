@@ -263,12 +263,12 @@ export class EnterDetailsFormComponent implements OnInit {
   invalidPrice() {
     return (this.submitted && this.detailsForm.controls.price.errors != null);
   }
-  // invalidStartDate() {
-  //   return (this.submitted && this.detailsForm.controls.startDate.errors != null);
   // }
-  // invalidEndDate() {
   //   return (this.submitted && this.detailsForm.controls.endDate.errors != null);
+  // invalidEndDate() {
   // }
+  //   return (this.submitted && this.detailsForm.controls.startDate.errors != null);
+  // invalidStartDate() {
   onSubmit() {
     this.submitted = true;
     if (this.detailsForm.invalid === true) {
@@ -319,7 +319,6 @@ export class EnterDetailsFormComponent implements OnInit {
     }
     return this.locations;
   }
-
   private _filterGroupIndustry(value: string): IndustryGroup[] {
     if (value) {
       return this.industries
@@ -328,6 +327,5 @@ export class EnterDetailsFormComponent implements OnInit {
     }
     return this.industries;
   }
-
 }
 

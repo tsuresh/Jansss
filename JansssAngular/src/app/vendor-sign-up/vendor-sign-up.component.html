@@ -4,22 +4,35 @@
       <img alt="logo" class="logo img-fluid mx-auto d-block" src="../../assets/images/logo/logo_J.png"/>
       <div class="card-text">
         <div class="box">
-          <form (ngSubmit) = "onSubmit(form.value)"
-                [formGroup] = "form"
-                id="app-cover">
-            <div class="inputBox">
+          <form (ngSubmit) = "onSubmit()"
+                [formGroup] = "form">
+
+            <!-- Username -->
+            <div class="form-group inputBox" [ngClass]="{ 'has-error': invalidUsername() }">
               <input formControlName="username" id="username" name="username" required="" type="text">
               <label for="username">Company Email</label>
+              <p *ngIf="invalidUsername()" id="username-error" class="help-block">Invalid username</p>
             </div>
 
-            <div class="inputBox">
+            <!-- Password -->
+            <div class="form-group inputBox" [ngClass]="{ 'has-error': invalidPassword() }">
               <input formControlName="password" id="password" name="password" required="" type="password">
               <label for="password">Create Password</label>
+              <p *ngIf="invalidPassword()" id="password_error" class="help-block">Invalid password</p>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group inputBox" [ngClass]="{ 'has-error': invalidConfirmPassword() }">
+              <input formControlName="confirmPassword" id="confirmPassword" name="confirmPassword" required="" type="password">
+              <label for="password">Confirm Password</label>
+              <p *ngIf="invalidPassword()" id="confirmPassword_error" class="help-block">Password does not match</p>
             </div>
 
             <div class="text-center">
               <input class="btn shadow p-2 pr-3 pl-3 mb-3 mt-2 rounded login-btn" type="submit" value="Sign up">
               <h5 class="mb-3">OR</h5>
+
+              <!-- Sign up with Google -->
               <button class="btn shadow p-2 pr-3 pl-3 mb-3 rounded">
                 <img alt="logo" class="google img-fluid" src="../../assets/images/signup/google.svg"/>
                 Continue with Google

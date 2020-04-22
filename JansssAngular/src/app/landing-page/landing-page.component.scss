@@ -1,11 +1,13 @@
+//Body styling
 .body {
   width: 100%;
   height: 100vh;
   background: #E06F63;
-  background: linear-gradient(to bottom, #E06F63, #E06F63, #E06F63, #E06F63, #fd746c, #ff9088, #ffffff);
+  background: linear-gradient(to bottom, #E06F63, #E06F63, #E06F63, #E06F63, #fd746c, #ff9088, #ffffff); /* Chrome and Safari */
   background: -webkit-linear-gradient(to bottom, #E06F63, #E06F63, #E06F63, #E06F63, #fd746c, #ff9088, #ffffff);
 }
 
+//Logo styling
 .body img {
   width: 25%;
   height: auto;

@@ -11,8 +11,8 @@ export class PricingComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  navigateToUserOption() {
-    this.router.navigate(['/user-option']);
+  navigateToClientSignUp() {
+    this.router.navigate(['/client-sign-up']);
   }
   ngOnInit() {
   }

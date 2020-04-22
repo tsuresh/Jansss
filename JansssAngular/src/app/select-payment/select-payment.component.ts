@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {FormControl, FormGroup} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import * as $ from 'jquery';
 
 @Component({
@@ -13,25 +13,46 @@ import * as $ from 'jquery';
   ]
 })
 export class SelectPaymentComponent implements OnInit {
+  registered = false;
+  submitted = false;
   form: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+  }
 
-  navigateToLaunch() {
-    this.router.navigate(['/launch']);
+  // Validator function for card number
+  invalidCardNumber() {
+    return (this.submitted && this.form.controls.cardNo.errors != null);
+  }
+
+  // Validator function for expiry date
+  invalidExpiryDate() {
+    return (this.submitted && this.form.controls.cardNo.errors != null);
+  }
+
+  // Validator function for CVV
+  invalidCvv() {
+    return (this.submitted && this.form.controls.cardNo.errors != null);
   }
 
   ngOnInit() {
     $('#disableItem1').removeClass('disabled');
     $('#disableItem2').removeClass('disabled');
     this.form = new FormGroup({
-      cardNo: new FormControl(''),
-      exDate: new FormControl(''),
-      cvv: new FormControl('')
+      cardNo: new FormControl('', Validators.required),
+      exDate: new FormControl('', Validators.required),
+      cvv: new FormControl('', Validators.required)
     });
   }
 
-  onSubmit(mediaItem) {
-    console.log(mediaItem);
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.form.invalid === true) {
+      return;
+    } else {
+      this.router.navigate(['/launch']);
+      this.registered = true;
+    }
   }
 }

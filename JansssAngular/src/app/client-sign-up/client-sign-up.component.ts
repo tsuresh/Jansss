@@ -1,63 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-// import {ClientService} from '../client.service';
-// import {HttpClient} from '@angular/common/http';
-// import {Router} from '@angular/router';
-//
-// @Component({
-//   selector: 'app-client-sign-up',
-//   templateUrl: './client-sign-up.component.html',
-//   styleUrls: ['./client-sign-up.component.scss']
-// })
-// export class ClientSignUpComponent implements OnInit {
-//   // email = new FormControl('');
-//   // password = new FormControl('');
-//   registered = false;
-//   submitted = false;
-//   userForm: FormGroup;
-// tslint:disable-next-line:max-line-length
-//   constructor(private formBuilder: FormBuilder, private clientService: ClientService, private http: HttpClient, private router: Router) { }
-//
-//   invalidEmail() {
-//     return (this.submitted && this.userForm.controls.email.errors != null);
-//   }
-//   invalidPassword() {
-//     return (this.submitted && this.userForm.controls.password.errors != null);
-//   }
-//   ngOnInit() {
-//     this.userForm = this.formBuilder.group({
-//       email: ['', [Validators.required, Validators.email]],
-// tslint:disable-next-line:max-line-length
-//       password: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
-//     });
-//   }
-//
-//   onSubmit() {
-//     this.submitted = true;
-//
-//     if (this.userForm.invalid === true) {
-//       return;
-//     } else {
-//       const data: any = Object.assign(this.userForm.value);
-//       // tslint:disable-next-line:no-shadowed-variable
-//       this.http.post('https://jansss.herokuapp.com/auth/user/signup', data).subscribe(( data: any) => {
-//         alert('Sign up was successful');
-//       }, error => {
-//         alert('An error occurred. ' + JSON.stringify(error.error));
-//       });
-//       this.registered = true;
-//     }
-//   }
-// }
-//
-// // this.clientService.signUpUser(this.userForm.controls.email.value , this.userForm.controls.password.value).subscribe(
-// //   res => {
-// //     alert('Successfully signed up');
-// //   },
-// //   err => {
-// //     alert('An error occurred. ' + JSON.stringify(err) + this.userForm.controls.email.value + this.userForm.controls.password.value);
-// //   }
-// // )
 import {Component, OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {CustomValidators} from '../custom-validators';
@@ -114,9 +54,18 @@ export class ClientSignUpComponent implements OnInit{
       },
       {
         // check whether our password and confirm password match
-        validator: CustomValidators.passwordMatchValidator
       }
+        validator: CustomValidators.passwordMatchValidator
     );
+  }
+  invalidPassword() {
+    return (this.submitted && this.userForm.controls.password.errors != null);
+  }
+  ngOnInit() {
+    this.userForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
+    });
   }
 
     onSubmit() {
