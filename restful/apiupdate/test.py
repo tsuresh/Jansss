@@ -9,8 +9,8 @@ records = db.vendors
 
 print("Updating ",format(records.count_documents({}))," vendor records.")
 
-place_ids = ["ChIJl-8y97n34joREIybXt7MWn0", "ChIJBc4QpNlb4joRH0A4W1jNb-I"]
-vendor_ids = ["5e91c83eeda2d205c7256493", "5e91c9a7eda2d205c7256494"]
+place_ids = ["ChIJwf6-dzla4joR50ska7QzStk", "ChIJ36PPDiRb4joRL0bw9M6GNlg", "ChIJ4XuGFdxb4joRarileevmpTI", "ChIJmZjasstb4joRBQG5ysN_x9E"]
+vendor_ids = ["5e969c52ed24470867294642", "5e969ce3ed24470867294643", "5e969d90ed24470867294644", "5e969ec8ed24470867294645"]
 
 main_url1 = 'https://maps.googleapis.com/maps/api/place/details/json?place_id='
 main_url2 = '&fields=name,rating,formatted_phone_number,geometry,formatted_address&key=AIzaSyBSnrY80HKA1R78FdhfxP9hKV_-DIgjttE'
@@ -24,25 +24,26 @@ for i in range(array_length):
     completeURL = main_url1 + place_id + main_url2
     
     json_data = requests.get(completeURL).json()
-    location = json_data['result']['geometry']['location']
-    formatted_address = json_data['result']['formatted_address']
-    formatted_phone_number = json_data['result']['formatted_phone_number']
-    name = json_data['result']['name']
-    rating = json_data['result']['rating']
 
-    vendor_updates = {
-        'location': location,
-        'address': formatted_address,
-        'phoneNumber': formatted_phone_number,
-        'googleName': name,
-        'rating': rating
-    }
+    print (json_data['status'])
+    if json_data['status'] == 'OK':
+        location = json_data['result']['geometry']['location']
+        formatted_address = json_data['result']['formatted_address']
+        formatted_phone_number = json_data['result']['formatted_phone_number']
+        name = json_data['result']['name']
+        rating = json_data['result']['rating']
 
-    records.update_one({'_id': ObjectId(vendor_id)}, {'$set': vendor_updates})
+        vendor_updates = {
+            'location': location,
+            'address': formatted_address,
+            'phoneNumber': formatted_phone_number,
+            'googleName': name,
+            'rating': rating
+        }
 
-    print(formatted_address)
-    print(formatted_phone_number)
-    print(name)
-    print(rating)
-   
- 
+        records.update_one({'_id': ObjectId(vendor_id)}, {'$set': vendor_updates})
+
+        print(formatted_address)
+        print(formatted_phone_number)
+        print(name)
+        print(rating)
