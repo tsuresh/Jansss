@@ -1,14 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+
+/* Components */
 import { AppComponent } from './app.component';
+import { SubscriptionComponent } from './component/subscription/subscription.component';
 import { HomeComponent } from './component/home/home.component';
 import { PricingComponent } from './component/pricing/pricing.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnterDetailsFormComponent } from './component/enter-details-form/enter-details-form.component';
 import { ProgressBarComponent } from './component/progress-bar/progress-bar.component';
 import { HowItWorksComponent } from './component/how-it-works/how-it-works.component';
@@ -23,30 +25,39 @@ import { EditProfileComponent } from './component/edit-profile/edit-profile.comp
 import { CampaignProgressComponent } from './component/campaign-progress/campaign-progress.component';
 import { VendorLoginComponent } from './component/vendor-login/vendor-login.component';
 import { VendorSignUpComponent } from './component/vendor-sign-up/vendor-sign-up.component';
-import { A11yModule } from '@angular/cdk/a11y';
 import { UserOptionPageComponent } from './component/user-option-page/user-option-page.component';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
-import { HttpClientModule } from '@angular/common/http';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatListModule} from '@angular/material/list';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { CampaignDetailsDescriptionComponent } from './component/campaign-details-description/campaign-details-description.component';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatAutocompleteModule} from '@angular/material';
-import {MatNativeDateModule} from '@angular/material';
-
+/* Angular forms */
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {A11yModule} from '@angular/cdk/a11y';
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from '@angular/common/http';
 /* Angular material */
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {
+  MatAutocompleteModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatSnackBarModule,
+  MatDialogModule
+} from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
+import { CampaignDetailsDescriptionComponent } from './component/campaign-details-description/campaign-details-description.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatListModule} from '@angular/material/list';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
+import {MatNativeDateModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
 import {AngularMaterialModule} from './angular-material/angular-material.module';
+import {AuthInterceptor} from './interceptor/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -72,6 +83,7 @@ import {AngularMaterialModule} from './angular-material/angular-material.module'
     VendorSignUpComponent,
     UserOptionPageComponent,
     LandingPageComponent,
+    SubscriptionComponent,
     CampaignDetailsDescriptionComponent,
   ],
   imports: [
@@ -89,23 +101,17 @@ import {AngularMaterialModule} from './angular-material/angular-material.module'
     MatAutocompleteModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatPasswordStrengthModule.forRoot(),
-    MatDatepickerModule,
-    MatIconModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
-    MatBadgeModule,
-    MatListModule,
-    MatProgressBarModule,
-    MatRadioModule,
+    MatSnackBarModule,
+    MatDialogModule,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
-  ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

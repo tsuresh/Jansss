@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../service/auth.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  providers: [AuthService]
 })
 export class HeaderComponent implements OnInit {
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     // document.getElementById('logo-1').style.display = 'block';
@@ -73,4 +76,23 @@ export class HeaderComponent implements OnInit {
 
     }());
   }
-}
+    logout() {
+      if (this.authService.isLoggedIn()) {
+        $('.logout1').css({
+          display: 'none',
+        });
+        $('.logout2').css({
+          display: 'block',
+        });
+        this.authService.logout();
+      } else {
+        $('.logout1').css({
+          display: 'block',
+        });
+        $('.logout2').css({
+          display: 'none',
+        });
+      }
+    }
+  }
+

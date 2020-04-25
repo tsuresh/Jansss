@@ -16,8 +16,8 @@
         <div class="form-group">
         <label class="client-name" [ngClass]="frmSignup.controls['name']">
           <mat-form-field style="width:200%;">
-            <mat-label>Name</mat-label>
-            <input matInput  formControlName="name" [errorStateMatcher]="matcher" placeholder="Ex. John Smith">
+            <mat-label>Username</mat-label>
+            <input matInput  formControlName="name" [errorStateMatcher]="matcher" placeholder="Ex. JohnS">
             <mat-error *ngIf="frmSignup.controls['name'].hasError('required')">
               Your name is <strong>required</strong>
             </mat-error>
@@ -86,7 +86,7 @@
         <div class="form-group confirmPassword">
           <label class="client-pass" for="confirmPassword" [ngClass]="frmSignup.controls['confirmPassword']">
             <mat-form-field style="width:170%;">
-              <mat-label>Create a password</mat-label>
+              <mat-label>Confirm password</mat-label>
               <input matInput  id="confirmPassword" formControlName="confirmPassword" [errorStateMatcher]="matcher" placeholder="Ex. JohnSmith123!">
             </mat-form-field>
           </label>
@@ -100,7 +100,7 @@
 
         <div class="col buttons-client">
           <div class="btn-out-sign-up form-group">
-            <button type="submit" class="btn button-client" routerLink="/profile">Sign up</button>
+            <button type="submit" class="btn button-client">Sign up</button>
           </div>
           <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>
         </div>
@@ -113,8 +113,5 @@
       <p>To keep connected with us login with your personal information</p>
       <button routerLink="/client-log-in" type="submit" class="btn button-switch">Log in</button>
     </div>
-
   </div>
-
-
 </div>

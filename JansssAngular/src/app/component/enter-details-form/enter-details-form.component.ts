@@ -185,12 +185,12 @@ export class EnterDetailsFormComponent implements OnInit {
     letter: 'A',
     names: [
       'Accommodation',
-      'Accommodation and Food service',
-      'Administrative and Support service',
-      'Administrative and Support and Waste Management and Remediation service',
+      'Accommodation and Food Services',
+      'Administrative and Support Services',
+      'Administrative and Support and Waste Management and Remediation Services',
       'Agriculture, Forestry, Fishing and Hunting',
       'Air Transportation',
-      'Ambulatory Health Care service',
+      'Ambulatory Health Care Services',
       'Amusement, Gambling, and Recreation Industries',
       'Animal Production',
       'Apparel Manufacturing',
@@ -218,8 +218,8 @@ export class EnterDetailsFormComponent implements OnInit {
   }, {
     letter: 'E',
     names: [
-      'Education and Health service',
-      'Educational service',
+      'Education and Health Services',
+      'Educational Services',
       'Electrical Equipment, Appliance, and Component Manufacturing',
       'Electronics and Appliance Stores'
     ]
@@ -231,7 +231,7 @@ export class EnterDetailsFormComponent implements OnInit {
       'Financial Activities',
       'Fishing, Hunting and Trapping',
       'Food Manufacturing',
-      'Food service',
+      'Food Services',
       'Food and Beverage Stores',
       'Forestry and Logging',
       'Funds, Trusts, and Other Financial Vehicles',
@@ -291,7 +291,7 @@ export class EnterDetailsFormComponent implements OnInit {
       'Paper Manufacturing',
       'Postal Service',
       'Publishing Industries',
-      'Professional and Business service'
+      'Professional and Business Services'
     ]
   }, {
     letter: 'R',
@@ -345,7 +345,7 @@ export class EnterDetailsFormComponent implements OnInit {
     {names: 'Management'},
     {names: 'Retired'},
     {names: 'Self-employed'},
-    {names: 'service'},
+    {names: 'Services'},
     {names: 'Students'},
     {names: 'Technician'},
     {names: 'Unemployed'},

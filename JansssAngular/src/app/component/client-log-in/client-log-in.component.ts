@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {ErrorStateMatcher} from '@angular/material/core';
-
+import {Router} from '@angular/router';
+import {CustomValidators} from '../../validator/custom-validators';
+import {AuthService} from '../../service/auth.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -15,28 +17,65 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-client-log-in',
   templateUrl: './client-log-in.component.html',
-  styleUrls: ['./client-log-in.component.scss']
+  styleUrls: ['./client-log-in.component.scss'],
+  providers: [AuthService]
 })
 export class ClientLogInComponent implements OnInit {
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required, Validators.minLength(8),
-    Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]);
   matcher = new MyErrorStateMatcher();
-  registered = false;
-  submitted = false;
-  userForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
-
-  invalidEmail() {return (this.submitted && this.userForm.controls.email.errors != null);}
-  invalidPassword() {return (this.submitted && this.userForm.controls.password.errors != null);}
+  frmLogIn: FormGroup;
+  constructor(private formBuilder: FormBuilder,  private authService: AuthService, private router: Router) {
+    this.frmLogIn = this.createLogInForm();
+  }
+    createLogInForm(): FormGroup {
+      return this.formBuilder.group(
+        {
+          email: [
+            null,
+            Validators.compose([Validators.email, Validators.required])
+          ],
+          password: [
+            // tslint:disable-next-line:adjacent-overload-signatures
+            null,
+            Validators.compose([
+              Validators.required,
+              // check whether the entered password has a number
+              CustomValidators.patternValidator(/\d/, {
+                hasNumber: true
+              }),
+              // check whether the entered password has upper case letter
+              CustomValidators.patternValidator(/[A-Z]/, {
+                hasCapitalCase: true
+              }),
+              // check whether the entered password has a lower case letter
+              CustomValidators.patternValidator(/[a-z]/, {
+                hasSmallCase: true
+              }),
+              // check whether the entered password has a special character
+              CustomValidators.patternValidator(
+                /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
+                {
+                  hasSpecialCharacters: true
+                }
+              ),
+              Validators.minLength(8)
+            ])
+          ]
+        }
+      );
+    }
   ngOnInit() {}
+  login() {
+    const val = this.frmLogIn.value;
 
-  onSubmit() {
-    this.submitted = true;
-    if (this.userForm.invalid === true) {
-      return;
-    } else {
-      this.registered = true;
+    if (val.email && val.password) {
+      this.authService.login(val.email, val.password)
+        .subscribe(
+          () => {
+            alert(val.email + val.password);
+            console.log('User is logged in');
+            this.router.navigateByUrl('/');
+          }
+        );
     }
   }
 }
