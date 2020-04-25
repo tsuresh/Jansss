@@ -24,7 +24,5 @@ export class SelectCampaignComponent implements OnInit {
 
   viewDetails() {
     document.getElementById('campaign-details').style.display = 'block';
-    const campaignNumber = document.getElementById('campaign-number');
-    const item = document.getElementsByClassName('number');
   }
 }

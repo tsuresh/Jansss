@@ -1,4 +1,4 @@
-.select-campaign {
+.container {
   padding-top: 5%;
 }
 
@@ -20,7 +20,12 @@ h3 {
 }
 
 button {
+  float: right;
+  border-radius: 30px;
+  background-color: #E06F63;
   text-transform: uppercase;
+  font-weight: 500;
+  color: #ffffff;
 }
 
 @media (max-width: 991px) {
@@ -51,10 +56,4 @@ button {
   .number {
     font-size: 24px;
   }
-}
-
-.btn {
-  float: right;
-  background-color: #E06F63;
-  color: #ffffff;
 }

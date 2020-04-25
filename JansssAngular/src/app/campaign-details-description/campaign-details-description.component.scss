@@ -1,0 +1,13 @@
+.details h5, .details p {
+  line-height: 40px;
+}
+
+@media (max-width: 1199px) {
+  .details h5 {
+    font-size: 17px;
+  }
+
+  .details p, .details .desc {
+    font-size: 14px;
+  }
+}

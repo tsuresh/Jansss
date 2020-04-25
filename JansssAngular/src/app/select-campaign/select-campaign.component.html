@@ -1,10 +1,13 @@
-
+<!-- Progress Bar -->
 <div class="container container-sm container-md container-lg container-xl">
   <app-progress-bar></app-progress-bar>
 </div>
 
-<div class="container select-campaign" data-aos="zoom-in">
+<div class="container" data-aos="zoom-in">
+  <!-- Suggested Campaigns -->
   <div class="card-deck">
+
+    <!-- Campaign 1 -->
     <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded campaign" id="campaign-1" (click)="viewDetails()">
       <div class="card-body">
         <h3>Campaign</h3>
@@ -12,14 +15,16 @@
       </div>
     </div>
 
-    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded campaign" id="campaign-2">
+    <!-- Campaign 2 -->
+    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded campaign" id="campaign-2" (click)="viewDetails()">
       <div class="card-body">
         <h3>Campaign</h3>
         <h4 class="number" id="two">2</h4>
       </div>
     </div>
 
-    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded campaign" id="campaign-3">
+    <!-- Campaign 3 -->
+    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded campaign" id="campaign-3" (click)="viewDetails()">
       <div class="card-body">
         <h3>Campaign</h3>
         <h4 class="number" id="three">3</h4>
@@ -27,13 +32,11 @@
     </div>
   </div>
 
+  <!-- Details of the selected campaign -->
   <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded" id="campaign-details">
-    <div class="card-header bg-light border-light pb-3">
-      <h5>Campaign<span id="campaign-number"> #</span></h5>
-    </div>
-    <div class="card-body">
+    <div class="card-body mb-4">
       <p class="card-text">Campaign details should appear here.</p>
-      <button (click)="navigateToPayment()" class="btn shadow-sm rounded hvr-wobble-horizontal">Next</button>
+      <button (click)="navigateToPayment()" class="btn shadow-sm p-2 pl-3 pr-3 hvr-wobble-horizontal">Next</button>
     </div>
   </div>
 </div>

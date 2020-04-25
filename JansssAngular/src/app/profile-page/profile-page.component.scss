@@ -1,85 +1,54 @@
 .container {
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
-.name {
-  padding: 1%;
+.col-left {
+  min-width: 300px;
+}
+
+.col-right {
+  min-width: 600px;
+}
+
+.username{
   text-transform: uppercase;
-}
-
-.name h3 {
   font-weight: 700;
+  letter-spacing: 2px;
 }
 
-.pro-img {
-  width: 100px;
-  height: auto;
-}
-
-.current {
-  width: 22rem;
+.change-cursor {
   cursor: pointer;
 }
 
-.number {
-  color: #7f8c8d;
+.campaigns-list-topic {
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-weight: 300;
 }
 
-.campaign {
-  font-weight: lighter;
-  margin-top: 7%;
+span img {
+  width: 30px;
 }
 
-.settings {
-  width: 3%;
-  height: auto;
-  cursor: pointer;
+.details-topic {
+  font-weight: 700;
+  color: #E06F63;
+  letter-spacing: 1px;
 }
 
-@media (max-width: 991px) {
-  .card h3 {
-    font-size: 24px;
-  }
-
-  .number {
-    font-size: 20px;
-  }
+.btn {
+  background: #E06F63;
+  border-radius: 30px;
+  color: #ffffff;
+  font-weight: 500;
+  float: right;
 }
 
-@media (max-width: 767px) {
-  .name h3 {
-    font-size: 20px;
+@media (max-width: 1199px) {
+  .col-1 {
+    display: none;
   }
-
-  .name h4 {
-    font-size: 17px;
-  }
-
-  .card h3 {
-    font-size: 16px;
-  }
-
-  .number {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 575px) {
-  .card h3 {
-    font-size: 30px;
-  }
-
-  .number {
-    font-size: 24px;
-  }
-
-  .settings {
-    width: 100px;
-  }
-}
-
-@media (max-width: 513px) {
-  .name h3 {
-    font-size: 19px;
+  .col-left {
+    margin: auto auto;
   }
 }

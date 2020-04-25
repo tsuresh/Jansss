@@ -1,77 +1,116 @@
+
 <div class="container">
-  <h4 class="mt-5 heading-top">Edit Profile</h4>
-
-  <div class="row justify-content-center mt-3">
-
-    <div class="col-2">
-      <img class="img-fluid pro-img" src="../../assets/images/profile/username.png" alt="profile image">
-    </div>
-
-    <div class="col-3 name">
-      <h3>First name</h3>
-      <h4>Surname</h4>
+  <div class="row">
+    <div class="col text-center">
+      <img class="img-fluid profile-img" src="../../assets/images/profile/username.png" alt="profile image">
     </div>
   </div>
 
-  <form id="app-cover"
+  <div class="row mt-5">
+    <div class="col text-center heading-top">
+      <p>Edit <span class="pink">profile</span></p>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col">
+      <form
         [formGroup] = "form"
-        (ngSubmit) = "onSubmit(form.value)">
+        (ngSubmit) = "onSubmit()">
 
-    <div class="row mt-5 box">
-      <div class="col mr-5">
-        <div class="inputBox">
-          <input type="text" name="fName" id="fName" formControlName="fName" required="">
-          <label for="fName">First Name</label>
-        </div>
-      </div>
+        <!-- Username -->
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Username</mat-label>
+              <input matInput [formControl]="username">
+              <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+          </div>
 
-      <div class="col">
-        <div class="inputBox">
-          <input type="text" name="sName" id="sName" formControlName="sName" required="">
-          <label for="sName">Surname</label>
+          <div class="col"></div>
         </div>
-      </div>
+
+
+        <div class="row mt-3">
+          <!-- Email -->
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input matInput [formControl]="email" placeholder="Ex. sam@mail.com">
+              <mat-error *ngIf="email.hasError('email')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+          </div>
+
+          <!-- Password -->
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput [formControl]="password">
+              <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- First Name -->
+        <div class="row mt-3">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>First name</mat-label>
+              <input matInput [formControl]="fName">
+              <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+          </div>
+
+          <!-- Surname -->
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Surname</mat-label>
+              <input matInput [formControl]="sName">
+              <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- Payment Plan -->
+        <div class="row mt-3">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Payment Plan</mat-label>
+              <mat-select [formControl]="paymentPlan">
+                <mat-option *ngFor="let p of plans" [value]="p">
+                  {{p.plan}}
+                </mat-option>
+              </mat-select>
+              <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Payment Method</mat-label>
+              <mat-select [formControl]="paymentMethod">
+                <mat-option *ngFor="let m of methods" [value]="m">
+                  {{m.method}}
+                </mat-option>
+              </mat-select>
+              <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row text-center mt-5">
+          <div class="col">
+            <input class="btn shadow-sm p-2 pl-3 pr-3 mr-3 hvr-grow" type="submit" value="Update Profile">
+            <input class="btn shadow-sm p-2 pl-5 pr-5 hvr-grow" type="reset" value="Cancel">
+          </div>
+        </div>
+      </form>
+
     </div>
-
-    <div class="row mt-3 box">
-      <div class="col mr-5">
-        <div class="category">
-          <span id="selectedPlan">Payment Plan</span>
-          <img class="float-right hvr-wobble-vertical arrow-down" src="../../assets/images/icons/down.svg" (click)="viewOption('plan')">
-        </div>
-        <div class="mt-2 line"></div>
-        <div class="options" id="plan">
-          <div class="p-2 border-bottom planOption" (click)="getOption('plan', 'planOption', 'selectedPlan', 0)">Member</div>
-          <div class="p-2 planOption" (click)="getOption('plan', 'planOption', 'selectedPlan', 1)">One-time</div>
-        </div>
-      </div>
-      <div class="col"></div>
-    </div>
-
-    <div class="row mt-5 box">
-      <div class="col mr-5">
-        <div class="category">
-          <span id="selectedMethod">Payment Method</span>
-          <img class="float-right hvr-wobble-vertical arrow-down" src="../../assets/images/icons/down.svg" (click)="viewOption('method')">
-        </div>
-        <div class="mt-2 line"></div>
-        <div class="options" id="method">
-          <div class="p-2 border-bottom methodOption" (click)="getOption('method', 'methodOption', 'selectedMethod', 0)">Master</div>
-          <div class="p-2 border-bottom methodOption" (click)="getOption('method', 'methodOption', 'selectedMethod', 1)">Visa</div>
-          <div class="p-2 methodOption" (click)="getOption('method', 'methodOption', 'selectedMethod', 2)">PayPal</div>
-        </div>
-      </div>
-      <div class="col"></div>
-    </div>
-
-    <div class="row mt-5 box">
-      <div class="col"></div>
-      <div class="col">
-        <input class="btn shadow-sm p-2 pl-3 pr-3 ml-5 rounded float-right hvr-grow" type="submit" value="save">
-        <input class="btn shadow-sm p-2 rounded float-right hvr-grow" type="reset" value="Cancel" (click)="clearOption()">
-      </div>
-    </div>
-  </form>
+  </div>
 </div>
-
-

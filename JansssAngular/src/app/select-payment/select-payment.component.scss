@@ -22,48 +22,30 @@
   color: #E06F63;
 }
 
-.box .inputBox input {
+form {
   width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  letter-spacing: 1px;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #b2bec3;
-  outline: none;
-  background: transparent;
 }
 
-.box .inputBox label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
+.full-width {
+  width: 100%;
+}
+
+.month-picker .mat-calendar-period-button {
   pointer-events: none;
-  transition: 0.3s;
-  color: #b2bec3;
 }
 
-.box .inputBox input:focus ~ label, .box .inputBox input:valid ~ label {
-  top: -18px;
-  left: 0;
-  color: #7f8c8d;
-  font-size: 12px;
+.month-picker .mat-calendar-arrow {
+  display: none;
+}
+
+mat-radio-button img {
+  width: 90px;
 }
 
 .btn {
   text-transform: uppercase;
   background-color: #E06F63;
   color: #ffffff;
-}
-
-.help-block {
-  color: red;
-  font-size: 11px;
-  font-weight: 600;
-  font-style: italic;
-  text-align: left;
 }
 
 @media (max-width: 1199px) {
@@ -84,9 +66,5 @@
 
   .details {
     margin-left: 10%;
-  }
-
-  .button {
-    float: left;
   }
 }

@@ -1,52 +1,86 @@
 <div class="container">
-  <div class="row justify-content-center mt-5">
+  <div class="row">
 
-    <div class="col-2">
-      <img class="img-fluid pro-img" src="../../assets/images/profile/username.png" alt="profile image">
+    <!-- Profile Details -->
+    <div class="col-3 col-left">
+
+      <!-- Profile Image -->
+      <div class="row text-center">
+        <div class="col">
+          <img class="img-fluid pro-img" src="../../assets/images/profile/username.png" alt="profile image" width="200px">
+        </div>
+      </div>
+
+      <!-- Username -->
+      <div class="row text-center mt-3">
+        <div class="col">
+          <h3 class="username">Username</h3>
+        </div>
+      </div>
+
+      <!-- Icons -->
+      <div class="row text-center mt-4 icons">
+        <!-- Settings Icon -->
+        <div class="col">
+          <mat-icon class="change-cursor" (click)="navigateToEditProfile()">settings</mat-icon>
+        </div>
+        <!-- Messages Icon -->
+        <div class="col">
+          <mat-icon class="change-cursor" matBadge="2" matBadgeColor="primary">email</mat-icon>
+        </div>
+        <!-- Notifications Icon -->
+        <div class="col">
+          <mat-icon class="change-cursor" matBadge="5" matBadgeColor="primary">notifications</mat-icon>
+        </div>
+      </div>
+
+      <mat-divider class="mt-5"></mat-divider>
+
+      <!-- Campaigns List -->
+      <div class="row mt-5 campaigns-list-topic">
+        <div class="col">
+          <h4>My Campaigns</h4>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col campaigns">
+          <mat-list>
+            <mat-list-item>
+              <span class="pr-3"><img class="img-fluid" src="../../assets/images/profile/start-up.svg"></span>
+              Campaign 4
+            </mat-list-item>
+            <mat-progress-bar class="mb-3" mode="determinate" value="40"></mat-progress-bar>
+            <mat-list-item>
+              <span class="pr-3"><img class="img-fluid" src="../../assets/images/profile/goal.svg"></span>
+              Campaign 3
+            </mat-list-item>
+            <mat-progress-bar class="mb-3" mode="determinate" value="100" color="primary"></mat-progress-bar>
+            <mat-list-item>
+              <span class="pr-3"><img class="img-fluid" src="../../assets/images/profile/goal.svg"></span>
+              Campaign 2
+            </mat-list-item>
+            <mat-progress-bar class="mb-3" mode="determinate" value="100" color="primary"></mat-progress-bar>
+            <mat-list-item>
+              <span class="pr-3"><img class="img-fluid" src="../../assets/images/profile/goal.svg"></span>
+              Campaign 1
+            </mat-list-item>
+            <mat-progress-bar class="mb-3" mode="determinate" value="100" color="primary"></mat-progress-bar>
+          </mat-list>
+        </div>
+      </div>
+
     </div>
 
-    <div class="col-3 name">
-      <h3>First name</h3>
-      <h4>Surname</h4>
+    <div class="col-1"></div>
+
+    <!-- Current Campaign Details -->
+    <div class="col pt-5 col-right" data-aos="zoom-out">
+      <h3 class="mb-5 details-topic">My campaign details</h3>
+      <app-campaign-details-description></app-campaign-details-description>
+      <a routerLink="/progress">
+        <button class="btn p-2 pl-3 pr-3 mt-5">Check Progress</button>
+      </a>
     </div>
   </div>
-
-  <h4 class="campaign">Current campaigns</h4>
-
-    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded animated fadeInUp current">
-      <div class="card-body" (click)="navigateToCampaignProgress()">
-        <h3>Campaign</h3>
-        <h4 class="number">1</h4>
-      </div>
-    </div>
-
-  <h4 class="campaign">Previous Campaigns</h4>
-
-  <div class="card-deck animated fadeInUp">
-    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
-      <div class="card-body">
-        <h3>Campaign</h3>
-        <h4 class="number">1</h4>
-      </div>
-    </div>
-
-    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
-      <div class="card-body">
-        <h3>Campaign</h3>
-        <h4 class="number">2</h4>
-      </div>
-    </div>
-
-    <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded">
-      <div class="card-body">
-        <h3>Campaign</h3>
-        <h4 class="number">3</h4>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <img (click)="navigateToEditProfile()" class="img-fluid float-right hvr-bounce-out settings" src="../../assets/images/icons/settings.svg">
-  </div>
-
 </div>

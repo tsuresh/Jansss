@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+
+interface PaymentPlan {
+  plan: string;
+}
+
+interface PaymentMethod {
+  method: string;
+}
 
 @Component({
   selector: 'app-edit-profile',
@@ -14,44 +22,37 @@ export class EditProfileComponent implements OnInit {
   form: FormGroup;
   router: Router;
 
+  email = new FormControl('', [Validators.email]);
+  username = new FormControl();
+  password = new FormControl();
+  fName = new FormControl();
+  sName = new FormControl();
+  paymentPlan = new FormControl();
+  paymentMethod = new FormControl();
+
+  plans: PaymentPlan[] = [
+    {plan: 'One-time'},
+    {plan: 'Premium'}
+  ];
+  methods: PaymentMethod[] = [
+    {method: 'Visa'},
+    {method: 'Master'},
+    {method: 'PayPal'}
+  ];
+
   constructor() { }
 
   ngOnInit() {
-    if (this.router.url === '/edit-profile') {
-      // tslint:disable-next-line:only-arrow-functions
-      window.onscroll = function() {
-        if (document.documentElement.scrollTop >= 0) {
-          document.getElementById('navbar').style.visibility = 'visible';
-        }
-      };
-    }
     this.form = new FormGroup({
-      fName: new FormControl(''),
-      sName: new FormControl(''),
-      paymentPlan: new FormControl('Member'),
-      paymentMethod: new FormControl('PayPal')
+      email: new FormControl(),
+      username: new FormControl(),
+      password: new FormControl(),
+      fName: new FormControl(),
+      sName: new FormControl(),
+      paymentPlan: new FormControl(),
+      paymentMethod: new FormControl()
     });
   }
 
-  onSubmit(mediaItem) {
-    console.log(mediaItem);
-  }
-
-  viewOption(idName) {
-    const option = document.getElementById(idName);
-    option.style.display = 'block';
-  }
-  getOption(catId, optClass, selectId, i) {
-    const option = document.getElementById(catId);
-    const options = document.getElementsByClassName(optClass);
-    const selected = document.getElementById(selectId);
-    option.style.display = 'none';
-    selected.textContent = options[i].textContent;
-  }
-  clearOption() {
-    const plan = document.getElementById('selectedPlan');
-    const method = document.getElementById('selectedMethod')
-    plan.textContent = 'Payment Plan';
-    method.textContent = 'Payment Method';
-  }
+  onSubmit() { }
 }
