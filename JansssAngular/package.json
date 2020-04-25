@@ -19,7 +19,7 @@
     "@angular/core": "~8.2.11",
     "@angular/forms": "~8.2.11",
     "@angular/material": "^8.2.3",
-    "@angular/material-moment-adapter": "^9.2.1",
+    "@angular/material-moment-adapter": "latest",
     "@angular/platform-browser": "~8.2.11",
     "@angular/platform-browser-dynamic": "~8.2.11",
     "@angular/router": "~8.2.11",
@@ -34,14 +34,12 @@
     "hover.css": "^2.3.2",
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
-    "moment": "^2.24.0",
+    "moment": "latest",
     "popper.js": "^1.16.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "underscore": "^1.9.2",
-    "zone.js": "~0.9.1",
-    "moment": "latest",
-    "@angular/material-moment-adapter": "latest"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.13",

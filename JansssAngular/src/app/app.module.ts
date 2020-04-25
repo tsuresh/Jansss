@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnterDetailsFormComponent } from './enter-details-form/enter-details-form.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
@@ -35,15 +35,15 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {MatBadgeModule} from "@angular/material/badge";
-import {MatListModule} from "@angular/material/list";
-import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatListModule} from '@angular/material/list';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CampaignDetailsDescriptionComponent } from './campaign-details-description/campaign-details-description.component';
-import {MatRadioModule} from "@angular/material/radio";
-import {MatAutocompleteModule, MatDatepickerModule, MatFormFieldModule} from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatAutocompleteModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
-import {MatInputModule} from '@angular/material';
+
 /* Angular material */
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {AngularMaterialModule} from './angular-material/angular-material.module';
@@ -88,7 +88,7 @@ import {AngularMaterialModule} from './angular-material/angular-material.module'
     MatInputModule,
     MatAutocompleteModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
     MatFormFieldModule,
     MatInputModule,
     MatPasswordStrengthModule.forRoot(),
@@ -102,7 +102,7 @@ import {AngularMaterialModule} from './angular-material/angular-material.module'
     MatProgressBarModule,
     MatRadioModule,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ],
