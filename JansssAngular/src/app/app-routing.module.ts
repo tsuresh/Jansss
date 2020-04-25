@@ -17,6 +17,7 @@ import {HowItWorksComponent} from './component/how-it-works/how-it-works.compone
 import {VendorLoginComponent} from './component/vendor-login/vendor-login.component';
 import {VendorSignUpComponent} from './component/vendor-sign-up/vendor-sign-up.component';
 import {UserOptionPageComponent} from './component/user-option-page/user-option-page.component';
+import {SubscriptionComponent} from './component/subscription/subscription.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -37,7 +38,8 @@ const routes: Routes = [
   {path: 'how-it-works', component: HowItWorksComponent},
   {path: 'vendor-login', component: VendorLoginComponent},
   {path: 'vendor-signup', component: VendorSignUpComponent},
-  {path: 'user-option', component: UserOptionPageComponent}
+  {path: 'user-option', component: UserOptionPageComponent},
+  {path: 'subscription', component: SubscriptionComponent}
   ];
 
 @NgModule({

@@ -1,0 +1,26 @@
+<div class="sub-logo">
+  <img src="../../../assets/images/logo/logo_J.png">
+</div>
+
+<h1 mat-dialog-title>To continue with this subscription please enter the following details:</h1>
+  <div mat-dialog-content>
+    <form>
+      <mat-form-field>
+        <mat-label>Billing Address:</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Card Number:</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>CVV:</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+      </mat-form-field>
+
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+  </div>

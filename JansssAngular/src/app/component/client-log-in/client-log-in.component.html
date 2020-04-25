@@ -19,48 +19,46 @@
         <button><img class="linkedin" src="../../../assets/images/signup/linkedin.svg"></button>
         <p>or use your email account:</p>
       </div>
-      <form [formGroup]="userForm" (submit)="onSubmit()" class="client-item">
-              <div class="row form-group client-item client-email" [ngClass]="{ 'has-error': invalidEmail() }">
-                <label>
-                  <mat-form-field style="width:170%;">
-                    <mat-label>Email</mat-label>
-                    <input matInput [formControl]="email" [errorStateMatcher]="matcher" placeholder="Ex. john.smith@gmail.com">
-<!--      Display error message if email is not valid     -->
-                    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
-                      Please enter a valid email address
-                    </mat-error>
-<!--      Display error message if email is not filled     -->
-                    <mat-error *ngIf="email.hasError('required')">
-                      Email is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
-                </label>
-              </div>
-<!--    Client password     -->
-              <div class="row form-group client-item client-pass" [ngClass]="{ 'has-error': invalidPassword() }">
-                <label>
-                  <mat-form-field style="width:170%;">
-                    <mat-label>Password</mat-label>
-                    <input matInput [formControl]="password">
-                    <mat-error *ngIf="password.hasError('required')">
-                      Password is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
-                </label>
-              </div>
-
-<!--   Sending log in details to backend-->
+      <form [formGroup]="frmLogIn" (submit)="login()" class="client-item">
+        <div class="row form-group client-item client-email">
+          <label [ngClass]="frmLogIn.controls['email']">
+            <mat-form-field style="width:170%;">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="Ex. john.smith@gmail.com">
+              <!--      Display error message if email is not valid     -->
+              <mat-error *ngIf="frmLogIn.controls['email'].hasError('email')">
+                Please enter a valid email address
+              </mat-error>
+              <!--      Display error message if email is not filled     -->
+              <mat-error *ngIf="frmLogIn.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </label>
+        </div>
+        <!--  Client password  -->
+        <div class="row form-group client-item client-pass">
+          <label [ngClass]="frmLogIn.controls['password']">
+            <mat-form-field style="width:170%;">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password">
+              <!--      Display error message if field not filled     -->
+              <mat-error *ngIf="frmLogIn.controls['password'].hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </label>
+        </div>
+        <!--   Sending log in details to backend-->
         <div class="col buttons-client">
-          <div class="btn-out-sign-up form-group">
+          <div class="btn-out-client form-group">
             <button type="submit" class="btn button-client">Log in</button>
           </div>
-<!--   Terms and conditions  -->
+          <!--   Terms and conditions  -->
           <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>
         </div>
-
       </form>
     </div>
-
 
 <!--    Layout change for responsiveness-->
     <div class="col-auto client4" data-aos="fade-down">
@@ -73,31 +71,31 @@
 
         <p>or use your email account:</p>
       </div>
-      <form [formGroup]="userForm" (submit)="onSubmit()" class="client-item">
-        <div class="row form-group client-item client-email" [ngClass]="{ 'has-error': invalidEmail() }">
-          <label>
+      <form [formGroup]="frmLogIn" (submit)="login()" class="client-item">
+        <div class="row form-group client-item client-email">
+          <label [ngClass]="frmLogIn.controls['email']">
             <mat-form-field style="width:170%;">
               <mat-label>Email</mat-label>
-              <input matInput [formControl]="email" [errorStateMatcher]="matcher" placeholder="Ex. john.smith@gmail.com">
+              <input matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="Ex. john.smith@gmail.com">
 <!--      Display error message if email is not valid     -->
-              <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              <mat-error *ngIf="frmLogIn.controls['email'].hasError('email')">
                 Please enter a valid email address
               </mat-error>
 <!--      Display error message if email is not filled     -->
-              <mat-error *ngIf="email.hasError('required')">
+              <mat-error *ngIf="frmLogIn.controls['email'].hasError('required')">
                 Email is <strong>required</strong>
               </mat-error>
             </mat-form-field>
           </label>
         </div>
 <!--  Client password  -->
-        <div class="row form-group client-item client-pass" [ngClass]="{ 'has-error': invalidPassword() }">
-          <label>
+        <div class="row form-group client-item client-pass">
+          <label [ngClass]="frmLogIn.controls['password']">
             <mat-form-field style="width:170%;">
               <mat-label>Password</mat-label>
-              <input matInput [formControl]="password">
+              <input matInput formControlName="password">
 <!--      Display error message if field not filled     -->
-              <mat-error *ngIf="password.hasError('required')">
+              <mat-error *ngIf="frmLogIn.controls['password'].hasError('required')">
                 Password is <strong>required</strong>
               </mat-error>
             </mat-form-field>

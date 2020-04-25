@@ -42,7 +42,10 @@
             <p><img src="../../../assets/images/pricing/tick.svg" style="width: 15px;margin-right: 10px">   Chat & Phone Support</p>
           </div>
           <!-- On click - changes the users pricing plan if already signed in else, asks the user to sign up or log in -->
-          <button type="button" class="btn button-subscribe" (click)="navigateToClientSignUp()">Subscribe</button>
+          <button type="button" class="btn button-subscribe" (click)="openDialog()">Subscribe</button>
+          <li *ngIf="animal">
+            You chose: <i>{{animal}}</i>
+          </li>
         </div>
       </div>
     </div>

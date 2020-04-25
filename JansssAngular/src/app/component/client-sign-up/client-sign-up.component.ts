@@ -3,7 +3,9 @@ import {FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgF
 import {CustomValidators} from '../../validator/custom-validators';
 import {HttpClient} from '@angular/common/http';
 import * as $ from 'jquery';
-import {ErrorStateMatcher} from '@angular/material';
+import {ErrorStateMatcher, MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
+import {AuthService} from '../../service/auth.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -16,17 +18,23 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-client-sign-up',
   templateUrl: './client-sign-up.component.html',
-  styleUrls: ['./client-sign-up.component.scss']
+  styleUrls: ['./client-sign-up.component.scss'],
+  providers: [AuthService]
 })
 export class ClientSignUpComponent implements OnInit {
   public frmSignup: FormGroup;
   registered = false;
   submitted = false;
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    // tslint:disable-next-line:variable-name
+    private _snackBar: MatSnackBar,
+    private router: Router,
+    private authService: AuthService) {
     this.frmSignup = this.createSignupForm();
   }
   matcher = new MyErrorStateMatcher();
-
 
   createSignupForm(): FormGroup {
     return this.formBuilder.group(
@@ -76,16 +84,17 @@ export class ClientSignUpComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     if (this.frmSignup.invalid === true) {
       return;
     } else {
       const data: any = Object.assign(this.frmSignup.value);
+      this.authService.login(data.email, data.password);
       // tslint:disable-next-line:no-shadowed-variable
       this.http.post('https://jansss.herokuapp.com/auth/user/signup', data).subscribe(( data: any) => {
-        alert('Sign up was successful');
+        this._snackBar.open('Sign up was successful!', 'Redirecting to Subscription.' , {duration: 3000});
+        this.router.navigate(['/pricing']);
       }, error => {
-        alert('An error occurred. ' + JSON.stringify(error.error));
+        this._snackBar.open('An error occurred', JSON.stringify(error.error), {duration: 3000});
       });
       this.registered = true;
     }

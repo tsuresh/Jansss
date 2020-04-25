@@ -19,7 +19,7 @@
     <!--Items for the navigation bar-->
     <ul class="menu__list" id="myDIV">
       <li class="menu__item"><a href="#" class="menu__link" routerLink="/">Home</a></li>
-      <li class="menu__item"><a href="#" class="menu__link" routerLink="/vendor-sign-up">Vendor Hub</a></li>
+      <li class="menu__item"><a href="#" class="menu__link" routerLink="/vendor-sign-up">Vendor</a></li>
       <li class="menu__item"><a href="#" class="menu__link" routerLink="/pricing">Pricing</a></li>
       <li class="menu__item"><a href="#" class="menu__link" routerLink="/contact-us">Contact Us</a></li>
       <li class="menu__item user">
@@ -27,7 +27,11 @@
           <img src="../../../assets/images/profile/username.png">
         </a>
       </li>
-      <img class="bottom-right" style="width: 35px;  position: absolute;bottom: 8px;right: 16px;" src="../../../assets/images/profile/logout_grey.png">
+      <a (submit)="logout()">
+        <img alt="Log out" class="logout1 bottom-right" style="width: 35px;  position: absolute;bottom: 8px;right: 16px;" src="../../../assets/images/profile/logout_grey.png">
+        <img alt="Log out" class="logout2 bottom-right" style="width: 35px;  position: absolute;bottom: 8px;right: 16px;" src="../../../assets/images/profile/logout.png">
+      </a>
     </ul>
   </nav>
 </header>
+
