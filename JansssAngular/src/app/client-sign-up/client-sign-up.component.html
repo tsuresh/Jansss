@@ -1,249 +1,120 @@
-<!--&lt;!&ndash;Client Sign up&ndash;&gt;-->
-<!--<div class="client-sign-up container container-sm container-md container-lg container-xl">-->
-<!--  <div class="row">-->
-<!--    <div class="col"></div>-->
-<!--    <div  class="col-auto client">-->
-<!--      <div class="row client-logo">-->
-<!--        <img src="../../assets/images/logo/logo_J.png"><br>-->
-<!--      </div>-->
-<!--      &lt;!&ndash;Client email&ndash;&gt;-->
-<!--      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">-->
-<!--      <div class="row form-group client-item client-email" [ngClass]="{ 'has-error': invalidEmail() }">-->
-<!--        <label class="control-label">-->
-<!--          Email<br>-->
-<!--          <input placeholder="Email" class="form-control" type="text" formControlName="email">-->
-<!--          <p *ngIf="invalidEmail()" id="email_error" class="help-block">Invalid email address.</p>-->
-<!--        </label>-->
-<!--      </div>-->
-<!--      &lt;!&ndash;Client password&ndash;&gt;-->
-<!--      <div class="row form-group client-item client-pass"  [ngClass]="{ 'has-error': invalidPassword() }">-->
-<!--        <label class="control-label">-->
-<!--          Create a password<br>-->
-<!--          <input type="text" placeholder="Password" class="form-control" formControlName="password">-->
-<!--          <p *ngIf="invalidPassword()" id="password_error" class="help-block">Invalid password.</p>-->
-<!--        </label>-->
-<!--      </div>-->
-
-
-<!--      <div class="col buttons">-->
-<!--        <div class="btn-out-sign-up form-group">-->
-<!--          <button type="submit" class="btn button-sign-up">Sign up</button>-->
-<!--        </div>-->
-
-<!--        <p class="or">OR</p>-->
-
-<!--        &lt;!&ndash;Client Sign up via google&ndash;&gt;-->
-<!--        <div class="btn-out-google">-->
-<!--          <button type="button" class="btn button-google"><img src="../../assets/images/signup/google.svg" style="height: 40px; width:40px;padding-right: 4%">   Continue with Google</button>-->
-<!--        </div>-->
-
-<!--        <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>-->
-<!--      </div>-->
-
-<!--      &lt;!&ndash;Navigate to log in page if already a member&ndash;&gt;-->
-<!--      <div class="row client-item already-member">-->
-<!--        Already a member?<a routerLink="/client-log-in"> Log in</a>-->
-<!--      </div>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--    <div class="col"></div>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--&lt;!&ndash;Client Sign up&ndash;&gt;-->
-<!--<div class="client-sign-up container container-sm container-md container-lg container-xl">-->
-<!--  <div class="card">-->
-<!--      <div></div>-->
-<!--      <div class="client">-->
-<!--        <div class="row client-logo">-->
-<!--          <img src="../../assets/images/logo/logo_J.png"><br>-->
-<!--        </div>-->
-<!--&lt;!&ndash;      <div class="card card-body">&ndash;&gt;-->
-<!--        <form [formGroup]="frmSignup" (submit)="submit()" class="client-item">-->
-<!--          <div class="form-group">-->
-<!--            <label class="client-email" for="email" [ngClass]="frmSignup.controls['email']">Email</label>-->
-<!--            <input id="email" formControlName="email" placeholder="Email" type="email" class="form-control" [ngClass]="frmSignup.controls['email']">-->
-<!--            <p class="text-danger" *ngIf="frmSignup.controls['email'].hasError('required')">-->
-<!--              Email is Required!-->
-<!--            </p>-->
-<!--            <label class="text-danger" *ngIf="frmSignup.controls['email'].hasError('email')">-->
-<!--              Enter a valid email address!-->
-<!--            </label>-->
-<!--          </div>-->
-<!--          <div class="form-group" >-->
-<!--            <label class="client-pass" for="password" [ngClass]="frmSignup.controls['password']">Password</label>-->
-<!--            <input id="password" formControlName="password" placeholder="Password" type="password" class="form-control" [ngClass]="frmSignup.controls['password']" oninput="display()">-->
-<!--            &lt;!&ndash; <label class="text-danger col" *ngIf="frmSignup.controls['password'].hasError('required')">-->
-<!--              Password is Required!-->
-<!--            </label> &ndash;&gt;-->
-<!--            <label class="col" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('minlength')  ? 'text-danger' : 'none'">-->
-<!--              <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||-->
-<!--              frmSignup.controls['password'].hasError('minlength') ? 'cancel' :-->
-<!--                'check_circle' }}</i>-->
-<!--              Must be at least 8 characters!-->
-<!--            </label>-->
-<!--            <label class="col" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">-->
-<!--              <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||-->
-<!--              frmSignup.controls['password'].hasError('hasNumber') ? 'cancel' :-->
-<!--                'check_circle' }}</i>-->
-<!--              Must contain at least 1 number!-->
-<!--            </label>-->
-<!--            <label class="col" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">-->
-<!--              <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||-->
-<!--              frmSignup.controls['password'].hasError('hasCapitalCase') ? 'cancel' :-->
-<!--                'check_circle' }}</i>-->
-<!--              Must contain at least 1 in Capital Case!-->
-<!--            </label>-->
-<!--            <label class="col" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">-->
-<!--              <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||-->
-<!--              frmSignup.controls['password'].hasError('hasSmallCase') ? 'cancel' :-->
-<!--                'check_circle' }}</i>-->
-<!--              Must contain at least 1 Letter in Small Case!-->
-<!--            </label>-->
-<!--            <label class="col" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">-->
-<!--              <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||-->
-<!--              frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :-->
-<!--                'check_circle' }}</i>-->
-<!--              Must contain at least 1 Special Character!-->
-<!--            </label>-->
-<!--          </div>-->
-<!--          <div class="form-group">-->
-<!--            <label for="confirmPassword" [ngClass]="frmSignup.controls['confirmPassword']">Confirm-->
-<!--              Password</label>-->
-<!--            <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control"-->
-<!--                   [ngClass]="frmSignup.controls['confirmPassword']">-->
-<!--            <label class="text-danger" *ngIf="frmSignup.controls['confirmPassword'].hasError('required')">-->
-<!--              Password is Required!-->
-<!--            </label>-->
-<!--            <label class="text-danger" *ngIf="frmSignup.controls['confirmPassword'].hasError('NoPassswordMatch')">-->
-<!--              Password do not match-->
-<!--            </label>-->
-<!--          </div>-->
-
-<!--                <div class="col buttons">-->
-<!--                  <div class="btn-out-sign-up form-group">-->
-<!--                    <button type="submit" class="btn button-sign-up">Sign up</button>-->
-<!--                  </div>-->
-
-<!--                  <p class="or">OR</p>-->
-
-<!--                  &lt;!&ndash;Client Sign up via google&ndash;&gt;-->
-<!--                  <div class="btn-out-google">-->
-<!--                    <button type="button" class="btn button-google"><img src="../../assets/images/signup/google.svg" style="height: 40px; width:40px;padding-right: 4%">   Continue with Google</button>-->
-<!--                  </div>-->
-
-<!--                  <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>-->
-<!--                </div>-->
-
-<!--                &lt;!&ndash;Navigate to log in page if already a member&ndash;&gt;-->
-<!--                <div class="row client-item already-member">-->
-<!--                  Already a member?<a routerLink="/client-log-in"> Log in</a>-->
-<!--                </div>-->
-<!--        </form>-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
-<!--        </div>-->
-<!--&lt;!&ndash;    <div class="card"></div>&ndash;&gt;-->
-<!--  </div>-->
-<!--</div>-->
-
 <!--Client Sign up-->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<div class="client-sign-up container container-sm container-md container-lg container-xl">
-  <div class="row">
-    <div class="col"></div>
-    <div  class="col-auto client">
-      <div class="row client-logo">
-        <img src="../../assets/images/logo/logo_J.png"><br>
+<div class="client-account container container-sm container-md container-lg container-xl">
+  <div class="row client">
+
+    <div class="col-auto client2" data-aos="fade-right">
+      <div class="client-logo">
+<!--        <img src="../../assets/images/logo/logo_J.png"><br>-->
+        <h3>Create an Account</h3>
+        <button><img class="facebook" src="../../assets/images/signup/facebook.svg"></button>
+        <button><img class="google" src="../../assets/images/signup/google1.svg"></button>
+        <button><img class="linkedin" src="../../assets/images/signup/linkedin.svg"></button>
+
+        <p>or use your email for registration:</p>
       </div>
-      <!--Client email-->
       <form [formGroup]="frmSignup" (submit)="onSubmit()" class="client-item">
-      <div class="form-group">
-        <label class="client-email" for="email" [ngClass]="frmSignup.controls['email']">Email</label>
-        <input id="email" formControlName="email" placeholder="Email" type="email" class="form-control" [ngClass]="frmSignup.controls['email']">
-        <p class="text-danger criteriaEmail" *ngIf="frmSignup.controls['email'].hasError('required')">
-          Email is Required.
-        </p>
-        <label class="text-danger criteriaEmail" *ngIf="frmSignup.controls['email'].hasError('email')">
-          Enter a valid email address.
-        </label>
-      </div>
-      <div class="form-group" >
-        <label class="client-pass" for="password" [ngClass]="frmSignup.controls['password']">Create a Password</label>
-        <input id="password" formControlName="password" placeholder="Password" type="password" class="form-control"
-               [ngClass]="frmSignup.controls['password']">
-        <!-- <label class="text-danger col" *ngIf="frmSignup.controls['password'].hasError('required')">
-          Password is Required!
-        </label> -->
-        <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
-        frmSignup.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
-          <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
-          frmSignup.controls['password'].hasError('minlength') ? 'cancel' :
-            'check_circle' }}</i>
-          At least 8 characters.
-        </label>
-        <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
-         frmSignup.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
-          <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
-          frmSignup.controls['password'].hasError('hasNumber') ? 'cancel' :
-            'check_circle' }}</i>
-          Contains at least 1 Number.
-        </label>
-        <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
-        frmSignup.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
-          <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
-          frmSignup.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
-            'check_circle' }}</i>
-          Contains at least 1 Capital Letter.
-        </label>
-        <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
-        frmSignup.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
-          <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
-          frmSignup.controls['password'].hasError('hasSmallCase') ? 'cancel' :
-            'check_circle' }}</i>
-          Contains at least 1 Simple Letter.
-        </label>
-        <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
-        frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">
-          <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
-          frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :
-            'check_circle' }}</i>
-          Contains at least 1 Special Character
-        </label>
-      </div>
-      <div class="form-group confirmPassword">
-        <label class="client-pass" for="confirmPassword" [ngClass]="frmSignup.controls['confirmPassword']">Confirm
-          Password</label>
-        <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control"
-               [ngClass]="frmSignup.controls['confirmPassword']">
-        <label class="text-danger criteriaConfirm" *ngIf="frmSignup.controls['confirmPassword'].hasError('required')">
-          Password is Required.
-        </label>
-        <label class="text-danger criteriaConfirm" *ngIf="frmSignup.controls['confirmPassword'].hasError('NoPassswordMatch')">
-          Passwords do not match.
-        </label>
-      </div>
+        <div class="form-group">
+        <label class="client-name" [ngClass]="frmSignup.controls['name']">
+          <mat-form-field style="width:200%;">
+            <mat-label>Name</mat-label>
+            <input matInput  formControlName="name" [errorStateMatcher]="matcher" placeholder="Ex. John Smith">
+            <mat-error *ngIf="frmSignup.controls['name'].hasError('required')">
+              Your name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          </label>
 
-      <div class="col buttons">
-        <div class="btn-out-sign-up form-group">
-          <button type="submit" class="btn button-sign-up">Sign up</button>
+        </div>
+        <div class="form-group">
+          <label class="client-email" [ngClass]="frmSignup.controls['email']">
+            <mat-form-field style="width:200%;">
+              <mat-label>Email</mat-label>
+              <input matInput  formControlName="email" id="email" type="email" [errorStateMatcher]="matcher" placeholder="Ex. john.smith@gmail.com">
+              <mat-error *ngIf="frmSignup.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <label class="text-danger criteriaEmail"  *ngIf="frmSignup.controls['email'].hasError('email')">
+              Enter a valid email address.
+            </label>
+          </label>
         </div>
 
-        <p class="or">OR</p>
-
-        <!--Client Sign up via google-->
-        <div class="btn-out-google">
-          <button type="button" class="btn button-google"><img src="../../assets/images/signup/google.svg" style="height: 40px; width:40px;padding-right: 4%">   Continue with Google</button>
+        <div class="form-group">
+          <label class="client-pass" [ngClass]="frmSignup.controls['password']">
+          <mat-form-field style="width:200%;">
+            <mat-label>Create a password</mat-label>
+            <input matInput  id="password" formControlName="password" [errorStateMatcher]="matcher" placeholder="Ex. JohnSmith123!">
+          </mat-form-field>
+          </label>
+          <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+          frmSignup.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+                      <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+                      frmSignup.controls['password'].hasError('minlength') ? 'cancel' :
+                        'check_circle' }}</i>
+                      At least 8 characters.
+                    </label>
+                    <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+                     frmSignup.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
+                      <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+                      frmSignup.controls['password'].hasError('hasNumber') ? 'cancel' :
+                        'check_circle' }}</i>
+                      Contains at least 1 Number.
+                    </label>
+                    <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+                    frmSignup.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
+                      <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+                      frmSignup.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
+                        'check_circle' }}</i>
+                      Contains at least 1 Capital Letter.
+                    </label>
+                    <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+                    frmSignup.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
+                      <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+                      frmSignup.controls['password'].hasError('hasSmallCase') ? 'cancel' :
+                        'check_circle' }}</i>
+                      Contains at least 1 Simple Letter.
+                    </label>
+                    <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+                    frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">
+                      <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+                      frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :
+                        'check_circle' }}</i>
+                      Contains at least 1 Special Character
+                    </label>
+                  </div>
+        <div class="form-group confirmPassword">
+          <label class="client-pass" for="confirmPassword" [ngClass]="frmSignup.controls['confirmPassword']">
+            <mat-form-field style="width:170%;">
+              <mat-label>Create a password</mat-label>
+              <input matInput  id="confirmPassword" formControlName="confirmPassword" [errorStateMatcher]="matcher" placeholder="Ex. JohnSmith123!">
+            </mat-form-field>
+          </label>
+          <label class="text-danger criteriaConfirm" *ngIf="frmSignup.controls['confirmPassword'].hasError('required')">
+            Password is Required.
+          </label>
+          <label class="text-danger criteriaConfirm" *ngIf="frmSignup.controls['confirmPassword'].hasError('NoPassswordMatch')">
+            Passwords do not match.
+          </label>
         </div>
 
-        <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>
-      </div>
-
-      <!--Navigate to log in page if already a member-->
-      <div class="row client-item already-member">
-        Already a member?<a routerLink="/client-log-in"> Log in</a>
-      </div>
+        <div class="col buttons-client">
+          <div class="btn-out-sign-up form-group">
+            <button type="submit" class="btn button-client" routerLink="/profile">Sign up</button>
+          </div>
+          <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>
+        </div>
       </form>
+
     </div>
-    <div class="col"></div>
+    <div class="col client1" data-aos="fade-left">
+      <img style="width: 350px" src="../../assets/images/signup/signin.svg"><br>
+      <h3>Already a member?</h3>
+      <p>To keep connected with us login with your personal information</p>
+      <button routerLink="/client-log-in" type="submit" class="btn button-switch">Log in</button>
+    </div>
+
   </div>
+
+
 </div>

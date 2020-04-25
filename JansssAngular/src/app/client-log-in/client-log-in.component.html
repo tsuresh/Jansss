@@ -1,53 +1,125 @@
-<!--Client log in-->
+<!--Client Log in-->
+<div class="client-account container container-sm container-md container-lg container-xl">
+  <div class="row client">
 
-<div class="client-log-in container container-sm container-md container-lg container-xl">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col-auto client">
-      <!-- Logo on log in form-->
-      <div class="row client-logo">
-        <img src="../../assets/images/logo/logo_J.png"><br>
-      </div>
-      <div class="row log-in">
-        <p>Log in to generate your campaign</p>
-      </div>
-      <!--Client email-->
-      <div class="row form-group client-item client-email" [ngClass]="{ 'has-error': invalidEmail() }">
-        <label>
-          <input placeholder="Email or Username"  class="form-control" type="text" [formControl]="email">
-          <p *ngIf="invalidEmail()" id="email_error" class="help-block">Invalid email address.</p>
-        </label>
-      </div>
-      <!--Client password-->
-      <div class="row form-group client-item client-pass" [ngClass]="{ 'has-error': invalidPassword() }">
-        <label>
-          <input type="text" placeholder="Password"  class="form-control" [formControl]="password">
-          <p *ngIf="invalidPassword()" id="password_error" class="help-block">Invalid password.</p>
-        </label>
-      </div>
-
-      <div class="col buttons">
-        <div class="btn-out-log-in">
-          <button type="submit" class="btn button-log-in" (click)="onSubmit()">Log in</button>
-        </div>
-
-        <p class="or">OR</p>
-
-        <!--Client log in via Google-->
-        <div class="btn-out-google">
-          <button type="button" class="btn button-google"><img src="../../assets/images/signup/google.svg" style="height: 40px; width:40px;padding-right: 4%">   Continue with Google</button>
-        </div>
-
-        <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>
-        <p  class="forgot"><a>Forgot your password?</a></p>
-
-      </div>
-
-      <!--Navigate to sign up page if not a member already-->
-      <div class="row client-item already-member">
-        Don't have an account?<a routerLink="/client-sign-up">  Sign up</a>
-      </div>
+    <div class="col-7 client1"  data-aos="fade-right">
+      <img style="width: 400px" src="../../assets/images/signup/signup.svg"><br>
+      <h3>Don't have an account?</h3>
+      <p>Enter your details and start your journey with us</p>
+<!--     button to switch to sign up page    -->
+      <button routerLink="/client-sign-up" type="submit" class="btn button-switch">Sign up</button>
     </div>
-    <div class="col"></div>
+
+    <div class="col-auto client2" data-aos="fade-left">
+      <div class="client-logo">
+        <h3>Log in to Jansss</h3>
+<!--    Icons for logging through facebook/google/linkedin    -->
+        <button><img class="facebook" src="../../assets/images/signup/facebook.svg"></button>
+        <button><img class="google" src="../../assets/images/signup/google1.svg"></button>
+        <button><img class="linkedin" src="../../assets/images/signup/linkedin.svg"></button>
+        <p>or use your email account:</p>
+      </div>
+      <form [formGroup]="userForm" (submit)="onSubmit()" class="client-item">
+              <div class="row form-group client-item client-email" [ngClass]="{ 'has-error': invalidEmail() }">
+                <label>
+                  <mat-form-field style="width:170%;">
+                    <mat-label>Email</mat-label>
+                    <input matInput [formControl]="email" [errorStateMatcher]="matcher" placeholder="Ex. john.smith@gmail.com">
+<!--      Display error message if email is not valid     -->
+                    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                      Please enter a valid email address
+                    </mat-error>
+<!--      Display error message if email is not filled     -->
+                    <mat-error *ngIf="email.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </label>
+              </div>
+<!--    Client password     -->
+              <div class="row form-group client-item client-pass" [ngClass]="{ 'has-error': invalidPassword() }">
+                <label>
+                  <mat-form-field style="width:170%;">
+                    <mat-label>Password</mat-label>
+                    <input matInput [formControl]="password">
+                    <mat-error *ngIf="password.hasError('required')">
+                      Password is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </label>
+              </div>
+
+<!--   Sending log in details to backend-->
+        <div class="col buttons-client">
+          <div class="btn-out-sign-up form-group">
+            <button type="submit" class="btn button-client">Log in</button>
+          </div>
+<!--   Terms and conditions  -->
+          <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>
+        </div>
+
+      </form>
+    </div>
+
+
+<!--    Layout change for responsiveness-->
+    <div class="col-auto client4" data-aos="fade-down">
+      <div class="client-logo">
+        <h3> Log in to Jansss</h3>
+<!--    Icons for logging through facebook/google/linkedin    -->
+        <button><img class="facebook" src="../../assets/images/signup/facebook.svg"></button>
+        <button><img class="google" src="../../assets/images/signup/google1.svg"></button>
+        <button><img class="linkedin" src="../../assets/images/signup/linkedin.svg"></button>
+
+        <p>or use your email account:</p>
+      </div>
+      <form [formGroup]="userForm" (submit)="onSubmit()" class="client-item">
+        <div class="row form-group client-item client-email" [ngClass]="{ 'has-error': invalidEmail() }">
+          <label>
+            <mat-form-field style="width:170%;">
+              <mat-label>Email</mat-label>
+              <input matInput [formControl]="email" [errorStateMatcher]="matcher" placeholder="Ex. john.smith@gmail.com">
+<!--      Display error message if email is not valid     -->
+              <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+<!--      Display error message if email is not filled     -->
+              <mat-error *ngIf="email.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </label>
+        </div>
+<!--  Client password  -->
+        <div class="row form-group client-item client-pass" [ngClass]="{ 'has-error': invalidPassword() }">
+          <label>
+            <mat-form-field style="width:170%;">
+              <mat-label>Password</mat-label>
+              <input matInput [formControl]="password">
+<!--      Display error message if field not filled     -->
+              <mat-error *ngIf="password.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </label>
+        </div>
+<!--   Sending log in details to backend-->
+        <div class="col buttons-client">
+          <div class="btn-out-client form-group">
+            <button type="submit" class="btn button-client">Log in</button>
+          </div>
+<!--   Terms and conditions  -->
+          <p class="terms">By continuing you agree to .Jansss <a>Terms or Service, Privacy Policy</a></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="col client3" data-aos="fade-up">
+      <img style="width: 400px" src="../../assets/images/signup/signup.svg"><br>
+      <h3>Don't have an account?</h3>
+      <p>Enter your details and start your journey with us</p>
+<!--     button to switch to sign up page    -->
+      <button routerLink="/client-sign-up" type="submit" class="btn button-switch">Sign up</button>
+    </div>
   </div>
 </div>

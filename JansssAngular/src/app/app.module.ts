@@ -30,6 +30,10 @@ import { HttpClientModule} from '@angular/common/http';
 import {MatAutocompleteModule, MatDatepickerModule, MatFormFieldModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
+/* Angular material */
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {AngularMaterialModule} from './angular-material/angular-material.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,9 +71,12 @@ import {MatInputModule} from '@angular/material';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

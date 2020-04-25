@@ -1,30 +1,45 @@
 import {Component, OnInit} from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm} from '@angular/forms';
 import {CustomValidators} from '../custom-validators';
 import {HttpClient} from '@angular/common/http';
 import * as $ from 'jquery';
+import {ErrorStateMatcher} from '@angular/material';
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-client-sign-up',
   templateUrl: './client-sign-up.component.html',
   styleUrls: ['./client-sign-up.component.scss']
 })
-export class ClientSignUpComponent implements OnInit{
+export class ClientSignUpComponent implements OnInit {
   public frmSignup: FormGroup;
   registered = false;
   submitted = false;
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
     this.frmSignup = this.createSignupForm();
   }
+  matcher = new MyErrorStateMatcher();
+
 
   createSignupForm(): FormGroup {
-    return this.fb.group(
+    return this.formBuilder.group(
       {
+        name: [
+          null,
+          Validators.compose([Validators.required])],
         email: [
           null,
           Validators.compose([Validators.email, Validators.required])
         ],
         password: [
+          // tslint:disable-next-line:adjacent-overload-signatures
           null,
           Validators.compose([
             Validators.required,
@@ -54,21 +69,12 @@ export class ClientSignUpComponent implements OnInit{
       },
       {
         // check whether our password and confirm password match
-      }
         validator: CustomValidators.passwordMatchValidator
+      }
     );
   }
-  invalidPassword() {
-    return (this.submitted && this.userForm.controls.password.errors != null);
-  }
-  ngOnInit() {
-    this.userForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
-    });
-  }
 
-    onSubmit() {
+  onSubmit() {
     this.submitted = true;
 
     if (this.frmSignup.invalid === true) {
@@ -86,6 +92,7 @@ export class ClientSignUpComponent implements OnInit{
   }
 
   ngOnInit() {
+    // Hide and show criteria on key entry
     $('#password').keyup(function() {
       // @ts-ignore
       if ($(this).val().length > 0) {

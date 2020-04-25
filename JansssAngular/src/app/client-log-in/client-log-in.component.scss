@@ -1,168 +1,90 @@
-.client-log-in{
-  padding-top: 9%;
+.client3, .client4{
+  display:none;
 }
 
-.client{
-  background-color: #FBFBFB;
-  border-radius: 10px;
-  padding-top: 2%;
-  padding-bottom: 0.7%;
-  box-shadow: 2px 2px 5px 2px #c2c0c0;
+.client3{
+  padding-top: 3%;
+  padding-bottom: 3%;
+  color: black;
+  text-align: center;
+  border-radius: 0 30px 30px 0;
+  border-color: #E06F63;
+}
+
+.client3 h3{
+  font-size: 30px;
+  font-family: "Airbnb Cereal App Book", sans-serif;
+}
+
+//2nd Layout - Social Media Icons
+.client4 .client-logo button{
+  border-radius: 30px;
+  border-color: #dbdbdb;
+  border-width: 1px;
+  padding: 2%;
+  margin-right: 5%;
+}
+
+.client4 .client-logo{
+  text-align: center;
   font-family: "Airbnb Cereal App Medium", sans-serif;
 }
 
-.log-in{
-  width: 80%;
-  font-size: 18px;
-  margin: auto auto;
-  text-align: center;
-}
-.client-logo img{
-  height: 100px;
-}
-
-.client-logo{
-  width: 20%;
-  margin: auto auto;
-}
-
-.client-item{
-  margin: auto auto;
-}
-
-.client-item input{
-  background-color: #FBFBFB;
+.client4 .client-logo p{
   padding-top: 3%;
-  width:150%;
-  border: none;
-  border-bottom: 1px solid #e0e0e0;
+  color: rgba(93, 93, 93, 0.81);
 }
-
-::placeholder{
-  font-family: "Airbnb Cereal App Light", sans-serif;
-  color: #dddddd;
+.client4 .client-logo h3{
+  font-size: 45px;
 }
-.client-email{
+.client4{
   padding-top: 10%;
+  padding-bottom: 5%;
+  padding-left: 8%;
 }
 
-.client-pass{
-  padding-top: 5%;
-}
-
-.btn-out-log-in{
-  padding-top: 10%;
-}
-
-.button-log-in{
-  font-family: "Airbnb Cereal App Book", sans-serif;
-  border-radius: 10px;
-  color: white;
-  padding: 3% 6%;
-  font-size: 16px;
+//2nd Layout - Button switch from log in to sign up
+.client3 .button-switch{
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+  border-radius: 30px;
+  border-color: black;
+  border-width: 2px;
+  padding: 2% 7%;
   text-transform: uppercase;
-  background-color: #E06F63;
-  box-shadow: 0 2px 5px 0 #c2c0c0;
-}
-
-.or{
-  padding-top: 5%;
-}
-
-
-.button-google{
-  background-color: white;
+  font-size: 16px;
   font-weight: bold;
-  border-radius: 10px;
-  padding: 0.5% 6%;
-  font-size: 15px;
-  box-shadow: 0 2px 5px 0 #c2c0c0;
-  font-family: "Airbnb Cereal App Book", sans-serif;
-  color: black;
+}
+.client2{
+  padding-top: 10%;
 }
 
-.terms, .already-member, .forgot{
-  padding-top: 5%;
-  margin: auto auto;
-  width: 85%;
-  color: #bdbdbd;
-  font-size: 9px;
+//Media queries for responsiveness
+@media (max-width:999px) and (min-width:992px) {
+  .client2{display:none;}
+  .client1{display: none;}
+  .client3, .client4{ display: block;}
+  .client4{padding-left: 28%;}
 }
 
-.forgot{
-  padding-top: 1%;
-  font-size: 10px;
+@media (max-width:991px) and (min-width:768px) {
+  .client2{display:none;}
+  .client1{display: none;}
+  .client3, .client4{display: block;}
+  .client4{padding-left: 25%;}
 }
 
-.already-member{
-  margin-left: 1%;
+@media (max-width:767px) and (min-width:575px){
+  .client-account{padding-top: 12%;}
+  .client2{display:none;}
+  .client1{display: none;}
+  .client3, .client4{display: block;}
+  .client4{padding-left: 18%;}
 }
 
-.terms a, .already-member a, .forgot a{
-  color: #5d5d5d;
-}
-
-
-.buttons p, .buttons div, .buttons a{
-  text-align: center;
-}
-
-
-#password_error, #email_error{
-  font-size: 12px;
-  color: red;
-  font-style: italic;
-}
-
-@media (max-width:1200px) and (min-width:1100px) {
-  .client-log-in{
-    padding-top: 10%;
-  }
-}
-
-
-@media (max-width:1099px) and (min-width:1000px) {
-  .client-log-in{
-    padding-top: 11%;
-  }
-}
-
-
-@media (max-width:999px) and (min-width:900px) {
-  .client-log-in{
-    padding-top: 12%;
-  }
-}
-
-
-@media (max-width:899px) and (min-width:800px) {
-  .client-log-in{
-    padding-top: 14%;
-  }
-}
-
-
-@media (max-width:799px) and (min-width:700px) {
-  .client-log-in{
-    padding-top: 16%;
-  }
-}
-
-
-@media (max-width:699px) and (min-width:600px) {
-  .client-log-in{
-    padding-top: 17%;
-  }
-}
-
-@media (max-width:599px) and (min-width:500px) {
-  .client-log-in{
-    padding-top: 18%;
-  }
-}
-
-@media (max-width:599px) and (min-width:0px) {
-  .client-log-in{
-    padding-top: 22%;
-  }
+@media (max-width:574px){
+  .client-account{padding-top: 16%;}
+  .client4{padding-left: 14%;}
+  .client2{display:none;}
+  .client1{display: none;}
+  .client3, .client4{display: block;}
 }

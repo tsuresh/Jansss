@@ -36,8 +36,8 @@ export class SelectPaymentComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('#disableItem1').removeClass('disabled');
-    $('#disableItem2').removeClass('disabled');
+    // $('#disableItem1').removeClass('disabled');
+    // $('#disableItem2').removeClass('disabled');
     this.form = new FormGroup({
       cardNo: new FormControl('', Validators.required),
       exDate: new FormControl('', Validators.required),

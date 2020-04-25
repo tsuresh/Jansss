@@ -33,7 +33,8 @@
               "./node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/aos/dist/aos.css",
-              "node_modules/jquery-ui/ui/widgets/datepicker.js"
+              "node_modules/jquery-ui/ui/widgets/datepicker.js",
+              "src/theme.scss"
             ],
             "scripts": [
               "node_modules/popper.js/dist/popper.js",

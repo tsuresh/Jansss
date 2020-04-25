@@ -28,65 +28,25 @@ text-align: center;
   color: #E06F63;
 }
 
-//.item{
-//  margin-top: 8%;
-//  //margin-left: 5%;
-//}
-
 .enter_form{
   width: 80%;
   margin: auto auto;
-  //float: left;
   justify-content: space-between;
   padding-top: 5%;
-  //margin-top: 3%;
   font-family: "Airbnb Cereal App Medium", sans-serif;
-
 }
-//.item1{
-//  margin-left: 0;
-//  width: 40%;
-//  margin: auto auto;
-//  display: block;
-//
-//}
-//
-//.item2, .item3, .item4, .item5, .item6, .item7, .item8{
-//  margin-top: 1%;
-//
-//}
-//
-//.item2, .item4, .item6{
-//     margin-left: 0%;
-//  display: block;
-//
-//}
-//
-//.item3, .item5, .item7{
-//  margin-left: 30%;
-//  display: block;
-//
-//}
-//
-//.item .descrip{
-//  width: 300%;
-//}
 
-#name_error, #industry_error, #audience_error, #budget_error, #location_error, #price_error, #duration_error{
+.errorMessage{
+  margin-top: -20px;
   font-size: 12px;
   color: red;
-  font-style: italic;
 }
+
 a.disabled {
   pointer-events: none;
   cursor: default;
-//.item input{
 }
-//  width: 100%;
-//  border: none;
-//  border-bottom: 1px solid #e0e0e0;
-//  font-family: "Airbnb Cereal App Light", sans-serif;
-//}
+
 .dateStart, .dateEnd {
   width: 50%;
   padding-top: 2%;
@@ -95,9 +55,10 @@ a.disabled {
 .dateStart{
   padding-right: 5%;
 }
-::placeholder{
-  color: #e0e0e0;
-}
+
+//::placeholder{
+//  color: #e0e0e0;
+//}
 .item{
   display: block;
   //float:right;
@@ -111,12 +72,13 @@ a.disabled {
 
 .button{
   font-family: "Airbnb Cereal App Book", sans-serif;
-  border-radius: 10px;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  border-radius: 30px;
   color: white;
+  padding: 2% 7%;
+  font-size: 16px;
   text-transform: uppercase;
   background-color: #E06F63;
+  box-shadow: 0 2px 5px 0 #c2c0c0;
 }
 
 @media screen and (max-width: 800px) {

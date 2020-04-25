@@ -13,7 +13,7 @@ import * as $ from 'jquery';
 export class HomeComponent implements OnInit {
   constructor() { }
   ngOnInit() {
-    document.getElementById('logo-1').style.display = 'none';
+    // document.getElementById('logo-1').style.display = 'none';
     // Fixing Div for how it works
     // tslint:disable-next-line:only-arrow-functions
     $('document').ready(function() {
@@ -40,9 +40,9 @@ export class HomeComponent implements OnInit {
               position: 'sticky',
               top: '15%',
             });
-            $('.logo-1').css({
-              display: 'block'
-            });
+            // $('.logo-1').css({
+            //   display: 'block'
+            // });
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -76,9 +76,9 @@ export class HomeComponent implements OnInit {
               position: 'sticky',
               top: '15%',
             });
-            $('.logo-1').css({
-              display: 'block'
-            });
+            // $('.logo-1').css({
+            //   display: 'block'
+            // });
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -114,9 +114,9 @@ export class HomeComponent implements OnInit {
               // margin: 'auto auto',
               // width: '88%'
             });
-            $('.logo-1').css({
-              display: 'block'
-            });
+            // $('.logo-1').css({
+            //   display: 'block'
+            // });
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -155,9 +155,9 @@ export class HomeComponent implements OnInit {
               // margin: 'auto auto',
               // width: '88%'
             });
-            $('.logo-1').css({
-              display: 'block'
-            });
+            // $('.logo-1').css({
+            //   display: 'block'
+            // });
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -218,9 +218,9 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'hidden',
             });
-            $('.logo-1').css({
-              display: 'block'
-            });
+            // $('.logo-1').css({
+            //   display: 'block'
+            // });
           } else if ((currentScroll >= fixmeTop - 140) && (currentScroll < fixmeTop)) {
             // how it works campaign
             $('.fixme').css({
@@ -254,9 +254,9 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'visible',
             });
-            $('.logo-1').css({
-              display: 'block'
-            });
+            // $('.logo-1').css({
+            //   display: 'block'
+            // });
             // $('.header').css({
             //   backgroundColor: 'white'
             // });

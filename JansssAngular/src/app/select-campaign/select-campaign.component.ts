@@ -22,9 +22,9 @@ export class SelectCampaignComponent implements OnInit {
     $('#disableItem1').removeClass('disabled');
   }
 
-  // viewDetails() {
-  //   document.getElementById('campaign-details').style.display = 'block';
-  //   const campaignNumber = document.getElementById('campaign-number');
-  //   const item = document.getElementsByClassName('number');
-  // }
+  viewDetails() {
+    document.getElementById('campaign-details').style.display = 'block';
+    const campaignNumber = document.getElementById('campaign-number');
+    const item = document.getElementsByClassName('number');
+  }
 }
