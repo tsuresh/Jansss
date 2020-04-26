@@ -5,33 +5,30 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/shareReplay';
 import { Observable } from 'rxjs';
 import {AuthInterceptor} from '../interceptor/auth-interceptor';
+import {shareReplay} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 
 
 @Injectable()
 export class AuthService {
-
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string ) {
     return this.http.post('https://api.jansss.live/auth/user/signin', {email, password})
-      .do(res => this.setSession)
-      .shareReplay();
-  }
-
-  private setSession(authResult) {
-    const expiresAt = moment().add(authResult.expiresIn, 'second');
-
-    // storing the JWT directly in Local Storage
-    localStorage.setItem('id_token', authResult.idToken);
-    // calculate the expiration timestamp
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
+      .subscribe((res: any) => {
+        const expiresAt = moment().add(res.expiresIn, 'second');
+        // storing the JWT directly in Local Storage
+        localStorage.setItem('token', res.token);
+        // calculate the expiration timestamp
+        localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
+        localStorage.setItem('uID', res._id);
+        console.log('User is logged in.');
+      });
   }
 
   logout() {
-    localStorage.removeItem('id_token');
+    localStorage.removeItem('token');
     localStorage.removeItem('expires_at');
   }
 

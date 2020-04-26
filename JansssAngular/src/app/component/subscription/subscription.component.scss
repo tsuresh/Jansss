@@ -8,3 +8,52 @@
 h1{
   text-align: center;
 }
+
+.subscribe-details{
+  text-align: center;
+}
+
+.full-width {
+  width: 80%;
+}
+
+.paymentMethod{
+  padding-right: 20%;
+}
+.paymentMethod img{
+  width: 64px;
+}
+
+.paymentMethod1 img{
+  width: 32px;
+}
+
+.colored{
+  margin-left: 3%;
+  margin-right: 3%;
+  font-family: "Airbnb Cereal App Book", sans-serif;
+  border-radius: 30px;
+  color: white;
+  padding: 2% 5%;
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: #E06F63;
+  box-shadow: 0 2px 5px 0 #c2c0c0;
+}
+
+.uncolored{
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+  border-radius: 30px;
+  border-color: black;
+  border-width: 2px;
+  padding: 2%;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.subscribe-buttons{
+  padding-top: 3%;
+}

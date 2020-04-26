@@ -78,21 +78,21 @@ export class HeaderComponent implements OnInit {
   }
     logout() {
       if (this.authService.isLoggedIn()) {
-        $('.logout1').css({
-          display: 'none',
-        });
-        $('.logout2').css({
-          display: 'block',
-        });
+        // $('.logout1').css({
+        //   display: 'none',
+        // });
+        // $('.logout2').css({
+        //   display: 'block',
+        // });
         this.authService.logout();
-      } else {
-        $('.logout1').css({
-          display: 'block',
-        });
-        $('.logout2').css({
-          display: 'none',
-        });
       }
     }
+      // } else {
+      //   $('.logout1').css({
+      //     display: 'block',
+      //   });
+      //   $('.logout2').css({
+      //     display: 'none',
+      //   });
   }
 

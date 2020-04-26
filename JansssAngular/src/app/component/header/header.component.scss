@@ -26,16 +26,19 @@
   margin-left: 2%;
   //display: none;
 }
+li{
+  cursor: pointer;
 
+}
 .bottomright {
   position: absolute;
   bottom: 8px;
   right: 16px;
 }
-
-.logout1, .logout2{
-  display: none;
-}
+//
+//.logout1, .logout2{
+//  display: none;
+//}
 //Hamburger menu
 .burger {
   position: absolute;
