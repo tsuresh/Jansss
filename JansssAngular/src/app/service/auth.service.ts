@@ -1,14 +1,12 @@
 import * as moment from 'moment';
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/shareReplay';
-import { Observable } from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {AuthInterceptor} from '../interceptor/auth-interceptor';
-import {shareReplay} from 'rxjs/operators';
+import {catchError, map, shareReplay} from 'rxjs/operators';
 import {Router} from '@angular/router';
-
-
 
 @Injectable()
 export class AuthService {
@@ -44,5 +42,24 @@ export class AuthService {
     const expiration = localStorage.getItem('expires_at');
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
+  }
+
+  // Get user profile
+  getUserProfile(id) {
+    const api = `https://jansss.live/user/match/${id}`;
+    return this.http.get(api);
+  }
+
+  // Error
+  handleError(error: HttpErrorResponse) {
+    let msg = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      msg = error.error.message;
+    } else {
+      // server-side error
+      msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(msg);
   }
 }
