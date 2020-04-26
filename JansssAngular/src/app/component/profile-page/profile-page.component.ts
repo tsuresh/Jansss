@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {AuthService} from '../../service/auth.service';
+import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-profile-page',
@@ -18,13 +20,18 @@ export class ProfilePageComponent implements OnInit {
   // tslint:disable-next-line:ban-types
   currentUser: Object = {};
 
-  constructor(private router: Router, private http: HttpClient, private authService: AuthService) {
+  constructor(private router: Router, private http: HttpClient, private authService: AuthService, public dialog: MatDialog) {
     {
       const id = this.authService.id;
       this.getUserProfile(id).subscribe(res => {
         this.currentUser = res.msg;
       });
     }
+  }
+
+  // Modal
+  openDialog() {
+    this.dialog.open(ImplementationModalComponent);
   }
 
   // Settings Icon Functionality

@@ -201,7 +201,7 @@
               [formGroup]="form"
               (ngSubmit)="onSubmit(form.value)">
           <input type="text"  formControlName="email" placeholder="Enter Your Email">
-          <input type="submit" class="btn shadow-sm" value="submit">
+          <input type="submit" class="btn shadow-sm" value="submit" (click)="openDialog()">
         </form>
       </div>
     </div>

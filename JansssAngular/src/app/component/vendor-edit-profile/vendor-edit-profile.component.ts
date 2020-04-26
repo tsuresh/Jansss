@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
+import {MatDialog} from '@angular/material/dialog';
 
 interface MType {
   type: string;
@@ -40,7 +42,12 @@ export class VendorEditProfileComponent implements OnInit {
     {type: 'Knowledge/Consulting'}
   ];
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  // Modal
+  openDialog() {
+    this.dialog.open(ImplementationModalComponent);
+  }
 
   ngOnInit() {
     this.form = new FormGroup({
