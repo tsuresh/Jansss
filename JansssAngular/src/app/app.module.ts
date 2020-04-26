@@ -34,8 +34,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from '@angular/com
 /* Angular material */
 import {
   MatAutocompleteModule,
-  MatDatepickerModule,
-  MatFormFieldModule,
   MatSnackBarModule,
   MatDialogModule
 } from '@angular/material';
@@ -50,10 +48,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
-import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
-import { HttpClientModule } from '@angular/common/http';
 import {MatNativeDateModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {AngularMaterialModule} from './angular-material/angular-material.module';
@@ -109,8 +105,12 @@ import {AuthInterceptor} from './interceptor/auth-interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
+    },
+    {
+      provide: ErrorStateMatcher,
+      useClass: ShowOnDirtyErrorStateMatcher
     }
-    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
