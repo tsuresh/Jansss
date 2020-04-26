@@ -53,8 +53,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 
 import {AuthInterceptor} from './interceptor/auth-interceptor';
-
-
+import { ImplementationModalComponent } from './component/implementation-modal/implementation-modal.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +83,7 @@ import {AuthInterceptor} from './interceptor/auth-interceptor';
     CampaignDetailsDescriptionComponent,
     VendorHubHomePageComponent,
     VendorEditProfileComponent,
+    ImplementationModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -35,7 +35,7 @@ const routes: Routes = [
   {path: 'vendor-log-in', component: VendorLoginComponent},
   {path: 'progress', component: CampaignProgressComponent},
   {path: 'campaign-details', component: CampaignDetailsPageComponent},
-  {path: 'profile', component: ProfilePageComponent},
+  {path: 'profile/', component: ProfilePageComponent},
   {path: 'edit-profile', component: EditProfileComponent},
   {path: 'how-it-works', component: HowItWorksComponent},
   {path: 'vendor-login', component: VendorLoginComponent},
