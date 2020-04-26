@@ -55,3 +55,9 @@ p a {
   text-decoration: none;
   color: #636e72;
 }
+
+@media (max-width: 991px) {
+  .col-left {
+    display: none;
+  }
+}

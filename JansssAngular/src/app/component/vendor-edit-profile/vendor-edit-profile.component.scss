@@ -1,0 +1,38 @@
+.container {
+  padding-top: 5%;
+  width: 50%;
+}
+
+.heading-top p {
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.pink {
+  color: #E06F63;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.btn {
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+input[type=submit] {
+  background: #E06F63;
+  color: #ffffff;
+}
+
+input[type=reset] {
+  background: #f1f2f6;
+}
+
+@media (max-width: 513px) {
+  .heading-top p {
+    font-size: 44px;
+  }
+}

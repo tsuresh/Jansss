@@ -27,18 +27,22 @@ import { VendorLoginComponent } from './component/vendor-login/vendor-login.comp
 import { VendorSignUpComponent } from './component/vendor-sign-up/vendor-sign-up.component';
 import { UserOptionPageComponent } from './component/user-option-page/user-option-page.component';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
+import { CampaignDetailsDescriptionComponent } from './component/campaign-details-description/campaign-details-description.component';
+import { VendorHubHomePageComponent } from './component/vendor-hub-home-page/vendor-hub-home-page.component';
+import { VendorEditProfileComponent } from './component/vendor-edit-profile/vendor-edit-profile.component';
 /* Angular forms */
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {A11yModule} from '@angular/cdk/a11y';
 import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from '@angular/common/http';
 /* Angular material */
-import {
-  MatAutocompleteModule,
-  MatSnackBarModule,
-  MatDialogModule
-} from '@angular/material';
+import {MatAutocompleteModule, MatSnackBarModule, MatDialogModule} from '@angular/material';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import {MatNativeDateModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
+import {AngularMaterialModule} from './angular-material/angular-material.module';
 import {MatRadioModule} from '@angular/material/radio';
-import { CampaignDetailsDescriptionComponent } from './component/campaign-details-description/campaign-details-description.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -46,14 +50,11 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
-import {MatNativeDateModule} from '@angular/material';
-import {MatInputModule} from '@angular/material';
-import {AngularMaterialModule} from './angular-material/angular-material.module';
+
 import {AuthInterceptor} from './interceptor/auth-interceptor';
+
+
 
 @NgModule({
   declarations: [
@@ -81,6 +82,8 @@ import {AuthInterceptor} from './interceptor/auth-interceptor';
     LandingPageComponent,
     SubscriptionComponent,
     CampaignDetailsDescriptionComponent,
+    VendorHubHomePageComponent,
+    VendorEditProfileComponent,
   ],
   imports: [
     BrowserModule,

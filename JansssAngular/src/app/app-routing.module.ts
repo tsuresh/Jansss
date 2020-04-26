@@ -18,6 +18,8 @@ import {VendorLoginComponent} from './component/vendor-login/vendor-login.compon
 import {VendorSignUpComponent} from './component/vendor-sign-up/vendor-sign-up.component';
 import {UserOptionPageComponent} from './component/user-option-page/user-option-page.component';
 import {SubscriptionComponent} from './component/subscription/subscription.component';
+import {VendorHubHomePageComponent} from './component/vendor-hub-home-page/vendor-hub-home-page.component';
+import {VendorEditProfileComponent} from './component/vendor-edit-profile/vendor-edit-profile.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -39,7 +41,9 @@ const routes: Routes = [
   {path: 'vendor-login', component: VendorLoginComponent},
   {path: 'vendor-signup', component: VendorSignUpComponent},
   {path: 'user-option', component: UserOptionPageComponent},
-  {path: 'subscription', component: SubscriptionComponent}
+  {path: 'subscription', component: SubscriptionComponent},
+  {path: 'vendor-hub', component: VendorHubHomePageComponent},
+  {path: 'vendor-edit-profile', component: VendorEditProfileComponent}
   ];
 
 @NgModule({
