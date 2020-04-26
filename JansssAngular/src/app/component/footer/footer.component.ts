@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +11,12 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class FooterComponent implements OnInit {
   form: FormGroup
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  // Modal
+  openDialog() {
+    this.dialog.open(ImplementationModalComponent);
+  }
 
   ngOnInit() {
     this.form = new FormGroup({

@@ -35,8 +35,8 @@
           </div>
         </div>
 
-        <!-- E-mail -->
         <div class="row mt-2">
+          <!-- E-mail -->
           <div class="col">
             <mat-form-field class="full-width">
               <mat-label>Email</mat-label>
@@ -51,10 +51,8 @@
               </mat-error>
             </mat-form-field>
           </div>
-        </div>
 
-        <!-- Password -->
-        <div class="row mt-3">
+          <!-- Password -->
           <div class="col">
             <mat-form-field class="full-width">
               <mat-label>Password</mat-label>
@@ -67,6 +65,38 @@
               </mat-error>
               <mat-error *ngIf="password.hasError('required')">
                 Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- Marketing Type -->
+        <div class="row mt-3">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Marketing Type</mat-label>
+              <mat-select [formControl]="mType">
+                <mat-option *ngFor="let t of mTypes" [value]="t">
+                  {{t.type}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="mType.hasError('required')">
+                Marketing type is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!-- Preferred Type -->
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Preferred Industry</mat-label>
+              <mat-select [formControl]="pType">
+                <mat-option *ngFor="let t of pTypes" [value]="t">
+                  {{t.type}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="company.hasError('required')">
+                Preferred type is <strong>required</strong>
               </mat-error>
             </mat-form-field>
           </div>

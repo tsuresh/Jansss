@@ -30,6 +30,7 @@ import { LandingPageComponent } from './component/landing-page/landing-page.comp
 import { CampaignDetailsDescriptionComponent } from './component/campaign-details-description/campaign-details-description.component';
 import { VendorHubHomePageComponent } from './component/vendor-hub-home-page/vendor-hub-home-page.component';
 import { VendorEditProfileComponent } from './component/vendor-edit-profile/vendor-edit-profile.component';
+import { ImplementationModalComponent } from './component/unavailable-modal/implementation-modal.component';
 /* Angular forms */
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {A11yModule} from '@angular/cdk/a11y';
@@ -52,7 +53,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import {AuthInterceptor} from './interceptor/auth-interceptor';
-
 
 
 @NgModule({
@@ -83,6 +83,7 @@ import {AuthInterceptor} from './interceptor/auth-interceptor';
     CampaignDetailsDescriptionComponent,
     VendorHubHomePageComponent,
     VendorEditProfileComponent,
+    ImplementationModalComponent,
   ],
   imports: [
     BrowserModule,

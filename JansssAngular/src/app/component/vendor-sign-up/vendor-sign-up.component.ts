@@ -3,6 +3,14 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '
 import { ErrorStateMatcher } from '@angular/material/core';
 import {HttpClient} from '@angular/common/http';
 
+interface MType {
+  type: string;
+}
+
+interface PType {
+  type: string;
+}
+
 // Error when invalid control is dirty, touched, or submitted
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -33,12 +41,31 @@ export class VendorSignUpComponent implements OnInit {
     Validators.required,
     Validators.minLength(8)
   ]);
+  mType = new FormControl('', Validators.required);
+  pType = new FormControl('', Validators.required);
+
+  mTypes: MType[] = [
+    {type: 'Social Media'},
+    {type: 'Banners'},
+    {type: 'Event'},
+    {type: 'Word of mouth'},
+    {type: 'Online'}
+  ];
+  pTypes: PType[] = [
+    {type: 'Financial'},
+    {type: 'Education'},
+    {type: 'Entertainment and Events'},
+    {type: 'Information Technology'},
+    {type: 'Knowledge/Consulting'}
+  ];
   constructor(private http: HttpClient) { }
   ngOnInit() {
     this.form = new FormGroup({
       company: new FormControl(),
       email: new FormControl(),
-      password: new FormControl()
+      password: new FormControl(),
+      mType: new FormControl(),
+      pType: new FormControl()
     });
   }
   // On Submit Functionality
@@ -50,7 +77,7 @@ export class VendorSignUpComponent implements OnInit {
     } else {
       const data: any = Object.assign(this.form.value);
       // tslint:disable-next-line:no-shadowed-variable
-      this.http.post('https://jansss.herokuapp.com/auth/vendor/signup', data).subscribe(( data: any) => {
+      this.http.post('https://jansss.live/auth/vendor/signup', data).subscribe(( data: any) => {
         alert('Sign up was successful');
       }, error => {
         alert('An error occurred. ' + JSON.stringify(error.error));
