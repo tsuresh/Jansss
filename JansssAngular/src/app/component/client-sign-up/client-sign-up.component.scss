@@ -15,7 +15,9 @@
   font-style: italic;
   color: red;
 }
-
+.hide-icon {
+  cursor: pointer;
+}
 @media (max-width:999px) and (min-width:992px) {
   .client2{padding-left: 30%;}
 }

@@ -14,11 +14,11 @@
       </div>
       <form [formGroup]="frmSignup" (submit)="onSubmit()" class="client-item">
         <div class="form-group">
-        <label class="client-name" [ngClass]="frmSignup.controls['name']">
+        <label class="client-name" [ngClass]="frmSignup.controls['userName']">
           <mat-form-field style="width:200%;">
             <mat-label>Username</mat-label>
-            <input matInput  formControlName="name" [errorStateMatcher]="matcher" placeholder="Ex. JohnS">
-            <mat-error *ngIf="frmSignup.controls['name'].hasError('required')">
+            <input matInput  formControlName="userName" [errorStateMatcher]="matcher" required placeholder="Ex. JohnS">
+            <mat-error *ngIf="frmSignup.controls['userName'].hasError('required')">
               Your name is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -29,7 +29,7 @@
           <label class="client-email" [ngClass]="frmSignup.controls['email']">
             <mat-form-field style="width:200%;">
               <mat-label>Email</mat-label>
-              <input matInput  formControlName="email" id="email" type="email" [errorStateMatcher]="matcher" placeholder="Ex. john.smith@gmail.com">
+              <input matInput  formControlName="email" id="email" type="email" required [errorStateMatcher]="matcher" placeholder="Ex. john.smith@gmail.com">
               <mat-error *ngIf="frmSignup.controls['email'].hasError('required')">
                 Email is <strong>required</strong>
               </mat-error>
@@ -42,9 +42,12 @@
 
         <div class="form-group">
           <label class="client-pass" [ngClass]="frmSignup.controls['password']">
-          <mat-form-field style="width:200%;">
+          <mat-form-field style="width:180%;">
             <mat-label>Create a password</mat-label>
-            <input matInput  id="password" formControlName="password" [errorStateMatcher]="matcher" placeholder="Ex. JohnSmith123!">
+            <input matInput  id="password"  [type]="hide ? 'password' : 'text'" required formControlName="password" [errorStateMatcher]="matcher" placeholder="Ex. JohnSmith123!">
+            <span class="hide-icon" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </span>
           </mat-form-field>
           </label>
           <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
@@ -85,9 +88,12 @@
                   </div>
         <div class="form-group confirmPassword">
           <label class="client-pass" for="confirmPassword" [ngClass]="frmSignup.controls['confirmPassword']">
-            <mat-form-field style="width:170%;">
+            <mat-form-field style="width:180%;">
               <mat-label>Confirm password</mat-label>
-              <input matInput  id="confirmPassword" formControlName="confirmPassword" [errorStateMatcher]="matcher" placeholder="Ex. JohnSmith123!">
+              <input matInput  id="confirmPassword" formControlName="confirmPassword"  [type]="hide ? 'password' : 'text'" required [errorStateMatcher]="matcher" placeholder="Ex. JohnSmith123!">
+              <span class="hide-icon" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </span>
             </mat-form-field>
           </label>
           <label class="text-danger criteriaConfirm" *ngIf="frmSignup.controls['confirmPassword'].hasError('required')">

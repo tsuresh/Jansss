@@ -22,6 +22,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class ClientLogInComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
+  hide = true;
   frmLogIn: FormGroup;
   constructor(private formBuilder: FormBuilder,  private authService: AuthService, private router: Router) {
     this.frmLogIn = this.createLogInForm();

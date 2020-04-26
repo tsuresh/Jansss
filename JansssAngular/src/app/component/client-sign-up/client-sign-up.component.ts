@@ -23,6 +23,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class ClientSignUpComponent implements OnInit {
   public frmSignup: FormGroup;
+  hide = true;
   registered = false;
   submitted = false;
   constructor(
@@ -39,7 +40,7 @@ export class ClientSignUpComponent implements OnInit {
   createSignupForm(): FormGroup {
     return this.formBuilder.group(
       {
-        name: [
+        userName: [
           null,
           Validators.compose([Validators.required])],
         email: [
@@ -90,7 +91,7 @@ export class ClientSignUpComponent implements OnInit {
       const data: any = Object.assign(this.frmSignup.value);
       this.authService.login(data.email, data.password);
       // tslint:disable-next-line:no-shadowed-variable
-      this.http.post('https://jansss.herokuapp.com/auth/user/signup', data).subscribe(( data: any) => {
+      this.http.post('https://api.jansss.live/auth/user/signup', data).subscribe(( data: any) => {
         this._snackBar.open('Sign up was successful!', 'Redirecting to Subscription.' , {duration: 3000});
         this.router.navigate(['/pricing']);
       }, error => {

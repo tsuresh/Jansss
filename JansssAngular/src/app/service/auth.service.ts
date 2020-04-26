@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   login(email: string, password: string ) {
-    return this.http.post('https://jansss.herokuapp.com/auth/user/signin', {email, password})
+    return this.http.post('https://api.jansss.live/auth/user/signin', {email, password})
       .do(res => this.setSession)
       .shareReplay();
   }

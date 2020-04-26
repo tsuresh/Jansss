@@ -20,9 +20,9 @@
         <div class="form-group" [ngClass]="{ 'has-error': invalidProductName() }">
           <!-- form item - product name -->
           <label class="item">
-            Product/Service Name*<br>
+            Product/Service Name<br>
             <mat-form-field style="width: 100%">
-              <input matInput placeholder="Ex. Platinum Business Academy" formControlName="productName">
+              <input matInput placeholder="Ex. Platinum Business Academy" required formControlName="productName">
             </mat-form-field>
             <mat-error *ngIf="invalidProductName()" class="errorMessage">
               Product/Service Name is <strong>required</strong>
@@ -33,9 +33,9 @@
         <div class="form-group" [ngClass]="{ 'has-error': invalidProductType() }">
           <!-- form item - product type -->
           <label class="item">
-            Product/Service Type*<br>
+            Product/Service Type<br>
             <mat-form-field style="width: 100%">
-              <input matInput placeholder="Ex. Tuition Class" formControlName="productType">
+              <input matInput placeholder="Ex. Tuition Class" required formControlName="productType">
             </mat-form-field>
             <mat-error *ngIf="invalidProductType()" class="errorMessage">
               Product/Service Type is <strong>required</strong>
@@ -46,9 +46,9 @@
         <div class="form-group" [ngClass]="{ 'has-error': invalidIndustry() }">
           <!-- form item - industry -->
           <label class="item">
-            Target Industry*<br>
+            Target Industry<br>
             <mat-form-field style="width: 100%" >
-              <input type="text" matInput formControlName="industry" placeholder="Ex. Education" [matAutocomplete]="industryGroup">
+              <input type="text" matInput formControlName="industry" placeholder="Ex. Education" required [matAutocomplete]="industryGroup">
 <!--              <p *ngIf="invalidIndustry()" id="industry_error" class="help-block">Invalid industry</p>-->
               <mat-autocomplete #industryGroup="matAutocomplete">
                 <mat-optgroup *ngFor="let group of industryOptions | async" [label]="group.letter">
@@ -67,12 +67,12 @@
         <div class="form-group" [ngClass]="{ 'has-error': invalidAudience() }">
           <!-- form item - target audience -->
           <label class="item">
-            Target Audience*<br>
+            Target Audience<br>
 <!--            <mat-form-field style="width: 100%">-->
 <!--              <input matInput placeholder="Ex. Students" formControlName="audience">-->
 <!--            </mat-form-field>-->
             <mat-form-field style="width: 100%">
-              <input type="text" matInput formControlName="audience" placeholder="Ex. Students"  [matAutocomplete]="audienceGroup">
+              <input type="text" matInput formControlName="audience" placeholder="Ex. Students" required [matAutocomplete]="audienceGroup">
               <mat-autocomplete #audienceGroup="matAutocomplete" [displayWith]="displayFn">
 <!--                <mat-optgroup *ngFor="let group of audienceOptions | async" [label]="group.letter">-->
 <!--                  <mat-option *ngFor="let name of audiences" [value]="name">-->
@@ -94,9 +94,9 @@
         <div class="form-group" [ngClass]="{ 'has-error': invalidBudget() }">
           <!-- form item - budget -->
           <label class="item">
-            Budget*<br>
+            Budget<br>
             <mat-form-field style="width: 100%">
-              <input matInput placeholder="Ex. Rs. 10,000/-" formControlName="budget">
+              <input matInput placeholder="Ex. Rs. 10,000/-" required formControlName="budget">
             </mat-form-field>
             <mat-error *ngIf="invalidBudget()" class="errorMessage">
               Budget is <strong>required</strong>
@@ -108,9 +108,9 @@
         <div class="form-group" [ngClass]="{ 'has-error': invalidLocation() }">
           <!-- form item - target location -->
           <label class="item">
-            Target Location*<br>
+            Target Location<br>
             <mat-form-field style="width: 100%">
-              <input type="text" matInput formControlName="location" placeholder="Ex. Wellawatte, Colombo" [matAutocomplete]="locationGroup">
+              <input type="text" matInput formControlName="location" required placeholder="Ex. Wellawatte, Colombo" [matAutocomplete]="locationGroup">
               <mat-autocomplete #locationGroup="matAutocomplete">
                 <mat-optgroup *ngFor="let group of locationOptions | async" [label]="group.letter">
                   <mat-option *ngFor="let name of group.names" [value]="name">
@@ -128,9 +128,9 @@
         <div class="form-group" [ngClass]="{ 'has-error': invalidPrice() }">
           <!-- form item - price -->
           <label class="item">
-            Price of Product/Service*<br>
+            Price of Product/Service<br>
             <mat-form-field style="width: 100%">
-              <input matInput placeholder="Ex. Rs. 1,000 per lesson" formControlName="price">
+              <input matInput placeholder="Ex. Rs. 1,000 per lesson" required formControlName="price">
             </mat-form-field>
             <mat-error *ngIf="invalidLocation()" class="errorMessage">
               Price of Product/Service is <strong>required</strong>
