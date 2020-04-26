@@ -39,6 +39,11 @@
   font-weight: 200;
 }
 
+a {
+  text-decoration: none;
+  color: #650C0C;
+}
+
 .container .nav-arrow {
   width: 30px;
   height: auto;
@@ -46,6 +51,7 @@
   margin-top: 50px;
 }
 
+//Media Queries
 @media (max-width: 1199px) {
   #right h1 {
     font-size: 80px;

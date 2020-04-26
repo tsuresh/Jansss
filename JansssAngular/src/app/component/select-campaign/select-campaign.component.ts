@@ -14,6 +14,7 @@ export class SelectCampaignComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  // Next Button Functionality
   navigateToPayment() {
     this.router.navigate(['/payment']);
   }

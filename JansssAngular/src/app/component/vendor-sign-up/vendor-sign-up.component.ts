@@ -23,6 +23,7 @@ export class VendorSignUpComponent implements OnInit {
   form: FormGroup;
   hide = true;
   matcher = new MyErrorStateMatcher();
+  // Input Validations
   company = new FormControl('', Validators.required);
   email = new FormControl('', [
     Validators.required,
@@ -40,6 +41,7 @@ export class VendorSignUpComponent implements OnInit {
       password: new FormControl()
     });
   }
+  // On Submit Functionality
   onSubmit() {
     this.submitted = true;
 

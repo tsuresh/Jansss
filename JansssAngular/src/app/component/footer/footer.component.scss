@@ -21,6 +21,7 @@ footer{
   letter-spacing: 2px;
 }
 
+// Social Media Icons Styling
 .icon {
   text-decoration: none;
   -webkit-transition: all 0.4s ease;
@@ -51,6 +52,7 @@ footer{
   width: 25px;
 }
 
+// Page Links Styling
 .menu-item a {
   font-size: 12px;
   text-transform: uppercase;
@@ -67,15 +69,12 @@ h3 {
   text-transform: uppercase;
 }
 
-.payment-icons {
-  width: 50px;
-}
-
 p{
   font-size: 11px;
   letter-spacing: 1px;
 }
 
+// Footer Divider Styling
 .line {
   width: 100%;
   height: 1px;
@@ -89,6 +88,7 @@ p{
   color: #ffffff;
 }
 
+// Subscription Form Styling
 .subscribe-form {
   display: flex;
   justify-content: center;
@@ -110,6 +110,7 @@ input[type=text] {
   max-width: 300px;
 }
 
+// Button Styling
 .btn {
   padding: 10px 15px;
   font-size: 14px;
@@ -124,6 +125,7 @@ input[type=text] {
   transition: opacity .3s linear;
 }
 
+//Media Queries
 @media (max-width: 1189px) {
   .middle{
     display: none;

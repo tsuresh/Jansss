@@ -48,6 +48,7 @@ export class SelectPaymentComponent implements OnInit {
   form: FormGroup;
   minDate = new Date(moment()); // the minimum date user can pick
 
+  // Input validations
   cardNo = new FormControl('', [
     Validators.required,
     // tslint:disable-next-line:max-line-length
@@ -76,8 +77,8 @@ export class SelectPaymentComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router) { }
   ngOnInit() {
-    // $('#disableItem1').removeClass('disabled');
-    // $('#disableItem2').removeClass('disabled');
+    $('#disableItem1').removeClass('disabled');
+    $('#disableItem2').removeClass('disabled');
     this.form = new FormGroup({
       cardNo: new FormControl(),
       cvv: new FormControl(),
@@ -87,14 +88,5 @@ export class SelectPaymentComponent implements OnInit {
     });
   }
 
-  // onSubmit() {
-  //   this.submitted = true;
-  //
-  //   if (this.form.invalid === true) {
-  //     return;
-  //   } else {
-  //     this.router.navigate(['/launch']);
-  //     this.registered = true;
-  //   }
-  // }
+  onSubmit() { }
 }

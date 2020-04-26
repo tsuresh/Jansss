@@ -19,7 +19,7 @@ export class VendorEditProfileComponent implements OnInit {
   form: FormGroup;
   router: Router;
 
-  email = new FormControl('', [Validators.email]);
+  email = new FormControl('', [Validators.email]); // Email Validation
   name = new FormControl();
   password = new FormControl();
   mType = new FormControl();
@@ -53,5 +53,4 @@ export class VendorEditProfileComponent implements OnInit {
   }
 
   onSubmit() { }
-
 }

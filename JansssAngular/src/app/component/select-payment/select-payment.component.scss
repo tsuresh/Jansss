@@ -46,8 +46,10 @@ mat-radio-button img {
   text-transform: uppercase;
   background-color: #E06F63;
   color: #ffffff;
+  border-radius: 30px;
 }
 
+//Media Queries
 @media (max-width: 1199px) {
   .text {
     font-size: 65px;

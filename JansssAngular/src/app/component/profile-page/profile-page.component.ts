@@ -14,14 +14,9 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  // Settings Icon Functionality
   navigateToEditProfile() {
     this.router.navigate(['/edit-profile']);
   }
-
-  navigateToCampaignProgress() {
-    this.router.navigate(['/progress']);
-  }
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }

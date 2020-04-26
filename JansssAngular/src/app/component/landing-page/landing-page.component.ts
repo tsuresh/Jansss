@@ -17,6 +17,7 @@ export class LandingPageComponent implements OnInit {
     // tslint:disable-next-line:only-arrow-functions
     window.onscroll = function() { slideInContent(); };
 
+    // On Scroll Functionality
     function slideInContent() {
       if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 5) {
         document.getElementById('middle').className = 'img-fluid mt-5 ml-5 float-left animated fadeInRight slower middle';
@@ -26,6 +27,7 @@ export class LandingPageComponent implements OnInit {
     }
   }
 
+  // Navigation Arrow Functionality
   scrollWin() {
     window.scrollBy(0, 650);
   }

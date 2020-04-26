@@ -2,6 +2,7 @@
   padding-top: 8%;
 }
 
+//Heading Styling
 .heading-top p {
   font-size: 45px;
   font-weight: 700;
@@ -13,14 +14,17 @@
   color: #E06F63;
 }
 
+//Image Styling
 .col-left img {
   width: 500px;
 }
 
+//Form Styling
 .full-width {
   width: 100%;
 }
 
+//Button Styling
 .btn {
   background: #E06F63;
   color: #ffffff;
@@ -28,6 +32,7 @@
   font-weight: 500;
 }
 
+//Checkbox Styling
 mat-checkbox, p {
   font-size: 12px;
   line-height: 25px;
@@ -39,6 +44,7 @@ mat-checkbox a {
   color: #000000;
 }
 
+//Media Queries
 @media (max-width: 991px) {
   .col-left {
     display: none;

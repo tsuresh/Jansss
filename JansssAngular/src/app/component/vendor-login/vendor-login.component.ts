@@ -16,6 +16,7 @@ export class VendorLoginComponent implements OnInit {
   hide = true;
   matcher = new MyErrorStateMatcher();
 
+  // Input Validations
   email = new FormControl('', [
     Validators.required,
     Validators.email
@@ -34,7 +35,7 @@ export class VendorLoginComponent implements OnInit {
     });
   }
 
-  // onSubmit() {
+  onSubmit() {
   //   this.submitted = true;
   //
   //   if (this.form.invalid === true) {
@@ -42,5 +43,5 @@ export class VendorLoginComponent implements OnInit {
   //   } else {
   //     this.registered = true;
   //   }
-  // }
+  }
 }

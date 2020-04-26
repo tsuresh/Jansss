@@ -102,6 +102,8 @@ import {AuthInterceptor} from './interceptor/auth-interceptor';
     AngularMaterialModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatCheckboxModule,
+    MatProgressBarModule,
   ],
   providers: [
     {

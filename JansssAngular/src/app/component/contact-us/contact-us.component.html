@@ -1,5 +1,6 @@
 <div class="container">
 
+  <!-- Heading -->
   <div class="row mb-5 heading-top">
     <div class="col">
       <p>
@@ -11,14 +12,16 @@
 
   <div class="row">
 
+    <!-- Image -->
     <div class="col mt-5 col-left" data-aos="fade-right">
       <img class="img-fluid" src="../../../assets/images/contact-us/contactus.svg">
     </div>
 
+    <!-- Contact Form -->
     <div class="col">
       <form data-aos="fade-left"
-        [formGroup] = "form"
-        (ngSubmit) = "onSubmit()">
+            [formGroup] = "form"
+            (ngSubmit) = "onSubmit()">
 
         <!-- Title -->
         <div class="row">
@@ -120,12 +123,13 @@
           <div class="col">
 
             <!-- Privacy policy checkbox -->
-            <mat-checkbox [formControl]="accept" required>
+            <mat-checkbox [formControl]="accept" color="primary" required>
               I agree to the <a href="#">privacy policy</a>*
             </mat-checkbox>
             <p>*Required fields</p>
           </div>
 
+          <!-- Submit Button -->
           <div class="col">
             <input class="btn shadow-sm p-2 pl-3 pr-3 float-right hvr-grow" type="submit" value="Send Request">
           </div>

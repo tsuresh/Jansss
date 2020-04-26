@@ -13,11 +13,6 @@ export class CampaignDetailsPageComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  navigateToProfile() {
-    this.router.navigate(['/profile']);
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

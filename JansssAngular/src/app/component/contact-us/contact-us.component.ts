@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 
+// Communication methods interface
 interface ComMethod {
   method: string;
 }
@@ -17,6 +18,7 @@ interface ComMethod {
 export class ContactUsComponent implements OnInit {
   form: FormGroup;
 
+  // Form Validations
   fName = new FormControl('', Validators.required);
   email = new FormControl('', [
     Validators.required,
@@ -29,6 +31,7 @@ export class ContactUsComponent implements OnInit {
   message = new FormControl('', Validators.required);
   accept = new FormControl('', Validators.required);
   comMethod = new FormControl('', Validators.required);
+  // Communication methods
   methods: ComMethod[] = [
     {method: 'SMS'},
     {method: 'E-mail'}
@@ -47,4 +50,6 @@ export class ContactUsComponent implements OnInit {
       accept: new FormControl()
     });
   }
+
+  onSubmit() { }
 }

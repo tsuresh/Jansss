@@ -2,6 +2,7 @@
   padding-top: 10%;
 }
 
+//Minimized heading styling
 .heading-top {
   display: none;
 }
@@ -12,6 +13,7 @@
   line-height: 40px;
 }
 
+//Heading Styling
 .text {
   font-weight: bold;
   font-size: 82px;
@@ -22,6 +24,7 @@
   color: #E06F63;
 }
 
+//Media Queries
 @media (max-width: 1199px) {
   .left p {
     font-size: 70px;

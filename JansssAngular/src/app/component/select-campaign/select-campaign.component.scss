@@ -28,6 +28,11 @@ button {
   color: #ffffff;
 }
 
+button:hover {
+  color: #ffffff;
+}
+
+// Media Queries
 @media (max-width: 991px) {
   h3 {
     font-size: 24px;

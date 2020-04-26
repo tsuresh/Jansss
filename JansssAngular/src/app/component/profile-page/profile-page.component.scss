@@ -36,6 +36,7 @@ span img {
   letter-spacing: 1px;
 }
 
+// Button Styling
 .btn {
   background: #E06F63;
   border-radius: 30px;
@@ -44,6 +45,7 @@ span img {
   float: right;
 }
 
+// Media Queries
 @media (max-width: 1199px) {
   .col-1 {
     display: none;
