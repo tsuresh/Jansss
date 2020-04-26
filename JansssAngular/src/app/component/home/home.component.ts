@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import * as $ from 'jquery';
 import {AuthService} from '../../service/auth.service';
+
 // import {Router} from '@angular/router';
 
 @Component({
@@ -10,12 +11,12 @@ import {AuthService} from '../../service/auth.service';
     './home.component.scss',
     '../../../../node_modules/animate.css/animate.min.css'
   ],
+  providers: [AuthService]
 })
 
 export class HomeComponent implements OnInit {
-  constructor() { }
+  constructor(private authService: AuthService) { }
   ngOnInit() {
-    // document.getElementById('logo-1').style.display = 'none';
     // Fixing Div for how it works
     // tslint:disable-next-line:only-arrow-functions
     $('document').ready(function() {
@@ -29,13 +30,6 @@ export class HomeComponent implements OnInit {
       $(window).scroll(function() {
         // tslint:disable-next-line:prefer-const
         let currentScroll = $(window).scrollTop();
-        // if (document.documentElement.scrollTop >= 600) {
-        //   document.getElementById('logo-1').style.display = 'block';
-        //   // document.getElementById('navbar').style.top = '0px';
-        //   // document.getElementById('navbar').style.backgroundColor = 'white';
-        // } else {
-        //   document.getElementById('logo-1').style.display = 'none';
-        // }
         if ((currentScroll >= fixmeTop - 40) && (currentScroll < fixmeTop)) {
             // how it works
             $('.fixme').css({
@@ -297,5 +291,26 @@ export class HomeComponent implements OnInit {
         });
       // }
     });
+    if (this.authService.isLoggedIn()) {
+      $('.progressDiv').css({
+        display: 'block',
+      });
+      $('.enterDetails').css({
+        display: 'block',
+      });
+      $('.logout').css({
+        display: 'block',
+      });
+    } else {
+      $('.enterDetails').css({
+        display: 'none',
+      });
+      $('.progressDiv').css({
+        display: 'none',
+      });
+      $('.logout').css({
+        display: 'none',
+      });
+    }
   }
 }

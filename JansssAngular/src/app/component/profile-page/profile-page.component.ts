@@ -14,7 +14,8 @@ import {MatDialog} from '@angular/material/dialog';
     './profile-page.component.scss',
     '../../../../node_modules/animate.css/animate.min.css',
     '../../../../node_modules/hover.css/css/hover-min.css'
-  ]
+  ],
+  providers: [AuthService]
 })
 export class ProfilePageComponent implements OnInit {
   // tslint:disable-next-line:ban-types
@@ -22,10 +23,10 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient, private authService: AuthService, public dialog: MatDialog) {
     {
-      const id = this.authService.id;
-      this.getUserProfile(id).subscribe(res => {
-        this.currentUser = res.msg;
-      });
+      // const id = this.authService.id;
+      // this.getUserProfile(id).subscribe(res => {
+      //   this.currentUser = res.msg;
+      // });
     }
   }
 

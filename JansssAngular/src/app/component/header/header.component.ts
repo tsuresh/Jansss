@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../service/auth.service';
 import * as $ from 'jquery';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import * as $ from 'jquery';
   providers: [AuthService]
 })
 export class HeaderComponent implements OnInit {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     // document.getElementById('logo-1').style.display = 'block';
@@ -76,23 +77,20 @@ export class HeaderComponent implements OnInit {
 
     }());
   }
-    logout() {
-      if (this.authService.isLoggedIn()) {
-        // $('.logout1').css({
-        //   display: 'none',
-        // });
-        // $('.logout2').css({
-        //   display: 'block',
-        // });
-        this.authService.logout();
-      }
+
+  user() {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/profile']);
+    } else {
+      this.router.navigate(['/client-sign-up']);
     }
-      // } else {
-      //   $('.logout1').css({
-      //     display: 'block',
-      //   });
-      //   $('.logout2').css({
-      //     display: 'none',
-      //   });
+  }
+
+  logout() {
+    if (this.authService.isLoggedIn()) {
+      this.authService.logout();
+      window.location.reload();
+    }
+  }
   }
 

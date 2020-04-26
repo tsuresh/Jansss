@@ -5,6 +5,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {Router} from '@angular/router';
 import {CustomValidators} from '../../validator/custom-validators';
 import {AuthService} from '../../service/auth.service';
+import {MatSnackBar} from '@angular/material';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -24,7 +25,12 @@ export class ClientLogInComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   hide = true;
   frmLogIn: FormGroup;
-  constructor(private formBuilder: FormBuilder,  private authService: AuthService, private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar,
+  ) {
     this.frmLogIn = this.createLogInForm();
   }
     createLogInForm(): FormGroup {
@@ -70,7 +76,19 @@ export class ClientLogInComponent implements OnInit {
 
     if (val.email && val.password) {
       this.authService.login(val.email, val.password);
+      setTimeout(() => {
+        this.checklogin();
+      }, 3000);
+
+    }
+  }
+
+  checklogin() {
+    if (this.authService.isLoggedIn()) {
+      this.snackBar.open('Logged in successfully', '', {duration: 3000});
       this.router.navigateByUrl('/');
+    } else {
+      this.snackBar.open('Invalid account details', '', {duration: 3000});
     }
   }
 }

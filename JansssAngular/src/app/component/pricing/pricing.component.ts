@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import * as $ from 'jquery';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {SubscriptionComponent} from '../subscription/subscription.component';
 import {AuthService} from '../../service/auth.service';
 import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
@@ -31,7 +31,12 @@ export class PricingComponent implements OnInit {
   address: any;
   payMethod: any;
   package: any;
-  constructor(private router: Router, public dialog: MatDialog, private authService: AuthService) { }
+  constructor(
+    private router: Router,
+    public dialog: MatDialog,
+    private authService: AuthService,
+    private snackBar: MatSnackBar,
+  ) { }
 
   openDialog(): void {
     // If signed up or logged in direct to subscription page
@@ -54,6 +59,7 @@ export class PricingComponent implements OnInit {
         // this.animal = result;
       });
     } else {
+      this.snackBar.open('Sign in to continue', '', {duration: 3000});
       this.router.navigate(['/client-sign-up']);
     }
   }

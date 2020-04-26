@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
+import {AuthService} from '../../service/auth.service';
 
 // Export statements
 export interface LocationGroup {
@@ -28,11 +29,12 @@ export const filter = (opt: string[], value: string): string[] => {
   templateUrl: './enter-details-form.component.html',
   styleUrls: ['./enter-details-form.component.scss',
     '../../../../node_modules/animate.css/animate.min.css'
-  ]
+  ],
+  providers: [AuthService]
 })
 
 export class EnterDetailsFormComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
   registered = false;
   submitted = false;
   detailsForm: FormGroup = this.formBuilder.group({

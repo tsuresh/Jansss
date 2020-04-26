@@ -9,13 +9,13 @@ export class AuthInterceptor implements HttpInterceptor {
             next: HttpHandler): Observable<HttpEvent<any>> {
 
     // retrieving the JWT string from Local Storage directly
-    const idToken = localStorage.getItem('id_token');
+    const token = localStorage.getItem('token');
 
     // if the JWT is present, then we will clone the HTTP headers, and add an extra Authorization header
-    if (idToken) {
+    if (token) {
       const cloned = req.clone({
         headers: req.headers.set('Authorization',
-          'Bearer ' + idToken)
+          'Bearer ' + token)
       });
 
       return next.handle(cloned);

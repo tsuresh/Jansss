@@ -97,12 +97,12 @@
 
           <!-- Master card -->
           <mat-radio-button value="2" class="paymentMethod">
-            <img src="../../../assets/images/payment/mastercard.png" alt="master card">
+            <img src="../../../assets/images/payment/mastercard.png" alt="mastercard">
           </mat-radio-button>
 
           <!-- PayPal -->
           <mat-radio-button class="paymentMethod1" value="3">
-              <img src="../../../assets/images/payment/paypal.png" alt="master card">
+              <img src="../../../assets/images/payment/paypal.png" alt="paypal">
           </mat-radio-button>
         </mat-radio-group>
       </div>
@@ -110,7 +110,7 @@
 
     <div class="subscribe-buttons">
       <button class="uncolored" (click)="onNoClick()">No Thanks</button>
-      <button class="colored" [mat-dialog-close]="data" >Submit</button>
+      <button class="colored" [mat-dialog-close]="data"  (click)="openDialog()">Submit</button>
     </div>
   </div>
 

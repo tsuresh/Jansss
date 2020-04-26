@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_DIALOG_DATA, MatDatepicker, MatDialogRef} from '@angular/material';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_DIALOG_DATA, MatDatepicker, MatDialog, MatDialogRef} from '@angular/material';
 import {DialogData} from '../pricing/pricing.component';
 import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
@@ -9,6 +9,7 @@ import * as _moment from 'moment';
 // tslint:disable-next-line:no-duplicate-imports
 // @ts-ignore
 import { default as _rollupMoment, Moment } from 'moment';
+import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 
 const moment = _rollupMoment || _moment;
 
@@ -70,11 +71,14 @@ export class SubscriptionComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<SubscriptionComponent>,
               @Inject(MAT_DIALOG_DATA) public data: DialogData,
-              private formBuilder: FormBuilder, private router: Router) { }
+              private formBuilder: FormBuilder, private router: Router, public dialog: MatDialog) { }
 
 
   onSubmit() { }
-
+  // Modal
+  openDialog() {
+    this.dialog.open(ImplementationModalComponent);
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }
