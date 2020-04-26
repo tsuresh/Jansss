@@ -89,10 +89,10 @@ export class ClientSignUpComponent implements OnInit {
       return;
     } else {
       const data: any = Object.assign(this.frmSignup.value);
-      this.authService.login(data.email, data.password);
       // tslint:disable-next-line:no-shadowed-variable
-      this.http.post('https://api.jansss.live/auth/user/signup', data).subscribe(( data: any) => {
+      this.http.post('https://api.jansss.live/auth/user/signup', data).subscribe(( dataClient: any) => {
         this._snackBar.open('Sign up was successful!', 'Redirecting to Subscription.' , {duration: 3000});
+        this.authService.login(data.email, data.password);
         this.router.navigate(['/pricing']);
       }, error => {
         this._snackBar.open('An error occurred', JSON.stringify(error.error), {duration: 3000});

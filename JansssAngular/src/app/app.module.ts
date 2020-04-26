@@ -51,7 +51,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
-import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
+// import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import {AuthInterceptor} from './interceptor/auth-interceptor';
 
 
@@ -103,7 +103,7 @@ import {AuthInterceptor} from './interceptor/auth-interceptor';
     MatSnackBarModule,
     MatDialogModule,
     MatCheckboxModule,
-    MatProgressBarModule,
+    MatProgressBarModule
   ],
   providers: [
     {

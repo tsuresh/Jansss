@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import * as $ from 'jquery';
-// import {AuthService} from '../../service/auth.service';
+import {AuthService} from '../../service/auth.service';
 // import {Router} from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import * as $ from 'jquery';
   styleUrls: [
     './home.component.scss',
     '../../../../node_modules/animate.css/animate.min.css'
-  ]
+  ],
 })
 
 export class HomeComponent implements OnInit {

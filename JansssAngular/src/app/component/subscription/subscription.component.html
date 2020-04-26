@@ -3,24 +3,114 @@
 </div>
 
 <h1 mat-dialog-title>To continue with this subscription please enter the following details:</h1>
-  <div mat-dialog-content>
-    <form>
-      <mat-form-field>
-        <mat-label>Billing Address:</mat-label>
-        <input matInput [(ngModel)]="data.animal">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Card Number:</mat-label>
-        <input matInput [(ngModel)]="data.animal">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>CVV:</mat-label>
-        <input matInput [(ngModel)]="data.animal">
-      </mat-form-field>
+  <div mat-dialog-content class="subscribe-details">
+    <!-- Form to get the payment details for subscription -->
+    <form [formGroup] = "formSubscribe" (ngSubmit) = "onSubmit()">
 
+      <!-- Subscription package -->
+      <div >
+        <mat-form-field class="full-width">
+          <mat-label>Subscription package</mat-label>
+          <input type="text"
+                 placeholder="Pick one"
+                 aria-label="Number"
+                 matInput
+                 [formControl]="package"
+                 [matAutocomplete]="auto" required>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of packageOptions" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+
+
+      <!-- Card number -->
+      <div >
+        <mat-form-field class="full-width">
+          <mat-label>Card Number</mat-label>
+          <input matInput [formControl]="cardNo" placeholder="Ex. 4242 4242 4242 4242" required>
+          <mat-error *ngIf="cardNo.hasError('required')">
+            Card number is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="cardNo.hasError('pattern')">
+            Card number is <strong>invalid</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+
+        <!-- Expiry date -->
+        <div>
+          <mat-form-field class="full-width">
+            <mat-label>MM/YYYY</mat-label>
+            <input matInput [min]="minDate" [matDatepicker]="dp" [formControl]="exDate" required>
+            <mat-error *ngIf="exDate.hasError('required')">
+              Expiry date is <strong>required</strong>
+            </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp
+                            startView="multi-year"
+                            (yearSelected)="chosenYearHandler($event)"
+                            (monthSelected)="chosenMonthHandler($event, dp)"
+                            panelClass="month-picker">
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <!-- CVV -->
+        <div>
+          <mat-form-field class="full-width">
+            <mat-label>CVV</mat-label>
+            <input matInput [formControl]="cvv" placeholder="Ex. 123" required>
+            <mat-error *ngIf="cvv.hasError('required')">
+              CVV is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="cvv.hasError('pattern')">
+              CVV is <strong>invalid</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Billing Address -->
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Billing Address</mat-label>
+          <input matInput [formControl]="address" required>
+          <mat-error *ngIf="address.hasError('required')">
+            Billing address is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Payment Method -->
+      <div>
+        <mat-radio-group [formControl]="payMethod" color="primary" required>
+
+          <!-- Visa card -->
+          <mat-radio-button value="1" class="paymentMethod">
+            <img src="../../../assets/images/payment/visa.png" alt="visa card">
+          </mat-radio-button>
+
+          <!-- Master card -->
+          <mat-radio-button value="2" class="paymentMethod">
+            <img src="../../../assets/images/payment/mastercard.png" alt="master card">
+          </mat-radio-button>
+
+          <!-- PayPal -->
+          <mat-radio-button class="paymentMethod1" value="3">
+              <img src="../../../assets/images/payment/paypal.png" alt="master card">
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
     </form>
+
+    <div class="subscribe-buttons">
+      <button class="uncolored" (click)="onNoClick()">No Thanks</button>
+      <button class="colored" [mat-dialog-close]="data" >Submit</button>
+    </div>
   </div>
-  <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
-  </div>
+

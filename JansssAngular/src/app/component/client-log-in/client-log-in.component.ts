@@ -69,14 +69,8 @@ export class ClientLogInComponent implements OnInit {
     const val = this.frmLogIn.value;
 
     if (val.email && val.password) {
-      this.authService.login(val.email, val.password)
-        .subscribe(
-          () => {
-            alert(val.email + val.password);
-            console.log('User is logged in');
-            this.router.navigateByUrl('/');
-          }
-        );
+      this.authService.login(val.email, val.password);
+      this.router.navigateByUrl('/');
     }
   }
 }
