@@ -17,6 +17,18 @@
     <form [formGroup]="detailsForm" (ngSubmit)="onSubmit()" class="col enter_form" id="enterDetails" data-aos="zoom-out-up">
 
       <div class="heading-2">Get started with your <p class="campaign">campaign</p></div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': invalidGoal() }">
+        <!-- form item - target audience -->
+        <label class="item">
+          Campaign Goal
+          <mat-radio-group color="primary" required>
+            <mat-radio-button class="ml-5" value="1">Brand Awareness</mat-radio-button>
+            <mat-radio-button class="ml-5" value="2">Conversions</mat-radio-button>
+          </mat-radio-group>
+        </label>
+      </div>
+
         <div class="form-group" [ngClass]="{ 'has-error': invalidProductName() }">
           <!-- form item - product name -->
           <label class="item">
@@ -42,6 +54,20 @@
             </mat-error>
           </label>
         </div>
+
+
+      <div class="form-group" [ngClass]="{ 'has-error': invalidBudget() }">
+        <!-- form item - budget -->
+        <label class="item">
+          Budget<br>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Ex. Rs. 10,000/-" required formControlName="budget">
+          </mat-form-field>
+          <mat-error *ngIf="invalidBudget()" class="errorMessage">
+            Budget is <strong>required</strong>
+          </mat-error>
+        </label>
+      </div>
 
         <div class="form-group" [ngClass]="{ 'has-error': invalidIndustry() }">
           <!-- form item - industry -->
@@ -70,7 +96,7 @@
             Target Audience<br>
             <mat-form-field class="full-width">
               <input type="text" matInput formControlName="audience" placeholder="Ex. Students" required [matAutocomplete]="audienceGroup">
-              <mat-autocomplete #audienceGroup="matAutocomplete" [displayWith]="displayFn">
+              <mat-autocomplete #audienceGroup="matAutocomplete" [displayWith]="displayAudience">
                 <mat-option *ngFor="let audience of audienceOptions | async" [value]="audience">
                   {{audience.names}}
                 </mat-option>
@@ -82,38 +108,27 @@
           </label>
         </div>
 
-        <div class="form-group" [ngClass]="{ 'has-error': invalidBudget() }">
-          <!-- form item - budget -->
-          <label class="item">
-            Budget<br>
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Ex. Rs. 10,000/-" required formControlName="budget">
-            </mat-form-field>
-            <mat-error *ngIf="invalidBudget()" class="errorMessage">
-              Budget is <strong>required</strong>
-            </mat-error>
-          </label>
-        </div>
+      <div class="form-group" [ngClass]="{ 'has-error': invalidLocation() }">
+        <!-- form item - target location -->
+        <label class="item">
+          Target Location<br>
+          <mat-form-field class="full-width">
+            <input type="text" matInput formControlName="location" required placeholder="Ex. Wellawatte, Colombo" [matAutocomplete]="locationGroup">
+            <mat-autocomplete #locationGroup="matAutocomplete">
+              <mat-optgroup *ngFor="let group of locationOptions | async" [label]="group.letter">
+                <mat-option *ngFor="let name of group.names" [value]="name">
+                  {{name}}
+                </mat-option>
+              </mat-optgroup>
+            </mat-autocomplete>
+          </mat-form-field>
+          <mat-error *ngIf="invalidLocation()" class="errorMessage">
+            Target Location is <strong>required</strong>
+          </mat-error>
+        </label>
+      </div>
 
-        <div class="form-group" [ngClass]="{ 'has-error': invalidLocation() }">
-          <!-- form item - target location -->
-          <label class="item">
-            Target Location<br>
-            <mat-form-field class="full-width">
-              <input type="text" matInput formControlName="location" required placeholder="Ex. Wellawatte, Colombo" [matAutocomplete]="locationGroup">
-              <mat-autocomplete #locationGroup="matAutocomplete">
-                <mat-optgroup *ngFor="let group of locationOptions | async" [label]="group.letter">
-                  <mat-option *ngFor="let name of group.names" [value]="name">
-                    {{name}}
-                  </mat-option>
-                </mat-optgroup>
-              </mat-autocomplete>
-            </mat-form-field>
-            <mat-error *ngIf="invalidLocation()" class="errorMessage">
-              Target Location is <strong>required</strong>
-            </mat-error>
-          </label>
-        </div>
+
 
         <div class="form-group" [ngClass]="{ 'has-error': invalidPrice() }">
           <!-- form item - price -->
@@ -128,15 +143,15 @@
           </label>
         </div>
 
-      <div class="form-group">
-        <!-- form item - product name -->
-        <label class="item">
-          Product Description<br>
-          <mat-form-field class="full-width">
-            <textarea matInput  placeholder="Tell us a little bit about your Product/Service" formControlName="description"></textarea>
-          </mat-form-field>
-        </label>
-      </div>
+<!--      <div class="form-group">-->
+<!--        &lt;!&ndash; form item - product name &ndash;&gt;-->
+<!--        <label class="item">-->
+<!--          Product Description<br>-->
+<!--          <mat-form-field class="full-width">-->
+<!--            <textarea matInput  placeholder="Tell us a little bit about your Product/Service" formControlName="description"></textarea>-->
+<!--          </mat-form-field>-->
+<!--        </label>-->
+<!--      </div>-->
 
         <div class="button_outer form-group">
           <!-- on click, navigates to select campaign page -->

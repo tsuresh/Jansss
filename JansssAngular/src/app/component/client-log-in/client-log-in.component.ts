@@ -5,7 +5,8 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {Router} from '@angular/router';
 import {CustomValidators} from '../../validator/custom-validators';
 import {AuthService} from '../../service/auth.service';
-import {MatSnackBar} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
+import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -30,6 +31,7 @@ export class ClientLogInComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {
     this.frmLogIn = this.createLogInForm();
   }
@@ -85,10 +87,15 @@ export class ClientLogInComponent implements OnInit {
 
   checklogin() {
     if (this.authService.isLoggedIn()) {
-      this.snackBar.open('Logged in successfully', '', {duration: 3000});
+      this.snackBar.open('Logged in successfully', '', {duration: 2000});
       this.router.navigateByUrl('/');
     } else {
-      this.snackBar.open('Invalid account details', '', {duration: 3000});
+      this.snackBar.open('Invalid account details', '', {duration: 2000});
     }
+  }
+
+  // Modal
+  openDialog() {
+    this.dialog.open(ImplementationModalComponent);
   }
 }

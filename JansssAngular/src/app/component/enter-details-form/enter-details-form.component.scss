@@ -84,6 +84,12 @@ a.disabled {
   box-shadow: 0 2px 5px 0 #c2c0c0;
 }
 
+mat-radio-group{
+  text-align: center;
+  padding-bottom: 3%;
+}
+
+
 @media screen and (max-width: 800px) {
 
   .enter_form{

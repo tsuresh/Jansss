@@ -10,6 +10,8 @@ import * as _moment from 'moment';
 // tslint:disable-next-line:no-duplicate-imports
 // @ts-ignore
 import { default as _rollupMoment, Moment } from 'moment';
+import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
+import {MatDialog} from '@angular/material';
 
 const moment = _rollupMoment || _moment;
 
@@ -75,7 +77,7 @@ export class SelectPaymentComponent implements OnInit {
     datepicker.close();
   }
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, public dialog: MatDialog) { }
   ngOnInit() {
     $('#disableItem1').removeClass('disabled');
     $('#disableItem2').removeClass('disabled');
@@ -86,6 +88,11 @@ export class SelectPaymentComponent implements OnInit {
       address: new FormControl(),
       payMethod: new FormControl()
     });
+  }
+
+  // Modal
+  openDialog() {
+    this.dialog.open(ImplementationModalComponent);
   }
 
   onSubmit() { }

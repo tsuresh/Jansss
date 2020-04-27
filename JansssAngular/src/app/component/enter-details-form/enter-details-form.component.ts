@@ -1,10 +1,11 @@
 // Import statements
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
 import {AuthService} from '../../service/auth.service';
+import {ErrorStateMatcher} from '@angular/material';
 
 // Export statements
 export interface LocationGroup {
@@ -24,6 +25,14 @@ export const filter = (opt: string[], value: string): string[] => {
   return opt.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
 };
 
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
+
 @Component({
   selector: 'app-enter-details-form',
   templateUrl: './enter-details-form.component.html',
@@ -41,11 +50,12 @@ export class EnterDetailsFormComponent implements OnInit {
       productName: ['', [Validators.required]],
       productType: ['', [Validators.required]],
       industry: ['', [Validators.required]],
+      goal: ['', [Validators.required]],
       audience: ['', [Validators.required]],
       budget: ['', [Validators.required]],
       location: ['', [Validators.required]],
       price: ['', [Validators.required]],
-      description: ['']
+      // description: ['']
   });
 
   // list of Locations
@@ -354,6 +364,7 @@ export class EnterDetailsFormComponent implements OnInit {
     {names: 'Unknown'},
   ];
 
+
   locationOptions: Observable<LocationGroup[]>;
   industryOptions: Observable<IndustryGroup[]>;
   audienceOptions: Observable<AudienceGroup[]>;
@@ -377,6 +388,9 @@ export class EnterDetailsFormComponent implements OnInit {
     return (this.submitted && this.detailsForm.controls.location.errors != null);
   }
   invalidPrice() {
+    return (this.submitted && this.detailsForm.controls.price.errors != null);
+  }
+  invalidGoal() {
     return (this.submitted && this.detailsForm.controls.price.errors != null);
   }
 
@@ -412,6 +426,21 @@ export class EnterDetailsFormComponent implements OnInit {
         map(name => name ? this._filterGroupAudience(name) : this.audiences.slice())
       );
   }
+
+
+  displayAudience(user: AudienceGroup): string {
+    return user && user.names ? user.names : '';
+  }
+
+
+  //Autocomplete drop down list
+
+  private _filterGroupAudience(names: string): AudienceGroup[] {
+    const filterValue = names.toLowerCase();
+
+    return this.audiences.filter(option => option.names.toLowerCase().indexOf(filterValue) === 0);
+  }
+
   private _filterGroupLocation(value: string): LocationGroup[] {
     if (value) {
       return this.locations
@@ -427,15 +456,6 @@ export class EnterDetailsFormComponent implements OnInit {
         .filter(group => group.names.length > 0);
     }
     return this.industries;
-  }
-
-  displayFn(user: AudienceGroup): string {
-    return user && user.names ? user.names : '';
-  }
-  private _filterGroupAudience(names: string): AudienceGroup[] {
-    const filterValue = names.toLowerCase();
-
-    return this.audiences.filter(option => option.names.toLowerCase().indexOf(filterValue) === 0);
   }
 }
 

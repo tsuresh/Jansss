@@ -10,8 +10,15 @@ import {Router} from '@angular/router';
   providers: [AuthService]
 })
 export class HeaderComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) { }
-
+  currentUser : any;
+  constructor(private authService: AuthService, private router: Router) {
+    if (this.authService.isLoggedIn()){
+      this.authService.getUserProfile(localStorage.getItem("uID"))
+        .subscribe(
+          (res) => { this.currentUser = res}
+        );
+    }
+  }
   ngOnInit() {
     // document.getElementById('logo-1').style.display = 'block';
     // tslint:disable-next-line:only-arrow-functions
@@ -76,6 +83,15 @@ export class HeaderComponent implements OnInit {
       Menu.init();
 
     }());
+    if (this.authService.isLoggedIn()) {
+      $('.logout').css({
+        display: 'block',
+      });
+    } else {
+      $('.logout').css({
+        display: 'none',
+      });
+    }
   }
 
   user() {

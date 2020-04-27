@@ -14,9 +14,9 @@
       <div class="client-logo">
         <h3>Log in to <span class="pink">Jansss</span></h3>
 <!--    Icons for logging through facebook/google/linkedin    -->
-        <button><img class="facebook" src="../../../assets/images/signup/facebook.svg"></button>
-        <button><img class="google" src="../../../assets/images/signup/google1.svg"></button>
-        <button><img class="linkedin" src="../../../assets/images/signup/linkedin.svg"></button>
+        <button (click)="openDialog()" ><img class="facebook" src="../../../assets/images/signup/facebook.svg"></button>
+        <button (click)="openDialog()"><img class="google" src="../../../assets/images/signup/google1.svg"></button>
+        <button (click)="openDialog()"><img class="linkedin" src="../../../assets/images/signup/linkedin.svg"></button>
         <p>or use your email account:</p>
       </div>
       <form [formGroup]="frmLogIn" (submit)="login()" class="client-item">
@@ -68,9 +68,9 @@
       <div class="client-logo">
         <h3> Log in to <span class="pink">Jansss</span></h3>
 <!--    Icons for logging through facebook/google/linkedin    -->
-        <button><img class="facebook" src="../../../assets/images/signup/facebook.svg"></button>
-        <button><img class="google" src="../../../assets/images/signup/google1.svg"></button>
-        <button><img class="linkedin" src="../../../assets/images/signup/linkedin.svg"></button>
+        <button (click)="openDialog()"><img class="facebook" src="../../../assets/images/signup/facebook.svg"></button>
+        <button (click)="openDialog()"><img class="google" src="../../../assets/images/signup/google1.svg"></button>
+        <button (click)="openDialog()" ><img class="linkedin" src="../../../assets/images/signup/linkedin.svg"></button>
 
         <p>or use your email account:</p>
       </div>

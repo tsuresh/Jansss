@@ -45,7 +45,7 @@ export class AuthService {
     return moment(expiresAt);
   }
 
-  // Get user profile
+// Get user profile
   getUserProfile(id) {
     const api = 'https://api.jansss.live/users/match/' + id;
     return this.http.get(api);

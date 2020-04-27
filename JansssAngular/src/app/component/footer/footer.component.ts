@@ -9,7 +9,7 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  form: FormGroup
+  form: FormGroup;
 
   constructor(public dialog: MatDialog) { }
 
