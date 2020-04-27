@@ -25,8 +25,8 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Username</mat-label>
-              <input matInput [formControl]="username">
+              <mat-label [ngClass]="form.controls['userName']">Username</mat-label>
+              <input matInput formControlName="userName">
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
           </div>
@@ -39,9 +39,9 @@
           <!-- Email -->
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Email</mat-label>
-              <input matInput [formControl]="email" placeholder="Ex. sam@mail.com">
-              <mat-error *ngIf="email.hasError('email')">
+              <mat-label [ngClass]="form.controls['email']">Email</mat-label>
+              <input matInput formControlName="email" placeholder="Ex. sam@mail.com">
+              <mat-error *ngIf="form.controls['email'].hasError('email')">
                 Please enter a valid email address
               </mat-error>
               <mat-icon matSuffix>mode_edit</mat-icon>
@@ -51,8 +51,8 @@
           <!-- Password -->
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Password</mat-label>
-              <input matInput [formControl]="password">
+              <mat-label [ngClass]="form.controls['password']">Password</mat-label>
+              <input matInput formControlName="password">
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
           </div>
@@ -62,8 +62,8 @@
         <div class="row mt-3">
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>First name</mat-label>
-              <input matInput [formControl]="fName">
+              <mat-label [ngClass]="form.controls['fName']">First name</mat-label>
+              <input matInput formControlName="fName">
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
           </div>
@@ -71,8 +71,8 @@
           <!-- Surname -->
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Surname</mat-label>
-              <input matInput [formControl]="sName">
+              <mat-label [ngClass]="form.controls['sName']">Surname</mat-label>
+              <input matInput formControlName="sName">
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
           </div>
@@ -82,8 +82,8 @@
         <div class="row mt-3">
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Payment Plan</mat-label>
-              <mat-select [formControl]="paymentPlan">
+              <mat-label [ngClass]="form.controls['paymentPlan']">Payment Plan</mat-label>
+              <mat-select formControlName="paymentPlan">
                 <mat-option *ngFor="let p of plans" [value]="p">
                   {{p.plan}}
                 </mat-option>
@@ -95,8 +95,8 @@
           <!-- Payment Method -->
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Payment Method</mat-label>
-              <mat-select [formControl]="paymentMethod">
+              <mat-label [ngSwitch]="form.controls['paymentMethod']">Payment Method</mat-label>
+              <mat-select formControlName="paymentMethod">
                 <mat-option *ngFor="let m of methods" [value]="m">
                   {{m.method}}
                 </mat-option>

@@ -47,20 +47,7 @@ export class AuthService {
 
   // Get user profile
   getUserProfile(id) {
-    const api = `https://jansss.live/user/match/${id}`;
+    const api = 'https://api.jansss.live/users/match/' + id;
     return this.http.get(api);
-  }
-
-  // Error
-  handleError(error: HttpErrorResponse) {
-    let msg = '';
-    if (error.error instanceof ErrorEvent) {
-      // client-side error
-      msg = error.error.message;
-    } else {
-      // server-side error
-      msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    return throwError(msg);
   }
 }

@@ -11,8 +11,6 @@ import { MyErrorStateMatcher } from '../vendor-sign-up/vendor-sign-up.component'
 export class VendorLoginComponent implements OnInit {
 
   form: FormGroup;
-  registered = false;
-  submitted = false;
   hide = true;
   matcher = new MyErrorStateMatcher();
 
@@ -35,13 +33,5 @@ export class VendorLoginComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-  //   this.submitted = true;
-  //
-  //   if (this.form.invalid === true) {
-  //     return;
-  //   } else {
-  //     this.registered = true;
-  //   }
-  }
+  onSubmit() { }
 }
