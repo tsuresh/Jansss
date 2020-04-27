@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import {HttpClient} from '@angular/common/http';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Router} from '@angular/router';
 
 interface MType {
   type: string;
@@ -31,19 +33,6 @@ export class VendorSignUpComponent implements OnInit {
   form: FormGroup;
   hide = true;
   matcher = new MyErrorStateMatcher();
-  // Input Validations
-  company = new FormControl('', Validators.required);
-  email = new FormControl('', [
-    Validators.required,
-    Validators.email
-  ]);
-  password = new FormControl('', [
-    Validators.required,
-    Validators.minLength(8)
-  ]);
-  mType = new FormControl('', Validators.required);
-  pType = new FormControl('', Validators.required);
-
   mTypes: MType[] = [
     {type: 'Social Media'},
     {type: 'Banners'},
@@ -58,14 +47,15 @@ export class VendorSignUpComponent implements OnInit {
     {type: 'Information Technology'},
     {type: 'Knowledge/Consulting'}
   ];
-  constructor(private http: HttpClient) { }
+  // tslint:disable-next-line:variable-name
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar, private router: Router, private formBuilder: FormBuilder) { }
   ngOnInit() {
-    this.form = new FormGroup({
-      company: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      mType: new FormControl(),
-      pType: new FormControl()
+    this.form = this.formBuilder.group({
+      busName: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
+      password: ['', Validators.required, Validators.minLength(8)],
+      marketingType: ['', Validators.required],
+      preferred: ['', Validators.required]
     });
   }
   // On Submit Functionality
@@ -76,11 +66,15 @@ export class VendorSignUpComponent implements OnInit {
       return;
     } else {
       const data: any = Object.assign(this.form.value);
+      const extra = { location: '' , address: '', phoneNumber: '', googleName: '', rating: ''};
+      Object.assign(extra);
+      alert(JSON.stringify(data));
       // tslint:disable-next-line:no-shadowed-variable
-      this.http.post('https://jansss.live/auth/vendor/signup', data).subscribe(( data: any) => {
-        alert('Sign up was successful');
+      this.http.post('https://api.jansss.live/auth/vendor/signup', data).subscribe(( data: any) => {
+        this._snackBar.open('Sign up was successful.', 'Redirecting to Home.' , {duration: 3000});
+        this.router.navigate(['/vendor-hub']);
       }, error => {
-        alert('An error occurred. ' + JSON.stringify(error.error));
+        this._snackBar.open('An error occurred', JSON.stringify(error.error), {duration: 3000});
       });
       this.registered = true;
     }

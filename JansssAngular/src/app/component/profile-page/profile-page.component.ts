@@ -19,16 +19,13 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class ProfilePageComponent implements OnInit {
   // tslint:disable-next-line:ban-types
-  currentUser: Object = {};
+  currentUser: any;
+  id: any;
   constructor(private router: Router, private http: HttpClient, private authService: AuthService, public dialog: MatDialog) {
     {
-      const id = localStorage.getItem('Id');
-      this.authService.getUserProfile(id).subscribe(res => {
-        this.currentUser = res.msg;
-      });
+      this.id = localStorage.getItem('uID');
     }
   }
-
   // Modal
   openDialog() {
     this.dialog.open(ImplementationModalComponent);
@@ -40,6 +37,9 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.getUserProfile(this.id).subscribe((res) => {
+      this.currentUser = res;
+    });
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/client-log-in']);
     }
