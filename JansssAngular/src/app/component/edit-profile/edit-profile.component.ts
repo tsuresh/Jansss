@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 // Payment Plan Interface
 interface PaymentPlan {
@@ -21,18 +23,9 @@ interface PaymentMethod {
   ]
 })
 export class EditProfileComponent implements OnInit {
-  form: FormGroup;
-  router: Router;
+  public form: FormGroup;
 
-  email = new FormControl('', [Validators.email]); // Email Validation
-  username = new FormControl();
-  password = new FormControl();
-  fName = new FormControl();
-  sName = new FormControl();
-  paymentPlan = new FormControl();
-  paymentMethod = new FormControl();
-
-  //Payment Plans
+  // Payment Plans
   plans: PaymentPlan[] = [
     {plan: 'One-time'},
     {plan: 'Premium'}
@@ -44,19 +37,26 @@ export class EditProfileComponent implements OnInit {
     {method: 'PayPal'}
   ];
 
-  constructor() { }
-
-  ngOnInit() {
-    this.form = new FormGroup({
-      email: new FormControl(),
-      username: new FormControl(),
-      password: new FormControl(),
-      fName: new FormControl(),
-      sName: new FormControl(),
-      paymentPlan: new FormControl(),
-      paymentMethod: new FormControl()
-    });
+  createForm(): FormGroup {
+    return this.formBuilder.group(
+      {
+        email: ['', Validators.email], // Email Validation
+        username: [],
+        password: [],
+        fName: [],
+        sName: [],
+        paymentPlan: [],
+        paymentMethod: []
+      }
+    );
   }
+
+  // tslint:disable-next-line:variable-name
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar, private router: Router, private formBuilder: FormBuilder) {
+    this.form = this.createForm();
+  }
+
+  ngOnInit() { }
 
   onSubmit() { }
 }

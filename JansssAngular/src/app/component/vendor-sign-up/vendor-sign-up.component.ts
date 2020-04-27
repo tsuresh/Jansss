@@ -5,14 +5,6 @@ import {HttpClient} from '@angular/common/http';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
 
-interface MType {
-  type: string;
-}
-
-interface PType {
-  type: string;
-}
-
 // Error when invalid control is dirty, touched, or submitted
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -28,36 +20,29 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class VendorSignUpComponent implements OnInit {
+  public form: FormGroup;
   submitted: boolean;
   registered: boolean;
-  form: FormGroup;
   hide = true;
   matcher = new MyErrorStateMatcher();
-  mTypes: MType[] = [
-    {type: 'Social Media'},
-    {type: 'Banners'},
-    {type: 'Event'},
-    {type: 'Word of mouth'},
-    {type: 'Online'}
-  ];
-  pTypes: PType[] = [
-    {type: 'Financial'},
-    {type: 'Education'},
-    {type: 'Entertainment and Events'},
-    {type: 'Information Technology'},
-    {type: 'Knowledge/Consulting'}
-  ];
-  // tslint:disable-next-line:variable-name
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar, private router: Router, private formBuilder: FormBuilder) { }
-  ngOnInit() {
-    this.form = this.formBuilder.group({
-      busName: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required, Validators.minLength(8)],
-      marketingType: ['', Validators.required],
-      preferred: ['', Validators.required]
-    });
+  mTypes: string[] = ['Social Media', 'Banners', 'Event', 'Word of mouth', 'Online'];
+  pTypes: string[] = ['Financial', 'Education', 'Entertainment and Events', 'Information Technology', 'Knowledge/Consulting'];
+  createForm(): FormGroup {
+    return this.formBuilder.group(
+      {
+        busName: ['', Validators.required],
+        email: ['', Validators.required, Validators.email],
+        password: ['', Validators.required, Validators.minLength(8)],
+        marketingType: ['', Validators.required],
+        preferred: ['', Validators.required],
+      }
+    );
   }
+  // tslint:disable-next-line:variable-name
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar, private router: Router, private formBuilder: FormBuilder) {
+    this.form = this.createForm();
+  }
+  ngOnInit() { }
   // On Submit Functionality
   onSubmit() {
     this.submitted = true;
@@ -66,12 +51,14 @@ export class VendorSignUpComponent implements OnInit {
       return;
     } else {
       const data: any = Object.assign(this.form.value);
-      const extra = { location: '' , address: '', phoneNumber: '', googleName: '', rating: ''};
-      Object.assign(extra);
-      alert(JSON.stringify(data));
+      data.location = {lat: 0.00000, lng: 0.00000};
+      data.address = 'null';
+      data.phoneNumber = 'null';
+      data.googleName = 'null';
+      data.rating = 0;
       // tslint:disable-next-line:no-shadowed-variable
       this.http.post('https://api.jansss.live/auth/vendor/signup', data).subscribe(( data: any) => {
-        this._snackBar.open('Sign up was successful.', 'Redirecting to Home.' , {duration: 3000});
+        this._snackBar.open('Sign up was successful.', '' , {duration: 3000});
         this.router.navigate(['/vendor-hub']);
       }, error => {
         this._snackBar.open('An error occurred', JSON.stringify(error.error), {duration: 3000});
