@@ -33,8 +33,8 @@ data = pd.read_csv('responses.csv')
 data = data.dropna()
 
 # Categorize all data into data frames
-music = data.iloc[:, 0:19]
-movies = data.iloc[:, 19:31]
+music_preference = data.iloc[:, 0:19]
+tv_program_preference = data.iloc[:, 19:31]
 phobias = data.iloc[:, 63:73]
 interests = data.iloc[:, 31:63]
 health = data.iloc[:, 73:76]
@@ -139,7 +139,7 @@ def correlation_plot(var_of_interest, catFilters, numFilters, figsize=(10, 30)):
 
 
 # Concat the entire dataset
-dfs = [demographics, interests, phobias, health, personal, spending, music, movies]
+dfs = [demographics, interests, phobias, health, personal, spending, music_preference, tv_program_preference]
 new_data = pd.concat(dfs, axis=1)
 
 new_data.head(5)
