@@ -6,6 +6,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {AuthService} from '../../service/auth.service';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 import {MatDialog} from '@angular/material/dialog';
+import {UserInformation} from '../../models/userInformation';
 
 @Component({
   selector: 'app-profile-page',
@@ -19,7 +20,7 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class ProfilePageComponent implements OnInit {
   // tslint:disable-next-line:ban-types
-  currentUser: any;
+  currentUser = new UserInformation();
   id: any;
   constructor(private router: Router, private http: HttpClient, private authService: AuthService, public dialog: MatDialog) {
     {

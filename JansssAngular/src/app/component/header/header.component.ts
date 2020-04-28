@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../service/auth.service';
 import * as $ from 'jquery';
 import {Router} from '@angular/router';
+import {UserInformation} from '../../models/userInformation';
 
 @Component({
   selector: 'app-header',
@@ -10,17 +11,16 @@ import {Router} from '@angular/router';
   providers: [AuthService]
 })
 export class HeaderComponent implements OnInit {
-  currentUser : any;
+  currentUser = new UserInformation();
   constructor(private authService: AuthService, private router: Router) {
-    if (this.authService.isLoggedIn()){
-      this.authService.getUserProfile(localStorage.getItem("uID"))
+    if (this.authService.isLoggedIn()) {
+      this.authService.getUserProfile(localStorage.getItem('uID'))
         .subscribe(
-          (res) => { this.currentUser = res}
+          res => { this.currentUser.userName = res.userName; }
         );
     }
   }
   ngOnInit() {
-    // document.getElementById('logo-1').style.display = 'block';
     // tslint:disable-next-line:only-arrow-functions
     (function() {
 
@@ -108,5 +108,6 @@ export class HeaderComponent implements OnInit {
       window.location.reload();
     }
   }
-  }
 
+
+  }

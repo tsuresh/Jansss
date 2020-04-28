@@ -55,7 +55,7 @@ export class EnterDetailsFormComponent implements OnInit {
       budget: ['', [Validators.required]],
       location: ['', [Validators.required]],
       price: ['', [Validators.required]],
-      // description: ['']
+      description: ['']
   });
 
   // list of Locations

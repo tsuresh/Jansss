@@ -26,6 +26,7 @@ export class ClientLogInComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   hide = true;
   frmLogIn: FormGroup;
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -35,44 +36,48 @@ export class ClientLogInComponent implements OnInit {
   ) {
     this.frmLogIn = this.createLogInForm();
   }
-    createLogInForm(): FormGroup {
-      return this.formBuilder.group(
-        {
-          email: [
-            null,
-            Validators.compose([Validators.email, Validators.required])
-          ],
-          password: [
-            // tslint:disable-next-line:adjacent-overload-signatures
-            null,
-            Validators.compose([
-              Validators.required,
-              // check whether the entered password has a number
-              CustomValidators.patternValidator(/\d/, {
-                hasNumber: true
-              }),
-              // check whether the entered password has upper case letter
-              CustomValidators.patternValidator(/[A-Z]/, {
-                hasCapitalCase: true
-              }),
-              // check whether the entered password has a lower case letter
-              CustomValidators.patternValidator(/[a-z]/, {
-                hasSmallCase: true
-              }),
-              // check whether the entered password has a special character
-              CustomValidators.patternValidator(
-                /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
-                {
-                  hasSpecialCharacters: true
-                }
-              ),
-              Validators.minLength(8)
-            ])
-          ]
-        }
-      );
-    }
-  ngOnInit() {}
+
+  createLogInForm(): FormGroup {
+    return this.formBuilder.group(
+      {
+        email: [
+          null,
+          Validators.compose([Validators.email, Validators.required])
+        ],
+        password: [
+          // tslint:disable-next-line:adjacent-overload-signatures
+          null,
+          Validators.compose([
+            Validators.required,
+            // check whether the entered password has a number
+            CustomValidators.patternValidator(/\d/, {
+              hasNumber: true
+            }),
+            // check whether the entered password has upper case letter
+            CustomValidators.patternValidator(/[A-Z]/, {
+              hasCapitalCase: true
+            }),
+            // check whether the entered password has a lower case letter
+            CustomValidators.patternValidator(/[a-z]/, {
+              hasSmallCase: true
+            }),
+            // check whether the entered password has a special character
+            CustomValidators.patternValidator(
+              /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
+              {
+                hasSpecialCharacters: true
+              }
+            ),
+            Validators.minLength(8)
+          ])
+        ]
+      }
+    );
+  }
+
+  ngOnInit() {
+  }
+
   login() {
     const val = this.frmLogIn.value;
 
@@ -87,8 +92,10 @@ export class ClientLogInComponent implements OnInit {
 
   checklogin() {
     if (this.authService.isLoggedIn()) {
+      this.router.navigateByUrl('/').then(() => {
+        window.location.reload();
+      });
       this.snackBar.open('Logged in successfully', '', {duration: 2000});
-      this.router.navigateByUrl('/');
     } else {
       this.snackBar.open('Invalid account details', '', {duration: 2000});
     }
@@ -99,3 +106,4 @@ export class ClientLogInComponent implements OnInit {
     this.dialog.open(ImplementationModalComponent);
   }
 }
+

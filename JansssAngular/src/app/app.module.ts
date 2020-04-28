@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-
 /* Components */
 import { AppComponent } from './app.component';
 import { SubscriptionComponent } from './component/subscription/subscription.component';
