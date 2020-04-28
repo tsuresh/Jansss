@@ -1,0 +1,64 @@
+.container {
+  padding-top: 5%;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+.number {
+  color: #7f8c8d;
+  font-size: 24px;
+}
+
+.campaign {
+  cursor: pointer;
+}
+
+#campaign-details {
+  display: none;
+}
+
+button {
+  float: right;
+  border-radius: 30px;
+  background-color: #E06F63;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+button:hover {
+  color: #ffffff;
+}
+
+// Media Queries
+@media (max-width: 991px) {
+  h3 {
+    font-size: 24px;
+  }
+
+  .number {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  h3 {
+    font-size: 16px;
+  }
+
+  .number {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  h3 {
+    font-size: 30px;
+  }
+
+  .number {
+    font-size: 24px;
+  }
+}

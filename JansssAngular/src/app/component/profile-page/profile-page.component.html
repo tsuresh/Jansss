@@ -1,0 +1,69 @@
+<div class="container">
+
+  <div class="card border-0 shadow-lg col-left">
+
+    <div class="card-header text-center" style="background: #E06F63">
+      <!-- Profile Image -->
+      <div class="mt-1">
+        <img class="img-fluid pro-img" src="../../../assets/images/profile/user.svg" alt="profile image" width="200px">
+      </div>
+      <!-- Username -->
+      <div class="mt-3">
+        <h3 class="username">{{this.currentUser.userName}}</h3>
+      </div>
+    </div>
+
+    <!-- Icons -->
+    <div class="card-body pr-5 pl-5 text-center ">
+      <!-- Icons -->
+      <div class="row text-center mt-4 icons">
+        <!-- Settings Icon -->
+        <div class="col">
+          <mat-icon class="change-cursor" color="primary" (click)="navigateToEditProfile()">settings</mat-icon>
+        </div>
+        <!-- Messages Icon -->
+        <div class="col">
+          <mat-icon class="change-cursor" color="primary" (click)="openDialog()">email</mat-icon>
+        </div>
+        <!-- Notifications Icon -->
+        <div class="col">
+          <mat-icon class="change-cursor" color="primary" (click)="openDialog()">notifications</mat-icon>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Details -->
+    <div class="card-body text-center">
+      <div class="col">
+        <p>Name: {{this.currentUser.fName}}</p>
+        <p>Email: {{this.currentUser.email}}</p>
+        <p>Payment Method: {{this.currentUser.paymentMethod}}</p>
+        <p>Payment Plan: {{this.currentUser.paymentPlan}}</p>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="col">
+        <h5 class="text-center">My Campaigns</h5>
+        <div class="row mt-4">
+          <div class="col campaign">Campaign 3</div>
+          <div class="col"><a routerLink="/progress" class="">Progress</a></div>
+          <div class="col"><a routerLink="/campaign-details" class="">Details</a></div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col campaign">Campaign 2</div>
+          <div class="col"><a routerLink="/progress" class="">Progress</a></div>
+          <div class="col"><a routerLink="/campaign-details" class="">Details</a></div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col campaign">Campaign 1</div>
+          <div class="col"><a routerLink="/progress" class="">Progress</a></div>
+          <div class="col"><a routerLink="/campaign-details" class="">Details</a></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

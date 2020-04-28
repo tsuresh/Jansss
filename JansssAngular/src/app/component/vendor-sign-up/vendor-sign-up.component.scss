@@ -1,0 +1,68 @@
+.container {
+  padding-top: 8%;
+}
+
+.col-left img {
+  width: 550px;
+}
+
+.heading-top p {
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.pink {
+  color: #E06F63;
+}
+
+form {
+  width: 80%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.hide-icon {
+  cursor: pointer;
+}
+
+input[type=submit] {
+  background: #E06F63;
+  color: #ffffff;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+.options p {
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+button {
+  border-radius: 100%;
+}
+
+button img {
+  width: 30px;
+}
+
+.bottom p {
+  color: #636e72;
+  font-size: 12px;
+  letter-spacing: .3px;
+}
+
+p a {
+  text-decoration: none;
+  color: #636e72;
+}
+
+//Media Queries
+@media (max-width: 991px) {
+  .col-left {
+    display: none;
+  }
+}

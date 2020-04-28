@@ -1,0 +1,98 @@
+.client3, .client4{
+  display:none;
+}
+
+.client3{
+  padding-top: 3%;
+  padding-bottom: 3%;
+  color: black;
+  text-align: center;
+  border-radius: 0 30px 30px 0;
+  border-color: #E06F63;
+}
+
+.client3 h3{
+  font-size: 30px;
+  font-family: "Airbnb Cereal App Book", sans-serif;
+}
+
+.hide-icon {
+  cursor: pointer;
+}
+
+.pink {
+  color: #E06F63;
+}
+
+//2nd Layout - Social Media Icons
+.client4 .client-logo button{
+  border-radius: 30px;
+  border-color: #dbdbdb;
+  border-width: 1px;
+  padding: 2%;
+  margin-right: 5%;
+}
+
+.client4 .client-logo{
+  text-align: center;
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+}
+
+.client4 .client-logo p{
+  padding-top: 3%;
+  color: rgba(93, 93, 93, 0.81);
+}
+.client4 .client-logo h3{
+  font-size: 45px;
+}
+.client4{
+  padding-top: 10%;
+  padding-bottom: 5%;
+  padding-left: 8%;
+}
+
+//2nd Layout - Button switch from log in to sign up
+.client3 .button-switch{
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+  border-radius: 30px;
+  border-color: black;
+  border-width: 2px;
+  padding: 2% 7%;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+}
+.client2{
+  padding-top: 10%;
+}
+
+//Media queries for responsiveness
+@media (max-width:999px) and (min-width:992px) {
+  .client2{display:none;}
+  .client1{display: none;}
+  .client3, .client4{ display: block;}
+  .client4{padding-left: 28%;}
+}
+
+@media (max-width:991px) and (min-width:768px) {
+  .client2{display:none;}
+  .client1{display: none;}
+  .client3, .client4{display: block;}
+  .client4{padding-left: 25%;}
+}
+
+@media (max-width:767px) and (min-width:575px){
+  .client-account{padding-top: 12%;}
+  .client2{display:none;}
+  .client1{display: none;}
+  .client3, .client4{display: block;}
+  .client4{padding-left: 18%;}
+}
+
+@media (max-width:574px){
+  .client-account{padding-top: 16%;}
+  .client4{padding-left: 14%;}
+  .client2{display:none;}
+  .client1{display: none;}
+  .client3, .client4{display: block;}
+}
