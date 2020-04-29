@@ -3,4 +3,3 @@ export class UserInformation {
   email: string;
   password: string;
 }
-

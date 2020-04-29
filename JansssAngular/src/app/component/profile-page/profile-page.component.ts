@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {Observable, throwError} from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../../service/auth.service';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 import {MatDialog} from '@angular/material/dialog';
@@ -39,6 +37,7 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit() {
     this.authService.getUserProfile(this.id).subscribe((res) => {
+      // @ts-ignore
       this.currentUser = res;
     });
     if (!this.authService.isLoggedIn()) {
