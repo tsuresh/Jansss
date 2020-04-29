@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../service/auth.service';
+import {AuthorizationService} from '../../service/authorization.service';
 import * as $ from 'jquery';
 import {Router} from '@angular/router';
 import {UserInformation} from '../../models/userInformation';
@@ -8,11 +8,11 @@ import {UserInformation} from '../../models/userInformation';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  providers: [AuthService]
+  providers: [AuthorizationService]
 })
 export class HeaderComponent implements OnInit {
   currentUser = new UserInformation();
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthorizationService, private router: Router) {
     if (this.authService.isLoggedIn()) {
       this.authService.getUserProfile(localStorage.getItem('uID'))
         .subscribe(

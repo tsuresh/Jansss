@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import * as $ from 'jquery';
 import {ErrorStateMatcher, MatDialog, MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
-import {AuthService} from '../../service/auth.service';
+import {AuthorizationService} from '../../service/authorization.service';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -20,7 +20,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-client-sign-up',
   templateUrl: './client-sign-up.component.html',
   styleUrls: ['./client-sign-up.component.scss'],
-  providers: [AuthService]
+  providers: [AuthorizationService]
 })
 export class ClientSignUpComponent implements OnInit {
   public frmSignup: FormGroup;
@@ -33,7 +33,7 @@ export class ClientSignUpComponent implements OnInit {
     // tslint:disable-next-line:variable-name
     private _snackBar: MatSnackBar,
     private router: Router,
-    private authService: AuthService,
+    private authService: AuthorizationService,
     public dialog: MatDialog
   ) {
     this.frmSignup = this.createSignupForm();

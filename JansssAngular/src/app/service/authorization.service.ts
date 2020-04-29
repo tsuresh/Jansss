@@ -10,7 +10,8 @@ import {catchError, map, shareReplay} from 'rxjs/operators';
 import {Router} from '@angular/router';
 
 @Injectable()
-export class AuthService {
+export class AuthorizationService {
+  url;
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string ) {
@@ -51,4 +52,9 @@ export class AuthService {
     const api = 'https://api.jansss.live/users/match/' + id;
     return this.http.get<any>(api);
   }
+
+  // savesResponse(response) {
+  //   this.url =  'http://localhost:4200/Api/Login/savesResponse';
+  //   return this.http.post(this.url, response);
+  // }
 }
