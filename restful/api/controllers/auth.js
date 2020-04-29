@@ -23,6 +23,7 @@ exports.signup_user = (req, res, next) => {
           } else {
             const user = new User({
               _id: new mongoose.Types.ObjectId(),
+              userName: req.body.userName,
               email: req.body.email,
               password: hash
             });
@@ -74,6 +75,9 @@ exports.signin_user = (req, res, next) => {
           );
           return res.status(200).json({
             message: "Authentication successful",
+            userName: user[0].userName,
+            _id: user[0]._id,
+            expiresIn: 3600,
             token: token
           });
         }
