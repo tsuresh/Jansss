@@ -38,9 +38,14 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.getUserProfile(this.id).subscribe((res) => {
-      this.currentUser = res;
-    });
+    if (localStorage.getItem('username')) {
+      this.currentUser.userName = localStorage.getItem('username');
+    } else {
+      this.authService.getUserProfile(localStorage.getItem('uID'))
+        .subscribe(
+          res => { this.currentUser.userName = res.userName; }
+        );
+    }
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/client-log-in']);
     }

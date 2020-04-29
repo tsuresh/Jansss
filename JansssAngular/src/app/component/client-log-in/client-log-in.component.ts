@@ -6,6 +6,8 @@ import {CustomValidators} from '../../validator/custom-validators';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 import {AuthorizationService} from '../../service/authorization.service';
+import { AuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
+import * as moment from 'moment';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -22,6 +24,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   providers: [AuthorizationService]
 })
 export class ClientLogInComponent implements OnInit {
+  user: SocialUser;
+  loggedIn: boolean;
   matcher = new MyErrorStateMatcher();
   hide = true;
   frmLogIn: FormGroup;
@@ -32,8 +36,16 @@ export class ClientLogInComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     public dialog: MatDialog,
+    private service: AuthService
   ) {
     this.frmLogIn = this.createLogInForm();
+  }
+  signInWithFB(): void {
+    this.service.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  signOut(): void {
+    this.service.signOut();
   }
 
   createLogInForm(): FormGroup {
@@ -75,6 +87,22 @@ export class ClientLogInComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+      console.log(this.user);
+      if (this.loggedIn) {
+        localStorage.setItem('email', this.user.email);
+        localStorage.setItem('username', this.user.firstName + this.user.lastName.charAt(0).toUpperCase());
+        const expiresAt = moment().add(3600, 'second');
+        // // calculate the expiration timestamp
+        localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
+        console.log('User is logged in.');
+        this.router.navigateByUrl('/profile').then(() => {
+          window.location.reload();
+        });
+      }
+    });
   }
 
   login() {

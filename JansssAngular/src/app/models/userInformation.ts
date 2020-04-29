@@ -1,5 +1,5 @@
 export class UserInformation {
-  userName: '';
+  userName: string;
   email: string;
   password: string;
 }

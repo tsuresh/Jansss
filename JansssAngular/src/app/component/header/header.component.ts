@@ -14,10 +14,14 @@ export class HeaderComponent implements OnInit {
   currentUser = new UserInformation();
   constructor(private authService: AuthorizationService, private router: Router) {
     if (this.authService.isLoggedIn()) {
-      this.authService.getUserProfile(localStorage.getItem('uID'))
-        .subscribe(
-          res => { this.currentUser.userName = res.userName; }
-        );
+      if (localStorage.getItem('username')) {
+        this.currentUser.userName = localStorage.getItem('username');
+      } else {
+        this.authService.getUserProfile(localStorage.getItem('uID'))
+          .subscribe(
+            res => { this.currentUser.userName = res.userName; }
+          );
+      }
     }
   }
   ngOnInit() {
@@ -109,5 +113,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-
+  reload() {
+    window.location.reload();
+  }
   }

@@ -7,6 +7,8 @@ import {ErrorStateMatcher, MatDialog, MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
 import {AuthorizationService} from '../../service/authorization.service';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
+import {AuthService, FacebookLoginProvider, SocialUser} from 'angularx-social-login';
+import * as moment from 'moment';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -24,6 +26,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class ClientSignUpComponent implements OnInit {
   public frmSignup: FormGroup;
+  user: SocialUser;
+  loggedIn: boolean;
   hide = true;
   registered = false;
   submitted = false;
@@ -34,11 +38,20 @@ export class ClientSignUpComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private router: Router,
     private authService: AuthorizationService,
-    public dialog: MatDialog
-  ) {
+    public dialog: MatDialog,
+    private service: AuthService
+) {
     this.frmSignup = this.createSignupForm();
   }
   matcher = new MyErrorStateMatcher();
+
+  signInWithFB(): void {
+    this.service.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  signOut(): void {
+    this.service.signOut();
+  }
 
   createSignupForm(): FormGroup {
     return this.formBuilder.group(
@@ -105,6 +118,22 @@ export class ClientSignUpComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+      console.log(this.user);
+      if (this.loggedIn) {
+        localStorage.setItem('email', this.user.email);
+        localStorage.setItem('username', this.user.firstName + this.user.lastName.charAt(0).toUpperCase());
+        const expiresAt = moment().add(3600, 'second');
+        // // calculate the expiration timestamp
+        localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
+        console.log('User is logged in.');
+        this.router.navigateByUrl('/pricing').then(() => {
+          window.location.reload();
+        });
+      }
+    });
     // Hide and show criteria on key entry
     $('#password').keyup(function() {
       // @ts-ignore
@@ -156,4 +185,5 @@ export class ClientSignUpComponent implements OnInit {
   openDialog() {
     this.dialog.open(ImplementationModalComponent);
   }
+
 }

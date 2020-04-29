@@ -31,6 +31,9 @@ export class AuthorizationService {
     localStorage.removeItem('token');
     localStorage.removeItem('expires_at');
     localStorage.removeItem('uID');
+    // details for facebook being removed from local storage
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
   }
 
   public isLoggedIn() {
@@ -52,9 +55,4 @@ export class AuthorizationService {
     const api = 'https://api.jansss.live/users/match/' + id;
     return this.http.get<any>(api);
   }
-
-  // savesResponse(response) {
-  //   this.url =  'http://localhost:4200/Api/Login/savesResponse';
-  //   return this.http.post(this.url, response);
-  // }
 }
