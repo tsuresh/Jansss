@@ -49,7 +49,7 @@ export class VendorSignUpComponent implements OnInit {
     'Promotional'
   ];
   pTypes: string[] = [
-    'Knowledge/consulting',
+    'Knowledge / Consulting',
     'Information technology',
     'Design',
     'Entertainment and Events',
@@ -58,7 +58,7 @@ export class VendorSignUpComponent implements OnInit {
     'Education',
     'Construction',
     'Financial',
-    'Agents/Brokers',
+    'Agents / Brokers',
     'Wellness and personal grooming',
     'Sports',
     'Hospitality',
