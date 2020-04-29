@@ -52,7 +52,23 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 // import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import {AuthInterceptor} from './interceptor/auth-interceptor';
+import {AuthService, AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider} from 'angular-6-social-login';
 
+export function socialConfigs() {
+  const config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider('633171267540117')
+      },
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('')
+      }
+    ]
+  );
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -105,6 +121,12 @@ import {AuthInterceptor} from './interceptor/auth-interceptor';
     MatProgressBarModule
   ],
   providers: [
+
+    AuthService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: socialConfigs
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

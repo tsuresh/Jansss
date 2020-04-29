@@ -4,7 +4,7 @@ import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validat
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
-import {AuthService} from '../../service/auth.service';
+import {AuthorizationService} from '../../service/authorization.service';
 import {ErrorStateMatcher} from '@angular/material';
 
 // Export statements
@@ -39,11 +39,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./enter-details-form.component.scss',
     '../../../../node_modules/animate.css/animate.min.css'
   ],
-  providers: [AuthService]
+  providers: [AuthorizationService]
 })
 
 export class EnterDetailsFormComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthorizationService) { }
   registered = false;
   submitted = false;
   detailsForm: FormGroup = this.formBuilder.group({
