@@ -4,14 +4,6 @@ import {Router} from '@angular/router';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 import {MatDialog} from '@angular/material/dialog';
 
-interface MType {
-  type: string;
-}
-
-interface PType {
-  type: string;
-}
-
 @Component({
   selector: 'app-vendor-edit-profile',
   templateUrl: './vendor-edit-profile.component.html',
@@ -27,19 +19,54 @@ export class VendorEditProfileComponent implements OnInit {
   mType = new FormControl();
   pType = new FormControl();
 
-  mTypes: MType[] = [
-    {type: 'Social Media'},
-    {type: 'Banners'},
-    {type: 'Event'},
-    {type: 'Word of mouth'},
-    {type: 'Online'}
+  mTypes: string[] = [
+    'TV',
+    'Radio',
+    'Press',
+    'Social media',
+    'Banners',
+    'Online',
+    'Transactional',
+    'Word of mouth',
+    'Viral',
+    'Call to action',
+    'Diversity',
+    'Mass marketing',
+    'Email',
+    'Seasonal',
+    'Evangelism',
+    'Guerilla',
+    'Personalized',
+    'Affinity',
+    'Event',
+    'Content',
+    'Promotional'
   ];
-  pTypes: PType[] = [
-    {type: 'Financial'},
-    {type: 'Education'},
-    {type: 'Entertainment and Events'},
-    {type: 'Information Technology'},
-    {type: 'Knowledge/Consulting'}
+  pTypes: string[] = [
+    'Knowledge / Consulting',
+    'Information technology',
+    'Design',
+    'Entertainment and Events',
+    'Government services',
+    'Non-profit services',
+    'Education',
+    'Construction',
+    'Financial',
+    'Agents / Brokers',
+    'Wellness and personal grooming',
+    'Sports',
+    'Hospitality',
+    'Transport',
+    'Utilities',
+    'Insurance',
+    'Food and Beverages',
+    'Rentals',
+    'Shopping goods',
+    'Commodities',
+    'Convenience products',
+    'Niche products',
+    'Complimentary goods',
+    'Premium products'
   ];
 
   constructor(public dialog: MatDialog) { }
