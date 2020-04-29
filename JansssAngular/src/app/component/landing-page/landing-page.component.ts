@@ -15,26 +15,20 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() {
     // tslint:disable-next-line:only-arrow-functions
-    window.addEventListener('visit', window.onscroll = function() { slideInContent(); }, false)
-    // tslint:disable-next-line:only-arrow-functions
-    // window.onscroll = function() { slideInContent(); };
+    window.onscroll = function() { slideInContent(); };
 
     // On Scroll Functionality
     function slideInContent() {
       const middle = document.getElementById('middle');
-      const right = document.getElementById('right');
+      const text = document.getElementById('text');
+      const image = document.getElementById('image');
       if (middle != null) {
         if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 5) {
-          middle.className = 'img-fluid ml-5 float-left animated fadeInRight slower middle';
-          right.style.visibility = 'visible';
-          right.className = 'container text-left ml-5 animated fadeInRight slower';
+          middle.style.display = 'none';
+          text.style.display = 'block';
+          image.style.display = 'block';
         }
       }
     }
-  }
-
-  // Navigation Arrow Functionality
-  scrollWin() {
-    window.scrollBy(0, 650);
   }
 }
