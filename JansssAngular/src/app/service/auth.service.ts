@@ -1,12 +1,9 @@
 // @ts-ignore
 import * as moment from 'moment';
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/shareReplay';
-import {Observable, throwError} from 'rxjs';
-import {AuthInterceptor} from '../interceptor/auth-interceptor';
-import {catchError, map, shareReplay} from 'rxjs/operators';
 import {Router} from '@angular/router';
 
 @Injectable()
@@ -50,5 +47,11 @@ export class AuthService {
   getUserProfile(id) {
     const api = 'https://api.jansss.live/users/match/' + id;
     return this.http.get<any>(api);
+  }
+
+  // Update user profile
+  updateUserProfile(id, obj) {
+    const api = 'https://api.jansss.live/users/match/update/' + id;
+    return this.http.put(api, obj);
   }
 }

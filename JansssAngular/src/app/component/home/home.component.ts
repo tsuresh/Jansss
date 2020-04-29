@@ -2,8 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import * as $ from 'jquery';
 import {AuthService} from '../../service/auth.service';
 
-// import {Router} from '@angular/router';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,7 +13,9 @@ import {AuthService} from '../../service/auth.service';
 })
 
 export class HomeComponent implements OnInit {
+
   constructor(private authService: AuthService) { }
+
   ngOnInit() {
     // Fixing Div for how it works
     // tslint:disable-next-line:only-arrow-functions
