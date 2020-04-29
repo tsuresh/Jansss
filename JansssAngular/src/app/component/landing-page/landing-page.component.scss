@@ -13,25 +13,30 @@
 
 #right {
   visibility: hidden;
-  padding-top: 20%;
+  padding-top: 15%;
   padding-left: 30%;
 }
 
-#right h1 {
+#bottom {
+  visibility: hidden;
+  margin: auto auto;
+}
+
+h1 {
   color: #ffffff;
   font-size: 100px;
   font-weight: 800;
   letter-spacing: 3px;
 }
 
-#right h3 {
+h3 {
   color: #ffffff;
   font-size: 60px;
   font-weight: 800;
   letter-spacing: 3px;
 }
 
-#right p {
+p {
   color: #650C0C;
   letter-spacing: 2px;
   font-weight: 200;

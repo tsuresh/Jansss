@@ -25,8 +25,55 @@ export class VendorSignUpComponent implements OnInit {
   registered: boolean;
   hide = true;
   matcher = new MyErrorStateMatcher();
-  mTypes: string[] = ['Social Media', 'Banners', 'Event', 'Word of mouth', 'Online'];
-  pTypes: string[] = ['Financial', 'Education', 'Entertainment and Events', 'Information Technology', 'Knowledge/Consulting'];
+  mTypes: string[] = [
+    'TV',
+    'Radio',
+    'Press',
+    'Social media',
+    'Banners',
+    'Online',
+    'Transactional',
+    'Word of mouth',
+    'Viral',
+    'Call to action',
+    'Diversity',
+    'Mass marketing',
+    'Email',
+    'Seasonal',
+    'Evangelism',
+    'Guerilla',
+    'Personalized',
+    'Affinity',
+    'Event',
+    'Content',
+    'Promotional'
+  ];
+  pTypes: string[] = [
+    'Knowledge/consulting',
+    'Information technology',
+    'Design',
+    'Entertainment and Events',
+    'Government services',
+    'Non-profit services',
+    'Education',
+    'Construction',
+    'Financial',
+    'Agents/Brokers',
+    'Wellness and personal grooming',
+    'Sports',
+    'Hospitality',
+    'Transport',
+    'Utilities',
+    'Insurance',
+    'Food and Beverages',
+    'Rentals',
+    'Shopping goods',
+    'Commodities',
+    'Convenience products',
+    'Niche products',
+    'Complimentary goods',
+    'Premium products'
+  ];
   createForm(): FormGroup {
     return this.formBuilder.group(
       {

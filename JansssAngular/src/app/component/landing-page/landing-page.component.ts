@@ -15,14 +15,20 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() {
     // tslint:disable-next-line:only-arrow-functions
-    window.onscroll = function() { slideInContent(); };
+    window.addEventListener('visit', window.onscroll = function() { slideInContent(); }, false)
+    // tslint:disable-next-line:only-arrow-functions
+    // window.onscroll = function() { slideInContent(); };
 
     // On Scroll Functionality
     function slideInContent() {
-      if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 5) {
-        document.getElementById('middle').className = 'img-fluid mt-5 ml-5 float-left animated fadeInRight slower middle';
-        document.getElementById('right').style.visibility = 'visible';
-        document.getElementById('right').className = 'container text-left ml-5 animated fadeInRight slower';
+      const middle = document.getElementById('middle');
+      const right = document.getElementById('right');
+      if (middle != null) {
+        if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 5) {
+          middle.className = 'img-fluid ml-5 float-left animated fadeInRight slower middle';
+          right.style.visibility = 'visible';
+          right.className = 'container text-left ml-5 animated fadeInRight slower';
+        }
       }
     }
   }
