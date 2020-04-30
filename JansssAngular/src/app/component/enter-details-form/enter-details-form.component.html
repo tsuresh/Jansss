@@ -18,9 +18,9 @@
 
       <div class="heading-2">Get started with your <p class="campaign">campaign</p></div>
 
-      <div class="form-group" [ngClass]="{ 'has-error': invalidGoal() }">
+      <div class="form-group">
         <!-- form item - target audience -->
-        <label class="item">
+        <label class="item item1">
           Campaign Goal
           <mat-radio-group color="primary" required>
             <mat-radio-button class="ml-5" value="1">Brand Awareness</mat-radio-button>
@@ -143,15 +143,15 @@
           </label>
         </div>
 
-<!--      <div class="form-group">-->
-<!--        &lt;!&ndash; form item - product name &ndash;&gt;-->
-<!--        <label class="item">-->
-<!--          Product Description<br>-->
-<!--          <mat-form-field class="full-width">-->
-<!--            <textarea matInput  placeholder="Tell us a little bit about your Product/Service" formControlName="description"></textarea>-->
-<!--          </mat-form-field>-->
-<!--        </label>-->
-<!--      </div>-->
+      <div class="form-group">
+        <!-- form item - product name -->
+        <label class="item">
+          Product Description<br>
+          <mat-form-field class="full-width">
+            <textarea matInput  placeholder="Tell us a little bit about your Product/Service" formControlName="description"></textarea>
+          </mat-form-field>
+        </label>
+      </div>
 
         <div class="button_outer form-group">
           <!-- on click, navigates to select campaign page -->

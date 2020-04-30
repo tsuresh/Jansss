@@ -29,7 +29,8 @@ export class VendorLoginComponent implements OnInit {
     Validators.minLength(8)
   ]);
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  // tslint:disable-next-line:variable-name
+  constructor(private _snackBar: MatSnackBar, public authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -39,4 +40,21 @@ export class VendorLoginComponent implements OnInit {
   }
 
   onSubmit() { }
+
+  // Modal
+  openDialog() {
+    this.dialog.open(ImplementationModalComponent);
+  }
+  // Facebook sign up
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  // Google sign up
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+  signOut(): void {
+    this.authService.signOut();
+  }
 }
