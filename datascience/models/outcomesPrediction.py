@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 class Outcomes:
 
     def __init__(self):
-        self.dataset = pd.read_csv('../datasets/Category.csv')
+        self.dataset = pd.read_csv('datasets/Category.csv')
         self.dataset.drop(self.dataset.columns[[0]], axis=1, inplace=True)
 
     def predict(self, tv, radio, newspaper):

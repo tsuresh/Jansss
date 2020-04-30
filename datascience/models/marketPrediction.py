@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-class Audience:
+class MarketPrediction:
 
     def __init__(self):
         self.df = pd.read_csv("final.csv")

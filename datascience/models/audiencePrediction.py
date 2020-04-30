@@ -20,7 +20,7 @@ from sklearn.linear_model import LogisticRegression
 class Audience:
 
     def __init__(self):
-        self.data = pd.read_csv('../datasets/audiences.csv')
+        self.data = pd.read_csv('datasets/audiences.csv')
 
         self.data = self.data.dropna()
 
@@ -77,7 +77,19 @@ class Audience:
         y = new_data[interest]
         return self.make_prediction(x, y)
 
+    def get_spending(self, interest):
+        dfs = [self.general_interests[interest], self.spending_ability]
+        new_data = pd.concat(dfs, axis=1)
+        x = new_data.drop(interest, axis=1)
+        y = new_data[interest]
+        return self.make_prediction(x, y)
+
     def get_demographics(self, interest):
+        dfs = [self.general_interests[interest], self.user_data]
+        new_data = pd.concat(dfs, axis=1)
+        return self.arrange_categorical(new_data, interest)
+
+    def get_personal(self, interest):
         dfs = [self.general_interests[interest], self.personal_data]
         new_data = pd.concat(dfs, axis=1)
         return self.arrange_categorical(new_data, interest)
@@ -95,11 +107,11 @@ class Audience:
         print('Accuracy score on test set is: {:.3f}'.format(logreg.score(x_test, y_test)))
 
         relavencies = pd.DataFrame(data=logreg.coef_[0], index=[x_train.columns], columns=['Relavency'])
-        return relavencies.sort_values(by='Relavency', ascending=True)
+        return relavencies.sort_values(by='Relavency', ascending=True).to_dict()
 
     def arrange_categorical(self, df, input_var):
         cols_cats = [col for col in df.columns if df[col].dtype == 'object']
         if cols_cats:
             df_dummies = pd.get_dummies(df[cols_cats])
             df_dummies[input_var] = df[input_var]
-            return self.predictNumericalResults(df_dummies.drop(input_var, axis=1), df_dummies[input_var])
+            return self.make_prediction(df_dummies.drop(input_var, axis=1), df_dummies[input_var])

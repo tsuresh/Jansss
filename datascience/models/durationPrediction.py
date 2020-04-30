@@ -4,7 +4,7 @@ import pandas as pd
 class DurationPrediction:
 
     def __init__(self):
-        self.df = pd.read_csv("../datasets/durations.csv")
+        self.df = pd.read_csv("datasets/durations.csv")
         self.df = pd.DataFrame(self.df)
         self.data = []
         for row in self.df.itertuples(index=True, name='Pandas'):
