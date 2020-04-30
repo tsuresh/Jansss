@@ -13,7 +13,7 @@
   <nav class="menu">
     <!-- Logo when the hamburger menu is open -->
     <div class="menu__brand">
-      <a class="navbar-brand" href="#" routerLink="/" (click)="reload()"><div class="logo"></div></a>
+      <a class="navbar-brand" href="#" routerLink="/"><div class="logo"></div></a>
     </div>
 
     <!--Items for the navigation bar-->
@@ -24,7 +24,7 @@
       <li class="menu__item"><a href="#" class="menu__link" routerLink="/contact-us">Contact Us</a></li>
       <li class="menu__item user">
         <a class="menu__link" id="username" (click)="user()">
-          <img src="../../../assets/images/profile/username.png"><span *ngIf="this.authService.isLoggedIn()">  {{this.currentUser.userName}}</span>
+          <img src="../../../assets/images/profile/username.png"> {{this.currentUser.userName}}
         </a>
       </li>
       <li>

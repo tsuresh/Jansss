@@ -54,9 +54,11 @@
         <div class="row mt-3">
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label [ngClass]="form.controls['marketingType']">Marketing Type</mat-label>
-              <mat-select formControlName="marketingType" multiple>
-                <mat-option *ngFor="let t of mTypes" [value]="t">{{t}}</mat-option>
+              <mat-label>Marketing Type</mat-label>
+              <mat-select [formControl]="mType">
+                <mat-option *ngFor="let t of mTypes" [value]="t">
+                  {{t.type}}
+                </mat-option>
               </mat-select>
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
@@ -65,9 +67,11 @@
           <!-- Preferred Type -->
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label [ngClass]="form.controls['preferred']">Marketing Type</mat-label>
-              <mat-select formControlName="preferred" multiple>
-                <mat-option *ngFor="let t of pTypes" [value]="t">{{t}}</mat-option>
+              <mat-label>Preferred Type</mat-label>
+              <mat-select [formControl]="pType">
+                <mat-option *ngFor="let t of pTypes" [value]="t">
+                  {{t.type}}
+                </mat-option>
               </mat-select>
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>

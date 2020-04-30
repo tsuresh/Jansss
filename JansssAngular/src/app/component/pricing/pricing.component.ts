@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import * as $ from 'jquery';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {SubscriptionComponent} from '../subscription/subscription.component';
-import {AuthorizationService} from '../../service/authorization.service';
+import {AuthService} from '../../service/auth.service';
 import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import {AuthInterceptor} from '../../interceptor/auth-interceptor';
 import {FormControl, Validators} from '@angular/forms';
@@ -21,7 +21,7 @@ export interface DialogData {
   selector: 'app-pricing',
   templateUrl: './pricing.component.html',
   styleUrls: ['./pricing.component.scss'],
-  providers: [AuthorizationService]
+  providers: [AuthService]
 })
 
 export class PricingComponent implements OnInit {
@@ -34,7 +34,7 @@ export class PricingComponent implements OnInit {
   constructor(
     private router: Router,
     public dialog: MatDialog,
-    private authService: AuthorizationService,
+    private authService: AuthService,
     private snackBar: MatSnackBar,
   ) { }
 
