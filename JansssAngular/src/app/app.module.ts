@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-
 /* Components */
 import { AppComponent } from './app.component';
 import { SubscriptionComponent } from './component/subscription/subscription.component';
@@ -49,11 +48,32 @@ import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatSelectModule} from '@angular/material/select';
-import {MatIconModule} from '@angular/material/icon';
-// import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import {AuthInterceptor} from './interceptor/auth-interceptor';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+  AuthService,
+  AuthServiceConfig,
+  SocialLoginModule
+} from 'angularx-social-login';
 
+
+const config = new AuthServiceConfig(
+  [
+    {
+      id: FacebookLoginProvider.PROVIDER_ID,
+      provider: new FacebookLoginProvider('633171267540117')
+    },
+    {
+      id: GoogleLoginProvider.PROVIDER_ID,
+      provider: new GoogleLoginProvider('1312570058-s0n2m6pbgh9hikemcq817p86via4lqdg.apps.googleusercontent.com')
+    }
+  ]
+);
+
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -103,9 +123,14 @@ import {AuthInterceptor} from './interceptor/auth-interceptor';
     MatSnackBarModule,
     MatDialogModule,
     MatCheckboxModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    SocialLoginModule
   ],
   providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

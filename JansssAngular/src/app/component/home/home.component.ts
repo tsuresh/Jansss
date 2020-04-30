@@ -1,8 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import * as $ from 'jquery';
-import {AuthService} from '../../service/auth.service';
-
-// import {Router} from '@angular/router';
+import {AuthorizationService} from '../../service/authorization.service';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +9,11 @@ import {AuthService} from '../../service/auth.service';
     './home.component.scss',
     '../../../../node_modules/animate.css/animate.min.css'
   ],
-  providers: [AuthService]
+  providers: [AuthorizationService]
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthorizationService) { }
   ngOnInit() {
     // Fixing Div for how it works
     // tslint:disable-next-line:only-arrow-functions
@@ -36,9 +34,6 @@ export class HomeComponent implements OnInit {
               position: 'sticky',
               top: '15%',
             });
-            // $('.logo-1').css({
-            //   display: 'block'
-            // });
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -72,9 +67,6 @@ export class HomeComponent implements OnInit {
               position: 'sticky',
               top: '15%',
             });
-            // $('.logo-1').css({
-            //   display: 'block'
-            // });
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -107,12 +99,7 @@ export class HomeComponent implements OnInit {
             $('.fixme').css({
               position: 'sticky',
               top: '15%',
-              // margin: 'auto auto',
-              // width: '88%'
             });
-            // $('.logo-1').css({
-            //   display: 'block'
-            // });
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -140,20 +127,12 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'hidden',
             });
-            // $('.logo-1').css({
-            //   display: 'block'
-            // });
           } else if ((currentScroll >= fixmeTop - 100) && (currentScroll < fixmeTop)) {
             // select campaign
             $('.fixme').css({
               position: 'sticky',
               top: '15%',
-              // margin: 'auto auto',
-              // width: '88%'
             });
-            // $('.logo-1').css({
-            //   display: 'block'
-            // });
             $('#description1').css({
               visibility: 'hidden'
             });
@@ -214,9 +193,6 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'hidden',
             });
-            // $('.logo-1').css({
-            //   display: 'block'
-            // });
           } else if ((currentScroll >= fixmeTop - 140) && (currentScroll < fixmeTop)) {
             // how it works campaign
             $('.fixme').css({
@@ -250,12 +226,6 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'visible',
             });
-            // $('.logo-1').css({
-            //   display: 'block'
-            // });
-            // $('.header').css({
-            //   backgroundColor: 'white'
-            // });
           } else {
             $('.fixme').css({
               position: 'static',
@@ -291,7 +261,7 @@ export class HomeComponent implements OnInit {
         });
       // }
     });
-    if (this.authService.isLoggedIn()) {
+    if (this.authService.isLoggedIn() ) {
       $('.progressDiv').css({
         display: 'block',
       });

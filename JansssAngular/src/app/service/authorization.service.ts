@@ -1,15 +1,14 @@
+// @ts-ignore
 import * as moment from 'moment';
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/shareReplay';
-import {Observable, throwError} from 'rxjs';
-import {AuthInterceptor} from '../interceptor/auth-interceptor';
-import {catchError, map, shareReplay} from 'rxjs/operators';
 import {Router} from '@angular/router';
 
 @Injectable()
-export class AuthService {
+export class AuthorizationService {
+  url;
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string ) {
@@ -29,6 +28,9 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('expires_at');
     localStorage.removeItem('uID');
+    // details for facebook being removed from local storage
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
   }
 
   public isLoggedIn() {
@@ -45,9 +47,9 @@ export class AuthService {
     return moment(expiresAt);
   }
 
-// Get user profile
+  // Get user profile
   getUserProfile(id) {
     const api = 'https://api.jansss.live/users/match/' + id;
-    return this.http.get(api);
+    return this.http.get<any>(api);
   }
 }
