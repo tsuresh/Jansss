@@ -48,9 +48,6 @@ import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatSelectModule} from '@angular/material/select';
-import {MatIconModule} from '@angular/material/icon';
-// import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import {AuthInterceptor} from './interceptor/auth-interceptor';
 import {
   GoogleLoginProvider,
@@ -74,7 +71,7 @@ const config = new AuthServiceConfig(
   ]
 );
 
-export function socialConfigs() {
+export function provideConfig() {
   return config;
 }
 
@@ -132,7 +129,7 @@ export function socialConfigs() {
   providers: [
     {
       provide: AuthServiceConfig,
-      useFactory: socialConfigs
+      useFactory: provideConfig
     },
     {
       provide: HTTP_INTERCEPTORS,

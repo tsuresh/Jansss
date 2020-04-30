@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm} from '@angular/forms';
-import {CustomValidators} from '../../validator/custom-validators';
 import {HttpClient} from '@angular/common/http';
-import * as $ from 'jquery';
 import {ErrorStateMatcher, MatDialog, MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
+import {CustomValidators} from '../../validator/custom-validators';
 import {AuthorizationService} from '../../service/authorization.service';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
-import {AuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
+import * as $ from 'jquery';
 import * as moment from 'moment';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -24,6 +24,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./client-sign-up.component.scss'],
   providers: [AuthorizationService]
 })
+
 export class ClientSignUpComponent implements OnInit {
   public frmSignup: FormGroup;
   user: SocialUser;
