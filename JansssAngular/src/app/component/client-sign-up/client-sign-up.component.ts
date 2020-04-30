@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm} from '@angular/forms';
+import {CustomValidators} from '../../validator/custom-validators';
 import {HttpClient} from '@angular/common/http';
+import * as $ from 'jquery';
 import {ErrorStateMatcher, MatDialog, MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
 import {CustomValidators} from '../../validator/custom-validators';
@@ -23,13 +25,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-client-sign-up',
   templateUrl: './client-sign-up.component.html',
   styleUrls: ['./client-sign-up.component.scss'],
-  providers: [AuthorizationService]
+  providers: [AuthService]
 })
-
 export class ClientSignUpComponent implements OnInit {
   public frmSignup: FormGroup;
-  user: SocialUser;
-  loggedIn: boolean;
   hide = true;
   registered = false;
   submitted = false;
@@ -39,9 +38,8 @@ export class ClientSignUpComponent implements OnInit {
     // tslint:disable-next-line:variable-name
     private _snackBar: MatSnackBar,
     private router: Router,
-    private auth: AuthorizationService,
-    public dialog: MatDialog,
-    public authService: AuthService
+    private authService: AuthService,
+    public dialog: MatDialog
   ) {
     this.frmSignup = this.createSignupForm();
   }
@@ -102,7 +100,7 @@ export class ClientSignUpComponent implements OnInit {
       // tslint:disable-next-line:no-shadowed-variable
       this.http.post('https://api.jansss.live/auth/user/signup', data).subscribe(( dataClient: any) => {
         this._snackBar.open('Sign up was successful!', 'Redirecting to Subscription.' , {duration: 3000});
-        this.auth.login(data.email, data.password);
+        this.authService.login(data.email, data.password);
         this.router.navigate(['/pricing']);
       }, error => {
         this._snackBar.open('An error occurred', JSON.stringify(error.error), {duration: 3000});
@@ -178,18 +176,5 @@ export class ClientSignUpComponent implements OnInit {
   // Modal
   openDialog() {
     this.dialog.open(ImplementationModalComponent);
-  }
-
-  // Facebook sign up
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
-
-  // Google sign up
-  signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
-  signOut(): void {
-    this.authService.signOut();
   }
 }

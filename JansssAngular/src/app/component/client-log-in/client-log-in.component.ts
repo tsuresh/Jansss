@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {Router} from '@angular/router';
 import {CustomValidators} from '../../validator/custom-validators';
+import {AuthService} from '../../service/auth.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 import {AuthorizationService} from '../../service/authorization.service';
@@ -22,22 +24,18 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-client-log-in',
   templateUrl: './client-log-in.component.html',
   styleUrls: ['./client-log-in.component.scss'],
-  providers: [AuthorizationService]
+  providers: [AuthService]
 })
 export class ClientLogInComponent implements OnInit {
-  user: SocialUser;
-  loggedIn: boolean;
   matcher = new MyErrorStateMatcher();
   hide = true;
   frmLogIn: FormGroup;
-
   constructor(
     private formBuilder: FormBuilder,
-    private auth: AuthorizationService,
+    private authService: AuthService,
     private router: Router,
     private snackBar: MatSnackBar,
-    public dialog: MatDialog,
-    private authService: AuthService
+    public dialog: MatDialog
   ) {
     this.frmLogIn = this.createLogInForm();
   }
@@ -116,7 +114,7 @@ export class ClientLogInComponent implements OnInit {
     const val = this.frmLogIn.value;
 
     if (val.email && val.password) {
-      this.auth.login(val.email, val.password);
+      this.authService.login(val.email, val.password);
       setTimeout(() => {
         this.checklogin();
       }, 3000);
@@ -125,11 +123,9 @@ export class ClientLogInComponent implements OnInit {
   }
 
   checklogin() {
-    if (this.auth.isLoggedIn()) {
-      this.router.navigateByUrl('/').then(() => {
-        window.location.reload();
-      });
+    if (this.authService.isLoggedIn()) {
       this.snackBar.open('Logged in successfully', '', {duration: 2000});
+      this.router.navigateByUrl('/');
     } else {
       this.snackBar.open('Invalid account details', '', {duration: 2000});
     }
@@ -139,7 +135,4 @@ export class ClientLogInComponent implements OnInit {
   openDialog() {
     this.dialog.open(ImplementationModalComponent);
   }
-
 }
-
-

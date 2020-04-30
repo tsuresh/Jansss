@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthorizationService} from '../../service/authorization.service';
+import {AuthService} from '../../service/auth.service';
 import * as $ from 'jquery';
 import {Router} from '@angular/router';
-import {UserInformation} from '../../models/userInformation';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  providers: [AuthorizationService]
+  providers: [AuthService]
 })
 export class HeaderComponent implements OnInit {
   currentUser = new UserInformation();
@@ -26,6 +25,7 @@ export class HeaderComponent implements OnInit {
     }
   }
   ngOnInit() {
+    // document.getElementById('logo-1').style.display = 'block';
     // tslint:disable-next-line:only-arrow-functions
     (function() {
 
@@ -113,8 +113,5 @@ export class HeaderComponent implements OnInit {
       window.location.reload();
     }
   }
+  }
 
-  reload() {
-    window.location.reload();
-  }
-  }

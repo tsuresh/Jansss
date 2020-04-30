@@ -21,8 +21,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-vendor-sign-up',
   templateUrl: './vendor-sign-up.component.html',
-  styleUrls: ['./vendor-sign-up.component.scss'],
-  providers: [AuthorizationService]
+  styleUrls: ['./vendor-sign-up.component.scss']
 })
 
 export class VendorSignUpComponent implements OnInit {
@@ -31,55 +30,8 @@ export class VendorSignUpComponent implements OnInit {
   registered: boolean;
   hide = true;
   matcher = new MyErrorStateMatcher();
-  mTypes: string[] = [
-    'TV',
-    'Radio',
-    'Press',
-    'Social media',
-    'Banners',
-    'Online',
-    'Transactional',
-    'Word of mouth',
-    'Viral',
-    'Call to action',
-    'Diversity',
-    'Mass marketing',
-    'Email',
-    'Seasonal',
-    'Evangelism',
-    'Guerilla',
-    'Personalized',
-    'Affinity',
-    'Event',
-    'Content',
-    'Promotional'
-  ];
-  pTypes: string[] = [
-    'Knowledge / Consulting',
-    'Information technology',
-    'Design',
-    'Entertainment and Events',
-    'Government services',
-    'Non-profit services',
-    'Education',
-    'Construction',
-    'Financial',
-    'Agents / Brokers',
-    'Wellness and personal grooming',
-    'Sports',
-    'Hospitality',
-    'Transport',
-    'Utilities',
-    'Insurance',
-    'Food and Beverages',
-    'Rentals',
-    'Shopping goods',
-    'Commodities',
-    'Convenience products',
-    'Niche products',
-    'Complimentary goods',
-    'Premium products'
-  ];
+  mTypes: string[] = ['Social Media', 'Banners', 'Event', 'Word of mouth', 'Online'];
+  pTypes: string[] = ['Financial', 'Education', 'Entertainment and Events', 'Information Technology', 'Knowledge/Consulting'];
   createForm(): FormGroup {
     return this.formBuilder.group(
       {
@@ -91,19 +43,10 @@ export class VendorSignUpComponent implements OnInit {
       }
     );
   }
-
-  constructor(
-    private http: HttpClient,
-    // tslint:disable-next-line:variable-name
-    private _snackBar: MatSnackBar,
-    private router: Router,
-    private formBuilder: FormBuilder,
-    public authService: AuthService,
-    public dialog: MatDialog)
-  {
+  // tslint:disable-next-line:variable-name
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar, private router: Router, private formBuilder: FormBuilder) {
     this.form = this.createForm();
   }
-
   ngOnInit() { }
   // On Submit Functionality
   onSubmit() {
@@ -127,21 +70,5 @@ export class VendorSignUpComponent implements OnInit {
       });
       this.registered = true;
     }
-  }
-  // Modal
-  openDialog() {
-    this.dialog.open(ImplementationModalComponent);
-  }
-  // Facebook sign up
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
-
-  // Google sign up
-  signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
-  signOut(): void {
-    this.authService.signOut();
   }
 }

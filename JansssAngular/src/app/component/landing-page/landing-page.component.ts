@@ -19,16 +19,16 @@ export class LandingPageComponent implements OnInit {
 
     // On Scroll Functionality
     function slideInContent() {
-      const middle = document.getElementById('middle');
-      const text = document.getElementById('text');
-      const image = document.getElementById('image');
-      if (middle != null) {
-        if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 5) {
-          middle.style.display = 'none';
-          text.style.display = 'block';
-          image.style.display = 'block';
-        }
+      if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 5) {
+        document.getElementById('middle').className = 'img-fluid mt-5 ml-5 float-left animated fadeInRight slower middle';
+        document.getElementById('right').style.visibility = 'visible';
+        document.getElementById('right').className = 'container text-left ml-5 animated fadeInRight slower';
       }
     }
+  }
+
+  // Navigation Arrow Functionality
+  scrollWin() {
+    window.scrollBy(0, 650);
   }
 }
