@@ -6,8 +6,9 @@ import {CustomValidators} from '../../validator/custom-validators';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 import {AuthorizationService} from '../../service/authorization.service';
-import {AuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
 import * as moment from 'moment';
+// @ts-ignore
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -98,6 +99,7 @@ export class ClientLogInComponent implements OnInit {
       console.log(this.user);
       if (this.loggedIn) {
         localStorage.setItem('email', this.user.email);
+        // @ts-ignore
         localStorage.setItem('username', this.user.firstName + this.user.lastName.charAt(0).toUpperCase());
         const expiresAt = moment().add(3600, 'second');
         // // calculate the expiration timestamp
