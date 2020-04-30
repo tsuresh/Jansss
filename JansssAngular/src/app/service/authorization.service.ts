@@ -25,12 +25,22 @@ export class AuthorizationService {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('expires_at');
-    localStorage.removeItem('uID');
+    if (localStorage.getItem('token')) {
+      localStorage.removeItem('token');
+    }
+    if (localStorage.getItem('expires_at')) {
+      localStorage.removeItem('expires_at');
+    }
+    if (localStorage.getItem('uID')) {
+      localStorage.removeItem('uID');
+    }
     // details for facebook being removed from local storage
-    localStorage.removeItem('username');
-    localStorage.removeItem('email');
+    if (localStorage.getItem('username')) {
+      localStorage.removeItem('username');
+    }
+    if (localStorage.getItem('email')) {
+      localStorage.removeItem('email');
+    }
   }
 
   public isLoggedIn() {
