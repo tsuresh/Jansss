@@ -1,30 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthorizationService} from '../../service/authorization.service';
+import {AuthService} from '../../service/auth.service';
 import * as $ from 'jquery';
 import {Router} from '@angular/router';
-import {UserInformation} from '../../models/userInformation';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  providers: [AuthorizationService]
+  providers: [AuthService]
 })
 export class HeaderComponent implements OnInit {
-  currentUser = new UserInformation();
-  constructor(private authService: AuthorizationService, private router: Router) {
-    if (this.authService.isLoggedIn()) {
-      if (localStorage.getItem('username')) {
-        this.currentUser.userName = localStorage.getItem('username');
-      } else {
-        this.authService.getUserProfile(localStorage.getItem('uID'))
-          .subscribe(
-            res => { this.currentUser.userName = res.userName; }
-          );
-      }
+  currentUser : any;
+  constructor(private authService: AuthService, private router: Router) {
+    if (this.authService.isLoggedIn()){
+      this.authService.getUserProfile(localStorage.getItem("uID"))
+        .subscribe(
+          (res) => { this.currentUser = res}
+        );
     }
   }
   ngOnInit() {
+    // document.getElementById('logo-1').style.display = 'block';
     // tslint:disable-next-line:only-arrow-functions
     (function() {
 
@@ -112,8 +108,5 @@ export class HeaderComponent implements OnInit {
       window.location.reload();
     }
   }
+  }
 
-  reload() {
-    window.location.reload();
-  }
-  }

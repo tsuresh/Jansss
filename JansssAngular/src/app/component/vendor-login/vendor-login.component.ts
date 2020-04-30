@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MyErrorStateMatcher } from '../vendor-sign-up/vendor-sign-up.component';
-import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
-import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-vendor-login',
@@ -28,8 +24,7 @@ export class VendorLoginComponent implements OnInit {
     Validators.minLength(8)
   ]);
 
-  // tslint:disable-next-line:variable-name
-  constructor(private _snackBar: MatSnackBar, public authService: AuthService, public dialog: MatDialog) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -39,21 +34,4 @@ export class VendorLoginComponent implements OnInit {
   }
 
   onSubmit() { }
-
-  // Modal
-  openDialog() {
-    this.dialog.open(ImplementationModalComponent);
-  }
-  // Facebook sign up
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
-
-  // Google sign up
-  signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
-  signOut(): void {
-    this.authService.signOut();
-  }
 }
