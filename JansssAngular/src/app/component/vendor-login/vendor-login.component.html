@@ -17,13 +17,11 @@
         (submit)="onSubmit()">
 
         <!-- E-mail -->
-        <div class="row mt-2">
+        <div class="row mt-3">
           <div class="col">
             <mat-form-field class="full-width">
               <mat-label>Email</mat-label>
-              <input matInput [formControl]="email" [errorStateMatcher]="matcher"
-                     required
-                     placeholder="Ex. sam@mail.com">
+              <input matInput [formControl]="email" [errorStateMatcher]="matcher" placeholder="Ex. sam@mail.com">
               <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
                 Please enter a valid email address
               </mat-error>
@@ -35,11 +33,11 @@
         </div>
 
         <!-- Password -->
-        <div class="row mt-3">
+        <div class="row mt-4">
           <div class="col">
             <mat-form-field class="full-width">
               <mat-label>Password</mat-label>
-              <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'" required>
+              <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
               <span class="hide-icon" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </span>
@@ -67,37 +65,7 @@
         <!-- Submit Button -->
         <div class="row mt-2">
           <div class="col">
-            <input class="btn p-2 pl-5 pr-5" type="submit" value="Log In">
-          </div>
-        </div>
-
-        <!-- Other sign up options -->
-        <div class="row mt-4 options">
-          <div class="col">
-            <p>or log in with</p>
-          </div>
-        </div>
-
-        <div class="row mt-2">
-          <!-- Google -->
-          <div class="col-3">
-            <button class="btn bg-light shadow-sm p-2" (click)="signInWithGoogle()">
-              <img src="../../../assets/images/vendor-sign-up/google.svg">
-            </button>
-          </div>
-
-          <!-- Facebook -->
-          <div class="col-3">
-            <button class="btn bg-light shadow-sm p-2" (click)="signInWithFB()">
-              <img src="../../../assets/images/vendor-sign-up/facebook.svg">
-            </button>
-          </div>
-
-          <!-- LinkedIn -->
-          <div class="col-3">
-            <button class="btn bg-light shadow-sm p-2" (click)="openDialog()">
-              <img src="../../../assets/images/vendor-sign-up/linkedin.svg">
-            </button>
+            <input class="btn p-2 pl-5 pr-5" type="submit" value="Log In" (click)="openDialog()">
           </div>
         </div>
       </form>
@@ -122,7 +90,7 @@
 
     <!-- Image -->
     <div class="col col-right" data-aos="fade-left">
-      <img src="../../../assets/images/vendor-log-in/sign-up.svg">
+      <img class="img-fluid" src="../../../assets/images/vendor-log-in/sign-up.svg">
     </div>
 
   </div>
