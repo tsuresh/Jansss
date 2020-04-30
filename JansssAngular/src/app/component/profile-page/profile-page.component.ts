@@ -39,11 +39,16 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('username')) {
+      // @ts-ignore
       this.currentUser.userName = localStorage.getItem('username');
+      this.currentUser.email = localStorage.getItem('email');
     } else {
       this.authService.getUserProfile(localStorage.getItem('uID'))
         .subscribe(
-          res => { this.currentUser.userName = res.userName; }
+          res => {
+            this.currentUser.userName = res.userName;
+            this.currentUser.email = res.email;
+          }
         );
     }
     if (!this.authService.isLoggedIn()) {
