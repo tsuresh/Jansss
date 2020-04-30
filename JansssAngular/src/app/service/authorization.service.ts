@@ -34,7 +34,7 @@ export class AuthorizationService {
     if (localStorage.getItem('uID')) {
       localStorage.removeItem('uID');
     }
-    // details for facebook being removed from local storage
+    // details for facebook and google being removed from local storage
     if (localStorage.getItem('username')) {
       localStorage.removeItem('username');
     }
@@ -61,5 +61,11 @@ export class AuthorizationService {
   getUserProfile(id) {
     const api = 'https://api.jansss.live/users/match/' + id;
     return this.http.get<any>(api);
+  }
+
+  // Update user profile
+  updateUserProfile(id, data) {
+    const api = 'https://api.jansss.live/users/match/update/' + id;
+    return this.http.put(api, data);
   }
 }
