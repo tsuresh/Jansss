@@ -83,6 +83,7 @@ export class SubscriptionComponent implements OnInit {
     this.dialogRef.close();
   }
 
+
   ngOnInit() {
     $('#disableItem1').removeClass('disabled');
     $('#disableItem2').removeClass('disabled');

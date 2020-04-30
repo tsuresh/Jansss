@@ -7,8 +7,8 @@
       <div class="client-logo">
 <!--        <img src="../../assets/images/logo/logo_J.png"><br>-->
         <h3>Create an <span class="pink">Account</span></h3>
-        <button (click)="signInWithFB()" *ngIf="loggedIn===false"><img class="facebook" src="../../../assets/images/signup/facebook.svg"></button>
-        <button (click)="signInWithGoogle()"><img class="google" src="../../../assets/images/signup/google1.svg"></button>
+        <button (click)="openDialog()"><img class="facebook" src="../../../assets/images/signup/facebook.svg"></button>
+        <button (click)="openDialog()"><img class="google" src="../../../assets/images/signup/google1.svg"></button>
         <button (click)="openDialog()"><img class="linkedin" src="../../../assets/images/signup/linkedin.svg"></button>
         <p>or use your email for registration:</p>
       </div>
@@ -52,10 +52,9 @@
           </label>
           <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
           frmSignup.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
-                      <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
-                      frmSignup.controls['password'].hasError('minlength') ? 'cancel' :
-                        'check_circle' }}</i>
-                      At least 8 characters.
+            <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+            frmSignup.controls['password'].hasError('minlength') ? 'cancel' : 'check_circle' }}</i>
+            At least 8 characters.
                     </label>
                     <label class="row criteriaPassword" [ngClass]="frmSignup.controls['password'].hasError('required') ||
                      frmSignup.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">

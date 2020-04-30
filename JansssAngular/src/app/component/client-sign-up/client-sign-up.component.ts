@@ -103,7 +103,9 @@ export class ClientSignUpComponent implements OnInit {
       this.http.post('https://api.jansss.live/auth/user/signup', data).subscribe(( dataClient: any) => {
         this._snackBar.open('Sign up was successful!', 'Redirecting to Subscription.' , {duration: 3000});
         this.auth.login(data.email, data.password);
-        this.router.navigate(['/pricing']);
+        this.router.navigateByUrl('/pricing').then(() => {
+          window.location.reload();
+        });
       }, error => {
         this._snackBar.open('An error occurred', JSON.stringify(error.error), {duration: 3000});
       });
@@ -123,6 +125,7 @@ export class ClientSignUpComponent implements OnInit {
         // // calculate the expiration timestamp
         localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
         console.log('User is logged in.');
+        this.authService.signOut();
         this.router.navigateByUrl('/pricing').then(() => {
           window.location.reload();
         });

@@ -69,7 +69,7 @@
         <h3> Log in to <span class="pink">Jansss</span></h3>
 <!--    Icons for logging through facebook/google/linkedin    -->
         <button (click)="signInWithFB()" *ngIf="loggedIn===false"><img class="facebook" src="../../../assets/images/signup/facebook.svg"></button>
-        <button (click)="openDialog()"><img class="google" src="../../../assets/images/signup/google1.svg"></button>
+        <button (click)="signInWithGoogle()" *ngIf="loggedIn===false"><img class="google" src="../../../assets/images/signup/google1.svg"></button>
         <button (click)="openDialog()" ><img class="linkedin" src="../../../assets/images/signup/linkedin.svg"></button>
 
         <p>or use your email account:</p>

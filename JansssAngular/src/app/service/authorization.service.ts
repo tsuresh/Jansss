@@ -62,4 +62,12 @@ export class AuthorizationService {
     const api = 'https://api.jansss.live/users/match/' + id;
     return this.http.get<any>(api);
   }
+
+// Update user profile
+  updateUserProfile(id, data) {
+    const api = 'https://api.jansss.live/users/match/update/' + id;
+    return this.http.put(api, data);
+  }
+
+
 }
