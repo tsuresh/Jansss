@@ -37,10 +37,10 @@ export class ClientSignUpComponent implements OnInit {
     // tslint:disable-next-line:variable-name
     private _snackBar: MatSnackBar,
     private router: Router,
-    private authService: AuthorizationService,
+    private auth: AuthorizationService,
     public dialog: MatDialog,
-    private service: AuthService
-) {
+    public authService: AuthService
+  ) {
     this.frmSignup = this.createSignupForm();
   }
   matcher = new MyErrorStateMatcher();
@@ -108,7 +108,7 @@ export class ClientSignUpComponent implements OnInit {
       // tslint:disable-next-line:no-shadowed-variable
       this.http.post('https://api.jansss.live/auth/user/signup', data).subscribe(( dataClient: any) => {
         this._snackBar.open('Sign up was successful!', 'Redirecting to Subscription.' , {duration: 3000});
-        this.authService.login(data.email, data.password);
+        this.auth.login(data.email, data.password);
         this.router.navigate(['/pricing']);
       }, error => {
         this._snackBar.open('An error occurred', JSON.stringify(error.error), {duration: 3000});
@@ -186,4 +186,11 @@ export class ClientSignUpComponent implements OnInit {
     this.dialog.open(ImplementationModalComponent);
   }
 
+  // Google sign up
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+  signOut(): void {
+    this.authService.signOut();
+  }
 }

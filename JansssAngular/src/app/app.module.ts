@@ -52,16 +52,29 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 // import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import {AuthInterceptor} from './interceptor/auth-interceptor';
-import {SocialLoginModule, AuthServiceConfig, FacebookLoginProvider} from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+  AuthService,
+  AuthServiceConfig,
+  SocialLoginModule
+} from 'angularx-social-login';
 
-const config = new AuthServiceConfig([
-  {
-    id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('633171267540117')
-  }
-]);
 
-export function provideConfig() {
+const config = new AuthServiceConfig(
+  [
+    {
+      id: FacebookLoginProvider.PROVIDER_ID,
+      provider: new FacebookLoginProvider('633171267540117')
+    },
+    {
+      id: GoogleLoginProvider.PROVIDER_ID,
+      provider: new GoogleLoginProvider('50122614271-76afae3tok2h2hc4dvvktvb1mbe1occv.apps.googleusercontent.com')
+    }
+  ]
+);
+
+export function socialConfigs() {
   return config;
 }
 
