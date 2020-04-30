@@ -3,10 +3,9 @@ import {Router} from '@angular/router';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {AuthorizationService} from '../../service/authorization.service';
+import {AuthService} from '../../service/auth.service';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 import {MatDialog} from '@angular/material/dialog';
-import {UserInformation} from '../../models/userInformation';
 
 @Component({
   selector: 'app-profile-page',
@@ -16,13 +15,13 @@ import {UserInformation} from '../../models/userInformation';
     '../../../../node_modules/animate.css/animate.min.css',
     '../../../../node_modules/hover.css/css/hover-min.css'
   ],
-  providers: [AuthorizationService]
+  providers: [AuthService]
 })
 export class ProfilePageComponent implements OnInit {
   // tslint:disable-next-line:ban-types
-  currentUser = new UserInformation();
+  currentUser: any;
   id: any;
-  constructor(private router: Router, private http: HttpClient, private authService: AuthorizationService, public dialog: MatDialog) {
+  constructor(private router: Router, private http: HttpClient, private authService: AuthService, public dialog: MatDialog) {
     {
       this.id = localStorage.getItem('uID');
     }
@@ -38,14 +37,9 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (localStorage.getItem('username')) {
-      this.currentUser.userName = localStorage.getItem('username');
-    } else {
-      this.authService.getUserProfile(localStorage.getItem('uID'))
-        .subscribe(
-          res => { this.currentUser.userName = res.userName; }
-        );
-    }
+    this.authService.getUserProfile(this.id).subscribe((res) => {
+      this.currentUser = res;
+    });
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/client-log-in']);
     }

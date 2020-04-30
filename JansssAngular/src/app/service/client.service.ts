@@ -8,8 +8,8 @@ import {HttpClient} from '@angular/common/http';
 export class ClientService {
 
   constructor(private http: HttpClient) { }
-  signUpUser(userName, email, password) {
-    const user = new UserInformation();
+  signUpUser(email, password) {
+    const user = new UserInformation(email, password);
     return this.http.post('https://jansss.herokuapp.com/auth/user/signup', user);
   }
 }

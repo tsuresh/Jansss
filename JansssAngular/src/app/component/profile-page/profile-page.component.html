@@ -9,7 +9,7 @@
       </div>
       <!-- Username -->
       <div class="mt-3">
-        <h3 class="username" *ngIf="this.authService.isLoggedIn()">{{this.currentUser.userName}}</h3>
+        <h3 class="username">{{this.currentUser.userName}}</h3>
       </div>
     </div>
 
@@ -35,10 +35,10 @@
     <!-- User Details -->
     <div class="card-body text-center">
       <div class="col">
-        <p *ngIf="this.authService.isLoggedIn()">Name: {{this.currentUser.fName}}</p>
-        <p *ngIf="this.authService.isLoggedIn()">Email: {{this.currentUser.email}}</p>
-        <p *ngIf="this.authService.isLoggedIn()">Payment Method: {{this.currentUser.paymentMethod}}</p>
-        <p *ngIf="this.authService.isLoggedIn()">Payment Plan: {{this.currentUser.paymentPlan}}</p>
+        <p>Name: {{this.currentUser.fName}}</p>
+        <p>Email: {{this.currentUser.email}}</p>
+        <p>Payment Method: {{this.currentUser.paymentMethod}}</p>
+        <p>Payment Plan: {{this.currentUser.paymentPlan}}</p>
       </div>
     </div>
 
