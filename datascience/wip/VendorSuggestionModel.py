@@ -1,8 +1,8 @@
-#this model returns the best vendor considering the rating, distance and thetypes of campaigns 
-import requests
-import pandas as pd
-import json
+# this model returns the vendor depending on the preffered category and rating
 from math import sin, cos, sqrt, atan2, radians
+
+import pandas as pd
+import requests
 
 response = requests.get("https://jansss.herokuapp.com/vendors/all")
 response
@@ -10,13 +10,13 @@ responseJ = response.json()
 responseJ
 
 x = len(response.json())
-#print (x)
+# print (x)
 
-typeV = 'Event'  #should get from user
+edu = 'Education'  # should get from user
 
 selectedPref = []
 for x in responseJ:
-    if typeV in x["marketingTypes"]:
+    if edu in x["preferred"]:
         selectedPref.append (x)
 selectedPref
 
@@ -35,7 +35,7 @@ dataset
 topVendors = []
 topVendors.append(dataset[dataset.Rating == dataset.Rating.max()]) #check max rated once
 
-def getDistance(flat1, flon1, clat2, clon2):   #https://stackoverflow.com/questions/19412462/getting-distance-between-two-points-based-on-latitude-longitude
+def getDistance(flat1, flon1, clat2, clon2):
     R = 6373.0
     lat1 = radians(flat1)
     lon1 = radians(flon1)

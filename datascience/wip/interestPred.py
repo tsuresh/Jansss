@@ -29,7 +29,7 @@ def home():
 
 
 # Import user responses
-data = pd.read_csv('responses.csv')
+data = pd.read_csv('../datasets/audiences.csv')
 data = data.dropna()
 
 # Categorize all data into data frames

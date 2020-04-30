@@ -1,8 +1,8 @@
-#returns the nearest vendor depending on the category without considering the rating
-import requests
-import pandas as pd
-import json
+# this model returns the best vendor considering the rating, distance and thetypes of campaigns
 from math import sin, cos, sqrt, atan2, radians
+
+import pandas as pd
+import requests
 
 response = requests.get("https://jansss.herokuapp.com/vendors/all")
 response
@@ -10,13 +10,13 @@ responseJ = response.json()
 responseJ
 
 x = len(response.json())
-print (x)
+# print (x)
 
-edu = 'Education'  #should get from user
+typeV = 'Event'  # should get from user
 
 selectedPref = []
 for x in responseJ:
-    if edu in x["preferred"]:
+    if typeV in x["marketingTypes"]:
         selectedPref.append (x)
 selectedPref
 
@@ -35,7 +35,7 @@ dataset
 topVendors = []
 topVendors.append(dataset[dataset.Rating == dataset.Rating.max()]) #check max rated once
 
-def getDistance(flat1, flon1, clat2, clon2):
+def getDistance(flat1, flon1, clat2, clon2):   #https://stackoverflow.com/questions/19412462/getting-distance-between-two-points-based-on-latitude-longitude
     R = 6373.0
     lat1 = radians(flat1)
     lon1 = radians(flon1)
@@ -66,6 +66,37 @@ for i, val in enumerate(distances):
     if val < minVal:
         minVal = val
         minIndex = i
-
         
-dataset.iloc[minIndex] 
+        
+maxIndex = 0
+maxVal = distances[0]
+for i, val in enumerate(distances):
+    if val > maxVal:
+        maxVal = val
+        maxIndex = i
+
+         
+distanceAn = []   #higher is the nearest vendor
+for x in distances:
+    distanceAn.append(((maxVal-x)/maxVal)*100)
+    
+ratingAn = []  #higher is the best vendor
+maxRating = dataset["Rating"].max()
+
+for x in dataset.itertuples():
+    ratingAn.append((x.Rating/maxRating)*100)
+    
+finalAn = []
+i=0
+for x in distanceAn:
+    finalAn.append((x + ratingAn[i])/2)
+    i += 1 
+    
+bestIndex = 0
+bestVal = finalAn[0]
+for i, val in enumerate(finalAn):
+    if val > bestVal:
+        bestVal = val
+        bestIndex = i
+        
+dataset.iloc[bestIndex]

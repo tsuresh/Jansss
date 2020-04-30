@@ -20,7 +20,7 @@ from sklearn.linear_model import LogisticRegression
 class Audience:
 
     def __init__(self):
-        self.data = pd.read_csv('responses.csv')
+        self.data = pd.read_csv('../datasets/audiences.csv')
 
         self.data = self.data.dropna()
 

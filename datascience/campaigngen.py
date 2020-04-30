@@ -1,5 +1,5 @@
-from Outcomes import Outcomes
-from audiencePredict import Audience
+from models.audiencePrediction import Audience
+from models.outcomesPrediction import Outcomes
 
 # Predict audiences [audience dropdown, ]
 
