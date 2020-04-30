@@ -6,7 +6,7 @@ import {CustomValidators} from '../../validator/custom-validators';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 import {AuthorizationService} from '../../service/authorization.service';
-import { AuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
 import * as moment from 'moment';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -32,20 +32,25 @@ export class ClientLogInComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthorizationService,
+    private auth: AuthorizationService,
     private router: Router,
     private snackBar: MatSnackBar,
     public dialog: MatDialog,
-    private service: AuthService
+    private authService: AuthService
   ) {
     this.frmLogIn = this.createLogInForm();
   }
   signInWithFB(): void {
-    this.service.signIn(FacebookLoginProvider.PROVIDER_ID);
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  // Google sign up
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
   signOut(): void {
-    this.service.signOut();
+    this.authService.signOut();
   }
 
   createLogInForm(): FormGroup {
@@ -87,7 +92,7 @@ export class ClientLogInComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.authState.subscribe((user) => {
+    this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
       console.log(this.user);
@@ -109,7 +114,7 @@ export class ClientLogInComponent implements OnInit {
     const val = this.frmLogIn.value;
 
     if (val.email && val.password) {
-      this.authService.login(val.email, val.password);
+      this.auth.login(val.email, val.password);
       setTimeout(() => {
         this.checklogin();
       }, 3000);
@@ -118,7 +123,7 @@ export class ClientLogInComponent implements OnInit {
   }
 
   checklogin() {
-    if (this.authService.isLoggedIn()) {
+    if (this.auth.isLoggedIn()) {
       this.router.navigateByUrl('/').then(() => {
         window.location.reload();
       });
