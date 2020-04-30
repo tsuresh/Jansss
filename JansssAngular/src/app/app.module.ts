@@ -132,7 +132,7 @@ export function socialConfigs() {
   providers: [
     {
       provide: AuthServiceConfig,
-      useFactory: provideConfig
+      useFactory: socialConfigs
     },
     {
       provide: HTTP_INTERCEPTORS,

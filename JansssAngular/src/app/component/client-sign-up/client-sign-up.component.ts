@@ -7,7 +7,7 @@ import {ErrorStateMatcher, MatDialog, MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
 import {AuthorizationService} from '../../service/authorization.service';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
-import {AuthService, FacebookLoginProvider, SocialUser} from 'angularx-social-login';
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
 import * as moment from 'moment';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -44,14 +44,6 @@ export class ClientSignUpComponent implements OnInit {
     this.frmSignup = this.createSignupForm();
   }
   matcher = new MyErrorStateMatcher();
-
-  signInWithFB(): void {
-    this.service.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
-
-  signOut(): void {
-    this.service.signOut();
-  }
 
   createSignupForm(): FormGroup {
     return this.formBuilder.group(
@@ -118,12 +110,11 @@ export class ClientSignUpComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.authState.subscribe((user) => {
+    this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
       console.log(this.user);
       if (this.loggedIn) {
-        localStorage.setItem('email', this.user.email);
         localStorage.setItem('username', this.user.firstName + this.user.lastName.charAt(0).toUpperCase());
         const expiresAt = moment().add(3600, 'second');
         // // calculate the expiration timestamp
@@ -184,6 +175,11 @@ export class ClientSignUpComponent implements OnInit {
   // Modal
   openDialog() {
     this.dialog.open(ImplementationModalComponent);
+  }
+
+  // Facebook sign up
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
   // Google sign up
