@@ -49,14 +49,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {AuthInterceptor} from './interceptor/auth-interceptor';
-import {
-  GoogleLoginProvider,
-  FacebookLoginProvider,
-  AuthService,
-  AuthServiceConfig,
-  SocialLoginModule
-} from 'angularx-social-login';
-
+// @ts-ignore
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 
 const config = new AuthServiceConfig(
   [

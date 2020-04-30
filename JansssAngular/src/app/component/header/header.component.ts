@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthorizationService, private router: Router) {
     if (this.authService.isLoggedIn()) {
       if (localStorage.getItem('username')) {
+        // @ts-ignore
         this.currentUser.userName = localStorage.getItem('username');
       } else {
         this.authService.getUserProfile(localStorage.getItem('uID'))

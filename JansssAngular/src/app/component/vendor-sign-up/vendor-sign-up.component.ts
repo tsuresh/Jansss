@@ -4,10 +4,11 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import {HttpClient} from '@angular/common/http';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
-import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 import {AuthorizationService} from '../../service/authorization.service';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 import {MatDialog} from '@angular/material/dialog';
+// @ts-ignore
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 
 // Error when invalid control is dirty, touched, or submitted
 export class MyErrorStateMatcher implements ErrorStateMatcher {
