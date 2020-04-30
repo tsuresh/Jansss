@@ -51,33 +51,38 @@ class Audience:
         # User general data
         self.user_data = self.data.iloc[:, 140:150]
 
-    def getSimilarInterests(self, interest):
+    def get_similar_interests(self, interest):
         x = self.general_interests.drop(interest, axis=1)
         y = self.general_interests[interest]
-        return self.predictResults(x, y)
+        return self.make_prediction(x, y)
 
-    def getTargetTvPrograms(self, interest):
+    def get_target_tv_programs(self, interest):
         dfs = [self.general_interests[interest], self.tv_program_preference]
         new_data = pd.concat(dfs, axis=1)
         x = new_data.drop(interest, axis=1)
         y = new_data[interest]
-        return self.predictResults(x, y)
+        return self.make_prediction(x, y)
 
-    def getMusicPreferences(self, interest):
+    def get_music_preferences(self, interest):
         dfs = [self.general_interests[interest], self.music_preference]
         new_data = pd.concat(dfs, axis=1)
         x = new_data.drop(interest, axis=1)
         y = new_data[interest]
-        return self.predictResults(x, y)
+        return self.make_prediction(x, y)
 
-    def getPhobias(self, interest):
+    def get_phobias(self, interest):
         dfs = [self.general_interests[interest], self.user_phobias]
         new_data = pd.concat(dfs, axis=1)
         x = new_data.drop(interest, axis=1)
         y = new_data[interest]
-        return self.predictResults(x, y)
+        return self.make_prediction(x, y)
 
-    def predictResults(self, x, y):
+    def get_demographics(self, interest):
+        dfs = [self.general_interests[interest], self.personal_data]
+        new_data = pd.concat(dfs, axis=1)
+        return self.arrange_categorical(new_data, interest)
+
+    def make_prediction(self, x, y):
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.50, random_state=115)
         kf = KFold(n_splits=5)
         kf.split(x_train)
@@ -91,3 +96,10 @@ class Audience:
 
         relavencies = pd.DataFrame(data=logreg.coef_[0], index=[x_train.columns], columns=['Relavency'])
         return relavencies.sort_values(by='Relavency', ascending=True)
+
+    def arrange_categorical(self, df, input_var):
+        cols_cats = [col for col in df.columns if df[col].dtype == 'object']
+        if cols_cats:
+            df_dummies = pd.get_dummies(df[cols_cats])
+            df_dummies[input_var] = df[input_var]
+            return self.predictNumericalResults(df_dummies.drop(input_var, axis=1), df_dummies[input_var])
