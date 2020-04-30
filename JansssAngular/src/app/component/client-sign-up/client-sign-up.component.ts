@@ -9,7 +9,7 @@ import {ImplementationModalComponent} from '../unavailable-modal/implementation-
 import * as $ from 'jquery';
 import * as moment from 'moment';
 // @ts-ignore
-import {AuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser} from "angularx-social-login";
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
