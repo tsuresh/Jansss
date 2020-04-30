@@ -1,22 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PricingComponent } from './pricing/pricing.component';
-import { HomeComponent } from './home/home.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { EnterDetailsFormComponent } from './enter-details-form/enter-details-form.component';
-import { LaunchPageComponent } from './launch-page/launch-page.component';
-import { ClientSignUpComponent } from './client-sign-up/client-sign-up.component';
-import { SelectCampaignComponent } from './select-campaign/select-campaign.component';
-import { SelectPaymentComponent } from './select-payment/select-payment.component';
-import { ClientLogInComponent } from './client-log-in/client-log-in.component';
-import { CampaignDetailsPageComponent } from './campaign-details-page/campaign-details-page.component';
-import {ProfilePageComponent} from './profile-page/profile-page.component';
-import {EditProfileComponent} from './edit-profile/edit-profile.component';
-import {CampaignProgressComponent} from './campaign-progress/campaign-progress.component';
-import {HowItWorksComponent} from './how-it-works/how-it-works.component';
-import {VendorLoginComponent} from './vendor-login/vendor-login.component';
-import {VendorSignUpComponent} from './vendor-sign-up/vendor-sign-up.component';
-import {UserOptionPageComponent} from './user-option-page/user-option-page.component';
+import { PricingComponent } from './component/pricing/pricing.component';
+import { HomeComponent } from './component/home/home.component';
+import { ContactUsComponent } from './component/contact-us/contact-us.component';
+import { EnterDetailsFormComponent } from './component/enter-details-form/enter-details-form.component';
+import { LaunchPageComponent } from './component/launch-page/launch-page.component';
+import { ClientSignUpComponent } from './component/client-sign-up/client-sign-up.component';
+import { SelectCampaignComponent } from './component/select-campaign/select-campaign.component';
+import { SelectPaymentComponent } from './component/select-payment/select-payment.component';
+import { ClientLogInComponent } from './component/client-log-in/client-log-in.component';
+import { CampaignDetailsPageComponent } from './component/campaign-details-page/campaign-details-page.component';
+import {ProfilePageComponent} from './component/profile-page/profile-page.component';
+import {EditProfileComponent} from './component/edit-profile/edit-profile.component';
+import {CampaignProgressComponent} from './component/campaign-progress/campaign-progress.component';
+import {HowItWorksComponent} from './component/how-it-works/how-it-works.component';
+import {VendorLoginComponent} from './component/vendor-login/vendor-login.component';
+import {VendorSignUpComponent} from './component/vendor-sign-up/vendor-sign-up.component';
+import {UserOptionPageComponent} from './component/user-option-page/user-option-page.component';
+import {SubscriptionComponent} from './component/subscription/subscription.component';
+import {VendorHubHomePageComponent} from './component/vendor-hub-home-page/vendor-hub-home-page.component';
+import {VendorEditProfileComponent} from './component/vendor-edit-profile/vendor-edit-profile.component';
+import {ImplementationModalComponent} from './component/unavailable-modal/implementation-modal.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,6 +32,8 @@ const routes: Routes = [
   {path: 'launch', component: LaunchPageComponent},
   {path: 'client-sign-up', component: ClientSignUpComponent},
   {path: 'client-log-in', component: ClientLogInComponent},
+  {path: 'vendor-sign-up', component: VendorSignUpComponent},
+  {path: 'vendor-log-in', component: VendorLoginComponent},
   {path: 'progress', component: CampaignProgressComponent},
   {path: 'campaign-details', component: CampaignDetailsPageComponent},
   {path: 'profile', component: ProfilePageComponent},
@@ -35,7 +41,11 @@ const routes: Routes = [
   {path: 'how-it-works', component: HowItWorksComponent},
   {path: 'vendor-login', component: VendorLoginComponent},
   {path: 'vendor-signup', component: VendorSignUpComponent},
-  {path: 'user-option', component: UserOptionPageComponent}
+  {path: 'user-option', component: UserOptionPageComponent},
+  {path: 'subscription', component: SubscriptionComponent},
+  {path: 'vendor-hub', component: VendorHubHomePageComponent},
+  {path: 'vendor-edit-profile', component: VendorEditProfileComponent},
+  {path: 'unavailable-modal', component: ImplementationModalComponent}
   ];
 
 @NgModule({

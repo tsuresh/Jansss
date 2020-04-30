@@ -1,0 +1,144 @@
+.pricing{
+  padding-top: 10%;
+}
+
+.pricing-options{
+  max-width: 100%;
+  width: 100%;
+  margin: auto auto;
+}
+
+.pricing .pricing-options{
+  width: 100%;
+  margin: auto auto;
+}
+
+//subscribe button
+.button-subscribe{
+  font-family: "Airbnb Cereal App Book", sans-serif;
+  border-radius: 30px;
+  color: white;
+  padding: 3% 7%;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #E06F63;
+  box-shadow: 0 2px 5px 0 #c2c0c0;
+}
+
+//Styling for the heading
+.front h3{
+  padding-top: 15%;
+  color: #222222;
+  font-size: 40px;
+  text-align: center;
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+}
+
+.front p{
+  color: #E0584A;
+  padding-top: 5%;
+  font-size: 16px;
+}
+
+.back p{
+  color: black;
+  text-align: center;
+  font-size: 16px;
+  line-height: 0.01px;
+  margin-top: -7px;
+}
+
+
+.packages {
+  font-size: 1.2em;
+  margin-right: 2%;
+  margin-left: 2.5%;
+  transition: all 0.3s ease 0s;
+  width: 45%;
+}
+
+//on hover flip card
+.packages:hover .subscription {
+  transform: rotateY( 180deg);
+}
+
+//subscription packages
+.subscription {
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px 2px #c2c0c0;
+  cursor: default;
+  height: 300px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease 0s;
+  width: 100%;
+  -webkit-animation: giro 1s 1;
+  animation: giro 1s 1;
+}
+
+.subscription p {
+  margin-bottom: 1.8em;
+}
+
+//front and back styling
+.subscription .front,
+.subscription .back {
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  color: white;
+  display: block;
+  font-size: 1.2em;
+  height: 100%;
+  padding: 0.8em;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+//back styling
+.subscription .back {
+  transform: rotateY( 180deg);
+  padding-top: 8%;
+}
+
+//animations
+@-webkit-keyframes giro {
+ from {
+   transform: rotateY( 180deg);
+ }
+ to {
+   transform: rotateY( 0deg);
+ }
+}
+
+@keyframes giro {
+ from {
+   transform: rotateY( 180deg);
+ }
+ to {
+   transform: rotateY( 0deg);
+ }
+}
+
+//responsiveness for smaller screens
+@media screen and (max-width: 767px) {
+ .packages {
+   margin-left: 2.8%;
+   margin-top: 3%;
+   width: 100%;
+ }
+ .subscription {
+   height: 285px;
+ }
+ .packages:last-child {
+   margin-bottom: 3%;
+ }
+}
+
+@media screen and (max-width: 480px) {
+ .packages {
+   width: 100%;
+ }
+ .subscription {
+   height: 260px;
+ }
+}

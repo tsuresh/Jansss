@@ -1,0 +1,43 @@
+.container {
+  padding-top: 10%;
+}
+
+//Minimized heading styling
+.heading-top {
+  display: none;
+}
+
+.heading-top p {
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+//Heading Styling
+.text {
+  font-weight: bold;
+  font-size: 82px;
+  line-height: 107px;
+}
+
+.pink {
+  color: #E06F63;
+}
+
+//Media Queries
+@media (max-width: 1199px) {
+  .left p {
+    font-size: 70px;
+    line-height: 95px;
+  }
+}
+
+@media (max-width: 991px) {
+  .left {
+    display: none;
+  }
+
+  .heading-top {
+    display: block;
+  }
+}

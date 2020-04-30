@@ -1,4 +1,167 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$JansssAngular-primary: mat-palette($mat-indigo);
+$JansssAngular-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$JansssAngular-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$JansssAngular-theme: mat-light-theme($JansssAngular-primary, $JansssAngular-accent, $JansssAngular-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($JansssAngular-theme);
+
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+.client-account{
+  padding-top: 6%;
+}
+
+.client{
+  background-color: #FBFBFB;
+  border-radius: 30px;
+  box-shadow: 2px 2px 5px 2px #c2c0c0;
+}
+
+.client1{
+  padding-top: 3%;
+  padding-bottom: 3%;
+  color: black;
+  text-align: center;
+  border-radius: 0 30px 30px 0;
+  border-color: #E06F63;
+}
+
+.client1 h3{
+  font-size: 30px;
+  font-family: "Airbnb Cereal App Book", sans-serif;
+}
+
+//Google Icon width change
+.google{
+  width: 25px;
+  padding: 6%;
+}
+
+//Social Media Icons
+.client2 .client-logo button{
+  border-radius: 30px;
+  border-color: #dbdbdb;
+  border-width: 1px;
+  padding: 2%;
+  margin-right: 5%;
+}
+
+.client2 .client-logo{
+  text-align: center;
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+}
+
+.client2 .client-logo p{
+  padding-top: 3%;
+  color: rgba(93, 93, 93, 0.81);
+}
+.client2 .client-logo h3{
+  font-size: 45px;
+}
+.client2{
+  padding-bottom: 5%;
+}
+
+.client2 p{
+  font-family: "Airbnb Cereal App Light", sans-serif;
+}
+
+//Button to change from log in to sign up
+.client1 .button-switch{
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+  border-radius: 30px;
+  border-color: black;
+  border-width: 2px;
+  padding: 2% 7%;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.client-item{
+  align-content: center;
+  padding-right: 5%;
+  padding-left: 5%;
+  margin: auto auto;
+}
+
+//Input field
+input{
+  font-family: "Airbnb Cereal App Light", sans-serif;
+}
+
+//placeholder styling
+::placeholder{
+  font-family: "Airbnb Cereal App Light", sans-serif;
+  color: #dddddd;
+}
+.client-email, .client-pass, .client-name{
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+}
+
+//Sign up/Log in button
+.buttons-client .button-client{
+  font-family: "Airbnb Cereal App Book", sans-serif;
+  border-radius: 30px;
+  color: white;
+  padding: 5% 15%;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #E06F63;
+  box-shadow: 0 2px 5px 0 #c2c0c0;
+}
+
+//terms and conditions in log in and sign up
+.terms{
+  padding-top: 5%;
+  margin: auto auto;
+  width: 85%;
+  color: #bdbdbd;
+  font-size: 11px;
+}
+
+.already-member{
+  margin-left: 1%;
+}
+
+.buttons-client p, .buttons-client div{
+  text-align: center;
+}
+
+.buttons-client .terms a{
+  color: #5d5d5d;
+}
+
+body {
+  margin: 0;
+}
+
+.material-icons {
+  display: inline-flex;
+  vertical-align: middle;
+}

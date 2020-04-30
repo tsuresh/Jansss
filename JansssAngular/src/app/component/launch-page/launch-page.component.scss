@@ -1,0 +1,27 @@
+h1{
+  font-family: "Airbnb Cereal App Light", sans-serif;
+}
+
+.launch{
+  padding-top: 10%;
+  text-align: center;
+  padding-bottom: 10%;
+}
+
+button{
+  margin-top: 3%;
+  font-family: "Airbnb Cereal App Book", sans-serif;
+  border-radius: 30px;
+  padding: 1% 5% 1% 5%;
+  color: white;
+  font-size: 20px;
+  background-color: #E06F63;
+  text-transform: uppercase;
+
+}
+
+:host(.outer){
+  background-color: #E0584A;
+
+}
+

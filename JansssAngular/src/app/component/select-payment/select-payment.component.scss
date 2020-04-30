@@ -1,0 +1,72 @@
+.container {
+  padding-bottom: 5%;
+}
+
+.heading-top {
+  display: none;
+}
+
+.heading-top p {
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+.text {
+  font-weight: 700;
+  font-size: 82px;
+  line-height: 90px;
+}
+
+.pink {
+  color: #E06F63;
+}
+
+form {
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.month-picker .mat-calendar-period-button {
+  pointer-events: none;
+}
+
+.month-picker .mat-calendar-arrow {
+  display: none;
+}
+
+mat-radio-button img {
+  width: 90px;
+}
+
+.btn {
+  text-transform: uppercase;
+  background-color: #E06F63;
+  color: #ffffff;
+  border-radius: 30px;
+}
+
+//Media Queries
+@media (max-width: 1199px) {
+  .text {
+    font-size: 65px;
+    line-height: 70px;
+  }
+}
+
+@media (max-width: 991px) {
+  .heading-top {
+    display: block;
+  }
+
+  .col-left {
+    display: none;
+  }
+
+  .details {
+    margin-left: 10%;
+  }
+}

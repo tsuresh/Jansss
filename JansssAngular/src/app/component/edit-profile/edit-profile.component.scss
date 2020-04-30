@@ -1,0 +1,54 @@
+.container {
+  padding-top: 5%;
+  width: 50%;
+}
+
+//Heading Styling
+.heading-top p {
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.pink {
+  color: #E06F63;
+}
+
+//Profile Image Styling
+.profile-img {
+  width: 200px;
+}
+
+//Form Styling
+.full-width {
+  width: 100%;
+}
+
+//Button Styling
+.btn {
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+input[type=submit] {
+  background: #E06F63;
+  color: #ffffff;
+}
+
+input[type=reset] {
+  background: #f1f2f6;
+}
+
+//Media Queries
+@media (max-width: 767px) {
+  .profile-img {
+    width: 100px;
+  }
+
+}
+
+@media (max-width: 513px) {
+  .heading-top p {
+    font-size: 44px;
+  }
+}

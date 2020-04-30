@@ -1,0 +1,163 @@
+
+<div class="container">
+<!-- Progress bar component loaded here-->
+  <app-progress-bar></app-progress-bar>
+</div>
+
+<!-- Enter details form-->
+<div class="enterDetails container container-sm container-md container-lg container-xl">
+
+  <div class="card-deck">
+
+    <div class="col col-auto heading_enter" data-aos="zoom-out-up">
+      <p>Get<br>started<br>with <br>your<br></p>
+      <p class="campaign">campaign</p>
+    </div>
+    <!-- Enter details form - responsive forms-->
+    <form [formGroup]="detailsForm" (ngSubmit)="onSubmit()" class="col enter_form" id="enterDetails" data-aos="zoom-out-up">
+
+      <div class="heading-2">Get started with your <p class="campaign">campaign</p></div>
+
+      <div class="form-group">
+        <!-- form item - target audience -->
+        <label class="item item1">
+          Campaign Goal
+          <mat-radio-group color="primary" required>
+            <mat-radio-button class="ml-5" value="1">Brand Awareness</mat-radio-button>
+            <mat-radio-button class="ml-5" value="2">Conversions</mat-radio-button>
+          </mat-radio-group>
+        </label>
+      </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': invalidProductName() }">
+          <!-- form item - product name -->
+          <label class="item">
+            Product/Service Name<br>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Ex. Platinum Business Academy" required formControlName="productName">
+            </mat-form-field>
+            <mat-error *ngIf="invalidProductName()" class="errorMessage">
+              Product/Service Name is <strong>required</strong>
+            </mat-error>
+          </label>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': invalidProductType() }">
+          <!-- form item - product type -->
+          <label class="item">
+            Product/Service Type<br>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Ex. Tuition Class" required formControlName="productType">
+            </mat-form-field>
+            <mat-error *ngIf="invalidProductType()" class="errorMessage">
+              Product/Service Type is <strong>required</strong>
+            </mat-error>
+          </label>
+        </div>
+
+
+      <div class="form-group" [ngClass]="{ 'has-error': invalidBudget() }">
+        <!-- form item - budget -->
+        <label class="item">
+          Budget<br>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Ex. Rs. 10,000/-" required formControlName="budget">
+          </mat-form-field>
+          <mat-error *ngIf="invalidBudget()" class="errorMessage">
+            Budget is <strong>required</strong>
+          </mat-error>
+        </label>
+      </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': invalidIndustry() }">
+          <!-- form item - industry -->
+          <label class="item">
+            Target Industry<br>
+            <mat-form-field class="full-width" >
+              <input type="text" matInput formControlName="industry" placeholder="Ex. Education" required [matAutocomplete]="industryGroup">
+<!--              <p *ngIf="invalidIndustry()" id="industry_error" class="help-block">Invalid industry</p>-->
+              <mat-autocomplete #industryGroup="matAutocomplete">
+                <mat-optgroup *ngFor="let group of industryOptions | async" [label]="group.letter">
+                  <mat-option *ngFor="let name of group.names" [value]="name">
+                    {{name}}
+                  </mat-option>
+                </mat-optgroup>
+              </mat-autocomplete>
+            </mat-form-field>
+            <mat-error *ngIf="invalidIndustry()" class="errorMessage">
+              Target Industry is <strong>required</strong>
+            </mat-error>
+          </label>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': invalidAudience() }">
+          <!-- form item - target audience -->
+          <label class="item">
+            Target Audience<br>
+            <mat-form-field class="full-width">
+              <input type="text" matInput formControlName="audience" placeholder="Ex. Students" required [matAutocomplete]="audienceGroup">
+              <mat-autocomplete #audienceGroup="matAutocomplete" [displayWith]="displayAudience">
+                <mat-option *ngFor="let audience of audienceOptions | async" [value]="audience">
+                  {{audience.names}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <mat-error *ngIf="invalidAudience()" class="errorMessage">
+              Target Audience is <strong>required</strong>
+            </mat-error>
+          </label>
+        </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': invalidLocation() }">
+        <!-- form item - target location -->
+        <label class="item">
+          Target Location<br>
+          <mat-form-field class="full-width">
+            <input type="text" matInput formControlName="location" required placeholder="Ex. Wellawatte, Colombo" [matAutocomplete]="locationGroup">
+            <mat-autocomplete #locationGroup="matAutocomplete">
+              <mat-optgroup *ngFor="let group of locationOptions | async" [label]="group.letter">
+                <mat-option *ngFor="let name of group.names" [value]="name">
+                  {{name}}
+                </mat-option>
+              </mat-optgroup>
+            </mat-autocomplete>
+          </mat-form-field>
+          <mat-error *ngIf="invalidLocation()" class="errorMessage">
+            Target Location is <strong>required</strong>
+          </mat-error>
+        </label>
+      </div>
+
+
+
+        <div class="form-group" [ngClass]="{ 'has-error': invalidPrice() }">
+          <!-- form item - price -->
+          <label class="item">
+            Price of Product/Service<br>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Ex. Rs. 1,000 per lesson" required formControlName="price">
+            </mat-form-field>
+            <mat-error *ngIf="invalidLocation()" class="errorMessage">
+              Price of Product/Service is <strong>required</strong>
+            </mat-error>
+          </label>
+        </div>
+
+      <div class="form-group">
+        <!-- form item - product name -->
+        <label class="item">
+          Product Description<br>
+          <mat-form-field class="full-width">
+            <textarea matInput  placeholder="Tell us a little bit about your Product/Service" formControlName="description"></textarea>
+          </mat-form-field>
+        </label>
+      </div>
+
+        <div class="button_outer form-group">
+          <!-- on click, navigates to select campaign page -->
+          <button mat-raised-button type="submit" class="button">Generate Campaign</button>
+        </div>
+
+      </form>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+//Get started with your campaign
+
+.enterDetailsDiv{
+  padding-top: 5%;
+  width:100%;
+}
+
+.heading_enter{
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+  margin-top: 10%;
+  font-size: 80px;
+  display: block;
+  //visibility: visible;
+}
+
+.heading-2{
+text-align: center;
+  display: none;
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+  font-size: 40px;
+}
+
+.heading-2 .campaign{
+  color: #E06F63;
+
+}
+.heading_enter .campaign{
+  color: #E06F63;
+}
+
+.enter_form{
+  width: 80%;
+  margin: auto auto;
+  justify-content: space-between;
+  padding-top: 5%;
+  font-family: "Airbnb Cereal App Medium", sans-serif;
+}
+
+.errorMessage{
+  margin-top: -20px;
+  font-size: 12px;
+  color: red;
+}
+
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.dateStart, .dateEnd {
+  width: 50%;
+  padding-top: 2%;
+}
+
+.dateStart{
+  padding-right: 5%;
+}
+
+//::placeholder{
+//  color: #e0e0e0;
+//}
+.item{
+  display: block;
+  //float:right;
+}
+.button_outer{
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 0;
+  //margin-bottom: 2%;
+}
+
+.full-width{
+  width: 100%;
+}
+.button{
+  font-family: "Airbnb Cereal App Book", sans-serif;
+  border-radius: 30px;
+  color: white;
+  padding: 2% 7%;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #E06F63;
+  box-shadow: 0 2px 5px 0 #c2c0c0;
+}
+
+.item1{
+  padding-bottom: 2%;
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .enter_form{
+    width: 80%;
+    margin: auto auto;
+    align-content: center;
+  }
+
+  .heading-2{
+    display: block;
+  }
+
+  .heading_enter {
+    display: none;
+  }
+}

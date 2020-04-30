@@ -1,0 +1,73 @@
+.container {
+  padding-top: 5%;
+}
+
+.card {
+  width: 40%;
+  margin: auto auto;
+  border-radius: 30px;
+}
+
+.card-header{
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.username{
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+.change-cursor {
+  cursor: pointer;
+}
+
+.card-body p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #636e72;
+}
+
+h5 {
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.campaign {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+// Button Styling
+a {
+  color: #E06F63;
+  font-weight: 500;
+  float: right;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+// Media Queries
+@media (max-width: 1199px) {
+  .card {
+    width: 50%;
+  }
+}
+
+@media (max-width: 991px) {
+  .card {
+    width: 60%;
+  }
+}
+
+@media (max-width: 765px) {
+  .card {
+    width: 70%;
+  }
+}
+

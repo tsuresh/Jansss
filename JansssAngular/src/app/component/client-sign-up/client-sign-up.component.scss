@@ -1,0 +1,40 @@
+.client2{
+  padding-top: 5%;
+  padding-left: 6%;
+}
+
+//Hide the confirm password
+.confirmPassword{
+  display: none;
+}
+
+//Style for criteria
+.criteriaEmail, .criteriaPassword, .criteriaConfirm{
+  font-size: 13px;
+  display: none;
+  font-style: italic;
+  color: red;
+}
+.pink {
+  color: #E06F63;
+}
+.hide-icon {
+  cursor: pointer;
+}
+@media (max-width:999px) and (min-width:992px) {
+  .client2{padding-left: 30%;}
+}
+
+@media (max-width:991px) and (min-width:768px) {
+  .client2{padding-left: 22%;}
+}
+
+@media (max-width:767px) and (min-width:575px){
+  .client-account{padding-top: 12%;}
+  .client2{padding-left: 13%;}
+}
+
+@media (max-width:574px){
+  .client-account{padding-top: 16%;}
+  .client2{padding-left: 14%;}
+}

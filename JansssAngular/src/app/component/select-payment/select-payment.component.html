@@ -1,0 +1,122 @@
+<!-- Progress Bar -->
+<div class="container container-sm container-md container-lg container-xl">
+  <app-progress-bar></app-progress-bar>
+</div>
+
+<div class="container" data-aos="zoom-in">
+
+  <!-- Minimized Heading -->
+  <div class="row text-center mb-5 heading-top">
+    <p>Select your</p>
+    <p class="pink">payment method</p>
+  </div>
+
+  <div class="row">
+
+    <!-- Heading Left -->
+    <div class="col col-left">
+      <p class="text">Select</p>
+      <p class="text">your</p>
+      <p class="text pink">payment</p>
+      <p class="text pink">method</p>
+    </div>
+
+    <div class="col text-center details">
+
+      <div class="row" id="payment-details-form">
+        <!-- Form to get the payment details -->
+        <form
+          [formGroup] = "form"
+          (ngSubmit) = "onSubmit()">
+
+          <!-- Card number -->
+          <div class="row mt-3 pl-3 pr-3">
+            <mat-form-field class="full-width">
+              <mat-label>Card Number</mat-label>
+              <input matInput [formControl]="cardNo" placeholder="Ex. 4242 4242 4242 4242">
+              <mat-error *ngIf="cardNo.hasError('required')">
+                Card number is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="cardNo.hasError('pattern')">
+                Card number is <strong>invalid</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row mt-3">
+
+            <!-- Expiry date -->
+            <div class="col-6">
+              <mat-form-field class="full-width">
+                <mat-label>MM/YYYY</mat-label>
+                <input matInput [min]="minDate" [matDatepicker]="dp" [formControl]="exDate">
+                <mat-error *ngIf="exDate.hasError('required')">
+                  Expiry date is <strong>required</strong>
+                </mat-error>
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp
+                                startView="multi-year"
+                                (yearSelected)="chosenYearHandler($event)"
+                                (monthSelected)="chosenMonthHandler($event, dp)"
+                                panelClass="month-picker">
+                </mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <!-- CVV -->
+            <div class="col-6">
+              <mat-form-field class="full-width">
+                <mat-label>CVV</mat-label>
+                <input matInput [formControl]="cvv" placeholder="Ex. 123">
+                <mat-error *ngIf="cvv.hasError('required')">
+                  CVV is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="cvv.hasError('pattern')">
+                  CVV is <strong>invalid</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <!-- Billing Address -->
+          <div class="row mt-3 pl-3 pr-3">
+            <mat-form-field class="full-width">
+              <mat-label>Billing Address</mat-label>
+              <input matInput [formControl]="address">
+              <mat-error *ngIf="address.hasError('required')">
+                Billing address is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="row mt-3 pl-3 pr-3">
+            <mat-radio-group [formControl]="payMethod" color="primary">
+
+              <!-- Visa card -->
+              <mat-radio-button value="1">
+                <img class="img-fluid mr-5" src="../../../assets/images/payment/visa.svg" alt="visa card">
+              </mat-radio-button>
+
+              <!-- Master card -->
+              <mat-radio-button value="2">
+                <img class="img-fluid pl-2 mr-5" src="../../../assets/images/payment/mastercard.svg" alt="master card">
+              </mat-radio-button>
+
+              <!-- PayPal -->
+              <mat-radio-button value="3">
+                <img class="img-fluid" src="../../../assets/images/payment/paypal.svg" alt="PayPal">
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <!-- Next button -->
+          <div class="row mt-5 float-right button">
+            <input class="btn shadow-sm p-2 pr-3 pl-3 hvr-wobble-horizontal" type="submit" value="Next" (click)="openDialog()">
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
