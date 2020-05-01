@@ -55,6 +55,9 @@ class Audience:
 
         self.age_threshold = 5
 
+    def get_interests(self):
+        return self.general_interests.columns.values
+
     def get_similar_interests_age(self, age):
         dfs = [self.ageDf, self.general_interests]
         new_data = pd.concat(dfs, axis=1)
