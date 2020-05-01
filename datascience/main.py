@@ -8,7 +8,7 @@ industry = "Education"
 audience = "Students"
 location = "Colombo"
 price = "1000 per lesson"
-description = "music class"
+description = "computer class"
 
 campaigngen = CampaignGen(goal, name, pstype, budget, industry, audience, location, price, description)
 campaigngen.generate()

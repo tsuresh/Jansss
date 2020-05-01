@@ -53,7 +53,20 @@ class CampaignGen:
             if score > highestScore:
                 highestScore = score
                 match = interest
-        print(match)
+        return match
 
     def generate(self):
-        print("Test")
+        mappedInterest = self.get_matching_interest(self.description)
+        # Get similar interests
+        interests = self.audiences.get_similar_interests(mappedInterest)
+        # Get targeted TV programs
+        tvPrograms = self.audiences.get_target_tv_programs(mappedInterest)
+        # Get spending abilities of audiences
+        spending = self.audiences.get_spending(mappedInterest)
+        # Get general demographics
+        demographics = self.audiences.get_demographics(mappedInterest)
+        # Get campaign duration
+        duration = self.durations.get_duration(25, 'admin')
+        # Predict campaign outcome
+        outcomeRate = self.outcomes.predict(100, 20, 30)
+        print(outcomeRate)
