@@ -51,6 +51,18 @@ class Audience:
         # User general data
         self.user_data = self.data.iloc[:, 140:150]
 
+        self.ageDf = self.data.iloc[:, 140:141]
+
+        self.age_threshold = 5
+
+    def get_similar_interests_age(self, age):
+        dfs = [self.ageDf, self.general_interests]
+        new_data = pd.concat(dfs, axis=1)
+        new_data = new_data[(new_data['Age'] > age - self.age_threshold) & (new_data['Age'] < age + self.age_threshold)]
+        x = new_data.drop('Age', axis=1)
+        y = new_data['Age']
+        return self.make_prediction(x, y)
+
     def get_similar_interests(self, interest):
         x = self.general_interests.drop(interest, axis=1)
         y = self.general_interests[interest]
@@ -63,11 +75,27 @@ class Audience:
         y = new_data[interest]
         return self.make_prediction(x, y)
 
+    def get_target_tv_programs_age(self, age):
+        dfs = [self.ageDf, self.tv_program_preference]
+        new_data = pd.concat(dfs, axis=1)
+        new_data = new_data[(new_data['Age'] > age - self.age_threshold) & (new_data['Age'] < age + self.age_threshold)]
+        x = new_data.drop('Age', axis=1)
+        y = new_data['Age']
+        return self.make_prediction(x, y)
+
     def get_music_preferences(self, interest):
         dfs = [self.general_interests[interest], self.music_preference]
         new_data = pd.concat(dfs, axis=1)
         x = new_data.drop(interest, axis=1)
         y = new_data[interest]
+        return self.make_prediction(x, y)
+
+    def get_music_preferences_age(self, age):
+        dfs = [self.ageDf, self.music_preference]
+        new_data = pd.concat(dfs, axis=1)
+        new_data = new_data[(new_data['Age'] > age - self.age_threshold) & (new_data['Age'] < age + self.age_threshold)]
+        x = new_data.drop('Age', axis=1)
+        y = new_data['Age']
         return self.make_prediction(x, y)
 
     def get_phobias(self, interest):
@@ -77,11 +105,27 @@ class Audience:
         y = new_data[interest]
         return self.make_prediction(x, y)
 
+    def get_phobias_age(self, age):
+        dfs = [self.ageDf, self.user_phobias]
+        new_data = pd.concat(dfs, axis=1)
+        new_data = new_data[(new_data['Age'] > age - self.age_threshold) & (new_data['Age'] < age + self.age_threshold)]
+        x = new_data.drop('Age', axis=1)
+        y = new_data['Age']
+        return self.make_prediction(x, y)
+
     def get_spending(self, interest):
         dfs = [self.general_interests[interest], self.spending_ability]
         new_data = pd.concat(dfs, axis=1)
         x = new_data.drop(interest, axis=1)
         y = new_data[interest]
+        return self.make_prediction(x, y)
+
+    def get_spending_Age(self, age):
+        dfs = [self.ageDf, self.spending_ability]
+        new_data = pd.concat(dfs, axis=1)
+        new_data = new_data[(new_data['Age'] > age - self.age_threshold) & (new_data['Age'] < age + self.age_threshold)]
+        x = new_data.drop('Age', axis=1)
+        y = new_data['Age']
         return self.make_prediction(x, y)
 
     def get_demographics(self, interest):
@@ -106,8 +150,12 @@ class Audience:
             np.mean(cross_val_score(logreg, x_train, y_train, cv=kf))))
         print('Accuracy score on test set is: {:.3f}'.format(logreg.score(x_test, y_test)))
 
-        relavencies = pd.DataFrame(data=logreg.coef_[0], index=[x_train.columns], columns=['Relavency'])
-        return relavencies.sort_values(by='Relavency', ascending=True).to_dict()
+        relavencies = pd.DataFrame(data=logreg.coef_[0], index=[x_train.columns], columns=['Relavency']).sort_values(
+            by='Relavency', ascending=True)
+        keys = []
+        for key in relavencies.to_dict()['Relavency']:
+            keys.append(key[0])
+        return keys
 
     def arrange_categorical(self, df, input_var):
         cols_cats = [col for col in df.columns if df[col].dtype == 'object']
