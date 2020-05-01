@@ -1,6 +1,10 @@
+import spacy
+
 from models.audiencePrediction import Audience
 from models.durationPrediction import DurationPrediction
 from models.outcomesPrediction import Outcomes
+
+nlp = spacy.load("en_core_web_sm")
 
 # Predict audiences [audience dropdown, ]
 
