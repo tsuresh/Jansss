@@ -155,6 +155,7 @@ class Audience:
 
         relavencies = pd.DataFrame(data=logreg.coef_[0], index=[x_train.columns], columns=['Relavency']).sort_values(
             by='Relavency', ascending=True)
+        relavencies = relavencies[(relavencies["Relavency"] < 0)]
         keys = []
         for key in relavencies.to_dict()['Relavency']:
             keys.append(key[0])

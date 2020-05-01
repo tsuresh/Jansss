@@ -55,20 +55,65 @@ class CampaignGen:
                 match = interest
         return match
 
-    def generate(self, isPremium):
+    def get_marketing_method(self, age, budget):
+        if budget > 200000:
+            return "TV"
+        elif budget > 100000:
+            return "radio"
+        elif budget > 50000:
+            return "newspaper"
+
+    def get_method_combination(self, budget):
+        budget = budget / 100
+        # tv =
+
+    def generate(self):
+
+        points = []
+
         mappedInterest = self.get_matching_interest(self.description)
+
         # Get similar interests
         interests = self.audiences.get_similar_interests(mappedInterest)
+        points.append(
+            "Following interested has been identified as relavent interests for your product/service; " + ', '.join(
+                interests[0:5]) + ". Make sure to target the above interests when running social media campaigns.")
+
         # Get targeted TV programs
         tvPrograms = self.audiences.get_target_tv_programs(mappedInterest)
+        points.append(
+            "When running TV advertisements ensure to run the ads during these programs: " + ', '.join(tvPrograms[0:5]))
+
         # Get spending abilities of audiences
         spending = self.audiences.get_spending(mappedInterest)
+        points.append(
+            "The following spending habbits has been identified for the given audience category. Majority of the audience does spending " +
+            spending[0] + ". And they spend on " + ', '.join(
+                spending[1:3]) + " as well. Make sure to align your campaign for this group.")
+
         # Get general demographics
         demographics = self.audiences.get_demographics(mappedInterest)
+        for demographic in demographics:
+            key = demographic.split('_')[0]
+            value = demographic.split('_')[1]
+            if key is 'Gender':
+                points.append("Majority of your audience is " + value)
+            elif key is 'Village - town':
+                points.append(
+                    "Majority of your audience are from " + value + ". You can consider consulting regional marketing agents. As we suggest")
+
         # Get campaign duration
         duration = self.durations.get_duration(25, 'admin')
+
         # Predict campaign outcome
         outcomeRate = self.outcomes.predict(100, 20, 30)
+
         # Get competitors
 
-        print(outcomeRate)
+        # Get price range
+
+        # Get age range for a given audience type
+        age_range = self.durations.get_age_range('retired')
+        points.append("The medium age group for your chosen audience is " + age_range + ". ")
+
+        print(points)

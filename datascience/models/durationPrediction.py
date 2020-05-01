@@ -30,7 +30,7 @@ class DurationPrediction:
         else:
             return 'Invalid age range!!'
 
-    def getAgeRange(self, job):
+    def get_age_range(self, job):
         if job == 'admin':
             job = 'admin.'
 
