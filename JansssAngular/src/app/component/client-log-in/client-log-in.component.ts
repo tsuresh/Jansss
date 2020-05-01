@@ -98,6 +98,8 @@ export class ClientLogInComponent implements OnInit {
       this.loggedIn = (user != null);
       console.log(this.user);
       if (this.loggedIn) {
+        localStorage.setItem('firstName', this.user.firstName);
+        localStorage.setItem('surName', this.user.lastName);
         localStorage.setItem('email', this.user.email);
         // @ts-ignore
         localStorage.setItem('username', this.user.firstName + this.user.lastName.charAt(0).toUpperCase());
