@@ -10,7 +10,7 @@ class DurationPrediction:
         for row in self.df.itertuples(index=True, name='Pandas'):
             if row.pdays != -1:
                 self.data.append(row)
-        data = pd.DataFrame(self.data)
+        self.data = pd.DataFrame(self.data)
 
     def get_duration(self, age, job):
         if job == 'admin':
