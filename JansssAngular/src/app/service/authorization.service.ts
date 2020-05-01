@@ -69,7 +69,7 @@ export class AuthorizationService {
     return this.http.get<any>(api);
   }
 
-  // Update user profile
+// Update user profile
   updateUserProfile(id, data) {
     const api = 'https://api.jansss.live/users/match/update/' + id;
     return this.http.put(api, data);

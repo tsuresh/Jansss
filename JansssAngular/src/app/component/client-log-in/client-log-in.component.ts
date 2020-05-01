@@ -107,6 +107,7 @@ export class ClientLogInComponent implements OnInit {
         // // calculate the expiration timestamp
         localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
         console.log('User is logged in.');
+        this.authService.signOut();
         this.router.navigateByUrl('/profile').then(() => {
           window.location.reload();
         });
