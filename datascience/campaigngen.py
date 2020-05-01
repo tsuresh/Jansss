@@ -55,7 +55,7 @@ class CampaignGen:
                 match = interest
         return match
 
-    def generate(self):
+    def generate(self, isPremium):
         mappedInterest = self.get_matching_interest(self.description)
         # Get similar interests
         interests = self.audiences.get_similar_interests(mappedInterest)
@@ -69,4 +69,6 @@ class CampaignGen:
         duration = self.durations.get_duration(25, 'admin')
         # Predict campaign outcome
         outcomeRate = self.outcomes.predict(100, 20, 30)
+        # Get competitors
+
         print(outcomeRate)
