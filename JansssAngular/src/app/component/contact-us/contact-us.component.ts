@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ErrorStateMatcher} from '@angular/material/core';
-import {AuthorizationService} from "../../service/authorization.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {AuthorizationService} from '../../service/authorization.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 // Error when invalid control is dirty, touched, or submitted
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -39,7 +39,13 @@ export class ContactUsComponent implements OnInit {
     );
   }
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthorizationService, private _snackBar: MatSnackBar) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthorizationService,
+    // tslint:disable-next-line:variable-name
+    private _snackBar: MatSnackBar
+  ) {
     this.form = this.createForm();
   }
   ngOnInit() { }
@@ -52,7 +58,6 @@ export class ContactUsComponent implements OnInit {
       this.authService.sendMessage(data).subscribe(() => {
         this._snackBar.open('Message sent.', '' , {duration: 3000});
       }, error => {
-        alert(JSON.stringify(error.error));
         this._snackBar.open('An error occurred', JSON.stringify(error.error), {duration: 3000});
       });
     }
