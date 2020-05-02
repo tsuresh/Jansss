@@ -36,13 +36,13 @@ app.use((req, res, next) => {
 });
 
 const authRoutes = require("./api/routes/auth");
-// const generatorRoutes = require("./api/routes/generator");
+const generatorRoutes = require("./api/routes/generator");
 const vendorRoutes = require("./api/routes/vendors");
 const userRoutes = require("./api/routes/users");
 const supportRoutes = require("./api/routes/support");
 
 app.use("/auth", authRoutes);
-// app.use('/generator', generatorRoutes);
+app.use('/generator', generatorRoutes);
 app.use("/vendors", vendorRoutes);
 app.use("/users", userRoutes);
 app.use("/support", supportRoutes);
