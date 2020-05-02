@@ -41,8 +41,11 @@ export class AuthorizationService {
     if (localStorage.getItem('email')) {
       localStorage.removeItem('email');
     }
-    if (localStorage.getItem('name')) {
-      localStorage.removeItem('name');
+    if (localStorage.getItem('firstName')) {
+      localStorage.removeItem('firstName');
+    }
+    if (localStorage.getItem('surName')) {
+      localStorage.removeItem('surName');
     }
   }
 

@@ -37,14 +37,20 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('username')) {
       // @ts-ignore
+      this.currentUser.firstName = localStorage.getItem('firstName');
+      this.currentUser.surName = localStorage.getItem('surName');
       this.currentUser.userName = localStorage.getItem('username');
       this.currentUser.email = localStorage.getItem('email');
     } else {
       this.authService.getUserProfile(localStorage.getItem('uID'))
         .subscribe(
           res => {
+            this.currentUser.firstName = (res.firstName);
+            this.currentUser.surName = res.surName;
             this.currentUser.userName = res.userName;
             this.currentUser.email = res.email;
+            this.currentUser.subscription = res.subscription;
+            this.currentUser.paymentMethod = res.paymentMethod;
           }
         );
     }

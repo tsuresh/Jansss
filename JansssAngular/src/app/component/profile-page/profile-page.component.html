@@ -2,10 +2,10 @@
 
   <div class="card border-0 shadow-lg col-left">
 
-    <div class="card-header text-center" style="background: #E06F63">
+    <div class="card-header text-center">
       <!-- Profile Image -->
       <div class="mt-1">
-        <img class="img-fluid pro-img" src="../../../assets/images/profile/user.svg" alt="profile image" width="200px">
+        <img class="img-fluid profile-img" src="../../../assets/images/profile/user.svg" alt="profile image">
       </div>
       <!-- Username -->
       <div class="mt-3">
@@ -35,10 +35,10 @@
     <!-- User Details -->
     <div class="card-body text-center">
       <div class="col">
-        <p *ngIf="this.authService.isLoggedIn()">Name: {{this.currentUser.fName}}</p>
+        <p *ngIf="this.authService.isLoggedIn()">Name: {{this.currentUser.firstName}} {{this.currentUser.surName}}</p>
         <p *ngIf="this.authService.isLoggedIn()">Email: {{this.currentUser.email}}</p>
         <p *ngIf="this.authService.isLoggedIn()">Payment Method: {{this.currentUser.paymentMethod}}</p>
-        <p *ngIf="this.authService.isLoggedIn()">Payment Plan: {{this.currentUser.paymentPlan}}</p>
+        <p *ngIf="this.authService.isLoggedIn()">Payment Plan: {{this.currentUser.subscription}}</p>
       </div>
     </div>
 
