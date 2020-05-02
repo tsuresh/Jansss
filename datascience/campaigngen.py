@@ -7,6 +7,7 @@ from models.outcomesPrediction import Outcomes
 
 class CampaignGen:
 
+    # Initialise campaign generator
     def __init__(self, goal, name, type, budget, industry, audience, location, price, description):
         # Initialise NLP libraries here
         self.nlp = spacy.load("en_core_web_sm")
@@ -27,11 +28,13 @@ class CampaignGen:
         self.price = price
         self.description = description
 
+    # Calculate text similarity
     def calculate_similarity(self, text1, text2):
         base = self.nlp(self.process_text(text1))
         compare = self.nlp(self.process_text(text2))
         return base.similarity(compare)
 
+    # NLP text processing
     def process_text(self, text):
         doc = self.nlp(text.lower())
         result = []
@@ -45,6 +48,7 @@ class CampaignGen:
             result.append(token.lemma_)
         return " ".join(result)
 
+    # Map correct use interest with NLP
     def get_matching_interest(self, text):
         highestScore = 0
         match = ""
@@ -55,14 +59,23 @@ class CampaignGen:
                 match = interest
         return match
 
-    def get_marketing_method(self, age, budget):
-        if budget > 200000:
-            return "TV"
-        elif budget > 100000:
-            return "radio"
-        elif budget > 50000:
-            return "newspaper"
+    # Generate marketing method [Rule Based]
+    def get_marketing_methods(self, age, budget):
+        if int(budget) > 500000 and int(age) > 50:
+            self.get_method_combination(int(budget))
+            return ["TV", "Radio", "Newspaper"]
+        elif int(budget) > 500000 and int(age) < 50:
+            return ["TV", "Social media", "Event"]
+        elif int(budget) > 100000 and int(age) > 50:
+            return ["Radio", "Newspaper"]
+        elif int(budget) > 100000 and int(age) < 50:
+            return ["TV", "Social media", "Banners", "Online"]
+        elif int(budget) > 50000:
+            return ["Social media", "Online", "Banners", "Word of mouth"]
+        else:
+            return ["Social media", "Online"]
 
+    # Marketing method combination for TV and radio
     def get_method_combination(self, budget):
         budget = budget / 100
         tv = budget / 100
@@ -73,6 +86,7 @@ class CampaignGen:
     def generate(self):
 
         points = []
+        methods = []
 
         mappedInterest = self.get_matching_interest(self.description)
 
@@ -122,4 +136,14 @@ class CampaignGen:
         points.append(
             "You need to run your campaign approximately for " + duration + " days in order to reach the get the maximum audience conversion.")
 
+        # Get marketing methods
+        methods.append(self.get_marketing_methods(age_range, self.budget))
+
         print(points)
+
+        pointsArr = {
+            "plan": points,
+            "methods": methods
+        }
+
+        return pointsArr

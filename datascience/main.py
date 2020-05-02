@@ -5,23 +5,13 @@ from flask import Flask, request
 from campaigngen import CampaignGen
 from models.vendorSuggestion import VendorSuggest
 
-goal = "brand awareness"
-name = "platinum business academy"
-pstype = "mathematics tuition class"
-budget = "100000"
-industry = "Education"
-audience = "retired"
-location = "Colombo"
-price = "1000 per lesson"
-description = "music class"
-
 app = Flask(__name__)
 
 
 @app.route('/generate', methods=['POST'])
 def generate_campaign():
     data = request.get_json(force=True)
-    generator = CampaignGen(data['goal'], data['name'], data['pstype'], data['pstype'], data['industry'],
+    generator = CampaignGen(data['goal'], data['name'], data['pstype'], data['budget'], data['industry'],
                             data['audience'], data['location'], data['price'], data['description'])
     response = app.response_class(
         response=json.dumps(generator.generate()),
@@ -41,3 +31,8 @@ def get_vendors():
         mimetype='application/json'
     )
     return response
+
+
+if __name__ == '__main__':
+    print("App running on port: 5000")
+    app.run(port=5000, debug=True)
