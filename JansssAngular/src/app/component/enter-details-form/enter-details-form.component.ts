@@ -409,7 +409,6 @@ export class EnterDetailsFormComponent implements OnInit {
     } else {
       const data: any = Object.assign(this.detailsForm.value);
       data.audience = this.detailsForm.value.audience.names.toString();
-      alert(JSON.stringify(data));
       this.auth.sendCampaignDetails(data).subscribe((res) => {
         localStorage.setItem('campaign', JSON.stringify(res));
         this.router.navigate(['/campaign']);

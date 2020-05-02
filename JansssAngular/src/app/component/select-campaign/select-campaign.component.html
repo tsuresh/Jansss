@@ -14,10 +14,16 @@
     <!-- Generated campaign details -->
     <div class="card bg-light border-light shadow-sm p-3 mb-5 rounded" id="campaign-details">
       <div class="card-body mb-4">
-        <h4>Plan</h4>
-        <p class="card-text"></p>
-        <h4>Method</h4>
-        <p class="card-text"></p>
+        <h4>Marketing plan</h4>
+        <p class="card-text" *ngFor="let p of this.campaign.plan">
+          <span class="material-icons"><mat-icon color="primary">fiber_manual_record</mat-icon></span>
+          {{p}}
+        </p>
+        <h4>Marketing platforms</h4>
+        <p class="card-text" *ngFor="let m of this.campaign.method">
+          <span class="material-icons"><mat-icon color="primary">fiber_manual_record</mat-icon></span>
+          {{m}}
+        </p>
 
         <!-- Next Button -->
         <button (click)="navigateToPayment()" class="btn shadow-sm p-2 pl-3 pr-3 hvr-wobble-horizontal">Next</button>
