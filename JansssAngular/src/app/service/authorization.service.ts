@@ -41,6 +41,9 @@ export class AuthorizationService {
     if (localStorage.getItem('email')) {
       localStorage.removeItem('email');
     }
+    if (localStorage.getItem('name')) {
+      localStorage.removeItem('name');
+    }
   }
 
   public isLoggedIn() {
