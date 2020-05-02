@@ -5,6 +5,44 @@ exports.get_competitors = (req, res, next) => {
 
 };
 
+exports.get_vendors = (req, res, next) => {
+    let pref = req.body.pref || "";
+    if (pref === "") {
+        return res.status(501).json({
+            message: "Vendor preference type is required"
+        });
+    }
+
+    let typeV = req.body.typeV || "";
+    if (typeV === "") {
+        return res.status(501).json({
+            message: "Vendor preference type is required"
+        });
+    }
+
+    let mcLat = req.body.mcLat || "";
+    if (mcLat === "") {
+        return res.status(501).json({
+            message: "Latitude is required"
+        });
+    }
+
+    let mcLng = req.body.mcLng || "";
+    if (mcLng === "") {
+        return res.status(501).json({
+            message: "Longitude is required"
+        });
+    }
+
+    axios.post('https://data.jansss.live/getVendors', req.body).then(function (response) {
+        return res.status(200).json(response.data);
+    }).catch(function (error) {
+        return res.status(501).json({
+            message: error
+        });
+    });
+}
+
 exports.get_plan = (req, res, next) => {
     let goal = req.body.goal || "";
     if (goal === "") {
@@ -78,7 +116,6 @@ exports.get_plan = (req, res, next) => {
     });
 };
 
-//Get geo code of the address
 exports.get_geocode = (req, res, next) => {
     let address = req.params.address;
     let BASE_URL = "https://maps.googleapis.com/maps/api/geocode/json?address=";

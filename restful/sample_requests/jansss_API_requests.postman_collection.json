@@ -9,7 +9,7 @@
 			"name": "post requests",
 			"item": [
 				{
-					"name": "valid user signup",
+					"name": "Valid user signup",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"test1@jansss.com\",\n\t\"password\": \"pass\"\n}",
+							"raw": "{\n\t\"userName\": \"Shyami Abeysekara\",\n\t\"email\": \"shyami@jansss.com\",\n\t\"password\": \"pass\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -46,7 +46,7 @@
 					"response": []
 				},
 				{
-					"name": "invalid user signup",
+					"name": "Valid user signin",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -59,44 +59,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"testjansss.com\",\n\t\"password\": \"pass\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/auth/user/signup",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"auth",
-								"user",
-								"signup"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "valid user signin",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"email\": \"test@jansss.com\",\n\t\"password\": \"pass\"\n}",
+							"raw": "{\n\t\"email\": \"nujitha@jansss.com\",\n\t\"password\": \"pass\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -120,7 +83,7 @@
 					"response": []
 				},
 				{
-					"name": "invalid user signin",
+					"name": "Vendor signup",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -133,44 +96,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"invalid@hello.com\",\n\t\"password\": \"pass\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/auth/user/signin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"auth",
-								"user",
-								"signin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "vendor signup",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"email\": \"vendor2@jansss.com\",\n\t\"password\": \"pass\",\n\t\"busName\": \"vendortest2\",\n\t\"marketingTypes\": [\"Media\", \"Facebook\", \"Press\"],\n\t\"preferred\": [\"Convenience Products\", \"Shopping Products\", \"Unsought Products\"],\n\t\"location\": \" \",\n\t\"address\": \" \",\n\t\"phoneNumber\": \" \",\n\t\"googleName\": \" \",\n\t\"rating\": \" \"\n}",
+							"raw": "{\n\t\"email\": \"bountylab@jansss.com\",\n\t\"password\": \"pass\",\n\t\"busName\": \"Bountylab Sri Lanka\",\n\t\"marketingTypes\": [\"Social media\", \"Banners\", \"Event\", \"Word of mouth\", \"Online\"],\n\t\"preferred\": [\"Financial\", \"Education\", \"Entertainment and Events\", \"Information technology\", \"Knowledge/consulting\"],\n\t\"location\": \" \",\n\t\"address\": \" \",\n\t\"phoneNumber\": \" \",\n\t\"googleName\": \" \",\n\t\"rating\": \" \"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -194,7 +120,7 @@
 					"response": []
 				},
 				{
-					"name": "vendor signin",
+					"name": "Vendor signin",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -229,6 +155,64 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get suggested vedors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pref\": \"Health Care\",\n\t\"typeV\": \"Media\",\n\t\"mcLat\": 7.0752742,\n\t\"mcLng\": 79.89226889999999\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/generator/getVendors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"generator",
+								"getVendors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get generator plan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"goal\" : \"brand awareness\",\n\t\"name\" : \"platinum business academy\",\n\t\"pstype\" : \"mathematics tuition class\",\n\t\"budget\" : \"100000\",\n\t\"industry\" : \"Education\",\n\t\"audience\" : \"retired\",\n\t\"location\" : \"Colombo\",\n\t\"price\" : \"1000 per lesson\",\n\t\"description\" : \"computer class\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/generator/plan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"generator",
+								"plan"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -237,7 +221,7 @@
 			"name": "get requests",
 			"item": [
 				{
-					"name": "get all vendors",
+					"name": "Get all vendors",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -265,7 +249,7 @@
 					"response": []
 				},
 				{
-					"name": "googleAPI",
+					"name": "Google places API ",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -303,7 +287,7 @@
 					"response": []
 				},
 				{
-					"name": "get a matching vendor",
+					"name": "Get a matching vendor",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -318,6 +302,67 @@
 								"vendors",
 								"match",
 								"5e91c83eeda2d205c7256493"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get matching user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/match/5ea2e9892ad4e522897376c7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"match",
+								"5ea2e9892ad4e522897376c7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get geocode for address - google API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBSnrY80HKA1R78FdhfxP9hKV_-DIgjttE",
+							"protocol": "https",
+							"host": [
+								"maps",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"maps",
+								"api",
+								"geocode",
+								"json"
+							],
+							"query": [
+								{
+									"key": "address",
+									"value": "1600+Amphitheatre+Parkway,+Mountain+View,+CA"
+								},
+								{
+									"key": "key",
+									"value": "AIzaSyBSnrY80HKA1R78FdhfxP9hKV_-DIgjttE"
+								}
 							]
 						}
 					},
