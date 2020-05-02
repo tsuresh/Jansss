@@ -23,24 +23,13 @@
             [formGroup] = "form"
             (ngSubmit) = "onSubmit()">
 
-        <!-- Title -->
+        <!-- First Name -->
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Title</mat-label>
-              <input matInput>
-            </mat-form-field>
-          </div>
-          <div class="col"></div>
-        </div>
-
-        <!-- First Name -->
-        <div class="row mt-3">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <mat-label>First name</mat-label>
-              <input matInput [formControl]="fName" required>
-              <mat-error *ngIf="fName.hasError('required')">
+              <mat-label [ngClass]="form.controls['firstName']">First name</mat-label>
+              <input matInput formControlName="firstName" required>
+              <mat-error *ngIf="form.controls['firstName'].hasError('required')">
                 First name is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -55,17 +44,17 @@
           </div>
         </div>
 
-        <div class="row mt-3">
+        <div class="row mt-4">
 
           <!-- Email -->
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Email</mat-label>
-              <input matInput [formControl]="email" placeholder="Ex. sam@mail.com" required>
-              <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              <mat-label [ngClass]="form.controls['email']">Email</mat-label>
+              <input matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="Ex. sam@mail.com">
+              <mat-error *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].hasError('required')">
                 Please enter a valid email address
               </mat-error>
-              <mat-error *ngIf="email.hasError('required')">
+              <mat-error *ngIf="form.controls['email'].hasError('required')">
                 Email is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -74,56 +63,37 @@
           <!-- Phone -->
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Telephone</mat-label>
+              <mat-label [ngClass]="form.controls['phone']">Telephone</mat-label>
               <span matPrefix>+94 &nbsp;</span>
-              <input type="tel" matInput [formControl]="phone" placeholder="123456789" required>
-              <mat-error *ngIf="phone.hasError('required')">
+              <input type="tel" matInput formControlName="phone" placeholder="123456789" required>
+              <mat-error *ngIf="form.controls['phone'].hasError('required')">
                 Phone number is <strong>required</strong>
               </mat-error>
-              <mat-error *ngIf="phone.hasError('pattern')">
+              <mat-error *ngIf="form.controls['phone'].hasError('pattern')">
                 Phone number is <strong>invalid</strong>
               </mat-error>
             </mat-form-field>
           </div>
         </div>
 
-        <!-- Communication Method -->
-        <div class="row mt-3">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <mat-label>Preferred communication method</mat-label>
-              <mat-select [formControl]="comMethod" required>
-                <mat-option>--</mat-option>
-                <mat-option *ngFor="let m of methods" [value]="m">
-                  {{m.method}}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="comMethod.hasError('required')">
-                Please choose a communication method
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="col"></div>
-        </div>
-
         <!-- Message -->
-        <div class="row mt-3 box">
+        <div class="row mt-4 box">
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Message</mat-label>
-              <textarea matInput [formControl]="message" required></textarea>
-              <mat-error *ngIf="message.hasError('required')">
+              <mat-label [ngClass]="form.controls['message']">Message</mat-label>
+              <textarea matInput formControlName="message" required></textarea>
+              <mat-error *ngIf="form.controls['message'].hasError('required')">
                 Please enter a message
               </mat-error>
             </mat-form-field>
           </div>
         </div>
 
-        <div class="row mt-4 box">
+        <div class="row mt-5">
           <div class="col">
 
             <!-- Privacy policy checkbox -->
-            <mat-checkbox [formControl]="accept" color="primary" required>
+            <mat-checkbox formControlName="accept" color="primary" required>
               I agree to the <a href="#">privacy policy</a>*
             </mat-checkbox>
             <p>*Required fields</p>
