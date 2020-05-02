@@ -433,7 +433,7 @@ export class EnterDetailsFormComponent implements OnInit {
   }
 
 
-  //Autocomplete drop down list
+  // Autocomplete drop down list
 
   private _filterGroupAudience(names: string): AudienceGroup[] {
     const filterValue = names.toLowerCase();

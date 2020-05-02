@@ -13,8 +13,8 @@ export class LaunchPageComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  navigateToCampaignDetails() {
-    this.router.navigate(['/campaign-details']);
+  navigateToProfile() {
+    this.router.navigate(['/profile']);
   }
 
   ngOnInit() {
@@ -22,5 +22,4 @@ export class LaunchPageComponent implements OnInit {
     $('#disableItem2').removeClass('disabled');
     $('#disableItem3').removeClass('disabled');
   }
-
 }

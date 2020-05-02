@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ImplementationModalComponent} from '../unavailable-modal/implementation-modal.component';
 import {MatDialog} from '@angular/material/dialog';
+import {ErrorStateMatcher} from '@angular/material/core';
+
+// Error when invalid control is dirty, touched, or submitted
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-vendor-edit-profile',
@@ -10,14 +18,8 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./vendor-edit-profile.component.scss']
 })
 export class VendorEditProfileComponent implements OnInit {
-  form: FormGroup;
-  router: Router;
-
-  email = new FormControl('', [Validators.email]); // Email Validation
-  name = new FormControl();
-  password = new FormControl();
-  mType = new FormControl();
-  pType = new FormControl();
+  public form: FormGroup;
+  matcher = new MyErrorStateMatcher();
 
   mTypes: string[] = [
     'TV',
@@ -69,22 +71,28 @@ export class VendorEditProfileComponent implements OnInit {
     'Premium products'
   ];
 
-  constructor(public dialog: MatDialog) { }
+  createForm(): FormGroup {
+    return this.formBuilder.group(
+      {
+        email: ['', Validators.required, Validators.email],
+        busName: ['', Validators.required],
+        password: ['', Validators.required, Validators.minLength(8)],
+        marketingType: ['', Validators.required],
+        preferred: ['', Validators.required],
+      }
+    );
+  }
+
+  constructor(public dialog: MatDialog, private formBuilder: FormBuilder) {
+    this.form = this.createForm();
+  }
 
   // Modal
   openDialog() {
     this.dialog.open(ImplementationModalComponent);
   }
 
-  ngOnInit() {
-    this.form = new FormGroup({
-      email: new FormControl(),
-      name: new FormControl(),
-      password: new FormControl(),
-      mType: new FormControl(),
-      pType: new FormControl()
-    });
-  }
+  ngOnInit() { }
 
   onSubmit() { }
 }

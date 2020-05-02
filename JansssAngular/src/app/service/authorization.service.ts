@@ -80,4 +80,10 @@ export class AuthorizationService {
     const api = 'https://api.jansss.live/support/sendticket';
     return this.http.post(api, message);
   }
+
+  // Get campaign
+  getCampaign() {
+    const api = 'https://api.jansss.live/generator/plan';
+    return this.http.get(api);
+  }
 }
