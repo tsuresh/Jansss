@@ -1,5 +1,5 @@
 const axios = require('axios');
-
+const request = require("request");
 
 exports.get_competitors = (req, res, next) => {
 
@@ -70,6 +70,21 @@ exports.get_plan = (req, res, next) => {
     }
 
     axios.post('https://data.jansss.live/generate', req.body).then(function (response) {
+        return res.status(200).json(response.data);
+    }).catch(function (error) {
+        return res.status(501).json({
+            message: error
+        });
+    });
+};
+
+exports.get_geocode = (req, res, next) => {
+    let address = req.params.address;
+    let BASE_URL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+    let key = "&key=AIzaSyBSnrY80HKA1R78FdhfxP9hKV_-DIgjttE";
+    let url = BASE_URL + address + key;
+
+    axios.post(url, req.body).then(function (response) {
         return res.status(200).json(response.data);
     }).catch(function (error) {
         return res.status(501).json({
