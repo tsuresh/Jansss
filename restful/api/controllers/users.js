@@ -16,6 +16,7 @@ exports.update_matching_user = (req, res, next) => {
         if (user.length >= 1) {
           const user = new User({
             email: req.body.email,
+            userName: req.body.userName,
             // password: hash,
             firstName: req.body.firstName,
             surName: req.body.surName,
