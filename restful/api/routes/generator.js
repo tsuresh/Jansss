@@ -7,6 +7,8 @@ router.post('/competitors', authorize, GeneratorController.get_competitors);
 
 router.post('/plan', authorize, GeneratorController.get_plan);
 
-router.post('/geocode/:address', GeneratorController.get_geocode);
+router.post('/getVendors', authorize, GeneratorController.get_vendors);
+
+router.post('/geocode/:address', authorize, GeneratorController.get_geocode);
 
 module.exports = router;
