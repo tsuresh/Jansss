@@ -60,7 +60,7 @@
         <mat-label class="item" [ngClass]="detailsForm.controls['budget']"></mat-label>
           Budget<br>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Ex. Rs. 10,000/-" required formControlName="budget" [errorStateMatcher]="matcher">
+            <input matInput placeholder="Ex. Rs. 10000/-" required formControlName="budget" [errorStateMatcher]="matcher">
             <mat-error *ngIf="detailsForm.controls['budget'].hasError('required')" class="errorMessage">
               Budget is <strong>required</strong>
             </mat-error>
@@ -142,7 +142,10 @@
         <!-- form item - product name -->
         <mat-label class="item">Product Description<br></mat-label>
         <mat-form-field class="full-width">
-            <textarea matInput  placeholder="Tell us a little bit about your Product/Service" formControlName="description" required></textarea>
+            <textarea matInput  placeholder="Tell us a little bit about your Product/Service" formControlName="description"  [errorStateMatcher]="matcher" required></textarea>
+          <mat-error *ngIf="detailsForm.controls['description'].hasError('required')" class="errorMessage">
+            Description is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
       </div>
 
