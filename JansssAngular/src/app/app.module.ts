@@ -24,7 +24,6 @@ import { EditProfileComponent } from './component/edit-profile/edit-profile.comp
 import { CampaignProgressComponent } from './component/campaign-progress/campaign-progress.component';
 import { VendorLoginComponent } from './component/vendor-login/vendor-login.component';
 import { VendorSignUpComponent } from './component/vendor-sign-up/vendor-sign-up.component';
-import { UserOptionPageComponent } from './component/user-option-page/user-option-page.component';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
 import { CampaignDetailsDescriptionComponent } from './component/campaign-details-description/campaign-details-description.component';
 import { VendorHubHomePageComponent } from './component/vendor-hub-home-page/vendor-hub-home-page.component';
@@ -91,7 +90,6 @@ export function provideConfig() {
     CampaignProgressComponent,
     VendorLoginComponent,
     VendorSignUpComponent,
-    UserOptionPageComponent,
     LandingPageComponent,
     SubscriptionComponent,
     CampaignDetailsDescriptionComponent,

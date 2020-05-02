@@ -9,8 +9,13 @@
 }
 
 .card-header{
+  background: #E06F63;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+}
+
+.profile-img {
+  width: 200px;
 }
 
 .username{
@@ -67,7 +72,7 @@ a {
 
 @media (max-width: 765px) {
   .card {
-    width: 70%;
+    width: 80%;
   }
 }
 

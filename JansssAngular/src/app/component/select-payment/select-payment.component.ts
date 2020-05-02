@@ -45,8 +45,6 @@ export const MY_FORMATS = {
 })
 
 export class SelectPaymentComponent implements OnInit {
-  registered = false;
-  submitted = false;
   form: FormGroup;
   minDate = new Date(moment()); // the minimum date user can pick
 
@@ -93,6 +91,11 @@ export class SelectPaymentComponent implements OnInit {
   // Modal
   openDialog() {
     this.dialog.open(ImplementationModalComponent);
+  }
+
+  // Navigate functionality
+  navigateToLaunch() {
+    this.router.navigate(['/launch']);
   }
 
   onSubmit() { }

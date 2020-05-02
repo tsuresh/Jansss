@@ -34,12 +34,18 @@ export class AuthorizationService {
     if (localStorage.getItem('uID')) {
       localStorage.removeItem('uID');
     }
-    // details for facebook being removed from local storage
+    // details for facebook and google being removed from local storage
     if (localStorage.getItem('username')) {
       localStorage.removeItem('username');
     }
     if (localStorage.getItem('email')) {
       localStorage.removeItem('email');
+    }
+    if (localStorage.getItem('firstName')) {
+      localStorage.removeItem('firstName');
+    }
+    if (localStorage.getItem('surName')) {
+      localStorage.removeItem('surName');
     }
   }
 
@@ -61,5 +67,17 @@ export class AuthorizationService {
   getUserProfile(id) {
     const api = 'https://api.jansss.live/users/match/' + id;
     return this.http.get<any>(api);
+  }
+
+  // Update user profile
+  updateUserProfile(id, data) {
+    const api = 'https://api.jansss.live/users/match/update/' + id;
+    return this.http.put(api, data);
+  }
+
+  // Send message
+  sendMessage(message) {
+    const api = 'https://api.jansss.live/support/sendticket';
+    return this.http.post(api, message);
   }
 }

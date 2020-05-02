@@ -132,16 +132,4 @@ export class VendorSignUpComponent implements OnInit {
   openDialog() {
     this.dialog.open(ImplementationModalComponent);
   }
-  // Facebook sign up
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
-
-  // Google sign up
-  signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
-  signOut(): void {
-    this.authService.signOut();
-  }
 }

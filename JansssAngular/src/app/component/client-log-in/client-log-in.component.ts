@@ -98,6 +98,8 @@ export class ClientLogInComponent implements OnInit {
       this.loggedIn = (user != null);
       console.log(this.user);
       if (this.loggedIn) {
+        localStorage.setItem('firstName', this.user.firstName);
+        localStorage.setItem('surName', this.user.lastName);
         localStorage.setItem('email', this.user.email);
         // @ts-ignore
         localStorage.setItem('username', this.user.firstName + this.user.lastName.charAt(0).toUpperCase());
@@ -105,6 +107,7 @@ export class ClientLogInComponent implements OnInit {
         // // calculate the expiration timestamp
         localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
         console.log('User is logged in.');
+        this.authService.signOut();
         this.router.navigateByUrl('/profile').then(() => {
           window.location.reload();
         });
