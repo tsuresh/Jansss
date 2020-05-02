@@ -55,6 +55,9 @@ class Audience:
 
         self.age_threshold = 5
 
+    def get_interests(self):
+        return self.general_interests.columns.values
+
     def get_similar_interests_age(self, age):
         dfs = [self.ageDf, self.general_interests]
         new_data = pd.concat(dfs, axis=1)
@@ -152,6 +155,7 @@ class Audience:
 
         relavencies = pd.DataFrame(data=logreg.coef_[0], index=[x_train.columns], columns=['Relavency']).sort_values(
             by='Relavency', ascending=True)
+        relavencies = relavencies[(relavencies["Relavency"] < 0)]
         keys = []
         for key in relavencies.to_dict()['Relavency']:
             keys.append(key[0])

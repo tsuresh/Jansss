@@ -1,11 +1,8 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-import sys
-import matplotlib
 import flask
-from flask import Flask, request, jsonify, send_file
-
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from flask import request, send_file
 
 csv = r'Historical Product Demand.csv'
 df = pd.read_csv(csv)
@@ -42,7 +39,7 @@ def getDemand():
     # train.Order_Demand.plot(figsize=(13,6), title= 'Product 1359 - Train and Test', fontsize=12,color="Green")
     # test.Order_Demand.plot(figsize=(13,6), title= 'Product 1359 - Train and Test', fontsize=12)
 
-    from statsmodels.tsa.api import ExponentialSmoothing, SimpleExpSmoothing, Holt
+    from statsmodels.tsa.api import SimpleExpSmoothing
     y_hat_avg = test.copy()
     fit2 = SimpleExpSmoothing(np.asarray(train['Order_Demand'])).fit(smoothing_level=0.6,optimized=False)
     y_hat_avg['SES'] = fit2.forecast(len(test))

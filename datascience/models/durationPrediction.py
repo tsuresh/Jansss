@@ -10,7 +10,7 @@ class DurationPrediction:
         for row in self.df.itertuples(index=True, name='Pandas'):
             if row.pdays != -1:
                 self.data.append(row)
-        data = pd.DataFrame(self.data)
+        self.data = pd.DataFrame(self.data)
 
     def get_duration(self, age, job):
         if job == 'admin':
@@ -29,3 +29,16 @@ class DurationPrediction:
             return str(duration)
         else:
             return 'Invalid age range!!'
+
+    def get_age_range(self, job):
+        if job == 'admin':
+            job = 'admin.'
+
+        filtured = []
+        for row in self.data.itertuples(index=True, name='Pandas'):
+            if (row.job == job):
+                filtured.append(row)
+        x = pd.DataFrame(filtured)
+        filtured = pd.DataFrame(filtured)
+        ageMed = filtured.loc[:, "age"].median()
+        return str(ageMed)

@@ -21,6 +21,6 @@ class Outcomes:
 
         print(f'Accuracy : {round((regressor.score(X_test, y_test)) * 100, 3)} %')
 
-        predict = regressor.predict([[1000, 49.6, 67.7]])
+        predict = regressor.predict([[tv, radio, newspaper]])
 
         return str(round(predict[0], 2)) + ' %'

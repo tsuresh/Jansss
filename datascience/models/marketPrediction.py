@@ -4,7 +4,7 @@ import pandas as pd
 class MarketPrediction:
 
     def __init__(self):
-        self.df = pd.read_csv("final.csv")
+        self.df = pd.read_csv("datasets/final.csv")
         self.df = pd.DataFrame(self.df)
 
     def getComp(self, category, price):
