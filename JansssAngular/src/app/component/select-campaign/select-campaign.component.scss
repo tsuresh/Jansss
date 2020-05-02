@@ -11,21 +11,17 @@ h2 {
   color: #E06F63;
 }
 
-h3 {
-  font-size: 30px;
+h4 {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
-.number {
-  color: #7f8c8d;
-  font-size: 24px;
-}
-
-.campaign {
-  cursor: pointer;
-}
-
-#campaign-details {
-  display: none;
+p {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 35px;
 }
 
 button {
@@ -39,35 +35,4 @@ button {
 
 button:hover {
   color: #ffffff;
-}
-
-// Media Queries
-@media (max-width: 991px) {
-  h3 {
-    font-size: 24px;
-  }
-
-  .number {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 767px) {
-  h3 {
-    font-size: 16px;
-  }
-
-  .number {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 575px) {
-  h3 {
-    font-size: 30px;
-  }
-
-  .number {
-    font-size: 24px;
-  }
 }
