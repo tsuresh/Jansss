@@ -81,6 +81,12 @@ export class AuthorizationService {
     return this.http.post(api, message);
   }
 
+  sendCampaignDetails(data) {
+    const api = 'https://api.jansss.live/generator/plan';
+    const headers = {'Content-Type' : 'application/json'};
+    return this.http.post(api, data, {headers});
+  }
+
   // Get campaign
   getCampaign() {
     const api = 'https://api.jansss.live/generator/plan';

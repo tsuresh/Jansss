@@ -20,61 +20,59 @@
 
       <div class="form-group">
         <!-- form item - target audience -->
-        <label class="item item1">
+        <label class="item item1" [ngClass]="detailsForm.controls['goal']">
           Campaign Goal
-          <mat-radio-group color="primary" required>
-            <mat-radio-button class="ml-5" value="1">Brand Awareness</mat-radio-button>
-            <mat-radio-button class="ml-5" value="2">Conversions</mat-radio-button>
+          <mat-radio-group color="primary" formControlName="goal" required>
+            <mat-radio-button class="ml-5" value="Brand Awareness">Brand Awareness</mat-radio-button>
+            <mat-radio-button class="ml-5" value="Conversions">Conversions</mat-radio-button>
           </mat-radio-group>
         </label>
       </div>
 
-        <div class="form-group" [ngClass]="{ 'has-error': invalidProductName() }">
+        <div class="form-group">
           <!-- form item - product name -->
-          <label class="item">
-            Product/Service Name<br>
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Ex. Platinum Business Academy" required formControlName="productName">
-            </mat-form-field>
-            <mat-error *ngIf="invalidProductName()" class="errorMessage">
+          <mat-label class="item" [ngClass]="detailsForm.controls['name']">
+            Product/Service Name<br></mat-label>
+          <mat-form-field class="full-width">
+              <input matInput placeholder="Ex. Platinum Business Academy" required formControlName="name" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="detailsForm.controls['name'].hasError('required')" class="errorMessage">
               Product/Service Name is <strong>required</strong>
             </mat-error>
-          </label>
+          </mat-form-field>
         </div>
 
-        <div class="form-group" [ngClass]="{ 'has-error': invalidProductType() }">
+        <div class="form-group">
           <!-- form item - product type -->
-          <label class="item">
+          <label class="item" [ngClass]="detailsForm.controls['pstype']">
             Product/Service Type<br>
             <mat-form-field class="full-width">
-              <input matInput placeholder="Ex. Tuition Class" required formControlName="productType">
+              <input matInput placeholder="Ex. Tuition Class" required formControlName="pstype" [errorStateMatcher]="matcher">
+              <mat-error *ngIf="detailsForm.controls['pstype'].hasError('required')" class="errorMessage">
+                Product/Service Type is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
-            <mat-error *ngIf="invalidProductType()" class="errorMessage">
-              Product/Service Type is <strong>required</strong>
-            </mat-error>
           </label>
         </div>
 
 
-      <div class="form-group" [ngClass]="{ 'has-error': invalidBudget() }">
+      <div class="form-group">
         <!-- form item - budget -->
-        <label class="item">
+        <mat-label class="item" [ngClass]="detailsForm.controls['budget']"></mat-label>
           Budget<br>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Ex. Rs. 10,000/-" required formControlName="budget">
+            <input matInput placeholder="Ex. Rs. 10,000/-" required formControlName="budget" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="detailsForm.controls['budget'].hasError('required')" class="errorMessage">
+              Budget is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
-          <mat-error *ngIf="invalidBudget()" class="errorMessage">
-            Budget is <strong>required</strong>
-          </mat-error>
-        </label>
       </div>
 
-        <div class="form-group" [ngClass]="{ 'has-error': invalidIndustry() }">
+        <div class="form-group">
           <!-- form item - industry -->
-          <label class="item">
+          <label class="item" [ngClass]="detailsForm.controls['industry']">
             Target Industry<br>
             <mat-form-field class="full-width" >
-              <input type="text" matInput formControlName="industry" placeholder="Ex. Education" required [matAutocomplete]="industryGroup">
+              <input type="text" matInput formControlName="industry" placeholder="Ex. Education" required [errorStateMatcher]="matcher" [matAutocomplete]="industryGroup">
 <!--              <p *ngIf="invalidIndustry()" id="industry_error" class="help-block">Invalid industry</p>-->
               <mat-autocomplete #industryGroup="matAutocomplete">
                 <mat-optgroup *ngFor="let group of industryOptions | async" [label]="group.letter">
@@ -83,37 +81,36 @@
                   </mat-option>
                 </mat-optgroup>
               </mat-autocomplete>
+              <mat-error *ngIf="detailsForm.controls['industry'].hasError('required')" class="errorMessage">
+                Target Industry is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
-            <mat-error *ngIf="invalidIndustry()" class="errorMessage">
-              Target Industry is <strong>required</strong>
-            </mat-error>
           </label>
         </div>
 
-        <div class="form-group" [ngClass]="{ 'has-error': invalidAudience() }">
+        <div class="form-group">
           <!-- form item - target audience -->
-          <label class="item">
-            Target Audience<br>
-            <mat-form-field class="full-width">
-              <input type="text" matInput formControlName="audience" placeholder="Ex. Students" required [matAutocomplete]="audienceGroup">
-              <mat-autocomplete #audienceGroup="matAutocomplete" [displayWith]="displayAudience">
-                <mat-option *ngFor="let audience of audienceOptions | async" [value]="audience">
-                  {{audience.names}}
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
-            <mat-error *ngIf="invalidAudience()" class="errorMessage">
+          <mat-label class="item" [ngClass]="detailsForm.controls['audience']">
+            Target Audience<br></mat-label>
+          <mat-form-field class="full-width">
+            <input type="text" matInput formControlName="audience" placeholder="Ex. Students" required [errorStateMatcher]="matcher" [matAutocomplete]="audienceGroup">
+            <mat-autocomplete #audienceGroup="matAutocomplete" [displayWith]="displayAudience">
+              <mat-option *ngFor="let audience of audienceOptions | async" [value]="audience">
+                {{audience.names}}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="detailsForm.controls['audience'].hasError('required')" class="errorMessage">
               Target Audience is <strong>required</strong>
             </mat-error>
-          </label>
+          </mat-form-field>
         </div>
 
-      <div class="form-group" [ngClass]="{ 'has-error': invalidLocation() }">
+      <div class="form-group">
         <!-- form item - target location -->
-        <label class="item">
-          Target Location<br>
+        <mat-label class="item" [ngClass]="detailsForm.controls['location']">
+          Target Location<br></mat-label>
           <mat-form-field class="full-width">
-            <input type="text" matInput formControlName="location" required placeholder="Ex. Wellawatte, Colombo" [matAutocomplete]="locationGroup">
+            <input type="text" matInput formControlName="location" required placeholder="Ex. Wellawatte, Colombo" [errorStateMatcher]="matcher" [matAutocomplete]="locationGroup">
             <mat-autocomplete #locationGroup="matAutocomplete">
               <mat-optgroup *ngFor="let group of locationOptions | async" [label]="group.letter">
                 <mat-option *ngFor="let name of group.names" [value]="name">
@@ -121,36 +118,32 @@
                 </mat-option>
               </mat-optgroup>
             </mat-autocomplete>
+            <mat-error *ngIf="detailsForm.controls['location'].hasError('required')" class="errorMessage">
+              Target Location is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
-          <mat-error *ngIf="invalidLocation()" class="errorMessage">
-            Target Location is <strong>required</strong>
-          </mat-error>
-        </label>
       </div>
 
 
 
-        <div class="form-group" [ngClass]="{ 'has-error': invalidPrice() }">
+        <div class="form-group">
           <!-- form item - price -->
-          <label class="item">
-            Price of Product/Service<br>
+          <mat-label class="item" [ngClass]="detailsForm.controls['price']">
+            Price of Product/Service<br></mat-label>
             <mat-form-field class="full-width">
-              <input matInput placeholder="Ex. Rs. 1,000 per lesson" required formControlName="price">
+              <input matInput placeholder="Ex. Rs. 1,000 per lesson" required [errorStateMatcher]="matcher" formControlName="price">
+              <mat-error *ngIf="detailsForm.controls['price'].hasError('required')" class="errorMessage">
+                Price of Product/Service is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
-            <mat-error *ngIf="invalidLocation()" class="errorMessage">
-              Price of Product/Service is <strong>required</strong>
-            </mat-error>
-          </label>
         </div>
 
       <div class="form-group">
         <!-- form item - product name -->
-        <label class="item">
-          Product Description<br>
-          <mat-form-field class="full-width">
-            <textarea matInput  placeholder="Tell us a little bit about your Product/Service" formControlName="description"></textarea>
-          </mat-form-field>
-        </label>
+        <mat-label class="item">Product Description<br></mat-label>
+        <mat-form-field class="full-width">
+            <textarea matInput  placeholder="Tell us a little bit about your Product/Service" formControlName="description" required></textarea>
+        </mat-form-field>
       </div>
 
         <div class="button_outer form-group">
