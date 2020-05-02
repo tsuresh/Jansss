@@ -5,22 +5,27 @@ import pandas as pd
 import requests
 
 
-class VendorSueest:
+class VendorSuggest:
 
-    def __init__(self):
+    def __init__(self, pref, typeV, mcLat, mcLng):
         self.response = requests.get("https://api.jansss.live/vendors/all")
         self.responseJ = self.response.json()
         self.x = len(self.response.json())
 
-    def predict(self, pref, typeV):
+        self.pref = pref
+        self.typeV = typeV
+        self.mcLat = mcLat
+        self.mcLng = mcLng
+
+    def predict(self):
         selectedType = []
         for x in self.responseJ:
-            if typeV in x["marketingTypes"]:
+            if self.typeV in x["marketingTypes"]:
                 selectedType.append(x)
 
         selectedPref = []
         for x in selectedType:
-            if pref in x["preferred"]:
+            if self.pref in x["preferred"]:
                 selectedPref.append(x)
 
         vendors = []
@@ -56,12 +61,10 @@ class VendorSueest:
 
             return distance
 
-        mcLat = data['mcLat']  # 6.8940  #should get from user
-        mcLng = data['mcLng']  # 79.8547  #should get from user
         distances = []
 
         for x in dataset.itertuples():
-            distances.append(getDistance(x.Lat, x.Lng, mcLat, mcLng))
+            distances.append(getDistance(x.Lat, x.Lng, self.mcLat, self.mcLng))
 
         minIndex = 0
         minVal = distances[0]

@@ -65,7 +65,10 @@ class CampaignGen:
 
     def get_method_combination(self, budget):
         budget = budget / 100
-        # tv =
+        tv = budget / 100
+        budget = budget - tv
+        radio = budget / 50
+        budget = budget - radio
 
     def generate(self):
 
@@ -102,18 +105,21 @@ class CampaignGen:
                 points.append(
                     "Majority of your audience are from " + value + ". You can consider consulting regional marketing agents. As we suggest")
 
-        # Get campaign duration
-        duration = self.durations.get_duration(25, 'admin')
-
         # Predict campaign outcome
         outcomeRate = self.outcomes.predict(100, 20, 30)
 
         # Get competitors
+        # self.market.getPrice("electronics.smartphone")
 
         # Get price range
 
         # Get age range for a given audience type
-        age_range = self.durations.get_age_range('retired')
+        age_range = self.durations.get_age_range(self.audience)
         points.append("The medium age group for your chosen audience is " + age_range + ". ")
+
+        # Get campaign duration
+        duration = self.durations.get_duration(round(float(age_range)), self.audience)
+        points.append(
+            "You need to run your campaign approximately for " + duration + " days in order to reach the get the maximum audience conversion.")
 
         print(points)
