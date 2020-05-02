@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
 import {AuthorizationService} from '../../service/authorization.service';
-import {ErrorStateMatcher} from '@angular/material';
+import {ErrorStateMatcher, MatSnackBar} from '@angular/material';
 
 // Export statements
 export interface LocationGroup {
@@ -13,7 +13,7 @@ export interface LocationGroup {
   names: string[];
 }
 
-export interface AudienceGroup {names: string;}
+export interface AudienceGroup {names: string; }
 
 export interface IndustryGroup {
   letter: string;
@@ -43,21 +43,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class EnterDetailsFormComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthorizationService) { }
-  registered = false;
-  submitted = false;
-  detailsForm: FormGroup = this.formBuilder.group({
-      productName: ['', [Validators.required]],
-      productType: ['', [Validators.required]],
-      industry: ['', [Validators.required]],
-      goal: ['', [Validators.required]],
-      audience: ['', [Validators.required]],
-      budget: ['', [Validators.required]],
-      location: ['', [Validators.required]],
-      price: ['', [Validators.required]],
-      description: ['']
-  });
-
+  // registered = false;
+  // submitted = false;
+  detailsForm: FormGroup;
+  matcher = new MyErrorStateMatcher();
+  constructor(private formBuilder: FormBuilder, private router: Router, private auth: AuthorizationService, private snackBar: MatSnackBar) {
+    this.detailsForm = this.createDetailsForm();
+  }
   // list of Locations
    locations: LocationGroup[] = [{
     letter: 'A',
@@ -350,18 +342,18 @@ export class EnterDetailsFormComponent implements OnInit {
 
   // Types of Audiences
   audiences: AudienceGroup[] = [
-    {names: 'Admin'},
-    {names: 'Blue-collar'},
-    {names: 'Entrepreneur'},
-    {names: 'Housemaid'},
-    {names: 'Management'},
-    {names: 'Retired'},
-    {names: 'Self-employed'},
-    {names: 'Services'},
-    {names: 'Students'},
-    {names: 'Technician'},
-    {names: 'Unemployed'},
-    {names: 'Unknown'},
+    {names: 'admin'},
+    {names: 'blue-collar'},
+    {names: 'entrepreneur'},
+    {names: 'housemaid'},
+    {names: 'management'},
+    {names: 'retired'},
+    {names: 'self-employed'},
+    {names: 'services'},
+    {names: 'student'},
+    {names: 'technician'},
+    {names: 'unemployed'},
+    {names: 'unknown'},
   ];
 
 
@@ -369,40 +361,61 @@ export class EnterDetailsFormComponent implements OnInit {
   industryOptions: Observable<IndustryGroup[]>;
   audienceOptions: Observable<AudienceGroup[]>;
 
-  invalidProductName() {
-    return (this.submitted && this.detailsForm.controls.productName.errors != null);
-  }
-  invalidProductType() {
-    return (this.submitted && this.detailsForm.controls.productName.errors != null);
-  }
-  invalidIndustry() {
-    return (this.submitted && this.detailsForm.controls.industry.errors != null);
-  }
-  invalidAudience() {
-    return (this.submitted && this.detailsForm.controls.audience.errors != null);
-  }
-  invalidBudget() {
-    return (this.submitted && this.detailsForm.controls.budget.errors != null);
-  }
-  invalidLocation() {
-    return (this.submitted && this.detailsForm.controls.location.errors != null);
-  }
-  invalidPrice() {
-    return (this.submitted && this.detailsForm.controls.price.errors != null);
-  }
-  invalidGoal() {
-    return (this.submitted && this.detailsForm.controls.price.errors != null);
+  createDetailsForm(): FormGroup {
+    return this.formBuilder.group(
+      {
+        name: [
+          null,
+          Validators.required
+        ],
+        pstype: [
+          null,
+          Validators.required
+        ],
+        industry: [
+          null,
+          Validators.required
+        ],
+        goal: [
+          null,
+          Validators.required
+        ],
+        audience: [
+          null,
+          Validators.required
+        ],
+        budget: [
+          null,
+          Validators.required
+        ],
+        location: [
+          null,
+          Validators.required
+        ],
+        price: [
+          null,
+          Validators.required
+        ],
+        description: [
+          null,
+          Validators.required]
+      }
+    );
   }
 
   onSubmit() {
-    this.submitted = true;
     if (this.detailsForm.invalid === true) {
       return;
     } else {
-      // tslint:disable-next-line:only-arrow-functions
-      this.router.navigate(['/campaign']);
-      this.detailsForm.reset(this.detailsForm.value);
-      this.registered = true;
+      const data: any = Object.assign(this.detailsForm.value);
+      data.audience = this.detailsForm.value.audience.names.toString();
+      alert(JSON.stringify(data));
+      this.auth.sendCampaignDetails(data).subscribe((res) => {
+        localStorage.setItem('campaign', JSON.stringify(res));
+        this.router.navigate(['/campaign']);
+      }, error => {
+        this.snackBar.open('An error occurred', '', {duration: 3000});
+      });
     }
   }
 
@@ -422,7 +435,7 @@ export class EnterDetailsFormComponent implements OnInit {
     this.audienceOptions = this.detailsForm.valueChanges
       .pipe(
         startWith(''),
-        map(value => typeof value === 'string' ? value : value.name),
+        map(value => typeof value === 'string' ? value : value.names),
         map(name => name ? this._filterGroupAudience(name) : this.audiences.slice())
       );
   }
@@ -431,10 +444,7 @@ export class EnterDetailsFormComponent implements OnInit {
   displayAudience(user: AudienceGroup): string {
     return user && user.names ? user.names : '';
   }
-
-
-  //Autocomplete drop down list
-
+  // Autocomplete drop down list
   private _filterGroupAudience(names: string): AudienceGroup[] {
     const filterValue = names.toLowerCase();
 

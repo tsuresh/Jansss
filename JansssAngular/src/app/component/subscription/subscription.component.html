@@ -29,9 +29,9 @@
     </div>
 
       <!-- Card number -->
-    <div >
+    <div class="full-width">
       <label [ngClass]="formSubscribe.controls['cardNo']">
-        <mat-form-field class="full-width">
+        <mat-form-field>
           <mat-label>Card Number</mat-label>
             <input matInput formControlName="cardNo" [errorStateMatcher]="matcher" placeholder="Ex. 4242 4242 4242 4242" required>
           <mat-error *ngIf="formSubscribe.controls['cardNo'].hasError('required')">
