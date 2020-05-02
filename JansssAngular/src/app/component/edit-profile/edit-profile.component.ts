@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import {FormGroup, Validators, FormBuilder} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AuthorizationService} from '../../service/authorization.service';
@@ -18,7 +18,7 @@ export class EditProfileComponent implements OnInit {
   public form: FormGroup;
 
   // Payment Plans
-  subscriptions: string[] = ['One-time', 'Premium'];
+  subscriptions: string[] = ['One-time Subscription', 'Premium Subscription'];
   // Payment Methods
   methods: string[] = ['Visa', 'Master', 'PayPal'];
 
@@ -35,8 +35,14 @@ export class EditProfileComponent implements OnInit {
     );
   }
 
-  // tslint:disable-next-line:variable-name
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar, private router: Router, private formBuilder: FormBuilder, private authService: AuthorizationService) {
+  constructor(
+    private http: HttpClient,
+    // tslint:disable-next-line:variable-name
+    private _snackBar: MatSnackBar,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private auth: AuthorizationService
+  ) {
     this.form = this.createForm();
   }
 
@@ -65,8 +71,8 @@ export class EditProfileComponent implements OnInit {
       if (this.form.value.paymentMethod !== null) {
         data.paymentMethod = this.form.value.paymentMethod;
       }
-      this.authService.updateUserProfile(localStorage.getItem('uID'), data).subscribe(() => {
-        this._snackBar.open('Profile successfully edited.', '' , {duration: 3000});
+      this.auth.updateUserProfile(localStorage.getItem('uID'), data).subscribe(() => {
+        this._snackBar.open('Profile successfully updated.', '' , {duration: 3000});
         this.router.navigateByUrl('/profile').then(() => {
           window.location.reload();
         });
