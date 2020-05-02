@@ -47,23 +47,14 @@
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
           </div>
-
-          <!-- Password -->
-          <div class="col">
-            <mat-form-field class="full-width">
-              <mat-label [ngClass]="form.controls['password']">Password</mat-label>
-              <input matInput formControlName="password">
-              <mat-icon matSuffix>mode_edit</mat-icon>
-            </mat-form-field>
-          </div>
         </div>
 
         <!-- First Name -->
         <div class="row mt-3">
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label [ngClass]="form.controls['fName']">First name</mat-label>
-              <input matInput formControlName="fName">
+              <mat-label [ngClass]="form.controls['firstName']">First name</mat-label>
+              <input matInput formControlName="firstName">
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
           </div>
@@ -71,8 +62,8 @@
           <!-- Surname -->
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label [ngClass]="form.controls['sName']">Surname</mat-label>
-              <input matInput formControlName="sName">
+              <mat-label [ngClass]="form.controls['surName']">Surname</mat-label>
+              <input matInput formControlName="surName">
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
           </div>
@@ -82,10 +73,10 @@
         <div class="row mt-3">
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label [ngClass]="form.controls['paymentPlan']">Payment Plan</mat-label>
-              <mat-select formControlName="paymentPlan">
-                <mat-option *ngFor="let p of plans" [value]="p">
-                  {{p.plan}}
+              <mat-label [ngClass]="form.controls['subscription']">Payment Plan</mat-label>
+              <mat-select formControlName="subscription">
+                <mat-option *ngFor="let s of subscriptions" [value]="s">
+                {{s}}
                 </mat-option>
               </mat-select>
               <mat-icon matSuffix>mode_edit</mat-icon>
@@ -98,7 +89,7 @@
               <mat-label [ngSwitch]="form.controls['paymentMethod']">Payment Method</mat-label>
               <mat-select formControlName="paymentMethod">
                 <mat-option *ngFor="let m of methods" [value]="m">
-                  {{m.method}}
+                  {{m}}
                 </mat-option>
               </mat-select>
               <mat-icon matSuffix>mode_edit</mat-icon>

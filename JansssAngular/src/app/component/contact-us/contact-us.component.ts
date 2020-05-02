@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {ErrorStateMatcher} from '@angular/material/core';
+import {AuthorizationService} from "../../service/authorization.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
-// Communication methods interface
-interface ComMethod {
-  method: string;
+// Error when invalid control is dirty, touched, or submitted
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
 }
 
 @Component({
@@ -13,43 +19,42 @@ interface ComMethod {
   styleUrls: [
     './contact-us.component.scss',
     '../../../../node_modules/hover.css/css/hover-min.css'
-  ]
+  ],
+  providers: [AuthorizationService]
 })
 export class ContactUsComponent implements OnInit {
-  form: FormGroup;
+  public form: FormGroup;
+  matcher = new MyErrorStateMatcher();
 
-  // Form Validations
-  fName = new FormControl('', Validators.required);
-  email = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-  phone = new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^[0-9]{9}$/)
-  ]);
-  message = new FormControl('', Validators.required);
-  accept = new FormControl('', Validators.required);
-  comMethod = new FormControl('', Validators.required);
-  // Communication methods
-  methods: ComMethod[] = [
-    {method: 'SMS'},
-    {method: 'E-mail'}
-  ];
-
-  constructor(private formBuilder: FormBuilder, private route: Router) { }
-  ngOnInit() {
-    this.form = new FormGroup({
-      title: new FormControl(),
-      fName: new FormControl(),
-      sName: new FormControl(),
-      email: new FormControl(),
-      phone: new FormControl(),
-      comMethod: new FormControl(),
-      message: new FormControl(),
-      accept: new FormControl()
-    });
+  createForm(): FormGroup {
+    return this.formBuilder.group(
+      {
+        firstName: ['', Validators.required],
+        surname: [''],
+        email: ['', Validators.required, Validators.email],
+        phone: ['', Validators.required, Validators.pattern(/^[0-9]{9}$/)],
+        message: ['', Validators.required],
+        accept: ['', Validators.required]
+      }
+    );
   }
 
-  onSubmit() { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthorizationService, private _snackBar: MatSnackBar) {
+    this.form = this.createForm();
+  }
+  ngOnInit() { }
+
+  onSubmit() {
+    if (this.form.invalid === true) {
+      return;
+    } else {
+      const data: any = Object.assign(this.form.value);
+      this.authService.sendMessage(data).subscribe(() => {
+        this._snackBar.open('Message sent.', '' , {duration: 3000});
+      }, error => {
+        alert(JSON.stringify(error.error));
+        this._snackBar.open('An error occurred', JSON.stringify(error.error), {duration: 3000});
+      });
+    }
+  }
 }
