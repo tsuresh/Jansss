@@ -78,6 +78,7 @@ exports.get_plan = (req, res, next) => {
     });
 };
 
+//Get geo code of the address
 exports.get_geocode = (req, res, next) => {
     let address = req.params.address;
     let BASE_URL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
