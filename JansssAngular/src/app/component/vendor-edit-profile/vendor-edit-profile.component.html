@@ -17,41 +17,27 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Company Name</mat-label>
-              <input matInput [formControl]="name">
+              <mat-label [ngClass]="form.controls['busName']">Company name</mat-label>
+              <input matInput formControlName="busName">
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
           </div>
 
-          <div class="col"></div>
-        </div>
-
-
-        <div class="row mt-3">
           <!-- Email -->
           <div class="col">
             <mat-form-field class="full-width">
-              <mat-label>Email</mat-label>
-              <input matInput [formControl]="email" placeholder="Ex. company@mail.com">
-              <mat-error *ngIf="email.hasError('email')">
+              <mat-label [ngClass]="form.controls['email']">Email</mat-label>
+              <input matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="Ex. sam@mail.com">
+              <mat-error *ngIf="form.controls['email'].hasError('email') && !form.controls['busName'].hasError('required')">
                 Please enter a valid email address
               </mat-error>
-              <mat-icon matSuffix>mode_edit</mat-icon>
-            </mat-form-field>
-          </div>
-
-          <!-- Password -->
-          <div class="col">
-            <mat-form-field class="full-width">
-              <mat-label>Password</mat-label>
-              <input matInput [formControl]="password">
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
           </div>
         </div>
 
         <!-- Marketing Type -->
-        <div class="row mt-3">
+        <div class="row mt-5">
           <div class="col">
             <mat-form-field class="full-width">
               <mat-label [ngClass]="form.controls['marketingType']">Marketing Type</mat-label>
