@@ -9,7 +9,7 @@ from models.outcomesPrediction import Outcomes
 class CampaignGen:
 
     # Initialise campaign generator
-    def __init__(self, goal, name, ptype, budget, industry, audience, location, price, description):
+    def __init__(self):
         # Initialise NLP libraries here
         self.nlp = spacy.load("en_core_web_md")
 
@@ -19,6 +19,17 @@ class CampaignGen:
         self.outcomes = Outcomes()
         self.market = MarketPrediction()
 
+        self.goal = ""
+        self.name = ""
+        self.ptype = ""
+        self.budget = ""
+        self.industry = ""
+        self.audience = ""
+        self.location = ""
+        self.price = ""
+        self.description = ""
+
+    def set_data(self, goal, name, ptype, budget, industry, audience, location, price, description):
         self.goal = goal
         self.name = name
         self.ptype = ptype
