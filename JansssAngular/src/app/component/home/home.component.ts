@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
       $(window).scroll(function() {
         // tslint:disable-next-line:prefer-const
         let currentScroll = $(window).scrollTop();
-        if ((currentScroll >= fixmeTop) && (currentScroll < fixmeTop)) {
+        if ((currentScroll >= fixmeTop - 40) && (currentScroll < fixmeTop)) {
             // how it works
             $('.fixme').css({
               position: 'sticky',
@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'visible',
             });
-          } else if ((currentScroll >= fixmeTop - 100) && (currentScroll < fixmeTop)) {
+          } else if ((currentScroll >= fixmeTop - 140) && (currentScroll < fixmeTop)) {
             // launch campaign
             $('.fixme').css({
               position: 'sticky',
@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'hidden',
             });
-          } else if ((currentScroll >= fixmeTop - 200) && (currentScroll < fixmeTop)) {
+          } else if ((currentScroll >= fixmeTop - 240) && (currentScroll < fixmeTop)) {
             // select payment
             $('.fixme').css({
               position: 'sticky',
@@ -127,7 +127,7 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'hidden',
             });
-          } else if ((currentScroll >= fixmeTop - 300) && (currentScroll < fixmeTop)) {
+          } else if ((currentScroll >= fixmeTop - 340) && (currentScroll < fixmeTop)) {
             // select campaign
             $('.fixme').css({
               position: 'sticky',
@@ -160,7 +160,7 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'hidden',
             });
-          } else if ((currentScroll >= fixmeTop - 400) && (currentScroll < fixmeTop)) {
+          } else if ((currentScroll >= fixmeTop - 440) && (currentScroll < fixmeTop)) {
             // enter details
             $('.fixme').css({
               position: 'sticky',
@@ -226,7 +226,7 @@ export class HomeComponent implements OnInit {
             $('.heading').css({
               visibility: 'visible',
             });
-          } else if ((currentScroll >= fixmeTop - 600) && (currentScroll < fixmeTop)) {
+          } else if ((currentScroll >= fixmeTop - 540) && (currentScroll < fixmeTop)) {
           // how it works campaign
           $('.fixme').css({
             position: 'sticky',
