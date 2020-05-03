@@ -40,5 +40,7 @@ class DurationPrediction:
                 filtured.append(row)
         x = pd.DataFrame(filtured)
         filtured = pd.DataFrame(filtured)
-        ageMed = filtured.loc[:, "age"].median()
-        return str(ageMed)
+        resp = []
+        resp.append([filtured.age.min(), filtured.age.max()])
+        resp = pd.DataFrame(resp)
+        return resp.to_json()
