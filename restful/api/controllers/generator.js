@@ -1,8 +1,22 @@
 const axios = require('axios');
 const request = require("request");
+const User = require("../models/user");
 
 exports.get_competitors = (req, res, next) => {
 
+};
+
+exports.get_subscription = (req, res, next) => {
+    User.findById( req.params.id ) 
+        .then(result => {
+            if (result.subscription == "Premium Subscription") {
+                res.send(true);
+            } else {
+                res.send(false);
+            }
+        }).catch(err => {
+            res.status(400).send("Something went wrong." + err);
+        })
 };
 
 exports.get_vendors = (req, res, next) => {
