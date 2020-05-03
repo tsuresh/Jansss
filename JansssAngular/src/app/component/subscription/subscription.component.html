@@ -11,7 +11,7 @@
       <!-- Subscription package -->
     <div>
       <label [ngClass]="formSubscribe.controls['subscription']">
-        <mat-form-field class="full-width">
+        <mat-form-field   class="field-width">
           <mat-label>Subscription package</mat-label>
           <input type="text"
                  placeholder="Pick one"
@@ -29,9 +29,9 @@
     </div>
 
       <!-- Card number -->
-    <div class="full-width">
-      <label [ngClass]="formSubscribe.controls['cardNo']">
-        <mat-form-field>
+    <div>
+      <label [ngClass]="formSubscribe.controls['cardNo']" >
+        <mat-form-field   class="field-width">
           <mat-label>Card Number</mat-label>
             <input matInput formControlName="cardNo" [errorStateMatcher]="matcher" placeholder="Ex. 4242 4242 4242 4242" required>
           <mat-error *ngIf="formSubscribe.controls['cardNo'].hasError('required')">
@@ -47,7 +47,7 @@
     <!-- Expiry date -->
     <div>
       <label [ngClass]="formSubscribe.controls['exDate']" >
-        <mat-form-field class="full-width">
+        <mat-form-field  style="width: 219%">
           <mat-label>MM/YYYY</mat-label>
           <input matInput [min]="minDate" [matDatepicker]="dp" [errorStateMatcher]="matcher" formControlName="exDate" required>
           <mat-error *ngIf="formSubscribe.controls['exDate'].hasError('required')">
@@ -67,7 +67,7 @@
         <!-- CVV -->
     <div>
       <label  [ngClass]="formSubscribe.controls['cvv']">
-        <mat-form-field class="full-width">
+        <mat-form-field class="field-width">
           <mat-label>CVV</mat-label>
           <input matInput formControlName="cvv" [errorStateMatcher]="matcher" placeholder="Ex. 123" required>
           <mat-error *ngIf="formSubscribe.controls['cvv'].hasError('required')">
@@ -83,7 +83,7 @@
       <!-- Billing Address -->
     <div>
       <label [ngClass]="formSubscribe.controls['address']">
-        <mat-form-field class="full-width">
+        <mat-form-field class="field-width">
           <mat-label>Billing Address</mat-label>
           <input matInput formControlName="address" [errorStateMatcher]="matcher" required>
           <mat-error *ngIf="formSubscribe.controls['address'].hasError('required')">
