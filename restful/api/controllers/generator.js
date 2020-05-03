@@ -48,14 +48,14 @@ exports.get_vendors = (req, res, next) => {
         });
     }
 
-    axios.post('https://data.jansss.live/getVendors', req.body).then(function (response) {
+    axios.post('http://35.232.37.129:5000/getVendors', req.body).then(function (response) {
         return res.status(200).json(response.data);
     }).catch(function (error) {
         return res.status(501).json({
             message: error
         });
     });
-}
+};
 
 exports.get_plan = (req, res, next) => {
     let goal = req.body.goal || "";
@@ -121,7 +121,7 @@ exports.get_plan = (req, res, next) => {
         });
     }
 
-    axios.post('https://data.jansss.live/generate', req.body).then(function (response) {
+    axios.post('http://35.232.37.129:5000/generate', req.body).then(function (response) {
         return res.status(200).json(response.data);
     }).catch(function (error) {
         return res.status(501).json({
