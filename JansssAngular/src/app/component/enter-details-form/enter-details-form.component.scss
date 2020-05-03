@@ -88,6 +88,16 @@ a.disabled {
   padding-bottom: 2%;
 }
 
+#spinner {
+  display: none;
+}
+
+mat-spinner {
+  margin: auto auto;
+  width: 10px;
+}
+
+
 
 @media screen and (max-width: 800px) {
 

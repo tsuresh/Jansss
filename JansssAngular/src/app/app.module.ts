@@ -50,6 +50,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {AuthInterceptor} from './interceptor/auth-interceptor';
 // @ts-ignore
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 const config = new AuthServiceConfig(
   [
@@ -116,7 +117,8 @@ export function provideConfig() {
     MatDialogModule,
     MatCheckboxModule,
     MatProgressBarModule,
-    SocialLoginModule
+    SocialLoginModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
