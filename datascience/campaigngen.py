@@ -128,7 +128,8 @@ class CampaignGen:
 
         # Get spending abilities of audiences
         spending = self.audiences.get_spending(mappedInterest)
-        points.append("Align your campaign to a target audience with the following spending habits : " + spending[0:3])
+        points.append(
+            "Align your campaign to a target audience with the following spending habits : " + ', '.join(spending[0:3]))
 
         # Get general demographics
         demographics = self.audiences.get_demographics(mappedInterest)
@@ -174,7 +175,7 @@ class CampaignGen:
                 duration_2) + " days.")
 
         # Get marketing methods
-        methods.append(self.get_marketing_methods(age_range, self.budget))
+        methods.append(self.get_marketing_methods((age_range_1 + age_range_2) / 2, self.budget))
 
         # Send response
         pointsArr = {
