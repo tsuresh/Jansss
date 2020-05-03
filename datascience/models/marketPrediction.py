@@ -35,6 +35,7 @@ class MarketPrediction:
                 priceRange.append([row.category, row.brand, row.price])
         priceRange = pd.DataFrame(priceRange)
         priceRange.columns = ['Category', 'Brand', 'Price']
-        res = tuple((priceRange.Price.min(), priceRange.Price.max()))
-        res = pd.DataFrame(res)
-        return res.to_json()
+        resp = []
+        resp.append([priceRange.Price.min(), priceRange.Price.max()])
+        resp = pd.DataFrame(resp)
+        return resp.to_json()
