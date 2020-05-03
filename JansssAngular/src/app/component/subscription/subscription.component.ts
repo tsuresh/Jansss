@@ -132,7 +132,7 @@ export class SubscriptionComponent implements OnInit {
       }
       this.auth.updateUserProfile(localStorage.getItem('uID'), data).subscribe(() => {
         // tslint:disable-next-line:max-line-length
-        this.snackBar.open(this.formSubscribe.value.subscription + ' has been updated. The payment feature is cuurently unavailable', '' , {duration: 5000});
+        this.snackBar.open(this.formSubscribe.value.subscription + ' has been updated. The payment feature is currently unavailable', '' , {duration: 5000});
         }, error => {
         this.snackBar.open('An error occurred', JSON.stringify(error.error), {duration: 3000});
       });
