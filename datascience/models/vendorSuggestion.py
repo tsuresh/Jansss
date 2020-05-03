@@ -7,11 +7,17 @@ import requests
 
 class VendorSuggest:
 
-    def __init__(self, pref, typeV, mcLat, mcLng):
+    def __init__(self):
         self.response = requests.get("https://api.jansss.live/vendors/all")
         self.responseJ = self.response.json()
         self.x = len(self.response.json())
 
+        self.pref = ""
+        self.typeV = ""
+        self.mcLat = ""
+        self.mcLng = ""
+
+    def set_data(self, pref, typeV, mcLat, mcLng):
         self.pref = pref
         self.typeV = typeV
         self.mcLat = mcLat
