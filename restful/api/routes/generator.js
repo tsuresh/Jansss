@@ -11,4 +11,6 @@ router.post('/getVendors', authorize, GeneratorController.get_vendors);
 
 router.post('/geocode/:address', authorize, GeneratorController.get_geocode);
 
+router.post('/user-subscription/:id', GeneratorController.get_subscription);
+
 module.exports = router;

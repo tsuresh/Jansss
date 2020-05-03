@@ -1,8 +1,22 @@
 const axios = require('axios');
 const request = require("request");
+const User = require("../models/user");
 
 exports.get_competitors = (req, res, next) => {
 
+};
+
+exports.get_subscription = (req, res, next) => {
+    User.findById( req.params.id ) 
+        .then(result => {
+            if (result.subscription == "Premium Subscription") {
+                res.send(true);
+            } else {
+                res.send(false);
+            }
+        }).catch(err => {
+            res.status(400).send("Something went wrong." + err);
+        })
 };
 
 exports.get_vendors = (req, res, next) => {
@@ -34,14 +48,14 @@ exports.get_vendors = (req, res, next) => {
         });
     }
 
-    axios.post('https://data.jansss.live/getVendors', req.body).then(function (response) {
+    axios.post('http://35.232.37.129:5000/getVendors', req.body).then(function (response) {
         return res.status(200).json(response.data);
     }).catch(function (error) {
         return res.status(501).json({
             message: error
         });
     });
-}
+};
 
 exports.get_plan = (req, res, next) => {
     let goal = req.body.goal || "";
@@ -107,7 +121,7 @@ exports.get_plan = (req, res, next) => {
         });
     }
 
-    axios.post('https://data.jansss.live/generate', req.body).then(function (response) {
+    axios.post('http://35.232.37.129:5000/generate', req.body).then(function (response) {
         return res.status(200).json(response.data);
     }).catch(function (error) {
         return res.status(501).json({
