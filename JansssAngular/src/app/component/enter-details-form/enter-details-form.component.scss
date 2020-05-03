@@ -10,7 +10,6 @@
   margin-top: 10%;
   font-size: 80px;
   display: block;
-  //visibility: visible;
 }
 
 .heading-2{
@@ -37,7 +36,6 @@ text-align: center;
 }
 
 .errorMessage{
-  //margin-top: 0px;
   font-size: 12px;
   color: red;
 }
@@ -56,18 +54,13 @@ a.disabled {
   padding-right: 5%;
 }
 
-//::placeholder{
-//  color: #e0e0e0;
-//}
 .item{
   display: block;
-  //float:right;
 }
 .button_outer{
   text-align: center;
   margin-top: 5%;
   margin-left: 0;
-  //margin-bottom: 2%;
 }
 
 .full-width{
@@ -92,9 +85,13 @@ a.disabled {
   display: none;
 }
 
+:host ::ng-deep .custom-spinner circle{
+  stroke: #ffffff;
+}
+
 mat-spinner {
-  margin: auto auto;
-  width: 10px;
+  margin-left: 10px;
+  margin-bottom:-5px;
 }
 
 

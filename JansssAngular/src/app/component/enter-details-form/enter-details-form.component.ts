@@ -406,7 +406,7 @@ export class EnterDetailsFormComponent implements OnInit {
     if (this.detailsForm.invalid === true) {
       return;
     } else {
-      document.getElementById('spinner').style.display = 'block';
+      document.getElementById('spinner').style.display = 'inline-block';
       const data: any = Object.assign(this.detailsForm.value);
       data.audience = this.detailsForm.value.audience.names.toString();
       this.auth.sendCampaignDetails(data).subscribe((res) => {
