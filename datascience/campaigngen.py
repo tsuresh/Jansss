@@ -29,6 +29,7 @@ class CampaignGen:
         self.price = ""
         self.description = ""
 
+    # Set all values
     def set_data(self, goal, name, ptype, budget, industry, audience, location, price, description):
         self.goal = goal
         self.name = name
@@ -110,27 +111,24 @@ class CampaignGen:
         points = []
         methods = []
 
+        # Map user interest
         mappedInterest = self.get_matching_interest(self.ptype + " " + self.description)
 
         # Get similar interests
         interests = self.audiences.get_similar_interests(mappedInterest)
         points.append(
-            "Following interested has been identified as relavent interests for your product/service; " + ', '.join(
+            "Following interests has been identified as relevant interests for your product/service; " + ', '.join(
                 interests[0:5]) + ". Make sure to target the above interests when running social media campaigns.")
 
         # Get targeted TV programs
-        tvPrograms = self.audiences.get_target_tv_programs(mappedInterest
-                                                           )
-        points.append(
-            "When running TV advertisements ensure to run the ads during these programs: " + ', '.join(tvPrograms[0:5]))
+        if "TV" in methods:
+            tvPrograms = self.audiences.get_target_tv_programs(mappedInterest)
+            points.append(
+                "Telecast the advertisments during the following program types : " + ', '.join(tvPrograms[0:5]))
 
         # Get spending abilities of audiences
         spending = self.audiences.get_spending(mappedInterest)
-        points.append(
-            "The following spending habbits has been identified for the given audience category. Majority of the "
-            "audience does spending " +
-            spending[0] + ". And they spend on " + ', '.join(
-                spending[1:3]) + " as well. Make sure to align your campaign for this group.")
+        points.append("Align your campaign to a target audience with the following spending habits : " + spending[0:3])
 
         # Get general demographics
         demographics = self.audiences.get_demographics(mappedInterest)
@@ -141,11 +139,10 @@ class CampaignGen:
                 points.append("Majority of your audience is " + value)
             elif key is 'Village - town':
                 points.append(
-                    "Majority of your audience are from " + value + ". You can consider consulting regional marketing "
-                                                                    "agents. As we suggest")
+                    "It is preferable to expand your taget to the following demographics : " + value)
 
         # Predict campaign outcome
-        outcomeRate = self.outcomes.predict(100, 20, 30)
+        # outcomeRate = self.outcomes.predict(100, 20, 30)
 
         # Get matching category
         category = self.get_matching_category(self.ptype)
@@ -167,21 +164,19 @@ class CampaignGen:
         age_range_1 = round(age_range[0][1])
         age_range_2 = round(age_range[0][0])
         points.append(
-            "The medium age group for your chosen audience is " + str(age_range_1) + "-" + str(age_range_2) + ". ")
+            "The target age group for your capaign : " + str(age_range_1) + "-" + str(age_range_2) + ". ")
 
         # Get campaign duration
         duration_1 = round(float(self.durations.get_duration(age_range_1, self.audience)))
         duration_2 = round(float(self.durations.get_duration(age_range_2, self.audience)))
         points.append(
-            "You need to run your campaign approximately for " + str(duration_1) + "-" + str(
-                duration_2) + " days in order to "
-                              "reach the get the "
-                              "maximum audience "
-                              "conversion.")
+            "In order to reach your target audience run the campaign for " + str(duration_1) + "-" + str(
+                duration_2) + " days.")
 
         # Get marketing methods
         methods.append(self.get_marketing_methods(age_range, self.budget))
 
+        # Send response
         pointsArr = {
             "plan": points,
             "methods": methods
