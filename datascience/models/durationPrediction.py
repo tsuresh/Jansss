@@ -42,5 +42,4 @@ class DurationPrediction:
         filtured = pd.DataFrame(filtured)
         resp = []
         resp.append([filtured.age.min(), filtured.age.max()])
-        resp = pd.DataFrame(resp)
-        return resp.to_json()
+        return resp
