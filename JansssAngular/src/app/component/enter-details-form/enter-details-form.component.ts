@@ -43,8 +43,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class EnterDetailsFormComponent implements OnInit {
-  // registered = false;
-  // submitted = false;
+  loading = false;
   detailsForm: FormGroup;
   matcher = new MyErrorStateMatcher();
   constructor(private formBuilder: FormBuilder, private router: Router, private auth: AuthorizationService, private snackBar: MatSnackBar) {
@@ -407,12 +406,15 @@ export class EnterDetailsFormComponent implements OnInit {
     if (this.detailsForm.invalid === true) {
       return;
     } else {
+      document.getElementById('spinner').style.display = 'inline-block';
       const data: any = Object.assign(this.detailsForm.value);
       data.audience = this.detailsForm.value.audience.names.toString();
       this.auth.sendCampaignDetails(data).subscribe((res) => {
         localStorage.setItem('campaign', JSON.stringify(res));
+        this.loading = true;
         this.router.navigate(['/campaign']);
       }, error => {
+        document.getElementById('spinner').style.display = 'none';
         this.snackBar.open('An error occurred', '', {duration: 3000});
       });
     }
