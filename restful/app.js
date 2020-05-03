@@ -17,7 +17,7 @@ mongoose.connect(mongodb_URI, {
 });
 
 mongoose.connection.on("connected", () => {
-  console.log("Mongoose is connected");
+  console.log("DB is connected!");
 });
 
 app.use((req, res, next) => {
