@@ -19,8 +19,8 @@ class Outcomes:
         regressor = LinearRegression()
         regressor.fit(X_train, y_train)
 
-        print(f'Accuracy : {round((regressor.score(X_test, y_test)) * 100, 3)} %')
+        print(f'Accuracy : {round((regressor.score(X_test, y_test)) * 100, 3)}')
 
         predict = regressor.predict([[tv, radio, newspaper]])
 
-        return str(round(predict[0], 2)) + ' %'
+        return str(round(predict[0], 2))
