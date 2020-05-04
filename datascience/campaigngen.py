@@ -100,14 +100,14 @@ class CampaignGen:
 
     # Marketing method combination for TV and radio
     def get_method_combination(self, budget):
-        budget = budget / 100
-        tv = budget / 100
-        budget = budget - tv
-        radio = budget / 50
-        budget = budget - radio
+        budget = int(budget) / 100  # Currency in the dataset is USD
+        cases = []
+        cases.append([budget / 2, budget / 4, budget / 4])  # TV Focused
+        cases.append([budget / 4, budget / 2, budget / 4])  # Radio Focused
+        cases.append([budget / 4, budget / 4, budget / 2])  # Newspaper focused
+        return cases
 
     def generate(self):
-
         points = []
         methods = []
 
@@ -119,12 +119,6 @@ class CampaignGen:
         points.append(
             "Following interests has been identified as relevant interests for your product/service; " + ', '.join(
                 interests[0:5]) + ". Make sure to target the above interests when running social media campaigns.")
-
-        # Get targeted TV programs
-        if "TV" in methods:
-            tvPrograms = self.audiences.get_target_tv_programs(mappedInterest)
-            points.append(
-                "Telecast the advertisments during the following program types : " + ', '.join(tvPrograms[0:5]))
 
         # Get spending abilities of audiences
         spending = self.audiences.get_spending(mappedInterest)
@@ -143,14 +137,21 @@ class CampaignGen:
                     "It is preferable to expand your taget to the following demographics : " + value)
 
         # Predict campaign outcome
-        # outcomeRate = self.outcomes.predict(100, 20, 30)
+        outcomes = []
+        for plan in self.get_method_combination(self.budget):
+            outcomeRate = self.outcomes.predict(plan[0], plan[1], plan[2])
+            outcomes.append(outcomeRate)
+        points.append("If you focus more on TV advertising you can get approx. sales outcome of " + outcomes[
+            0] + ", for radio ads its about " + outcomes[1] + ", for newspaper ads " + outcomes[
+                          2] + " but still it depends on the audience.")
 
         # Get matching category
         category = self.get_matching_category(self.ptype)
         points.append("Your product belongs to " + category.replace('.', ' ').replace('_', ' '))
 
         # Get matching competitors
-        competitors = self.market.getComp(category, int(self.price))
+        price = [int(s) for s in self.price.split() if s.isdigit()][0]
+        competitors = self.market.getComp(category, price)
         points.append("We have identified the following are your competitors. " + ', '.join(competitors))
 
         # Get price range
@@ -176,6 +177,12 @@ class CampaignGen:
 
         # Get marketing methods
         methods.append(self.get_marketing_methods((age_range_1 + age_range_2) / 2, self.budget))
+
+        # Get targeted TV programs
+        if "TV" in methods[0]:
+            tvPrograms = self.audiences.get_target_tv_programs(mappedInterest)
+            points.append(
+                "Telecast the advertisements during the following program types : " + ', '.join(tvPrograms[0:5]))
 
         # Send response
         pointsArr = {
